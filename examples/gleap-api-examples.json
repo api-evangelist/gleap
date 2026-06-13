@@ -1,0 +1,344 @@
+{
+  "CreateMessageTemplate": {
+    "summary": "Create a new message template.",
+    "description": "Create a new message template.",
+    "method": "POST",
+    "path": "/message-templates",
+    "tags": [
+      "Message templates"
+    ],
+    "requestBody": {
+      "note": "See OpenAPI spec for schema details"
+    },
+    "responses": [
+      "200"
+    ]
+  },
+  "FindMessageTemplates": {
+    "summary": "Find all message templates.",
+    "description": "Find all message templates of a project.",
+    "method": "GET",
+    "path": "/message-templates",
+    "tags": [
+      "Message templates"
+    ],
+    "responses": [
+      "200"
+    ]
+  },
+  "FindMessageTemplateById": {
+    "summary": "Find all message templates.",
+    "description": "Find all message templates of a project.",
+    "method": "GET",
+    "path": "/message-templates/{messageTemplateId}",
+    "tags": [
+      "Message templates"
+    ],
+    "responses": [
+      "200"
+    ]
+  },
+  "UpdateTeam": {
+    "summary": "Update a message template.",
+    "description": "Update a message template.",
+    "method": "PUT",
+    "path": "/message-templates/{messageTemplateId}",
+    "tags": [
+      "Message templates"
+    ],
+    "requestBody": {
+      "note": "See OpenAPI spec for schema details"
+    },
+    "responses": [
+      "200"
+    ]
+  },
+  "DeleteMessageTemplate": {
+    "summary": "Delete a message template",
+    "description": "Delete a message template.",
+    "method": "DELETE",
+    "path": "/message-templates/{messageTemplateId}",
+    "tags": [
+      "Message templates"
+    ],
+    "responses": [
+      "200"
+    ]
+  },
+  "CreateSession": {
+    "summary": "Create a new session",
+    "description": "Create a new session and associate it with a project.",
+    "method": "POST",
+    "path": "/sessions",
+    "tags": [
+      "Session"
+    ],
+    "requestBody": {
+      "note": "See OpenAPI spec for schema details"
+    },
+    "responses": [
+      "200"
+    ]
+  },
+  "GetSessions": {
+    "summary": "Get all sessions",
+    "description": "Get all sessions associated with a project.",
+    "method": "GET",
+    "path": "/sessions",
+    "tags": [
+      "Session"
+    ],
+    "responses": [
+      "200"
+    ]
+  },
+  "UpdateSession": {
+    "summary": "Update a session",
+    "description": "Update a session and associate it with a project.",
+    "method": "PUT",
+    "path": "/sessions/{sessionId}",
+    "tags": [
+      "Session"
+    ],
+    "requestBody": {
+      "note": "See OpenAPI spec for schema details"
+    },
+    "responses": [
+      "200"
+    ]
+  },
+  "GetSession": {
+    "summary": "Get a session",
+    "description": "Get a session by id.",
+    "method": "GET",
+    "path": "/sessions/{sessionId}",
+    "tags": [
+      "Session"
+    ],
+    "responses": [
+      "200"
+    ]
+  },
+  "DeleteSession": {
+    "summary": "Delete a session",
+    "description": "Delete a session by id.",
+    "method": "DELETE",
+    "path": "/sessions/{sessionId}",
+    "tags": [
+      "Session"
+    ],
+    "responses": [
+      "204"
+    ]
+  },
+  "ResubscribeSession": {
+    "summary": "Resubscribe a session",
+    "description": "Resubscribe a session.",
+    "method": "PUT",
+    "path": "/sessions/{sessionId}/resubscribe",
+    "tags": [
+      "Session"
+    ],
+    "requestBody": {
+      "note": "See OpenAPI spec for schema details"
+    },
+    "responses": [
+      "200"
+    ]
+  },
+  "SearchSessions": {
+    "summary": "Search for sessions",
+    "description": "Search for sessions.",
+    "method": "GET",
+    "path": "/sessions/search",
+    "tags": [
+      "Session"
+    ],
+    "responses": [
+      "200"
+    ]
+  },
+  "ExportSessions": {
+    "summary": "Export sessions",
+    "description": "Export sessions.",
+    "method": "GET",
+    "path": "/sessions/export",
+    "tags": [
+      "Session"
+    ],
+    "responses": [
+      "200"
+    ]
+  },
+  "WarmupSessions": {
+    "summary": "Pre-warm sessions cache for the active project",
+    "description": "Pre-warm OpenSearch shards + Redis list cache for the active project.\nFire-and-forget: returns {ok:true} immediately while the warmup runs in\nthe background. Triggered from the frontend right before a session query\nis likely (sidebar hover, global search modal mount, RecipientPicker mount,\nperiodic refresh while on the Sessions page) so the user doesn't pay the\ncold-shard penalty on first interaction.",
+    "method": "POST",
+    "path": "/sessions/warmup",
+    "tags": [
+      "Session"
+    ],
+    "responses": [
+      "200"
+    ]
+  },
+  "FindSessionByUserId": {
+    "summary": "Get a session by user id",
+    "description": "Get a session by user id.",
+    "method": "GET",
+    "path": "/sessions/by-user-id/{userId}",
+    "tags": [
+      "Session"
+    ],
+    "responses": [
+      "200"
+    ]
+  },
+  "GetSessionActivities": {
+    "summary": "Get session activities",
+    "description": "Get session activities by id.",
+    "method": "GET",
+    "path": "/sessions/{sessionId}/activities",
+    "tags": [
+      "Session"
+    ],
+    "responses": [
+      "200"
+    ]
+  },
+  "GetSessionEvents": {
+    "summary": "Get session events",
+    "description": "Get session events by id.",
+    "method": "GET",
+    "path": "/sessions/{sessionId}/events",
+    "tags": [
+      "Session"
+    ],
+    "responses": [
+      "200"
+    ]
+  },
+  "ImportSession": {
+    "summary": "Import a session",
+    "description": "Import a session.",
+    "method": "POST",
+    "path": "/sessions/importer",
+    "tags": [
+      "Session"
+    ],
+    "requestBody": {
+      "note": "See OpenAPI spec for schema details"
+    },
+    "responses": [
+      "200"
+    ]
+  },
+  "ImportSessionIntercom": {
+    "summary": "Import sessions from intercom",
+    "description": "Import sessions from intercom.",
+    "method": "POST",
+    "path": "/sessions/importer/intercom",
+    "tags": [
+      "Session"
+    ],
+    "requestBody": {
+      "note": "See OpenAPI spec for schema details"
+    },
+    "responses": [
+      "200"
+    ]
+  },
+  "ImportSessionHubspot": {
+    "summary": "Import sessions from HubSpot",
+    "description": "Import sessions from HubSpot.",
+    "method": "POST",
+    "path": "/sessions/importer/hubspot",
+    "tags": [
+      "Session"
+    ],
+    "requestBody": {
+      "note": "See OpenAPI spec for schema details"
+    },
+    "responses": [
+      "200"
+    ]
+  },
+  "ImportSessionZendesk": {
+    "summary": "Import sessions from Zendesk",
+    "description": "Import sessions (contacts) from Zendesk.",
+    "method": "POST",
+    "path": "/sessions/importer/zendesk",
+    "tags": [
+      "Session"
+    ],
+    "requestBody": {
+      "note": "See OpenAPI spec for schema details"
+    },
+    "responses": [
+      "200"
+    ]
+  },
+  "UnsubscribeSessions": {
+    "summary": "Unsubscribe sessions",
+    "description": "Unsubscribe sessions.",
+    "method": "POST",
+    "path": "/sessions/unsubscribe",
+    "tags": [
+      "Session"
+    ],
+    "requestBody": {
+      "note": "See OpenAPI spec for schema details"
+    },
+    "responses": [
+      "200"
+    ]
+  },
+  "GetChecklistsForSession": {
+    "summary": "Get session checklists",
+    "description": "Get checklists for a session.",
+    "method": "GET",
+    "path": "/sessions/{sessionId}/checklists",
+    "tags": [
+      "Session"
+    ],
+    "responses": [
+      "200"
+    ]
+  },
+  "GetSessionIdentityHistory": {
+    "summary": "Get session identity history",
+    "description": "Get the identity-change history for a session \u2014 every recorded\nmutation of email / name / userId on this contact record. Stripped\nfrom default session responses (see session.model.ts toJSON), so\nthis is the only path that returns it.",
+    "method": "GET",
+    "path": "/sessions/{sessionId}/identity-history",
+    "tags": [
+      "Session"
+    ],
+    "responses": [
+      "200"
+    ]
+  },
+  "FindSessionStripeInfo": {
+    "summary": "Get session Stripe info",
+    "description": "Get Stripe information for a session.",
+    "method": "GET",
+    "path": "/sessions/{sessionId}/stripe",
+    "tags": [
+      "Session"
+    ],
+    "responses": [
+      "200"
+    ]
+  },
+  "FindSessionChargebeeInfo": {
+    "summary": "Get session Chargebee info",
+    "description": "Get Chargebee information for a session.",
+    "method": "GET",
+    "path": "/sessions/{sessionId}/chargebee",
+    "tags": [
+      "Session"
+    ],
+    "responses": [
+      "200"
+    ]
+  }
+}

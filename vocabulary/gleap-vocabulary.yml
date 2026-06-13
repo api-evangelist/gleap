@@ -1,0 +1,1155 @@
+name: Gleap API Vocabulary
+description: Terms and concepts extracted from the Gleap REST API
+version: 14.0.0
+tags:
+- AI content
+- AiModels
+- Code
+- ContactMemory
+- Custom components
+- Engagement
+- Engagement Banner
+- Engagement Chat Message
+- Engagement Checklist
+- Engagement Cobrowse
+- Engagement Email
+- Engagement Modal
+- Engagement News
+- Engagement Product Tour
+- Engagement Push Notification
+- Engagement Survey
+- Engagement Tooltip
+- Engagement Whatsapp Messages
+- Help center
+- Help center articles
+- Help center collections
+- Help center redirects
+- Invitation
+- Knowledge
+- Message templates
+- Messages
+- Project
+- Session
+- Statistics
+- Team
+- Ticket
+- Translations
+- User
+schemas:
+- AgentBarChartTypes
+- AgentFactTypes
+- AgentListTypes
+- AiModelCapabilities
+- AiModelCost
+- AiModelPickers
+- AiModelPublicDto
+- AiModelsPublicResponse
+- AiPickerOption
+- AnswerDocument
+- AnswerI
+- AnswerSourceFile
+- ApproveTaskRequest
+- AreaUpdateDto
+- Asset
+- AssetDocument
+- AssetType
+- AssignmentMethod
+- AttachmentDto
+- AxiosHeaderValue
+- AxiosHeaders
+- AxiosResponseHeaders
+- AzureAuthRequestDto
+- AzureRepoSourceAuthResponseDto
+- AzureRepositoryListItemDto
+- BarChartStatisticTypes
+- BotDocument
+- BotDto
+- BugPriority
+- ChannelDto
+- ChannelSchemaDto
+- ChatCompletionResult
+- ClosedTicketReplyRuleDto
+- CloudSessionAgent
+- CloudSessionEffort
+- CloudSessionModel
+- CodeKnowledgeAnalysisCallbackBodyDto
+- CodeKnowledgeAskDto
+- CodeKnowledgeDiffReindexDto
+- CodeKnowledgeRepositoryDocument
+- CodeKnowledgeStatus
+- CodeRepositoryProvider
+- CollectionWithCounts
+- CompleteTaskRequest
+- ContactMemoryActor
+- ContactMemoryEntry
+- ContactMemoryEntryBody
+- ContactMemoryListItem
+- ContactMemoryUpdateBody
+- ContactMemoryWriteResult
+- ContactView
+- ContactViewDocument
+- CreateAIContentDto
+- CreateAnswerDTO
+- CreateAssetDto
+- CreateCodeKnowledgeRepositoryDto
+- CreateContactViewDTO
+- CreateConversationDto
+- CreateKaiFunction
+- CreateKaiRepositoryDto
+- CreateMessageDto
+- CreateNoteDto
+- CreateOrganisationDto
+- CreateProjectDto
+- CreateSharedMessageDto
+- CreateTaskNoteBody
+- CreateTicketDto
+- CreateTicketWithMessageDto
+- CreateUserDto
+- CreateWebCrawlerDto
+- CustomComponent
+- CustomComponentDTO
+- CustomComponentDocument
+- CustomerDataRequestPayload
+- CustomerDataResponse
+- CustomerRedactPayload
+- DeleteAnswerSectionDto
+- DesktopHandoffSnapshot
+- DesktopHandoffSnapshotPr
+- DesktopHandoffSnapshotRepo
+- Document
+- Document_any.any.any_
+- EditorAIActionDto
+- EmailTemplateDocument
+- EmailTemplateDto
+- EmailTemplateI
+- FactTypes
+- FallbackUserDto
+- FetchWebsiteCiDto
+- FlattenMaps_T_
+- FlattenMaps_any_
+- GithubAuthRequestDto
+- GithubRepoSourceAuthResponseDto
+- GithubRepositoryListItemDto
+- HeaderDto
+- HeatmapTypes
+- HelpCenterCollectionDto
+- HelpcenterArticleDocument
+- HelpcenterArticleDto
+- HelpcenterArticleI
+- HelpcenterCollectionDocument
+- HelpcenterCollectionI
+- HelpcenterRedirect
+- HelpcenterRedirectDTO
+- HelpcenterRedirectDocument
+- IfAny_typeofassetSchema.any.ObtainSchemaGeneric_typeofassetSchema.DocType__
+- IfAny_typeofcontactViewSchema.any.ObtainSchemaGeneric_typeofcontactViewSchema.DocType__
+- IfAny_typeofcustomComponentSchema.any.ObtainSchemaGeneric_typeofcustomComponentSchema.DocType__
+- IfAny_typeofemailTemplateSchema.any.ObtainSchemaGeneric_typeofemailTemplateSchema.DocType__
+- IfAny_typeofhelpcenterArticleSchema.any.ObtainSchemaGeneric_typeofhelpcenterArticleSchema.DocType__
+- IfAny_typeofhelpcenterCollectionSchema.any.ObtainSchemaGeneric_typeofhelpcenterCollectionSchema.DocType__
+- IfAny_typeofhelpcenterRedirectSchema.any.ObtainSchemaGeneric_typeofhelpcenterRedirectSchema.DocType__
+- IfAny_typeofinvitationSchema.any.ObtainSchemaGeneric_typeofinvitationSchema.DocType__
+- IfAny_typeofkaiFunctionsSchema.any.ObtainSchemaGeneric_typeofkaiFunctionsSchema.DocType__
+- IfAny_typeofmessageTemplateSchema.any.ObtainSchemaGeneric_typeofmessageTemplateSchema.DocType__
+- IfAny_typeofnoteSchema.any.ObtainSchemaGeneric_typeofnoteSchema.DocType__
+- IfAny_typeofnotificationActivitySchema.any.ObtainSchemaGeneric_typeofnotificationActivitySchema.DocType__
+- IfAny_typeofoutboundSchema.any.ObtainSchemaGeneric_typeofoutboundSchema.DocType__
+- IfAny_typeofprojectActionSchema.any.ObtainSchemaGeneric_typeofprojectActionSchema.DocType__
+- IfAny_typeofpropertySchema.any.ObtainSchemaGeneric_typeofpropertySchema.DocType__
+- IfAny_typeofroleSchema.any.ObtainSchemaGeneric_typeofroleSchema.DocType__
+- IfAny_typeofteamSchema.any.ObtainSchemaGeneric_typeofteamSchema.DocType__
+- IfAny_typeofticketViewSchema.any.ObtainSchemaGeneric_typeofticketViewSchema.DocType__
+- IfAny_typeofwebhookSchema.any.ObtainSchemaGeneric_typeofwebhookSchema.DocType__
+- ImportIntercomSessionDto
+- ImportYouTubeBatchDto
+- ImportYouTubeVideoDto
+- InferSchemaType_typeofassetSchema_
+- InferSchemaType_typeofcontactViewSchema_
+- InferSchemaType_typeofcustomComponentSchema_
+- InferSchemaType_typeofemailTemplateSchema_
+- InferSchemaType_typeofhelpcenterArticleSchema_
+- InferSchemaType_typeofhelpcenterCollectionSchema_
+- InferSchemaType_typeofhelpcenterRedirectSchema_
+- InferSchemaType_typeofinvitationSchema_
+- InferSchemaType_typeofkaiFunctionsSchema_
+- InferSchemaType_typeofmessageTemplateSchema_
+- InferSchemaType_typeofnoteSchema_
+- InferSchemaType_typeofnotificationActivitySchema_
+- InferSchemaType_typeofoutboundSchema_
+- InferSchemaType_typeofprojectActionSchema_
+- InferSchemaType_typeofpropertySchema_
+- InferSchemaType_typeofroleSchema_
+- InferSchemaType_typeofteamSchema_
+- InferSchemaType_typeofticketViewSchema_
+- InferSchemaType_typeofwebhookSchema_
+- InternalFetchBody
+- InternalSearchBody
+- Invitation
+- InvitationDocument
+- KaiAttachmentDto
+- KaiCodeMcpComposio
+- KaiCodeMcpServer
+- KaiCodeMcpServerInput
+- KaiCodeMcpServerStatus
+- KaiCodePostMergeBehavior
+- KaiCodePostMergeMode
+- KaiCodeSettings
+- KaiFunctionDocument
+- KaiFunctionI
+- KaiRepositoryDocument
+- KnowledgeSearchDto
+- KnowledgeSearchResponse
+- KnowledgeSearchResult
+- LastResponseDto
+- MessageRatingDto
+- MessageSettingsDto
+- MessageTemplate
+- MessageTemplateDTO
+- MessageTemplateDocument
+- ModelEffort
+- ModelIconKey
+- ModelProvider
+- ModelTokenUsageDto
+- NativeDate
+- Note
+- NoteDocument
+- NoteType
+- NotificationActivityDocument
+- NotificationActivityI
+- NotificationPreference
+- NotificationPreferences
+- ObjectId
+- Omit_InferSchemaType_typeofuserSchema_.notificationPreferences_
+- OptionDto
+- OutboundDocument
+- OutboundI
+- Partial_KaiCodePostMergeBehavior_
+- Partial_RawAxiosHeaders-and-RawCommonResponseHeaders_
+- Partial_SSOProviderConfigDto_
+- Partial_any_
+- Pick_InferSchemaType_typeofuserSchema_.Exclude_keyofInferSchemaType_typeofuserSchema_.notificationPreferences__
+- PreviewYouTubeDto
+- ProjectActionDocument
+- ProjectActionI
+- PropertyDocument
+- PropertyDto
+- PropertyI
+- PutTranslationEntryDto
+- RatingEnum
+- RawAxiosHeaders
+- RawAxiosResponseHeaders
+- Record_ModelRuntime.string_
+- Record_string.any_
+- Record_string.string_
+- RedactionResponse
+- RedirectMatchType
+- RedirectTaskRequest
+- RejectTaskRequest
+- ReplaceAnswerSectionDto
+- RepoRoleDto
+- RoleDocument
+- RoleI
+- SSOProviderConfigDto
+- Sentiment
+- SessionDto
+- ShopRedactPayload
+- SimilarTicketResult
+- SimilarTicketsResponse
+- SimilarTicketsSearchDto
+- SourceFileRefDto
+- StatisticListTypes
+- SuggestFaqDto
+- TeamDocument
+- TeamDto
+- TeamI
+- TicketChannelDto
+- TicketCreationRulesDto
+- TicketView
+- TicketViewDTO
+- TicketViewDocument
+- TimeBasedRuleDto
+- TokenCostEstimateResult
+- TokenCostEstimateUsageInput
+- TokenCostEstimateUsageResult
+- TotalTokenUsageDto
+- Translatable
+- TranslationEntryType
+- Types.ObjectId
+- UpdateAIContentDto
+- UpdateAnswerDTO
+- UpdateCodeKnowledgeRepositoryDto
+- UpdateDomainDto
+- UpdateKaiRepositoryDto
+- UpdateMessageDto
+- UpdateNoteDto
+- UpdateTicketDto
+- UpdateUserDto
+- UpdateUserRoleDto
+- UpvoteDto
+- UserDocument
+- UserI
+- UserType
+- VideoMetadata
+- VisabilityDto
+- WebCrawlerTaskDocument
+- WebhookDocument
+- WebhookDto
+- WebhookI
+- WhatsAppTemplateMessageDocument
+operations:
+  CreateMessageTemplate:
+    label: Create a new message template.
+    path: /message-templates
+    method: POST
+  FindMessageTemplates:
+    label: Find all message templates.
+    path: /message-templates
+    method: GET
+  FindMessageTemplateById:
+    label: Find all message templates.
+    path: /message-templates/{messageTemplateId}
+    method: GET
+  UpdateTeam:
+    label: Update a team
+    path: /teams/{teamId}
+    method: PUT
+  DeleteMessageTemplate:
+    label: Delete a message template
+    path: /message-templates/{messageTemplateId}
+    method: DELETE
+  CreateSession:
+    label: Create a new session
+    path: /sessions
+    method: POST
+  GetSessions:
+    label: Get all sessions
+    path: /sessions
+    method: GET
+  UpdateSession:
+    label: Update a session
+    path: /sessions/{sessionId}
+    method: PUT
+  GetSession:
+    label: Get a session
+    path: /sessions/{sessionId}
+    method: GET
+  DeleteSession:
+    label: Delete a session
+    path: /sessions/{sessionId}
+    method: DELETE
+  ResubscribeSession:
+    label: Resubscribe a session
+    path: /sessions/{sessionId}/resubscribe
+    method: PUT
+  SearchSessions:
+    label: Search for sessions
+    path: /sessions/search
+    method: GET
+  ExportSessions:
+    label: Export sessions
+    path: /sessions/export
+    method: GET
+  WarmupSessions:
+    label: Pre-warm sessions cache for the active project
+    path: /sessions/warmup
+    method: POST
+  FindSessionByUserId:
+    label: Get a session by user id
+    path: /sessions/by-user-id/{userId}
+    method: GET
+  GetSessionActivities:
+    label: Get session activities
+    path: /sessions/{sessionId}/activities
+    method: GET
+  GetSessionEvents:
+    label: Get session events
+    path: /sessions/{sessionId}/events
+    method: GET
+  ImportSession:
+    label: Import a session
+    path: /sessions/importer
+    method: POST
+  ImportSessionIntercom:
+    label: Import sessions from intercom
+    path: /sessions/importer/intercom
+    method: POST
+  ImportSessionHubspot:
+    label: Import sessions from HubSpot
+    path: /sessions/importer/hubspot
+    method: POST
+  ImportSessionZendesk:
+    label: Import sessions from Zendesk
+    path: /sessions/importer/zendesk
+    method: POST
+  UnsubscribeSessions:
+    label: Unsubscribe sessions
+    path: /sessions/unsubscribe
+    method: POST
+  GetChecklistsForSession:
+    label: Get session checklists
+    path: /sessions/{sessionId}/checklists
+    method: GET
+  GetSessionIdentityHistory:
+    label: Get session identity history
+    path: /sessions/{sessionId}/identity-history
+    method: GET
+  FindSessionStripeInfo:
+    label: Get session Stripe info
+    path: /sessions/{sessionId}/stripe
+    method: GET
+  FindSessionChargebeeInfo:
+    label: Get session Chargebee info
+    path: /sessions/{sessionId}/chargebee
+    method: GET
+  FindSessionLemonSqueezyInfo:
+    label: Get session LemonSqueezy info
+    path: /sessions/{sessionId}/lemonsqueezy
+    method: GET
+  FindSessionShopifyInfo:
+    label: Get session Shopify info
+    path: /sessions/{sessionId}/shopify
+    method: GET
+  CreateTeam:
+    label: Create a new team
+    path: /teams
+    method: POST
+  GetTeams:
+    label: Get all teams
+    path: /teams
+    method: GET
+  DeleteTeam:
+    label: Delete a team
+    path: /teams/{teamId}
+    method: DELETE
+  CreateMessage:
+    label: Create a new message
+    path: /messages
+    method: POST
+  GetMessages:
+    label: Find messages by query
+    path: /messages
+    method: GET
+  SearchMessages:
+    label: Search messages
+    path: /messages/search
+    method: GET
+  UpdateMessage:
+    label: Update a message
+    path: /messages/{messageId}
+    method: PUT
+  DeleteMessage:
+    label: Delete a comment
+    path: /messages/{messageId}
+    method: DELETE
+  SuggestFaq:
+    label: FAQ suggestion
+    path: /messages/{messageId}/faq
+    method: POST
+  CreateHelpcenterCollection:
+    label: Create a new collection
+    path: /helpcenter/collections
+    method: POST
+  GetHelpcenterCollections:
+    label: Search help center articles
+    path: /shared/helpcenter/search
+    method: GET
+  GetAllHelpcenterCollections:
+    label: Get all collections with subcollections
+    path: /helpcenter/collections/all
+    method: GET
+  GetHelpcenterCollectionItem:
+    label: Get a collection
+    path: /helpcenter/collections/{helpcenterCollectionId}
+    method: GET
+  UpdateHelpcenterCollection:
+    label: Update a collection
+    path: /helpcenter/collections/{helpcenterCollectionId}
+    method: PUT
+  DeleteHelpcenterCollection:
+    label: Delete a collection
+    path: /helpcenter/collections/{helpcenterCollectionId}
+    method: DELETE
+  UnpublishHelpcenterCollection:
+    label: Toggle publish status
+    path: /helpcenter/collections/{helpcenterCollectionId}/toggle-publish
+    method: PUT
+  CreateHelpcenterArticle:
+    label: Create a new article
+    path: /helpcenter/collections/{helpcenterCollectionId}/articles
+    method: POST
+  GetHelpcenterArticles:
+    label: Get all articles
+    path: /helpcenter/collections/{helpcenterCollectionId}/articles
+    method: GET
+  GetHelpcenterArticleItem:
+    label: Get an article
+    path: /helpcenter/collections/{helpcenterCollectionId}/articles/{helpcenterArticleId}
+    method: GET
+  UpdateHelpcenterArticleItem:
+    label: Update an article
+    path: /helpcenter/collections/{helpcenterCollectionId}/articles/{helpcenterArticleId}
+    method: PUT
+  DeleteHelpcenterArticleItem:
+    label: Delete an article
+    path: /helpcenter/collections/{helpcenterCollectionId}/articles/{helpcenterArticleId}
+    method: DELETE
+  MoveHelpcenterArticleItem:
+    label: Move an article
+    path: /helpcenter/collections/{helpcenterCollectionId}/articles/{helpcenterArticleId}/move
+    method: PUT
+  GetHelpcenterSources:
+    label: Get help center sources
+    path: /shared/helpcenter/sources
+    method: GET
+  AnswerHelpCenterQuestion:
+    label: Answer help center question
+    path: /shared/helpcenter/answer
+    method: GET
+  CreateHelpcenterRedirect:
+    label: Create a new redirect.
+    path: /helpcenter-redirect
+    method: POST
+  FindRedirects:
+    label: Find all redirects.
+    path: /helpcenter-redirect
+    method: GET
+  UpdateRedirect:
+    label: Update a redirect.
+    path: /helpcenter-redirect/{redirectId}
+    method: PUT
+  DeleteRedirect:
+    label: Delete a redirect
+    path: /helpcenter-redirect/{redirectId}
+    method: DELETE
+  CreateTicket:
+    label: Create a new ticket
+    path: /tickets
+    method: POST
+  GetTickets:
+    label: Get all tickets
+    path: /tickets
+    method: GET
+  CreateTicketWithMessage:
+    label: Create a new ticket with an optional initial message
+    path: /tickets/compose
+    method: POST
+  SearchForTickets:
+    label: Search for tickets
+    path: /tickets/search
+    method: GET
+  SearchForTicketsExtended:
+    label: Search for tickets
+    path: /tickets/extendedsearch
+    method: GET
+  FindTicketsBySessionQuery:
+    label: Find tickets by session query
+    path: /tickets/by-session-query
+    method: GET
+  ExportTickets:
+    label: Export tickets
+    path: /tickets/export
+    method: GET
+  GetNotificationTicket:
+    label: Get notification ticket
+    path: /tickets/notification/{shareToken}
+    method: GET
+  ExportTicketsAsCSV:
+    label: Export tickets
+    path: /tickets/csv-export
+    method: GET
+  CreateTrackerTicket:
+    label: Create a tracker ticket
+    path: /tickets/tracker-tickets
+    method: POST
+  FindTrackerTickets:
+    label: Find tracker tickets
+    path: /tickets/tracker-tickets
+    method: GET
+  SearchFeatureRequests:
+    label: Search feature requests semantically
+    path: /tickets/search-feature-requests
+    method: GET
+  GenerateTrackerTicketData:
+    label: Generate tracker ticket data with AI
+    path: /tickets/generate-data
+    method: POST
+  GetTicketCount:
+    label: Get ticket count
+    path: /tickets/ticketscount
+    method: GET
+  ExportTicketAuditEndpoint:
+    label: Export a single ticket for audit
+    path: /tickets/{ticketId}/audit-export
+    method: GET
+  GetTicket:
+    label: Get a ticket
+    path: /tickets/{ticketId}
+    method: GET
+  UpdateTicket:
+    label: Update a ticket
+    path: /tickets/{ticketId}
+    method: PUT
+  DeleteTicket:
+    label: Delete a ticket
+    path: /tickets/{ticketId}
+    method: DELETE
+  MergeTickets:
+    label: Merge multiple tickets into one
+    path: /tickets/merge
+    method: PUT
+  FindDuplicates:
+    label: Find duplicate feature requests
+    path: /tickets/deduplicate
+    method: POST
+  MergeDuplicateGroup:
+    label: Merge a duplicate group
+    path: /tickets/deduplicate/merge
+    method: PUT
+  GetConsoleLogsForTicket:
+    label: Get console logs for a ticket
+    path: /tickets/{ticketId}/console-logs
+    method: GET
+  GetActivityLogsForTicket:
+    label: Get activity logs for a ticket
+    path: /tickets/{ticketId}/activity-logs
+    method: GET
+  GetNetworkLogsForTicket:
+    label: Get network logs for a ticket
+    path: /tickets/{ticketId}/network-logs
+    method: GET
+  GetReplayForTicket:
+    label: Get network logs for a ticket
+    path: /tickets/{ticketId}/replay
+    method: GET
+  IndicateUserTyping:
+    label: Indicate user typing
+    path: /tickets/{ticketId}/typing
+    method: POST
+  IndicateUserViewing:
+    label: Indicate user viewing
+    path: /tickets/{ticketId}/viewing
+    method: POST
+  SnoozeTicket:
+    label: Snooze a ticket
+    path: /tickets/{ticketId}/snooze
+    method: PUT
+  LinkTicket:
+    label: Link a ticket
+    path: /tickets/{ticketId}/link
+    method: PUT
+  UnlinkTicket:
+    label: Unlink a ticket
+    path: /tickets/{ticketId}/unlink
+    method: PUT
+  ArchiveTicket:
+    label: Archive a ticket
+    path: /tickets/{ticketId}/archive
+    method: PUT
+  ArchiveAllTickets:
+    label: Archive a ticket
+    path: /tickets/archive/all
+    method: PUT
+  UnarchiveTicket:
+    label: Unarchive a ticket
+    path: /tickets/{ticketId}/unarchive
+    method: PUT
+  RunWorkflow:
+    label: Run workflow
+    path: /tickets/{ticketId}/workflow
+    method: POST
+  SendTicketToIntegration:
+    label: Send ticket to integration
+    path: /tickets/{ticketId}/send-to-integration
+    method: POST
+  VoteForTicket:
+    label: Vote for ticket
+    path: /tickets/{ticketId}/vote
+    method: POST
+  GenerateDraftReply:
+    label: Generate AI draft reply
+    path: /tickets/{ticketId}/draft-reply
+    method: POST
+  SendTicketTranscript:
+    label: Send ticket conversation transcript to multiple emails
+    path: /tickets/{ticketId}/send-transcript
+    method: POST
+  CreateBanner:
+    label: Create a new banner
+    path: /engagement/banners
+    method: POST
+  GetBanners:
+    label: Get all banners
+    path: /engagement/banners
+    method: GET
+  UpdateBanner:
+    label: Update an banner
+    path: /engagement/banners/{bannerId}
+    method: PUT
+  DeleteBanner:
+    label: Delete an banner
+    path: /engagement/banners/{bannerId}
+    method: DELETE
+  GetBanner:
+    label: Get an banner
+    path: /engagement/banners/{bannerId}
+    method: GET
+  CreateChatMessage:
+    label: Create a new chat message
+    path: /engagement/chat-messages
+    method: POST
+  GetChatMessages:
+    label: Get all chat messages
+    path: /engagement/chat-messages
+    method: GET
+  UpdateChatMessage:
+    label: Update an chat message
+    path: /engagement/chat-messages/{chatMessageId}
+    method: PUT
+  DeleteChatMessage:
+    label: Delete an chat message
+    path: /engagement/chat-messages/{chatMessageId}
+    method: DELETE
+  GetChatMessage:
+    label: Get an chat message
+    path: /engagement/chat-messages/{chatMessageId}
+    method: GET
+  CreateCobrowseProductTour:
+    label: Create a new cobrowse product tour
+    path: /engagement/cobrowse
+    method: POST
+  GetCobrowseProductTours:
+    label: Get all cobrowse product tours
+    path: /engagement/cobrowse
+    method: GET
+  UpdateCobrowseProductTour:
+    label: Update an cobrowse product tour
+    path: /engagement/cobrowse/{cobrowseProductTourId}
+    method: PUT
+  DeleteCobrowseProductTour:
+    label: Delete an cobrowse product tour
+    path: /engagement/cobrowse/{cobrowseProductTourId}
+    method: DELETE
+  GetCobrowseProductTour:
+    label: Get an cobrowse product tour
+    path: /engagement/cobrowse/{cobrowseProductTourId}
+    method: GET
+  CreateEngagementEmail:
+    label: Create a new email
+    path: /engagement/emails
+    method: POST
+  GetEngagementEmails:
+    label: Get all emails
+    path: /engagement/emails
+    method: GET
+  UpdateEngagementEmail:
+    label: Update an email
+    path: /engagement/emails/{engagementEmailId}
+    method: PUT
+  DeleteEngagementEmail:
+    label: Delete an email
+    path: /engagement/emails/{engagementEmailId}
+    method: DELETE
+  GetEngagementEmail:
+    label: Get an email
+    path: /engagement/emails/{engagementEmailId}
+    method: GET
+  SendEmailPreview:
+    label: Send email preview
+    path: /engagement/emails/{engagementEmailId}/send-email-preview
+    method: POST
+  CreateNewsArticle:
+    label: Create a new engagement news article
+    path: /engagement/news
+    method: POST
+  GetNewsArticles:
+    label: Get all engagement news articles
+    path: /engagement/news
+    method: GET
+  GetNewsArticle:
+    label: Get an engagement news article
+    path: /engagement/news/{newsId}
+    method: GET
+  UpdateNewsArticle:
+    label: Update a news article.
+    path: /engagement/news/{newsId}
+    method: PUT
+  DeleteNewsArticle:
+    label: Delete a news article.
+    path: /engagement/news/{newsId}
+    method: DELETE
+  CreateEngagementProductTour:
+    label: Create a new product tour
+    path: /engagement/product-tours
+    method: POST
+  GetEngagementProductTours:
+    label: Get all product tours
+    path: /engagement/product-tours
+    method: GET
+  UpdateEngagementProductTour:
+    label: Update a product tour
+    path: /engagement/product-tours/{productTourId}
+    method: PUT
+  DeleteEngagementProductTour:
+    label: Delete a product tour
+    path: /engagement/product-tours/{productTourId}
+    method: DELETE
+  GetEngagementProductTour:
+    label: Get a product tour
+    path: /engagement/product-tours/{productTourId}
+    method: GET
+  CreateEngagementPushNotification:
+    label: Create a new push notification
+    path: /engagement/push-notifications
+    method: POST
+  GetEngagementPushNotifications:
+    label: Get all push notification
+    path: /engagement/push-notifications
+    method: GET
+  UpdateEngagementPushNotification:
+    label: Update a push notification
+    path: /engagement/push-notifications/{pushNotificationId}
+    method: PUT
+  DeleteEngagementPushNotification:
+    label: Delete a push notification
+    path: /engagement/push-notifications/{pushNotificationId}
+    method: DELETE
+  GetEngagementPushNotification:
+    label: Get a push notification
+    path: /engagement/push-notifications/{pushNotificationId}
+    method: GET
+  CreateSurvey:
+    label: Create a new survey
+    path: /engagement/surveys
+    method: POST
+  GetSurveys:
+    label: Get all survey
+    path: /engagement/surveys
+    method: GET
+  UpdateSurvey:
+    label: Update a survey
+    path: /engagement/surveys/{surveyId}
+    method: PUT
+  DeleteSurvey:
+    label: Delete a survey
+    path: /engagement/surveys/{surveyId}
+    method: DELETE
+  GetSurvey:
+    label: Get a survey
+    path: /engagement/surveys/{surveyId}
+    method: GET
+  GetSurveyResponses:
+    label: Get all survey responses
+    path: /engagement/surveys/{surveyId}/responses
+    method: GET
+  ExportSurveyResponses:
+    label: Export survey responses
+    path: /engagement/surveys/{surveyId}/responses/export
+    method: GET
+  MarkSurveyResponsesAsRead:
+    label: Mark all survey responses as read
+    path: /engagement/surveys/{surveyId}/responses/read
+    method: PUT
+  GetSurveyResponseSamples:
+    label: Get all survey response samples
+    path: /engagement/surveys/{surveyId}/responses/samples
+    method: GET
+  SummarizeSurveyResponses:
+    label: Summarize survey responses
+    path: /engagement/surveys/{surveyId}/responses/summarize
+    method: GET
+  CreateTooltip:
+    label: Create a new tooltip
+    path: /engagement/tooltips
+    method: POST
+  GetTooltips:
+    label: Get all tooltip
+    path: /engagement/tooltips
+    method: GET
+  UpdateTooltip:
+    label: Update a tooltip
+    path: /engagement/tooltips/{tooltipId}
+    method: PUT
+  DeleteTooltip:
+    label: Delete a tooltip
+    path: /engagement/tooltips/{tooltipId}
+    method: DELETE
+  GetTooltip:
+    label: Get a tooltip
+    path: /engagement/tooltips/{tooltipId}
+    method: GET
+  CreateWhatsappMessage:
+    label: Create a new whatsapp message
+    path: /engagement/whatsapp-messages
+    method: POST
+  GetWhatsappMessages:
+    label: Get all whatsapp message
+    path: /engagement/whatsapp-messages
+    method: GET
+  UpdateWhatsappMessage:
+    label: Update a whatsapp message
+    path: /engagement/whatsapp-messages/{whatsappMessageId}
+    method: PUT
+  DeleteWhatsappMessage:
+    label: Delete a whatsapp message
+    path: /engagement/whatsapp-messages/{whatsappMessageId}
+    method: DELETE
+  GetWhatsappMessage:
+    label: Get a whatsapp message
+    path: /engagement/whatsapp-messages/{whatsappMessageId}
+    method: GET
+  SendWhatsappTemplateMessage:
+    label: Send a whatsapp template message
+    path: /engagement/whatsapp-messages/send-template
+    method: POST
+  CreateChecklist:
+    label: Create a new checklist
+    path: /engagement/checklists
+    method: POST
+  GetChecklists:
+    label: Get all checklists
+    path: /engagement/checklists
+    method: GET
+  UpdateChecklist:
+    label: Update a checklist
+    path: /engagement/checklists/{checklistId}
+    method: PUT
+  DeleteChecklist:
+    label: Delete a checklist
+    path: /engagement/checklists/{checklistId}
+    method: DELETE
+  GetChecklist:
+    label: Get a checklist
+    path: /engagement/checklists/{checklistId}
+    method: GET
+  GetEngagementActivities:
+    label: Get engagement activities
+    path: /engagements/{engagementId}/activities
+    method: GET
+  GetEngagementActivitiesCount:
+    label: Get engagement activities count
+    path: /engagements/{engagementId}/activities/count
+    method: GET
+  FindEngagementRecipients:
+    label: Find engagement recipients
+    path: /engagements/{engagementId}/recipients
+    method: GET
+  GetEngagementStatistics:
+    label: Get engagement statistics
+    path: /engagements/{engagementId}/statistics
+    method: GET
+  GetEngagementFixedAudienceSamples:
+    label: Get engagement fixed audience samples
+    path: /engagements/{engagementId}/fixed-audience-samples
+    method: POST
+  CloneEngagement:
+    label: Clone engagement
+    path: /engagements/{engagementId}/clone
+    method: POST
+  Create:
+    label: Create a new custom component.
+    path: /custom-components
+    method: POST
+  FindByContentId:
+    label: Get AI content by contentId
+    path: /aicontent/{contentId}
+    method: GET
+  UpdateByContentId:
+    label: Update AI content by contentId
+    path: /aicontent/{contentId}
+    method: PUT
+  RemoveByContentId:
+    label: Delete AI content by contentId
+    path: /aicontent/{contentId}
+    method: DELETE
+  RemoveOldBatches:
+    label: Delete old AI content batches
+    path: /aicontent/oldbatches
+    method: DELETE
+  RemoveByBatchId:
+    label: Delete AI content by batchId
+    path: /aicontent/batch/{batchId}
+    method: DELETE
+  CreateModal:
+    label: Create a new modal
+    path: /engagement/modals
+    method: POST
+  GetModals:
+    label: Get all modals
+    path: /engagement/modals
+    method: GET
+  UpdateModal:
+    label: Update a modal
+    path: /engagement/modals/{modalId}
+    method: PUT
+  DeleteModal:
+    label: Delete a modal
+    path: /engagement/modals/{modalId}
+    method: DELETE
+  GetModal:
+    label: Get a modal
+    path: /engagement/modals/{modalId}
+    method: GET
+  GetMyInvitations:
+    label: Get all invitations for a user
+    path: /invitations
+    method: GET
+  DeleteInvitation:
+    label: Delete an invitation
+    path: /invitations/{invitationId}
+    method: DELETE
+  UpdateInvitation:
+    label: Update an invitation
+    path: /invitations/{invitationId}
+    method: PUT
+  UpdateInvitationRole:
+    label: Update an invitation for a project
+    path: /invitations/{invitationId}/role
+    method: PUT
+  GetOrganisationInvitations:
+    label: Get all invitations for an organisation
+    path: /invitations/organisations/{organisationId}
+    method: GET
+  CreateOrganisationInvitation:
+    label: Create a new invitation for an organisation
+    path: /invitations/organisations/{organisationId}
+    method: POST
+  GetProjectInvitations:
+    label: Get all invitations for a project
+    path: /invitations/projects
+    method: GET
+  CreateProjectInvitation:
+    label: Create a new invitation for a project
+    path: /invitations/projects
+    method: POST
+  GetUsers:
+    label: Get all users for a project
+    path: /projects/users
+    method: GET
+  UpdateUser:
+    label: Update a user for a project
+    path: /projects/users/{userId}
+    method: PUT
+  DeleteUser:
+    label: Delete a user for a project
+    path: /projects/users/{userId}
+    method: DELETE
+  GetMe:
+    label: Get current user.
+    path: /users/me
+    method: GET
+  ReassignTickets:
+    label: Reassign all tickets to the user.
+    path: /users/me/reassign-tickets
+    method: POST
+  GetUnifiedInboxTickets:
+    label: Get unified inbox tickets
+    path: /users/unified-inbox
+    method: GET
+  GetUnifiedInboxTicket:
+    label: Get unified inbox ticket
+    path: /users/unified-inbox/{ticketId}
+    method: GET
+  Update:
+    label: Update a custom component.
+    path: /custom-components/{customComponentId}
+    method: PUT
+  GetMyPermissions:
+    label: Get current user's role permissions.
+    path: /users/me/permissions
+    method: GET
+  Verify:
+    label: Authenticate user for Pusher session.
+    path: /users/verify
+    method: POST
+  Resend:
+    label: Resend a verification code to the user's email.
+    path: /users/resend
+    method: POST
+  AuthenticateUserPusherSession:
+    label: Authenticate user for Pusher session.
+    path: /users/me/session-auth
+    method: POST
+  AuthenticateUserPusherChannelSession:
+    label: Authenticate user for Pusher session.
+    path: /users/me/session-channel-auth
+    method: POST
+  SearchKnowledge:
+    label: Search knowledge documents
+    path: /knowledge/search
+    method: POST
+  FindSimilarTickets:
+    label: Find similar tickets
+    path: /knowledge/similar-tickets
+    method: POST
+  ListEntries:
+    label: List contact memory entries
+    path: /sessions/{sessionId}/memory
+    method: GET
+  GetEntry:
+    label: Get one contact memory entry
+    path: /sessions/{sessionId}/memory/{entryName}
+    method: GET
+  PutEntry:
+    label: Update a translatable entry
+    path: /translations/entries/{entryId}
+    method: PUT
+  GetModels:
+    label: Get AI model catalog
+    path: /ai/models
+    method: GET
+  AskCode:
+    label: Ask a question about the project's connected source repositories
+    path: /code/ask
+    method: POST
+  CreateEntry:
+    label: Create or update a contact memory entry
+    path: /sessions/{sessionId}/memory
+    method: POST
+  ClearAll:
+    label: Clear all contact memory entries
+    path: /sessions/{sessionId}/memory
+    method: DELETE
+  UpdateEntry:
+    label: Update a contact memory entry
+    path: /sessions/{sessionId}/memory/{entryName}
+    method: PUT
+  DeleteEntry:
+    label: Delete a contact memory entry
+    path: /sessions/{sessionId}/memory/{entryName}
+    method: DELETE
+  ImportVideo:
+    label: Import YouTube video
+    path: /youtube-source
+    method: POST
+  List:
+    label: List YouTube content
+    path: /youtube-source
+    method: GET
+  Preview:
+    label: Preview YouTube URL
+    path: /youtube-source/preview
+    method: POST
+  ImportBatch:
+    label: Import YouTube playlist/channel
+    path: /youtube-source/batch
+    method: POST
+  DeleteVideo:
+    label: Delete YouTube video content
+    path: /youtube-source/{videoId}
+    method: DELETE
+  DeleteBatch:
+    label: Delete YouTube batch content
+    path: /youtube-source/batch/{batchId}
+    method: DELETE
+  Find:
+    label: Find all custom components.
+    path: /custom-components
+    method: GET
+  FindOne:
+    label: Find one custom component.
+    path: /custom-components/{customComponentId}
+    method: GET
+  Remove:
+    label: Delete a custom component.
+    path: /custom-components/{customComponentId}
+    method: DELETE

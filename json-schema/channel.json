@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ChannelSchemaDto",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "isEnabled": {
+      "type": "boolean"
+    },
+    "widgetId": {
+      "type": "string"
+    },
+    "apiKey": {
+      "type": "string"
+    },
+    "phoneNumberId": {
+      "type": "string"
+    },
+    "fbBusinessAccountId": {
+      "type": "string"
+    },
+    "waBusinessAccountId": {
+      "type": "string"
+    },
+    "instagramBusinessId": {
+      "type": "string"
+    },
+    "accessToken": {
+      "type": "string"
+    },
+    "pageId": {
+      "type": "string"
+    },
+    "slackChannelId": {
+      "type": "string"
+    },
+    "botToken": {
+      "type": "string"
+    },
+    "botUsername": {
+      "type": "string"
+    },
+    "webhookSecret": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "ticketCreationRules": {
+      "$ref": "#/components/schemas/TicketCreationRulesDto"
+    },
+    "messageSettings": {
+      "$ref": "#/components/schemas/MessageSettingsDto"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MessageSettingsDto",
+  "type": "object",
+  "properties": {
+    "attachSenderName": {
+      "type": "boolean"
+    }
+  }
+}
