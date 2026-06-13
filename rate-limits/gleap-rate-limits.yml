@@ -1,0 +1,37 @@
+name: Gleap API Rate Limits
+description: Gleap enforces rate limits on its REST API to ensure fair usage and platform stability. The identify and track endpoints share a project-level rate limit of 1,000 requests per 60-second window. Exceeding this limit returns an HTTP 429 Too Many Requests response.
+url: https://docs.gleap.io/documentation/server/rest-api
+specificationVersion: '0.1'
+rateLimits:
+  - name: Project-Level API Rate Limit
+    description: All API calls to the Gleap REST API are subject to a per-project rate limit of 1,000 requests per 60-second rolling window. This applies across the /admin/identify and /admin/track endpoints as well as all v3 API endpoints. When the limit is exceeded, the API returns HTTP 429.
+    scope: project
+    limit: 1000
+    period: 60
+    periodUnit: seconds
+    headers:
+      - name: X-RateLimit-Limit
+        description: The maximum number of requests allowed per window
+      - name: X-RateLimit-Remaining
+        description: The number of requests remaining in the current window
+    errorResponse:
+      httpStatusCode: 429
+      description: Too Many Requests — the project rate limit has been exceeded. Clients should implement exponential backoff and retry logic.
+    endpoints:
+      - path: /admin/identify
+        method: POST
+        description: User identification endpoint; subject to project rate limit
+      - path: /admin/track
+        method: POST
+        description: Event tracking endpoint; subject to project rate limit
+      - path: /v3/tickets
+        method: GET
+        description: Ticket listing endpoint; subject to project rate limit
+      - path: /v3/tickets/{ticketId}
+        method: GET
+        description: Individual ticket retrieval; subject to project rate limit
+    notes: >
+      Rate limits are enforced per project, not per API key. Teams with high-volume
+      integrations should batch events where possible using the track endpoint's
+      batch submission capability. Enterprise plans may negotiate custom rate limit
+      thresholds directly with Gleap.

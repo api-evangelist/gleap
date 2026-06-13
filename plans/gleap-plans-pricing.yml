@@ -1,0 +1,85 @@
+name: Gleap Plans and Pricing
+description: Gleap offers four pricing tiers — Starter, Team, Pro, and Enterprise — with annual billing saving 20% compared to monthly. API access is available from the Team plan upward. AI usage is billed separately based on actual token consumption and the selected AI model.
+url: https://gleap.io/pricing
+specificationVersion: '0.1'
+plans:
+  - name: Starter
+    description: Entry-level plan for solo developers or small teams. Includes Kai AI support, live chat, in-app bug reporting, public roadmap, and knowledge base. Limited to 1 teammate and 1 project.
+    url: https://gleap.io/pricing
+    price: 49.00
+    priceCurrency: USD
+    billingCycle: monthly
+    billingModel: flat-rate
+    rateLimit: false
+    additionalInfo: Billed annually at $49/mo; $59/mo if billed monthly. 3-day support SLA. No API access.
+    features:
+      - 1 teammate
+      - 1 project
+      - Kai AI support agent
+      - Live chat
+      - In-app bug reporting
+      - Public roadmap
+      - Knowledge base
+      - Basic support (3-day SLA)
+
+  - name: Team
+    description: For growing teams needing multichannel support, integrations, and REST API access. Includes unlimited teammates and projects plus advanced engagement tools.
+    url: https://gleap.io/pricing
+    price: 149.00
+    priceCurrency: USD
+    billingCycle: monthly
+    billingModel: flat-rate
+    rateLimit: true
+    additionalInfo: Billed annually at $149/mo; $179/mo if billed monthly. API access included. AI usage billed separately at ~$0.04 per message.
+    features:
+      - Unlimited teammates
+      - Unlimited projects
+      - Everything in Starter
+      - All support channels (WhatsApp, Telegram, Instagram, Facebook Messenger)
+      - Team inboxes
+      - Workflows and AI tools
+      - AI copilot
+      - Surveys, banners, push notifications
+      - Product tours
+      - Custom domains
+      - Third-party integrations
+      - REST API access
+
+  - name: Pro
+    description: Advanced plan with full AI model access, 25% token discount, custom agents, Kai PM, Kai Code, and Kai Resolve for product management and autonomous development workflows.
+    url: https://gleap.io/pricing
+    price: 299.00
+    priceCurrency: USD
+    billingCycle: monthly
+    billingModel: flat-rate
+    rateLimit: true
+    additionalInfo: Billed annually at $299/mo; $359/mo if billed monthly. 24-hour support SLA. 25% AI token discount included.
+    features:
+      - Everything in Team
+      - All AI models
+      - 25% AI token discount
+      - Custom AI agents (no-code builder)
+      - Kai PM (product management agent)
+      - Kai Code (converts bugs/specs to pull requests)
+      - Kai Resolve (complex issue routing)
+      - 24-hour support SLA
+
+  - name: Enterprise
+    description: Enterprise-grade plan with SOC 2 Type II compliance, SSO, bring-your-own-key (BYOK), dedicated customer success manager, custom SLA, and custom MAU limits.
+    url: https://gleap.io/pricing
+    price: 999.00
+    priceCurrency: USD
+    billingCycle: monthly
+    billingModel: flat-rate
+    rateLimit: true
+    additionalInfo: Starts at $999/mo annual; $1,199/mo if billed monthly. Pay-by-invoice available. Custom SLA and MAU limits negotiated per contract.
+    features:
+      - Everything in Pro
+      - SOC 2 Type II compliance
+      - Single Sign-On (SSO)
+      - Bring-Your-Own-Key (BYOK)
+      - Pay-by-invoice
+      - Dedicated Customer Success Manager
+      - Priority support
+      - Custom SLA
+      - Custom MAU limits

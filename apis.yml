@@ -1,0 +1,75 @@
+name: Gleap
+description: Gleap is an in-app customer feedback and bug reporting platform with AI agents that automates the loop from user feedback through code deployment. It provides a REST API for managing feedback tickets, feature requests, roadmaps, real-time widget configuration, help center articles, outbound messaging, and user identity tracking used by 4,500+ teams globally.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/gleap/refs/heads/main/apis.yml
+created: '2026-06-13'
+modified: '2026-06-13'
+specificationVersion: '0.19'
+aid: gleap
+type: Index
+tags:
+  - Customer Feedback
+  - Bug Reporting
+  - In-App Support
+  - Feature Requests
+  - Roadmap
+  - Live Chat
+  - AI Agents
+  - Session Replay
+  - Help Center
+  - Ticketing
+  - User Feedback
+  - SaaS
+apis:
+  - name: Gleap REST API
+    description: The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://docs.gleap.io/documentation/server/rest-api
+    baseURL: https://api.gleap.io
+    tags:
+      - Tickets
+      - User Identification
+      - Event Tracking
+      - Help Center
+      - Outbound Messaging
+      - Sessions
+      - Contacts
+      - Webhooks
+      - AI Agents
+    properties:
+      - type: Documentation
+        url: https://docs.gleap.io/documentation/server/rest-api
+      - type: OpenAPI
+        url: https://api.gleap.io/api-docs.json
+      - type: PostmanCollection
+        url: https://documenter.getpostman.com/view/18586034/2s8YRiJYVC
+    contact:
+      - FN: Gleap Support
+        email: hello@gleap.io
+        url: https://gleap.io
+common:
+  - type: Website
+    url: https://gleap.io
+  - type: Documentation
+    url: https://docs.gleap.io
+  - type: GitHubOrg
+    url: https://github.com/GleapSDK
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/gleap/
+  - type: Blog
+    url: https://gleap.io/blog
+  - type: Pricing
+    url: https://gleap.io/pricing
+  - type: StatusPage
+    url: https://status.gleap.io
+  - type: X
+    url: https://x.com/gleapsdk
+  - type: Plans
+    url: plans/gleap-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/gleap-rate-limits.yml
+  - type: FinOps
+    url: finops/gleap-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

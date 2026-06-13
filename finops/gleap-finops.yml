@@ -1,0 +1,76 @@
+name: Gleap FinOps Framework
+description: FinOps cost management guidance for Gleap API and platform usage, covering subscription tiers, AI token consumption costs, and optimization strategies aligned with the FinOps Foundation FOCUS specification v1.0.
+url: https://gleap.io/pricing
+specificationVersion: '1.0'
+provider: Gleap
+currency: USD
+focus:
+  - category: SaaS Subscription
+    description: Gleap platform subscription costs for the base plan tier. Billed monthly or annually (20% savings with annual billing). The plan tier determines feature access including API availability (Team plan and above).
+    costs:
+      - plan: Starter
+        monthlyAnnual: 49.00
+        monthlyMonthly: 59.00
+        billingModel: flat-rate
+        apiAccess: false
+      - plan: Team
+        monthlyAnnual: 149.00
+        monthlyMonthly: 179.00
+        billingModel: flat-rate
+        apiAccess: true
+      - plan: Pro
+        monthlyAnnual: 299.00
+        monthlyMonthly: 359.00
+        billingModel: flat-rate
+        apiAccess: true
+      - plan: Enterprise
+        monthlyAnnual: 999.00
+        monthlyMonthly: 1199.00
+        billingModel: flat-rate
+        apiAccess: true
+        notes: Custom pricing negotiated per contract; base price listed is minimum.
+
+  - category: AI Token Consumption
+    description: AI usage within Gleap (Kai agents, copilot, auto-drafting, semantic search) is billed separately from the base subscription based on actual token consumption. Costs vary by model selected. Pro plan customers receive a 25% discount on AI token usage.
+    costs:
+      - service: Kai AI Agents (all tiers)
+        averageCostPerMessage: 0.04
+        billingModel: usage-based
+        unit: message
+        notes: Average cost of ~$0.04 per message; actual cost depends on model selected and message complexity.
+      - service: AI Token Discount (Pro/Enterprise)
+        discount: 25%
+        billingModel: usage-based
+        notes: Pro and Enterprise customers receive 25% reduction on all AI token costs.
+
+  - category: SDK and Integration
+    description: Gleap SDKs (JavaScript, iOS, Android, Flutter, React Native, Cordova, Ionic Capacitor) are free and open source under the GleapSDK GitHub organization. No additional cost beyond the platform subscription.
+    costs:
+      - service: JavaScript SDK
+        cost: 0.00
+        billingModel: free
+        url: https://github.com/GleapSDK/JavaScript-SDK
+      - service: iOS SDK
+        cost: 0.00
+        billingModel: free
+        url: https://github.com/GleapSDK/Gleap-iOS-SDK
+      - service: Android SDK
+        cost: 0.00
+        billingModel: free
+        url: https://github.com/GleapSDK/Android-SDK
+      - service: Flutter SDK
+        cost: 0.00
+        billingModel: free
+        url: https://github.com/GleapSDK/Flutter-SDK
+      - service: React Native SDK
+        cost: 0.00
+        billingModel: free
+        url: https://github.com/GleapSDK/ReactNative-SDK
+
+optimizationGuidance:
+  - recommendation: Choose annual billing to save 20% on subscription costs across all plan tiers.
+  - recommendation: Batch event tracking calls using the /admin/track batch submission feature to reduce total API call volume and stay within the 1,000 req/60s rate limit.
+  - recommendation: Monitor AI token consumption closely on Team plan; upgrade to Pro to unlock 25% token discount if AI usage is high.
+  - recommendation: Use the read-only API and webhook integrations to pull data rather than polling, reducing unnecessary API calls.
+  - recommendation: Enterprise customers should negotiate custom MAU limits and SLAs to optimize spend relative to actual user volume.
+  - recommendation: Leverage the free open-source SDKs for client-side integration to avoid custom integration development costs.
