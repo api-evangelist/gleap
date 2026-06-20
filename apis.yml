@@ -1,6 +1,6 @@
 name: Gleap
 description: Gleap is an in-app customer feedback and bug reporting platform with AI agents that automates the loop from user feedback through code deployment. It provides a REST API for managing feedback tickets, feature requests, roadmaps, real-time widget configuration, help center articles, outbound messaging, and user identity tracking used by 4,500+ teams globally.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/gleap/refs/heads/main/apis.yml
 created: '2026-06-13'
 modified: '2026-06-13'
@@ -23,7 +23,7 @@ tags:
 apis:
   - name: Gleap REST API
     description: The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://docs.gleap.io/documentation/server/rest-api
     baseURL: https://api.gleap.io
     tags:
