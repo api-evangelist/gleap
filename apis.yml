@@ -48,6 +48,10 @@ apis:
         email: hello@gleap.io
         url: https://gleap.io
 common:
+  - type: DomainSecurity
+    url: security/gleap-domain-security.yml
+  - type: Authentication
+    url: authentication/gleap-authentication.yml
   - type: Website
     url: https://gleap.io
   - type: Documentation

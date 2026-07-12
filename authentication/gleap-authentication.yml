@@ -1,0 +1,13 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/gleap-rest-api-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: jwt
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  sources:
+  - openapi/gleap-rest-api-openapi.yml
