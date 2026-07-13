@@ -2,18 +2,14 @@
   "repo": "gleap",
   "feeds": [
     {
-      "source": "https://gleap.io/blog",
-      "feed_url": "",
-      "saved": 0,
-      "method": "agent-scrape"
-    },
-    {
       "source": "https://www.linkedin.com/company/gleap/",
+      "feed_url": "https://www.linkedin.com/company/gleap/",
+      "title": "",
       "saved": 0,
-      "error": "not a blog feed"
+      "method": "none"
     }
   ],
-  "fetched": "2026-06-27T12:44:57Z",
-  "post_count": 2,
+  "fetched": "2026-07-11T11:50:51Z",
+  "post_count": 3,
   "agent_pulled": "2026-06-27"
 }
