@@ -1,0 +1,144 @@
+openapi: 3.0.0
+info:
+  title: Gleap AI content Engagement Checklist API
+  version: 14.0.0
+  contact:
+    name: Gleap Support
+    email: hello@gleap.io
+    url: https://gleap.io
+  description: The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.
+  license:
+    name: Proprietary
+servers:
+- url: https://api.gleap.io/v3
+tags:
+- name: Engagement Checklist
+paths:
+  /engagement/checklists:
+    post:
+      operationId: CreateChecklist
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Create a new checklist
+      tags:
+      - Engagement Checklist
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {}
+    get:
+      operationId: GetChecklists
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Get all checklists
+      tags:
+      - Engagement Checklist
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /engagement/checklists/{checklistId}:
+    put:
+      operationId: UpdateChecklist
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Update a checklist
+      tags:
+      - Engagement Checklist
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: checklistId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {}
+    delete:
+      operationId: DeleteChecklist
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Delete a checklist
+      tags:
+      - Engagement Checklist
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: checklistId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+    get:
+      operationId: GetChecklist
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Get a checklist
+      tags:
+      - Engagement Checklist
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: checklistId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+components:
+  securitySchemes:
+    jwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

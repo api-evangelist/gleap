@@ -1,0 +1,330 @@
+openapi: 3.0.0
+info:
+  title: Gleap AI content Invitation API
+  version: 14.0.0
+  contact:
+    name: Gleap Support
+    email: hello@gleap.io
+    url: https://gleap.io
+  description: The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.
+  license:
+    name: Proprietary
+servers:
+- url: https://api.gleap.io/v3
+tags:
+- name: Invitation
+paths:
+  /invitations:
+    get:
+      operationId: GetMyInvitations
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/InvitationDocument'
+                type: array
+      description: Get all invitations for a user.
+      summary: Get all invitations for a user
+      tags:
+      - Invitation
+      security:
+      - jwt: []
+      parameters: []
+  /invitations/{invitationId}:
+    delete:
+      operationId: DeleteInvitation
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: boolean
+      description: Delete an invitation.
+      summary: Delete an invitation
+      tags:
+      - Invitation
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: invitationId
+        required: true
+        schema:
+          type: string
+    put:
+      operationId: UpdateInvitation
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: boolean
+      description: Update an invitation.
+      summary: Update an invitation
+      tags:
+      - Invitation
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: invitationId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                accept:
+                  type: boolean
+              required:
+              - accept
+              type: object
+  /invitations/{invitationId}/role:
+    put:
+      operationId: UpdateInvitationRole
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvitationDocument'
+      description: Update an invitation for a project.
+      summary: Update an invitation for a project
+      tags:
+      - Invitation
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: invitationId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                role:
+                  type: string
+              required:
+              - role
+              type: object
+  /invitations/organisations/{organisationId}:
+    get:
+      operationId: GetOrganisationInvitations
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/InvitationDocument'
+                type: array
+      description: Get all invitations for an organisation.
+      summary: Get all invitations for an organisation
+      tags:
+      - Invitation
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: organisationId
+        required: true
+        schema:
+          type: string
+    post:
+      operationId: CreateOrganisationInvitation
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                items: {}
+                type: array
+      description: Create a new invitation for an organisation.
+      summary: Create a new invitation for an organisation
+      tags:
+      - Invitation
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: organisationId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                emails:
+                  items:
+                    type: string
+                  type: array
+              required:
+              - emails
+              type: object
+  /invitations/projects:
+    get:
+      operationId: GetProjectInvitations
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/InvitationDocument'
+                type: array
+      description: Get all invitations for a project.
+      summary: Get all invitations for a project
+      tags:
+      - Invitation
+      security:
+      - jwt: []
+      parameters: []
+    post:
+      operationId: CreateProjectInvitation
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                items: {}
+                type: array
+      description: Create a new invitation for a project.
+      summary: Create a new invitation for a project
+      tags:
+      - Invitation
+      security:
+      - jwt: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                emails:
+                  items:
+                    type: string
+                  type: array
+              required:
+              - emails
+              type: object
+components:
+  schemas:
+    InferSchemaType_typeofinvitationSchema_:
+      $ref: '#/components/schemas/IfAny_typeofinvitationSchema.any.ObtainSchemaGeneric_typeofinvitationSchema.DocType__'
+    ObjectId:
+      type: string
+    Document:
+      $ref: '#/components/schemas/FlattenMaps_T_'
+      description: 'Generic types for Document:
+
+        *  T - the type of _id
+
+        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
+
+        *  DocType - the type of the actual Document created'
+    IfAny_typeofinvitationSchema.any.ObtainSchemaGeneric_typeofinvitationSchema.DocType__:
+      allOf:
+      - properties:
+          updatedAt:
+            $ref: '#/components/schemas/NativeDate'
+          createdAt:
+            $ref: '#/components/schemas/NativeDate'
+        required:
+        - updatedAt
+        - createdAt
+        type: object
+      - properties:
+          project:
+            properties:
+              isValid:
+                properties: {}
+                type: object
+              createFromHexString:
+                properties: {}
+                type: object
+              createFromTime:
+                properties: {}
+                type: object
+              generate:
+                properties: {}
+                type: object
+              cacheHexString: {}
+              prototype:
+                $ref: '#/components/schemas/ObjectId'
+            type: object
+          email:
+            type: string
+          organisation:
+            properties:
+              isValid:
+                properties: {}
+                type: object
+              createFromHexString:
+                properties: {}
+                type: object
+              createFromTime:
+                properties: {}
+                type: object
+              generate:
+                properties: {}
+                type: object
+              cacheHexString: {}
+              prototype:
+                $ref: '#/components/schemas/ObjectId'
+            type: object
+          role:
+            type: string
+          name:
+            type: string
+          type:
+            type: string
+            enum:
+            - organisation
+            - project
+        required:
+        - role
+        - name
+        - type
+        type: object
+    NativeDate:
+      type: string
+    InvitationDocument:
+      allOf:
+      - $ref: '#/components/schemas/Invitation'
+      - $ref: '#/components/schemas/Document'
+    FlattenMaps_T_:
+      properties: {}
+      type: object
+    Invitation:
+      $ref: '#/components/schemas/InferSchemaType_typeofinvitationSchema_'
+  securitySchemes:
+    jwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

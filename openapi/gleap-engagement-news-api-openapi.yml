@@ -1,0 +1,660 @@
+openapi: 3.0.0
+info:
+  title: Gleap AI content Engagement News API
+  version: 14.0.0
+  contact:
+    name: Gleap Support
+    email: hello@gleap.io
+    url: https://gleap.io
+  description: The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.
+  license:
+    name: Proprietary
+servers:
+- url: https://api.gleap.io/v3
+tags:
+- name: Engagement News
+paths:
+  /engagement/news:
+    post:
+      operationId: CreateNewsArticle
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OutboundDocument'
+      summary: Create a new engagement news article
+      tags:
+      - Engagement News
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {}
+    get:
+      operationId: GetNewsArticles
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/OutboundDocument'
+                type: array
+      summary: Get all engagement news articles
+      tags:
+      - Engagement News
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: withoutChangelogs
+        required: false
+        schema:
+          type: string
+  /engagement/news/{newsId}:
+    get:
+      operationId: GetNewsArticle
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OutboundDocument'
+      summary: Get an engagement news article
+      tags:
+      - Engagement News
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: newsId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+    put:
+      operationId: UpdateNewsArticle
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                allOf:
+                - properties:
+                    searchContent:
+                      type: string
+                    emailTemplate:
+                      properties:
+                        isValid:
+                          properties: {}
+                          type: object
+                        createFromHexString:
+                          properties: {}
+                          type: object
+                        createFromTime:
+                          properties: {}
+                          type: object
+                        generate:
+                          properties: {}
+                          type: object
+                        cacheHexString: {}
+                        prototype:
+                          $ref: '#/components/schemas/ObjectId'
+                      type: object
+                    sourceOutbound:
+                      properties:
+                        isValid:
+                          properties: {}
+                          type: object
+                        createFromHexString:
+                          properties: {}
+                          type: object
+                        createFromTime:
+                          properties: {}
+                          type: object
+                        generate:
+                          properties: {}
+                          type: object
+                        cacheHexString: {}
+                        prototype:
+                          $ref: '#/components/schemas/ObjectId'
+                      type: object
+                    trigger: {}
+                    pageFilterDelay:
+                      type: number
+                      format: double
+                    pageFilter:
+                      type: string
+                    eventTriggerDelay:
+                      type: number
+                      format: double
+                    eventTrigger:
+                      type: string
+                    actionType:
+                      type: string
+                    sentAt:
+                      type: string
+                      format: date-time
+                    stats: {}
+                    subject: {}
+                    coverImageUrl:
+                      type: string
+                    subType:
+                      type: string
+                    sender:
+                      properties:
+                        isValid:
+                          properties: {}
+                          type: object
+                        createFromHexString:
+                          properties: {}
+                          type: object
+                        createFromTime:
+                          properties: {}
+                          type: object
+                        generate:
+                          properties: {}
+                          type: object
+                        cacheHexString: {}
+                        prototype:
+                          $ref: '#/components/schemas/ObjectId'
+                      type: object
+                    project:
+                      properties:
+                        isValid:
+                          properties: {}
+                          type: object
+                        createFromHexString:
+                          properties: {}
+                          type: object
+                        createFromTime:
+                          properties: {}
+                          type: object
+                        generate:
+                          properties: {}
+                          type: object
+                        cacheHexString: {}
+                        prototype:
+                          $ref: '#/components/schemas/ObjectId'
+                      type: object
+                    data: {}
+                    conditions: {}
+                    config: {}
+                    message: {}
+                    aiSummaryOutdated:
+                      type: boolean
+                    aiSummary:
+                      type: string
+                    organisation:
+                      properties:
+                        isValid:
+                          properties: {}
+                          type: object
+                        createFromHexString:
+                          properties: {}
+                          type: object
+                        createFromTime:
+                          properties: {}
+                          type: object
+                        generate:
+                          properties: {}
+                          type: object
+                        cacheHexString: {}
+                        prototype:
+                          $ref: '#/components/schemas/ObjectId'
+                      type: object
+                    createdBy:
+                      properties:
+                        isValid:
+                          properties: {}
+                          type: object
+                        createFromHexString:
+                          properties: {}
+                          type: object
+                        createFromTime:
+                          properties: {}
+                          type: object
+                        generate:
+                          properties: {}
+                          type: object
+                        cacheHexString: {}
+                        prototype:
+                          $ref: '#/components/schemas/ObjectId'
+                      type: object
+                    startSendingAfter:
+                      type: string
+                      format: date-time
+                    stopSendingAfter:
+                      type: string
+                      format: date-time
+                    pageRules:
+                      items:
+                        properties:
+                          pageFilter:
+                            type: string
+                          pageFilterType:
+                            type: string
+                            enum:
+                            - is
+                            - contains
+                            - isnot
+                            - notcontains
+                            - startswith
+                            - endswith
+                            - empty
+                            - notempty
+                        required:
+                        - pageFilterType
+                        type: object
+                      type: array
+                    pageFilterType:
+                      type: string
+                      enum:
+                      - is
+                      - contains
+                      - isnot
+                      - notcontains
+                      - startswith
+                      - endswith
+                      - empty
+                      - notempty
+                    frequencyDays:
+                      type: number
+                      format: double
+                    frequency:
+                      type: string
+                    frequencyType:
+                      type: string
+                    format:
+                      type: string
+                    sent:
+                      type: boolean
+                    sound:
+                      type: boolean
+                    newTrigger:
+                      type: boolean
+                    tags:
+                      items:
+                        type: string
+                      type: array
+                    updatedAt:
+                      type: string
+                      format: date-time
+                    status:
+                      type: string
+                    targetAudience:
+                      type: string
+                    createdAt:
+                      type: string
+                      format: date-time
+                    hidden:
+                      type: boolean
+                    name:
+                      type: string
+                    type:
+                      type: string
+                  required:
+                  - startSendingAfter
+                  - stopSendingAfter
+                  - pageRules
+                  - pageFilterType
+                  - frequencyDays
+                  - frequency
+                  - frequencyType
+                  - format
+                  - sent
+                  - sound
+                  - newTrigger
+                  - tags
+                  - updatedAt
+                  - status
+                  - targetAudience
+                  - createdAt
+                  - hidden
+                  - name
+                  - type
+                  type: object
+                - $ref: '#/components/schemas/Document_any.any.any_'
+                - properties:
+                    _id:
+                      $ref: '#/components/schemas/ObjectId'
+                  required:
+                  - _id
+                  type: object
+      summary: Update a news article.
+      tags:
+      - Engagement News
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: newsId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {}
+    delete:
+      operationId: DeleteNewsArticle
+      responses:
+        '204':
+          description: No content
+      summary: Delete a news article.
+      tags:
+      - Engagement News
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: newsId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+components:
+  schemas:
+    Document_any.any.any_:
+      $ref: '#/components/schemas/FlattenMaps_T_'
+      description: 'Generic types for Document:
+
+        *  T - the type of _id
+
+        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
+
+        *  DocType - the type of the actual Document created'
+    InferSchemaType_typeofoutboundSchema_:
+      $ref: '#/components/schemas/IfAny_typeofoutboundSchema.any.ObtainSchemaGeneric_typeofoutboundSchema.DocType__'
+    OutboundDocument:
+      allOf:
+      - $ref: '#/components/schemas/OutboundI'
+      - $ref: '#/components/schemas/Document'
+    ObjectId:
+      type: string
+    Document:
+      $ref: '#/components/schemas/FlattenMaps_T_'
+      description: 'Generic types for Document:
+
+        *  T - the type of _id
+
+        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
+
+        *  DocType - the type of the actual Document created'
+    OutboundI:
+      $ref: '#/components/schemas/InferSchemaType_typeofoutboundSchema_'
+    FlattenMaps_T_:
+      properties: {}
+      type: object
+    IfAny_typeofoutboundSchema.any.ObtainSchemaGeneric_typeofoutboundSchema.DocType__:
+      properties:
+        searchContent:
+          type: string
+        emailTemplate:
+          properties:
+            isValid:
+              properties: {}
+              type: object
+            createFromHexString:
+              properties: {}
+              type: object
+            createFromTime:
+              properties: {}
+              type: object
+            generate:
+              properties: {}
+              type: object
+            cacheHexString: {}
+            prototype:
+              $ref: '#/components/schemas/ObjectId'
+          type: object
+        sourceOutbound:
+          properties:
+            isValid:
+              properties: {}
+              type: object
+            createFromHexString:
+              properties: {}
+              type: object
+            createFromTime:
+              properties: {}
+              type: object
+            generate:
+              properties: {}
+              type: object
+            cacheHexString: {}
+            prototype:
+              $ref: '#/components/schemas/ObjectId'
+          type: object
+        trigger: {}
+        pageFilterDelay:
+          type: number
+          format: double
+        pageFilter:
+          type: string
+        eventTriggerDelay:
+          type: number
+          format: double
+        eventTrigger:
+          type: string
+        actionType:
+          type: string
+        sentAt:
+          type: string
+          format: date-time
+        stats: {}
+        subject: {}
+        coverImageUrl:
+          type: string
+        subType:
+          type: string
+        sender:
+          properties:
+            isValid:
+              properties: {}
+              type: object
+            createFromHexString:
+              properties: {}
+              type: object
+            createFromTime:
+              properties: {}
+              type: object
+            generate:
+              properties: {}
+              type: object
+            cacheHexString: {}
+            prototype:
+              $ref: '#/components/schemas/ObjectId'
+          type: object
+        project:
+          properties:
+            isValid:
+              properties: {}
+              type: object
+            createFromHexString:
+              properties: {}
+              type: object
+            createFromTime:
+              properties: {}
+              type: object
+            generate:
+              properties: {}
+              type: object
+            cacheHexString: {}
+            prototype:
+              $ref: '#/components/schemas/ObjectId'
+          type: object
+        data: {}
+        conditions: {}
+        config: {}
+        message: {}
+        aiSummaryOutdated:
+          type: boolean
+        aiSummary:
+          type: string
+        organisation:
+          properties:
+            isValid:
+              properties: {}
+              type: object
+            createFromHexString:
+              properties: {}
+              type: object
+            createFromTime:
+              properties: {}
+              type: object
+            generate:
+              properties: {}
+              type: object
+            cacheHexString: {}
+            prototype:
+              $ref: '#/components/schemas/ObjectId'
+          type: object
+        createdBy:
+          properties:
+            isValid:
+              properties: {}
+              type: object
+            createFromHexString:
+              properties: {}
+              type: object
+            createFromTime:
+              properties: {}
+              type: object
+            generate:
+              properties: {}
+              type: object
+            cacheHexString: {}
+            prototype:
+              $ref: '#/components/schemas/ObjectId'
+          type: object
+        startSendingAfter:
+          type: string
+          format: date-time
+        stopSendingAfter:
+          type: string
+          format: date-time
+        pageRules:
+          items:
+            properties:
+              pageFilter:
+                type: string
+              pageFilterType:
+                type: string
+                enum:
+                - is
+                - contains
+                - isnot
+                - notcontains
+                - startswith
+                - endswith
+                - empty
+                - notempty
+            required:
+            - pageFilterType
+            type: object
+          type: array
+        pageFilterType:
+          type: string
+          enum:
+          - is
+          - contains
+          - isnot
+          - notcontains
+          - startswith
+          - endswith
+          - empty
+          - notempty
+        frequencyDays:
+          type: number
+          format: double
+        frequency:
+          type: string
+        frequencyType:
+          type: string
+        format:
+          type: string
+        sent:
+          type: boolean
+        sound:
+          type: boolean
+        newTrigger:
+          type: boolean
+        tags:
+          items:
+            type: string
+          type: array
+        updatedAt:
+          type: string
+          format: date-time
+        status:
+          type: string
+        targetAudience:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        hidden:
+          type: boolean
+        name:
+          type: string
+        type:
+          type: string
+      required:
+      - startSendingAfter
+      - stopSendingAfter
+      - pageRules
+      - pageFilterType
+      - frequencyDays
+      - frequency
+      - frequencyType
+      - format
+      - sent
+      - sound
+      - newTrigger
+      - tags
+      - updatedAt
+      - status
+      - targetAudience
+      - createdAt
+      - hidden
+      - name
+      - type
+      type: object
+  securitySchemes:
+    jwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

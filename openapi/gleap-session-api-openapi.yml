@@ -1,0 +1,1073 @@
+openapi: 3.0.0
+info:
+  title: Gleap AI content Session API
+  version: 14.0.0
+  contact:
+    name: Gleap Support
+    email: hello@gleap.io
+    url: https://gleap.io
+  description: The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.
+  license:
+    name: Proprietary
+servers:
+- url: https://api.gleap.io/v3
+tags:
+- name: Session
+paths:
+  /sessions:
+    post:
+      operationId: CreateSession
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      description: Create a new session and associate it with a project.
+      summary: Create a new session
+      tags:
+      - Session
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SessionDto'
+    get:
+      operationId: GetSessions
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                items: {}
+                type: array
+      description: Get all sessions associated with a project.
+      summary: Get all sessions
+      tags:
+      - Session
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /sessions/{sessionId}:
+    put:
+      operationId: UpdateSession
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      description: Update a session and associate it with a project.
+      summary: Update a session
+      tags:
+      - Session
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: sessionId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {}
+    get:
+      operationId: GetSession
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      description: Get a session by id.
+      summary: Get a session
+      tags:
+      - Session
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: sessionId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+    delete:
+      operationId: DeleteSession
+      responses:
+        '204':
+          description: No content
+      description: Delete a session by id.
+      summary: Delete a session
+      tags:
+      - Session
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: sessionId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /sessions/{sessionId}/resubscribe:
+    put:
+      operationId: ResubscribeSession
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: boolean
+      description: Resubscribe a session.
+      summary: Resubscribe a session
+      tags:
+      - Session
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: sessionId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties: {}
+              type: object
+  /sessions/search:
+    get:
+      operationId: SearchSessions
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                items: {}
+                type: array
+      description: Search for sessions.
+      summary: Search for sessions
+      tags:
+      - Session
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /sessions/export:
+    get:
+      operationId: ExportSessions
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      description: Export sessions.
+      summary: Export sessions
+      tags:
+      - Session
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /sessions/warmup:
+    post:
+      operationId: WarmupSessions
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                properties:
+                  ok:
+                    type: boolean
+                required:
+                - ok
+                type: object
+      description: 'Pre-warm OpenSearch shards + Redis list cache for the active project.
+
+        Fire-and-forget: returns {ok:true} immediately while the warmup runs in
+
+        the background. Triggered from the frontend right before a session query
+
+        is likely (sidebar hover, global search modal mount, RecipientPicker mount,
+
+        periodic refresh while on the Sessions page) so the user doesn''t pay the
+
+        cold-shard penalty on first interaction.'
+      summary: Pre-warm sessions cache for the active project
+      tags:
+      - Session
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /sessions/by-user-id/{userId}:
+    get:
+      operationId: FindSessionByUserId
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                allOf:
+                - properties:
+                    eventData: {}
+                    checklistTasks: {}
+                    outboundHistory: {}
+                    plan:
+                      type: string
+                    telegramUsername:
+                      type: string
+                    telegramChatId:
+                      type: string
+                    instagramUsername:
+                      type: string
+                    instagramId:
+                      type: string
+                    facebookId:
+                      type: string
+                    phone:
+                      type: string
+                    sla:
+                      type: number
+                      format: double
+                    companyName:
+                      type: string
+                    platform:
+                      type: string
+                    deviceType:
+                      type: string
+                    companyId:
+                      type: string
+                    avatar:
+                      type: string
+                    location: {}
+                    lastPageView: {}
+                    unsubscribedAt:
+                      type: string
+                      format: date-time
+                    unsubscribeReason:
+                      type: string
+                    lastFeedbackReport:
+                      type: string
+                      format: date-time
+                    lastActivity:
+                      type: string
+                      format: date-time
+                    lastHeardFrom:
+                      type: string
+                      format: date-time
+                    gleapHash:
+                      type: string
+                    gleapId:
+                      type: string
+                    customData: {}
+                    project:
+                      properties:
+                        isValid:
+                          properties: {}
+                          type: object
+                        createFromHexString:
+                          properties: {}
+                          type: object
+                        createFromTime:
+                          properties: {}
+                          type: object
+                        generate:
+                          properties: {}
+                          type: object
+                        cacheHexString: {}
+                        prototype:
+                          $ref: '#/components/schemas/ObjectId'
+                      type: object
+                    email:
+                      type: string
+                    userId:
+                      type: string
+                    organisation:
+                      properties:
+                        isValid:
+                          properties: {}
+                          type: object
+                        createFromHexString:
+                          properties: {}
+                          type: object
+                        createFromTime:
+                          properties: {}
+                          type: object
+                        generate:
+                          properties: {}
+                          type: object
+                        cacheHexString: {}
+                        prototype:
+                          $ref: '#/components/schemas/ObjectId'
+                      type: object
+                    name:
+                      type: string
+                    countFeedbackComments:
+                      type: number
+                      format: double
+                    countFeedbackReports:
+                      type: number
+                      format: double
+                    identityHistory:
+                      items:
+                        properties:
+                          changes:
+                            properties:
+                              email:
+                                properties:
+                                  to:
+                                    type: string
+                                  from:
+                                    type: string
+                                type: object
+                              userId:
+                                properties:
+                                  to:
+                                    type: string
+                                  from:
+                                    type: string
+                                type: object
+                              name:
+                                properties:
+                                  to:
+                                    type: string
+                                  from:
+                                    type: string
+                                type: object
+                            type: object
+                          by:
+                            properties:
+                              referer:
+                                type: string
+                              originalUrl:
+                                type: string
+                              hasApiKey:
+                                type: boolean
+                              userEmail:
+                                type: string
+                              source:
+                                type: string
+                              method:
+                                type: string
+                              userId:
+                                type: string
+                            type: object
+                          _id: {}
+                          at:
+                            type: string
+                            format: date-time
+                        required:
+                        - at
+                        type: object
+                      type: array
+                    memory:
+                      items:
+                        properties:
+                          actorUserId:
+                            properties:
+                              isValid:
+                                properties: {}
+                                type: object
+                              createFromHexString:
+                                properties: {}
+                                type: object
+                              createFromTime:
+                                properties: {}
+                                type: object
+                              generate:
+                                properties: {}
+                                type: object
+                              cacheHexString: {}
+                              prototype:
+                                $ref: '#/components/schemas/ObjectId'
+                            type: object
+                          actor:
+                            type: string
+                          updatedAt:
+                            type: string
+                            format: date-time
+                          createdAt:
+                            type: string
+                            format: date-time
+                          content:
+                            type: string
+                          description:
+                            type: string
+                          name:
+                            type: string
+                        required:
+                        - actor
+                        - updatedAt
+                        - createdAt
+                        - content
+                        - description
+                        - name
+                        type: object
+                      type: array
+                    tags:
+                      items:
+                        type: string
+                      type: array
+                    sessions:
+                      type: number
+                      format: double
+                    emailOnly:
+                      type: boolean
+                    blocked:
+                      type: boolean
+                    unsubscribed:
+                      type: boolean
+                    firstActivity:
+                      type: string
+                      format: date-time
+                    lang:
+                      type: string
+                    updatedAt:
+                      type: string
+                      format: date-time
+                    value:
+                      type: number
+                      format: double
+                    createdAt:
+                      type: string
+                      format: date-time
+                    _id:
+                      properties:
+                        isValid:
+                          properties: {}
+                          type: object
+                        createFromHexString:
+                          properties: {}
+                          type: object
+                        createFromTime:
+                          properties: {}
+                          type: object
+                        generate:
+                          properties: {}
+                          type: object
+                        cacheHexString: {}
+                        prototype:
+                          $ref: '#/components/schemas/ObjectId'
+                      type: object
+                  required:
+                  - countFeedbackComments
+                  - countFeedbackReports
+                  - identityHistory
+                  - memory
+                  - tags
+                  - sessions
+                  - emailOnly
+                  - blocked
+                  - unsubscribed
+                  - firstActivity
+                  - lang
+                  - updatedAt
+                  - value
+                  - createdAt
+                  - _id
+                  type: object
+                - $ref: '#/components/schemas/Document_any.any.any_'
+                - properties:
+                    _id:
+                      $ref: '#/components/schemas/ObjectId'
+                  required:
+                  - _id
+                  type: object
+      description: Get a session by user id.
+      summary: Get a session by user id
+      tags:
+      - Session
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /sessions/{sessionId}/activities:
+    get:
+      operationId: GetSessionActivities
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                items: {}
+                type: array
+      description: Get session activities by id.
+      summary: Get session activities
+      tags:
+      - Session
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: sessionId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /sessions/{sessionId}/events:
+    get:
+      operationId: GetSessionEvents
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                items: {}
+                type: array
+      description: Get session events by id.
+      summary: Get session events
+      tags:
+      - Session
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: sessionId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /sessions/importer:
+    post:
+      operationId: ImportSession
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                items:
+                  type: string
+                type: array
+      description: Import a session.
+      summary: Import a session
+      tags:
+      - Session
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {}
+  /sessions/importer/intercom:
+    post:
+      operationId: ImportSessionIntercom
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                items: {}
+                type: array
+      description: Import sessions from intercom.
+      summary: Import sessions from intercom
+      tags:
+      - Session
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImportIntercomSessionDto'
+  /sessions/importer/hubspot:
+    post:
+      operationId: ImportSessionHubspot
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                items: {}
+                type: array
+      description: Import sessions from HubSpot.
+      summary: Import sessions from HubSpot
+      tags:
+      - Session
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                apiKey:
+                  type: string
+              required:
+              - apiKey
+              type: object
+  /sessions/importer/zendesk:
+    post:
+      operationId: ImportSessionZendesk
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                items: {}
+                type: array
+      description: Import sessions (contacts) from Zendesk.
+      summary: Import sessions from Zendesk
+      tags:
+      - Session
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                apiToken:
+                  type: string
+                email:
+                  type: string
+                subdomain:
+                  type: string
+              required:
+              - apiToken
+              - email
+              - subdomain
+              type: object
+  /sessions/unsubscribe:
+    post:
+      operationId: UnsubscribeSessions
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                properties:
+                  success:
+                    type: boolean
+                required:
+                - success
+                type: object
+      description: Unsubscribe sessions.
+      summary: Unsubscribe sessions
+      tags:
+      - Session
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                reason:
+                  type: string
+                sessions:
+                  items:
+                    properties:
+                      userId:
+                        type: string
+                      email:
+                        type: string
+                    type: object
+                  type: array
+              required:
+              - sessions
+              type: object
+  /sessions/{sessionId}/checklists:
+    get:
+      operationId: GetChecklistsForSession
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                items: {}
+                type: array
+      description: Get checklists for a session.
+      summary: Get session checklists
+      tags:
+      - Session
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: sessionId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /sessions/{sessionId}/identity-history:
+    get:
+      operationId: GetSessionIdentityHistory
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                properties:
+                  history: {}
+                required:
+                - history
+                type: object
+      description: 'Get the identity-change history for a session — every recorded
+
+        mutation of email / name / userId on this contact record. Stripped
+
+        from default session responses (see session.model.ts toJSON), so
+
+        this is the only path that returns it.'
+      summary: Get session identity history
+      tags:
+      - Session
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: sessionId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /sessions/{sessionId}/stripe:
+    get:
+      operationId: FindSessionStripeInfo
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                properties: {}
+                type: object
+      description: Get Stripe information for a session.
+      summary: Get session Stripe info
+      tags:
+      - Session
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: sessionId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /sessions/{sessionId}/chargebee:
+    get:
+      operationId: FindSessionChargebeeInfo
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                properties: {}
+                type: object
+      description: Get Chargebee information for a session.
+      summary: Get session Chargebee info
+      tags:
+      - Session
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: sessionId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /sessions/{sessionId}/lemonsqueezy:
+    get:
+      operationId: FindSessionLemonSqueezyInfo
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                properties: {}
+                type: object
+      description: Get LemonSqueezy information for a session.
+      summary: Get session LemonSqueezy info
+      tags:
+      - Session
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: sessionId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /sessions/{sessionId}/shopify:
+    get:
+      operationId: FindSessionShopifyInfo
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                properties: {}
+                type: object
+      description: Get Shopify information for a session.
+      summary: Get session Shopify info
+      tags:
+      - Session
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: sessionId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+components:
+  schemas:
+    Document_any.any.any_:
+      $ref: '#/components/schemas/FlattenMaps_T_'
+      description: 'Generic types for Document:
+
+        *  T - the type of _id
+
+        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
+
+        *  DocType - the type of the actual Document created'
+    ObjectId:
+      type: string
+    ImportIntercomSessionDto:
+      properties:
+        endpoint:
+          type: string
+        apiKey:
+          type: string
+      required:
+      - endpoint
+      - apiKey
+      type: object
+      additionalProperties: false
+    Types.ObjectId:
+      type: string
+    SessionDto:
+      properties:
+        gleapId:
+          type: string
+        gleapHash:
+          type: string
+        lang:
+          type: string
+        firstActivity: {}
+        lastHeardFrom: {}
+        lastActivity: {}
+        lastFeedbackReport: {}
+        project:
+          $ref: '#/components/schemas/Types.ObjectId'
+        organisation:
+          $ref: '#/components/schemas/Types.ObjectId'
+        unsubscribed:
+          type: boolean
+        unsubscribedAt: {}
+        unsubscribeReason:
+          type: string
+        lastPageView: {}
+        userId:
+          type: string
+        name:
+          type: string
+        location: {}
+        email:
+          type: string
+        avatar:
+          type: string
+        companyId:
+          type: string
+        emailOnly:
+          type: boolean
+        companyName:
+          type: string
+        deviceType:
+          type: string
+        platform:
+          type: string
+        sla:
+          type: number
+          format: double
+        phone:
+          type: string
+        blocked:
+          type: boolean
+        plan:
+          type: string
+        value:
+          type: number
+          format: double
+        sessions:
+          type: number
+          format: double
+        facebookId:
+          type: string
+        instagramId:
+          type: string
+        instagramUsername:
+          type: string
+        telegramChatId:
+          type: string
+        telegramUsername:
+          type: string
+        outboundHistory: {}
+        countFeedbackReports:
+          type: number
+          format: double
+        countFeedbackComments:
+          type: number
+          format: double
+        tags:
+          items:
+            type: string
+          type: array
+        checklistTasks: {}
+        customData: {}
+        eventData: {}
+      type: object
+      additionalProperties: false
+    FlattenMaps_T_:
+      properties: {}
+      type: object
+  securitySchemes:
+    jwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

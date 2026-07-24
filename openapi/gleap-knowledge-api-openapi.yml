@@ -1,0 +1,171 @@
+openapi: 3.0.0
+info:
+  title: Gleap AI content Knowledge API
+  version: 14.0.0
+  contact:
+    name: Gleap Support
+    email: hello@gleap.io
+    url: https://gleap.io
+  description: The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.
+  license:
+    name: Proprietary
+servers:
+- url: https://api.gleap.io/v3
+tags:
+- name: Knowledge
+paths:
+  /knowledge/search:
+    post:
+      operationId: SearchKnowledge
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KnowledgeSearchResponse'
+      summary: Search knowledge documents
+      tags:
+      - Knowledge
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KnowledgeSearchDto'
+  /knowledge/similar-tickets:
+    post:
+      operationId: FindSimilarTickets
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SimilarTicketsResponse'
+      summary: Find similar tickets
+      tags:
+      - Knowledge
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SimilarTicketsSearchDto'
+components:
+  schemas:
+    KnowledgeSearchResponse:
+      properties:
+        results:
+          items:
+            $ref: '#/components/schemas/KnowledgeSearchResult'
+          type: array
+        count:
+          type: number
+          format: double
+      required:
+      - results
+      - count
+      type: object
+      additionalProperties: false
+    KnowledgeSearchDto:
+      properties:
+        query:
+          type: string
+        documentTypeFilter:
+          type: string
+        internally:
+          type: boolean
+        lang:
+          type: string
+        limit:
+          type: number
+          format: double
+      required:
+      - query
+      type: object
+      additionalProperties: false
+    SimilarTicketsResponse:
+      properties:
+        results:
+          items:
+            $ref: '#/components/schemas/SimilarTicketResult'
+          type: array
+        count:
+          type: number
+          format: double
+      required:
+      - results
+      - count
+      type: object
+      additionalProperties: false
+    SimilarTicketResult:
+      properties:
+        ticketId:
+          type: string
+        title:
+          type: string
+        similarity:
+          type: number
+          format: double
+        content:
+          type: string
+      required:
+      - ticketId
+      - title
+      - similarity
+      - content
+      type: object
+      additionalProperties: false
+    KnowledgeSearchResult:
+      properties:
+        sourceId:
+          type: string
+        sourceType:
+          type: string
+        title:
+          type: string
+        content:
+          type: string
+        url:
+          type: string
+      required:
+      - sourceId
+      - sourceType
+      - content
+      type: object
+      additionalProperties: false
+    SimilarTicketsSearchDto:
+      properties:
+        query:
+          type: string
+        excludeTicketId:
+          type: string
+        limit:
+          type: number
+          format: double
+      required:
+      - query
+      type: object
+      additionalProperties: false
+  securitySchemes:
+    jwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

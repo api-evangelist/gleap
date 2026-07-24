@@ -1,0 +1,606 @@
+openapi: 3.0.0
+info:
+  title: Gleap AI content User API
+  version: 14.0.0
+  contact:
+    name: Gleap Support
+    email: hello@gleap.io
+    url: https://gleap.io
+  description: The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.
+  license:
+    name: Proprietary
+servers:
+- url: https://api.gleap.io/v3
+tags:
+- name: User
+paths:
+  /users/me:
+    get:
+      operationId: GetMe
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDocument'
+      description: Get current user.
+      summary: Get current user.
+      tags:
+      - User
+      security:
+      - jwt: []
+      parameters: []
+  /users/me/reassign-tickets:
+    post:
+      operationId: ReassignTickets
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                properties:
+                  success:
+                    type: boolean
+                required:
+                - success
+                type: object
+      description: Reassign all tickets to the user.
+      summary: Reassign all tickets to the user.
+      tags:
+      - User
+      security:
+      - jwt: []
+      parameters: []
+  /users/unified-inbox:
+    get:
+      operationId: GetUnifiedInboxTickets
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Get unified inbox tickets
+      tags:
+      - User
+      security:
+      - jwt: []
+      parameters:
+      - in: query
+        name: type
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: filteredProjectId
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: page
+        required: false
+        schema:
+          format: double
+          type: number
+      - in: query
+        name: limit
+        required: false
+        schema:
+          format: double
+          type: number
+  /users/unified-inbox/{ticketId}:
+    get:
+      operationId: GetUnifiedInboxTicket
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Get unified inbox ticket
+      tags:
+      - User
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: ticketId
+        required: true
+        schema:
+          type: string
+  /users/{userId}:
+    put:
+      operationId: Update
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      description: Update user.
+      summary: Update user.
+      tags:
+      - User
+      security:
+      - jwt: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateUserDto'
+  /users/me/permissions:
+    get:
+      operationId: GetMyPermissions
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                properties:
+                  permissions:
+                    items:
+                      type: string
+                    type: array
+                  roles:
+                    items:
+                      type: string
+                    type: array
+                required:
+                - permissions
+                - roles
+                type: object
+      description: Get current user's role permissions.
+      summary: Get current user's role permissions.
+      tags:
+      - User
+      security:
+      - jwt: []
+      parameters: []
+  /users:
+    post:
+      operationId: Create
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      description: Authenticate user for Pusher session.
+      summary: Authenticate user for Pusher session.
+      tags:
+      - User
+      security: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUserDto'
+  /users/verify:
+    post:
+      operationId: Verify
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      description: Authenticate user for Pusher session.
+      summary: Authenticate user for Pusher session.
+      tags:
+      - User
+      security: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                code:
+                  type: string
+                email:
+                  type: string
+              required:
+              - code
+              - email
+              type: object
+  /users/resend:
+    post:
+      operationId: Resend
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: boolean
+      description: Resend a verification code to the user's email.
+      summary: Resend a verification code to the user's email.
+      tags:
+      - User
+      security: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                id:
+                  type: string
+              required:
+              - id
+              type: object
+  /users/me/session-auth:
+    post:
+      operationId: AuthenticateUserPusherSession
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      description: Authenticate user for Pusher session.
+      summary: Authenticate user for Pusher session.
+      tags:
+      - User
+      security: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                socket_id:
+                  type: string
+              required:
+              - socket_id
+              type: object
+  /users/me/session-channel-auth:
+    post:
+      operationId: AuthenticateUserPusherChannelSession
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      description: Authenticate user for Pusher session.
+      summary: Authenticate user for Pusher session.
+      tags:
+      - User
+      security: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                socket_id:
+                  type: string
+                channel_name:
+                  type: string
+              required:
+              - socket_id
+              - channel_name
+              type: object
+components:
+  schemas:
+    UserI:
+      allOf:
+      - $ref: '#/components/schemas/Omit_InferSchemaType_typeofuserSchema_.notificationPreferences_'
+      - properties:
+          notificationPreferences:
+            $ref: '#/components/schemas/NotificationPreferences'
+        required:
+        - notificationPreferences
+        type: object
+    NotificationPreferences:
+      properties:
+        all-ticket-messages:
+          $ref: '#/components/schemas/NotificationPreference'
+        all-sla-breached:
+          $ref: '#/components/schemas/NotificationPreference'
+        personal-ticket-messages:
+          $ref: '#/components/schemas/NotificationPreference'
+        all-created-tickets:
+          $ref: '#/components/schemas/NotificationPreference'
+        personal-assignment:
+          $ref: '#/components/schemas/NotificationPreference'
+        personal-mention:
+          $ref: '#/components/schemas/NotificationPreference'
+        team-ticket-messages:
+          $ref: '#/components/schemas/NotificationPreference'
+        team-ticket-assignment:
+          $ref: '#/components/schemas/NotificationPreference'
+      required:
+      - all-ticket-messages
+      - all-sla-breached
+      - personal-ticket-messages
+      - all-created-tickets
+      - personal-assignment
+      - personal-mention
+      - team-ticket-messages
+      - team-ticket-assignment
+      type: object
+      additionalProperties: false
+    Pick_InferSchemaType_typeofuserSchema_.Exclude_keyofInferSchemaType_typeofuserSchema_.notificationPreferences__:
+      properties:
+        _id:
+          properties:
+            isValid:
+              properties: {}
+              type: object
+            createFromHexString:
+              properties: {}
+              type: object
+            createFromTime:
+              properties: {}
+              type: object
+            generate:
+              properties: {}
+              type: object
+            cacheHexString: {}
+            prototype:
+              $ref: '#/components/schemas/ObjectId'
+          type: object
+        hidden:
+          type: boolean
+        createdAt:
+          $ref: '#/components/schemas/NativeDate'
+        email:
+          type: string
+        updatedAt:
+          $ref: '#/components/schemas/NativeDate'
+        userType:
+          $ref: '#/components/schemas/UserType'
+        identityProvider:
+          properties:
+            providerId:
+              type: string
+            userId:
+              type: string
+          type: object
+        password:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        profileImageUrl:
+          type: string
+        lastSeen:
+          type: string
+          format: date-time
+        lastAutoAssign:
+          type: string
+          format: date-time
+        available:
+          type: boolean
+        unavailableProjects:
+          items:
+            type: string
+          type: array
+        services:
+          properties:
+            default: {}
+          type: object
+        serviceAccountApiToken:
+          type: string
+        confirmed:
+          type: boolean
+        referral:
+          type: string
+        code:
+          type: string
+        codeCreatedAt:
+          type: string
+          format: date-time
+        otp:
+          type: string
+        otpCreatedAt:
+          type: string
+          format: date-time
+        userRole:
+          type: string
+        knewGleapFrom:
+          type: string
+        userUsage:
+          type: string
+        utm_source:
+          type: string
+        utm_medium:
+          type: string
+        utm_term:
+          type: string
+        utm_content:
+          type: string
+        utm_campaign:
+          type: string
+        gaClientId:
+          type: string
+        gaSessionId:
+          type: string
+        marketingTracking:
+          properties:
+            generateLeadTrackedAt:
+              type: string
+              format: date-time
+            signupTrackedAt:
+              type: string
+              format: date-time
+          type: object
+        completedOnboarding:
+          type: boolean
+        onboardingFlow:
+          type: string
+        mastercardUser:
+          type: boolean
+        fcmTokens:
+          items:
+            type: string
+          type: array
+        twoFactorAuthentication:
+          properties:
+            currentWebAuthnChallenge:
+              type: string
+            methods:
+              properties:
+                webAuthn:
+                  items:
+                    properties:
+                      counter:
+                        type: number
+                        format: double
+                      publicKey:
+                        type: string
+                      credentialID:
+                        type: string
+                      name:
+                        type: string
+                    type: object
+                  type: array
+              required:
+              - webAuthn
+              type: object
+            isEnabled:
+              type: boolean
+          type: object
+        notificationSettings:
+          properties:
+            preventNotificationsWhereICreator:
+              type: boolean
+            directlySendNotifications:
+              type: boolean
+            sendEmailOnlyWhenOffline:
+              type: boolean
+          required:
+          - preventNotificationsWhereICreator
+          - directlySendNotifications
+          - sendEmailOnlyWhenOffline
+          type: object
+      required:
+      - createdAt
+      - updatedAt
+      type: object
+      description: From T, pick a set of properties whose keys are in the union K
+    Omit_InferSchemaType_typeofuserSchema_.notificationPreferences_:
+      $ref: '#/components/schemas/Pick_InferSchemaType_typeofuserSchema_.Exclude_keyofInferSchemaType_typeofuserSchema_.notificationPreferences__'
+      description: Construct a type with the properties of T except for those in type K.
+    CreateUserDto:
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        referral:
+          type: string
+        utm_source:
+          type: string
+          nullable: true
+        utm_medium:
+          type: string
+          nullable: true
+        utm_term:
+          type: string
+          nullable: true
+        utm_content:
+          type: string
+          nullable: true
+        utm_campaign:
+          type: string
+          nullable: true
+        onboardingFlow:
+          type: string
+        turnstileToken:
+          type: string
+        gaClientId:
+          type: string
+        gaSessionId:
+          type: string
+      type: object
+      additionalProperties: false
+    UserType:
+      enum:
+      - default
+      - sso
+      - service_account
+      type: string
+    ObjectId:
+      type: string
+    UpdateUserDto:
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        userRole:
+          type: string
+        knewGleapFrom:
+          type: string
+        userUsage:
+          type: string
+        profileImageUrl:
+          type: string
+        completedOnboarding:
+          type: boolean
+        oldpassword:
+          type: string
+        available:
+          type: boolean
+        unavailableProjects:
+          items:
+            type: string
+          type: array
+        notificationPreferences: {}
+        notificationSettings: {}
+      type: object
+      additionalProperties: false
+    Document:
+      $ref: '#/components/schemas/FlattenMaps_T_'
+      description: 'Generic types for Document:
+
+        *  T - the type of _id
+
+        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
+
+        *  DocType - the type of the actual Document created'
+    UserDocument:
+      allOf:
+      - $ref: '#/components/schemas/UserI'
+      - $ref: '#/components/schemas/Document'
+    NativeDate:
+      type: string
+    FlattenMaps_T_:
+      properties: {}
+      type: object
+    NotificationPreference:
+      properties:
+        push:
+          type: boolean
+        inApp:
+          type: boolean
+        email:
+          type: boolean
+      required:
+      - push
+      - inApp
+      - email
+      type: object
+      additionalProperties: false
+  securitySchemes:
+    jwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

@@ -1,0 +1,340 @@
+openapi: 3.0.0
+info:
+  title: Gleap AI content Help center articles API
+  version: 14.0.0
+  contact:
+    name: Gleap Support
+    email: hello@gleap.io
+    url: https://gleap.io
+  description: The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.
+  license:
+    name: Proprietary
+servers:
+- url: https://api.gleap.io/v3
+tags:
+- name: Help center articles
+paths:
+  /helpcenter/collections/{helpcenterCollectionId}/articles:
+    post:
+      operationId: CreateHelpcenterArticle
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HelpcenterArticleDocument'
+      summary: Create a new article
+      tags:
+      - Help center articles
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HelpcenterArticleDto'
+    get:
+      operationId: GetHelpcenterArticles
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/HelpcenterArticleDocument'
+                type: array
+      summary: Get all articles
+      tags:
+      - Help center articles
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /helpcenter/collections/{helpcenterCollectionId}/articles/{helpcenterArticleId}:
+    get:
+      operationId: GetHelpcenterArticleItem
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HelpcenterArticleDocument'
+      summary: Get an article
+      tags:
+      - Help center articles
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: helpcenterArticleId
+        required: true
+        schema:
+          type: string
+    put:
+      operationId: UpdateHelpcenterArticleItem
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HelpcenterArticleDocument'
+      summary: Update an article
+      tags:
+      - Help center articles
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: helpcenterArticleId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HelpcenterArticleDto'
+    delete:
+      operationId: DeleteHelpcenterArticleItem
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                properties:
+                  success:
+                    type: boolean
+                required:
+                - success
+                type: object
+      summary: Delete an article
+      tags:
+      - Help center articles
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: helpcenterArticleId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /helpcenter/collections/{helpcenterCollectionId}/articles/{helpcenterArticleId}/move:
+    put:
+      operationId: MoveHelpcenterArticleItem
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HelpcenterArticleDocument'
+      summary: Move an article
+      tags:
+      - Help center articles
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: helpcenterArticleId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                newCollectionId:
+                  type: string
+              required:
+              - newCollectionId
+              type: object
+components:
+  schemas:
+    HelpcenterArticleI:
+      $ref: '#/components/schemas/InferSchemaType_typeofhelpcenterArticleSchema_'
+    IfAny_typeofhelpcenterArticleSchema.any.ObtainSchemaGeneric_typeofhelpcenterArticleSchema.DocType__:
+      allOf:
+      - properties:
+          updatedAt:
+            $ref: '#/components/schemas/NativeDate'
+          createdAt:
+            $ref: '#/components/schemas/NativeDate'
+        required:
+        - updatedAt
+        - createdAt
+        type: object
+      - properties:
+          extendedAudienceFilter: {}
+          baseAudienceFilter: {}
+          docId:
+            type: number
+            format: double
+          author:
+            properties:
+              isValid:
+                properties: {}
+                type: object
+              createFromHexString:
+                properties: {}
+                type: object
+              createFromTime:
+                properties: {}
+                type: object
+              generate:
+                properties: {}
+                type: object
+              cacheHexString: {}
+              prototype:
+                $ref: '#/components/schemas/ObjectId'
+            type: object
+          helpcenterCollection:
+            properties:
+              isValid:
+                properties: {}
+                type: object
+              createFromHexString:
+                properties: {}
+                type: object
+              createFromTime:
+                properties: {}
+                type: object
+              generate:
+                properties: {}
+                type: object
+              cacheHexString: {}
+              prototype:
+                $ref: '#/components/schemas/ObjectId'
+            type: object
+          upvotes: {}
+          plainContent: {}
+          lexorank:
+            type: string
+          project:
+            properties:
+              isValid:
+                properties: {}
+                type: object
+              createFromHexString:
+                properties: {}
+                type: object
+              createFromTime:
+                properties: {}
+                type: object
+              generate:
+                properties: {}
+                type: object
+              cacheHexString: {}
+              prototype:
+                $ref: '#/components/schemas/ObjectId'
+            type: object
+          externalId:
+            type: string
+          content: {}
+          title: {}
+          description: {}
+          sourceUsage:
+            type: number
+            format: double
+          isDraft:
+            type: boolean
+          tags:
+            items:
+              type: string
+            type: array
+          targetAudience:
+            type: string
+        required:
+        - sourceUsage
+        - isDraft
+        - tags
+        - targetAudience
+        type: object
+    HelpcenterArticleDocument:
+      allOf:
+      - $ref: '#/components/schemas/HelpcenterArticleI'
+      - $ref: '#/components/schemas/Document'
+    ObjectId:
+      type: string
+    Document:
+      $ref: '#/components/schemas/FlattenMaps_T_'
+      description: 'Generic types for Document:
+
+        *  T - the type of _id
+
+        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
+
+        *  DocType - the type of the actual Document created'
+    NativeDate:
+      type: string
+    Types.ObjectId:
+      type: string
+    FlattenMaps_T_:
+      properties: {}
+      type: object
+    HelpcenterArticleDto:
+      properties:
+        title: {}
+        description: {}
+        content: {}
+        plainContent: {}
+        helpcenterCollection:
+          $ref: '#/components/schemas/Types.ObjectId'
+        author:
+          $ref: '#/components/schemas/Types.ObjectId'
+        project:
+          $ref: '#/components/schemas/Types.ObjectId'
+        isDraft:
+          type: boolean
+          default: true
+        docId:
+          type: number
+          format: double
+        lexorank:
+          type: string
+        upvotes: {}
+        targetAudience:
+          type: string
+          default: all
+        externalId:
+          type: string
+        baseAudienceFilter: {}
+        extendedAudienceFilter: {}
+        tags:
+          items:
+            type: string
+          type: array
+        newCollectionId:
+          type: string
+      type: object
+      additionalProperties: false
+    InferSchemaType_typeofhelpcenterArticleSchema_:
+      $ref: '#/components/schemas/IfAny_typeofhelpcenterArticleSchema.any.ObtainSchemaGeneric_typeofhelpcenterArticleSchema.DocType__'
+  securitySchemes:
+    jwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

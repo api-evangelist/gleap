@@ -1,0 +1,144 @@
+openapi: 3.0.0
+info:
+  title: Gleap AI content Engagement Product Tour API
+  version: 14.0.0
+  contact:
+    name: Gleap Support
+    email: hello@gleap.io
+    url: https://gleap.io
+  description: The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.
+  license:
+    name: Proprietary
+servers:
+- url: https://api.gleap.io/v3
+tags:
+- name: Engagement Product Tour
+paths:
+  /engagement/product-tours:
+    post:
+      operationId: CreateEngagementProductTour
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Create a new product tour
+      tags:
+      - Engagement Product Tour
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {}
+    get:
+      operationId: GetEngagementProductTours
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Get all product tours
+      tags:
+      - Engagement Product Tour
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /engagement/product-tours/{productTourId}:
+    put:
+      operationId: UpdateEngagementProductTour
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Update a product tour
+      tags:
+      - Engagement Product Tour
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: productTourId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {}
+    delete:
+      operationId: DeleteEngagementProductTour
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Delete a product tour
+      tags:
+      - Engagement Product Tour
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: productTourId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+    get:
+      operationId: GetEngagementProductTour
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Get a product tour
+      tags:
+      - Engagement Product Tour
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: productTourId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+components:
+  securitySchemes:
+    jwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

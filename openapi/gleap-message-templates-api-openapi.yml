@@ -1,0 +1,308 @@
+openapi: 3.0.0
+info:
+  title: Gleap AI content Message templates API
+  version: 14.0.0
+  contact:
+    name: Gleap Support
+    email: hello@gleap.io
+    url: https://gleap.io
+  description: The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.
+  license:
+    name: Proprietary
+servers:
+- url: https://api.gleap.io/v3
+tags:
+- name: Message templates
+paths:
+  /message-templates:
+    post:
+      operationId: CreateMessageTemplate
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageTemplateDocument'
+      description: Create a new message template.
+      summary: Create a new message template.
+      tags:
+      - Message templates
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MessageTemplateDTO'
+    get:
+      operationId: FindMessageTemplates
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                anyOf:
+                - items:
+                    $ref: '#/components/schemas/MessageTemplateDocument'
+                  type: array
+                - properties:
+                    totalCount:
+                      type: number
+                      format: double
+                    data:
+                      items:
+                        $ref: '#/components/schemas/MessageTemplateDocument'
+                      type: array
+                  required:
+                  - totalCount
+                  - data
+                  type: object
+      description: Find all message templates of a project.
+      summary: Find all message templates.
+      tags:
+      - Message templates
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: limit
+        required: false
+        schema:
+          format: double
+          type: number
+      - in: query
+        name: skip
+        required: false
+        schema:
+          format: double
+          type: number
+      - in: query
+        name: searchTerm
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: visibility
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: withCount
+        required: false
+        schema:
+          type: boolean
+  /message-templates/{messageTemplateId}:
+    get:
+      operationId: FindMessageTemplateById
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageTemplateDocument'
+      description: Find all message templates of a project.
+      summary: Find all message templates.
+      tags:
+      - Message templates
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: messageTemplateId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+    put:
+      operationId: UpdateTeam
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageTemplateDocument'
+      description: Update a message template.
+      summary: Update a message template.
+      tags:
+      - Message templates
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: messageTemplateId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MessageTemplateDTO'
+    delete:
+      operationId: DeleteMessageTemplate
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageTemplateDocument'
+      description: Delete a message template.
+      summary: Delete a message template
+      tags:
+      - Message templates
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: messageTemplateId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+components:
+  schemas:
+    MessageTemplateDTO:
+      properties:
+        title:
+          type: string
+        content: {}
+        lexorank:
+          type: string
+        isPublic:
+          type: boolean
+        users:
+          items:
+            type: string
+          type: array
+        attachments:
+          items: {}
+          type: array
+        actions:
+          items:
+            properties:
+              data: {}
+              type:
+                type: string
+            required:
+            - type
+            type: object
+          type: array
+      required:
+      - title
+      - content
+      - lexorank
+      type: object
+      additionalProperties: false
+    InferSchemaType_typeofmessageTemplateSchema_:
+      $ref: '#/components/schemas/IfAny_typeofmessageTemplateSchema.any.ObtainSchemaGeneric_typeofmessageTemplateSchema.DocType__'
+    ObjectId:
+      type: string
+    Document:
+      $ref: '#/components/schemas/FlattenMaps_T_'
+      description: 'Generic types for Document:
+
+        *  T - the type of _id
+
+        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
+
+        *  DocType - the type of the actual Document created'
+    NativeDate:
+      type: string
+    MessageTemplateDocument:
+      allOf:
+      - $ref: '#/components/schemas/MessageTemplate'
+      - $ref: '#/components/schemas/Document'
+    MessageTemplate:
+      $ref: '#/components/schemas/InferSchemaType_typeofmessageTemplateSchema_'
+    FlattenMaps_T_:
+      properties: {}
+      type: object
+    IfAny_typeofmessageTemplateSchema.any.ObtainSchemaGeneric_typeofmessageTemplateSchema.DocType__:
+      allOf:
+      - properties:
+          updatedAt:
+            $ref: '#/components/schemas/NativeDate'
+          createdAt:
+            $ref: '#/components/schemas/NativeDate'
+        required:
+        - updatedAt
+        - createdAt
+        type: object
+      - properties:
+          lexorank:
+            type: string
+          project:
+            properties:
+              isValid:
+                properties: {}
+                type: object
+              createFromHexString:
+                properties: {}
+                type: object
+              createFromTime:
+                properties: {}
+                type: object
+              generate:
+                properties: {}
+                type: object
+              cacheHexString: {}
+              prototype:
+                $ref: '#/components/schemas/ObjectId'
+            type: object
+          content: {}
+          title:
+            type: string
+          actions:
+            items: {}
+            type: array
+          attachments:
+            items: {}
+            type: array
+          isPublic:
+            type: boolean
+          users:
+            items:
+              $ref: '#/components/schemas/ObjectId'
+            type: array
+        required:
+        - actions
+        - attachments
+        - isPublic
+        - users
+        type: object
+  securitySchemes:
+    jwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

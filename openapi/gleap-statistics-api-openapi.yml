@@ -1,0 +1,767 @@
+openapi: 3.0.0
+info:
+  title: Gleap AI content Statistics API
+  version: 14.0.0
+  contact:
+    name: Gleap Support
+    email: hello@gleap.io
+    url: https://gleap.io
+  description: The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.
+  license:
+    name: Proprietary
+servers:
+- url: https://api.gleap.io/v3
+tags:
+- name: Statistics
+paths:
+  /statistics/bar-chart:
+    get:
+      operationId: GetChartData
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      description: Get bar chart data for various statistics
+      tags:
+      - Statistics
+      security:
+      - jwt: []
+      parameters:
+      - description: '- Type of chart data to retrieve (e.g., NEW_TICKETS_COUNT, MEDIAN_FIRST_RESPONSE_TIME)'
+        in: query
+        name: chartType
+        required: true
+        schema: {}
+      - description: '- Timezone for date calculations (e.g., "America/New_York")'
+        in: query
+        name: timezone
+        required: false
+        schema:
+          type: string
+      - description: '- Grouping interval ("day", "month", "year")'
+        in: query
+        name: groupInterval
+        required: false
+        schema:
+          type: string
+          enum:
+          - day
+          - month
+          - year
+      - in: query
+        name: skip
+        required: false
+        schema:
+          format: double
+          type: number
+      - in: query
+        name: limit
+        required: false
+        schema:
+          format: double
+          type: number
+      - in: query
+        name: groupedBy
+        required: false
+        schema:
+          type: string
+      - description: '- Aggregation type ("MEDIAN", "AVERAGE")'
+        in: query
+        name: aggsType
+        required: false
+        schema:
+          type: string
+      - description: '- Start date for filtering (ISO format)'
+        in: query
+        name: startDate
+        required: false
+        schema:
+          type: string
+      - description: '- End date for filtering (ISO format)'
+        in: query
+        name: endDate
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: createdAt
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: updatedAt
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: outbound
+        required: false
+        schema:
+          type: string
+  /statistics/facts:
+    get:
+      operationId: GetFactData
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      description: Get fact data for various statistics
+      tags:
+      - Statistics
+      security:
+      - jwt: []
+      parameters:
+      - description: '- Type of fact data to retrieve (e.g., NEW_TICKETS_COUNT, MEDIAN_TIME_TO_CLOSE)'
+        in: query
+        name: chartType
+        required: true
+        schema: {}
+      - description: '- Timezone for date calculations'
+        in: query
+        name: timezone
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: groupInterval
+        required: false
+        schema:
+          type: string
+          enum:
+          - day
+          - month
+          - year
+      - in: query
+        name: skip
+        required: false
+        schema:
+          format: double
+          type: number
+      - in: query
+        name: limit
+        required: false
+        schema:
+          format: double
+          type: number
+      - in: query
+        name: groupedBy
+        required: false
+        schema:
+          type: string
+      - description: '- Aggregation type ("MEDIAN", "AVERAGE")'
+        in: query
+        name: aggsType
+        required: false
+        schema:
+          type: string
+      - description: '- Start date for filtering (ISO format)'
+        in: query
+        name: startDate
+        required: false
+        schema:
+          type: string
+      - description: '- End date for filtering (ISO format)'
+        in: query
+        name: endDate
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: createdAt
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: updatedAt
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: outbound
+        required: false
+        schema:
+          type: string
+  /statistics/lists:
+    get:
+      operationId: GetListData
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      description: Get list data for various statistics
+      tags:
+      - Statistics
+      security:
+      - jwt: []
+      parameters:
+      - description: '- Type of list data to retrieve (e.g., TEAM_PERFORMANCE_LIST, ARTICLE_SEARCH_RESULT_LIST)'
+        in: query
+        name: chartType
+        required: true
+        schema: {}
+      - description: '- Timezone for date calculations'
+        in: query
+        name: timezone
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: groupInterval
+        required: false
+        schema:
+          type: string
+          enum:
+          - day
+          - month
+          - year
+      - description: '- Number of records to skip (pagination)'
+        in: query
+        name: skip
+        required: false
+        schema:
+          format: double
+          type: number
+      - description: '- Maximum number of records to return'
+        in: query
+        name: limit
+        required: false
+        schema:
+          format: double
+          type: number
+      - in: query
+        name: groupedBy
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: aggsType
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: startDate
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: endDate
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: createdAt
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: updatedAt
+        required: false
+        schema:
+          type: string
+      - description: '- Whether to use working hours calculations'
+        in: query
+        name: useWorkingHours
+        required: false
+        schema:
+          type: boolean
+  /statistics/lists/export:
+    get:
+      operationId: ExportListData
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      description: Export list data as CSV
+      tags:
+      - Statistics
+      security:
+      - jwt: []
+      parameters:
+      - description: '- Type of list data to export (e.g., TEAM_PERFORMANCE_LIST)'
+        in: query
+        name: chartType
+        required: true
+        schema: {}
+      - description: '- Timezone for date calculations'
+        in: query
+        name: timezone
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: groupInterval
+        required: false
+        schema:
+          type: string
+          enum:
+          - day
+          - month
+          - year
+      - in: query
+        name: skip
+        required: false
+        schema:
+          format: double
+          type: number
+      - in: query
+        name: limit
+        required: false
+        schema:
+          format: double
+          type: number
+      - in: query
+        name: groupedBy
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: aggsType
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: startDate
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: endDate
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: createdAt
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: updatedAt
+        required: false
+        schema:
+          type: string
+      - description: '- Whether to use working hours calculations'
+        in: query
+        name: useWorkingHours
+        required: false
+        schema:
+          type: boolean
+  /statistics/heatmap:
+    get:
+      operationId: GetHeatmapData
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      description: Get heatmap data for activity patterns
+      tags:
+      - Statistics
+      security:
+      - jwt: []
+      parameters:
+      - description: '- Type of heatmap data (BUSIEST_HOURS_PER_WEEKDAY, BUSIEST_COMMENTS_PER_WEEKDAY)'
+        in: query
+        name: chartType
+        required: true
+        schema:
+          $ref: '#/components/schemas/HeatmapTypes'
+      - description: '- Timezone for date calculations'
+        in: query
+        name: timezone
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: groupInterval
+        required: false
+        schema:
+          type: string
+          enum:
+          - day
+          - month
+          - year
+      - in: query
+        name: skip
+        required: false
+        schema:
+          format: double
+          type: number
+      - in: query
+        name: limit
+        required: false
+        schema:
+          format: double
+          type: number
+      - in: query
+        name: groupedBy
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: aggsType
+        required: false
+        schema:
+          type: string
+      - description: '- Start date for filtering (ISO format)'
+        in: query
+        name: startDate
+        required: false
+        schema:
+          type: string
+      - description: '- End date for filtering (ISO format)'
+        in: query
+        name: endDate
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: createdAt
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: updatedAt
+        required: false
+        schema:
+          type: string
+  /statistics/email-overview:
+    get:
+      operationId: GetEmailOverviewStats
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      description: Get email overview statistics
+      tags:
+      - Statistics
+      security:
+      - jwt: []
+      parameters:
+      - description: '- Timezone for date calculations'
+        in: query
+        name: timezone
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: groupInterval
+        required: false
+        schema:
+          type: string
+          enum:
+          - day
+          - month
+          - year
+      - in: query
+        name: skip
+        required: false
+        schema:
+          format: double
+          type: number
+      - in: query
+        name: limit
+        required: false
+        schema:
+          format: double
+          type: number
+      - in: query
+        name: groupedBy
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: aggsType
+        required: false
+        schema:
+          type: string
+      - description: '- Start date for filtering (ISO format)'
+        in: query
+        name: startDate
+        required: false
+        schema:
+          type: string
+      - description: '- End date for filtering (ISO format)'
+        in: query
+        name: endDate
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: createdAt
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: updatedAt
+        required: false
+        schema:
+          type: string
+      - description: '- Specific email server key'
+        in: query
+        name: emailServerKey
+        required: false
+        schema:
+          type: string
+  /statistics/email-client-usage:
+    get:
+      operationId: GetEmailClientUsageStats
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      description: Get email client usage statistics
+      tags:
+      - Statistics
+      security:
+      - jwt: []
+      parameters:
+      - description: '- Timezone for date calculations'
+        in: query
+        name: timezone
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: groupInterval
+        required: false
+        schema:
+          type: string
+          enum:
+          - day
+          - month
+          - year
+      - in: query
+        name: skip
+        required: false
+        schema:
+          format: double
+          type: number
+      - in: query
+        name: limit
+        required: false
+        schema:
+          format: double
+          type: number
+      - in: query
+        name: groupedBy
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: aggsType
+        required: false
+        schema:
+          type: string
+      - description: '- Start date for filtering (ISO format)'
+        in: query
+        name: startDate
+        required: false
+        schema:
+          type: string
+      - description: '- End date for filtering (ISO format)'
+        in: query
+        name: endDate
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: createdAt
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: updatedAt
+        required: false
+        schema:
+          type: string
+      - description: '- Specific email server key'
+        in: query
+        name: emailServerKey
+        required: false
+        schema:
+          type: string
+  /statistics/email-client-bounces:
+    get:
+      operationId: GetEmailClientBouncesStats
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      description: Get email client bounce statistics
+      tags:
+      - Statistics
+      security:
+      - jwt: []
+      parameters:
+      - description: '- Timezone for date calculations'
+        in: query
+        name: timezone
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: groupInterval
+        required: false
+        schema:
+          type: string
+          enum:
+          - day
+          - month
+          - year
+      - in: query
+        name: skip
+        required: false
+        schema:
+          format: double
+          type: number
+      - in: query
+        name: limit
+        required: false
+        schema:
+          format: double
+          type: number
+      - in: query
+        name: groupedBy
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: aggsType
+        required: false
+        schema:
+          type: string
+      - description: '- Start date for filtering (ISO format)'
+        in: query
+        name: startDate
+        required: false
+        schema:
+          type: string
+      - description: '- End date for filtering (ISO format)'
+        in: query
+        name: endDate
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: createdAt
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: updatedAt
+        required: false
+        schema:
+          type: string
+      - description: '- Specific email server key'
+        in: query
+        name: emailServerKey
+        required: false
+        schema:
+          type: string
+  /statistics/raw-data:
+    get:
+      operationId: GetRawStatistics
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      description: Get raw statistics data
+      tags:
+      - Statistics
+      security:
+      - jwt: []
+      parameters:
+      - description: '- Timezone for date calculations'
+        in: query
+        name: timezone
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: groupInterval
+        required: false
+        schema:
+          type: string
+          enum:
+          - day
+          - month
+          - year
+      - in: query
+        name: skip
+        required: false
+        schema:
+          format: double
+          type: number
+      - in: query
+        name: limit
+        required: false
+        schema:
+          format: double
+          type: number
+      - in: query
+        name: groupedBy
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: aggsType
+        required: false
+        schema:
+          type: string
+      - description: '- Start date for filtering (ISO format)'
+        in: query
+        name: startDate
+        required: false
+        schema:
+          type: string
+      - description: '- End date for filtering (ISO format)'
+        in: query
+        name: endDate
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: createdAt
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: updatedAt
+        required: false
+        schema:
+          type: string
+      - description: '- Type of raw data to retrieve'
+        in: query
+        name: type
+        required: false
+        schema:
+          type: string
+components:
+  schemas:
+    HeatmapTypes:
+      enum:
+      - BUSIEST_HOURS_PER_WEEKDAY
+      - BUSIEST_COMMENTS_PER_WEEKDAY
+      type: string
+  securitySchemes:
+    jwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

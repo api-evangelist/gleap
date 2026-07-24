@@ -1,0 +1,483 @@
+openapi: 3.0.0
+info:
+  title: Gleap AI content Messages API
+  version: 14.0.0
+  contact:
+    name: Gleap Support
+    email: hello@gleap.io
+    url: https://gleap.io
+  description: The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.
+  license:
+    name: Proprietary
+servers:
+- url: https://api.gleap.io/v3
+tags:
+- name: Messages
+paths:
+  /messages:
+    post:
+      operationId: CreateMessage
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+              examples:
+                Example 1:
+                  value:
+                    ticket: 507f1f77bcf86cd799439011
+                    comment:
+                      type: paragraph
+                      content:
+                      - type: text
+                        text: Thank you for reporting this issue. We are looking into it.
+                    type: COMMENT
+                    bot: false
+                    attachments:
+                    - name: screenshot.png
+                      url: https://example.com/screenshots/screenshot.png
+                      type: image/png
+      description: Create a new message
+      summary: Create a new message
+      tags:
+      - Messages
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateMessageDto'
+    get:
+      operationId: GetMessages
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                anyOf:
+                - items: {}
+                  type: array
+                - properties:
+                    nextBefore: {}
+                    hasMore:
+                      type: boolean
+                    items:
+                      items: {}
+                      type: array
+                  required:
+                  - nextBefore
+                  - hasMore
+                  - items
+                  type: object
+              examples:
+                Example 1:
+                  value:
+                  - _id: 507f1f77bcf86cd799439015
+                    id: 507f1f77bcf86cd799439015
+                    ticket: 507f1f77bcf86cd799439011
+                    comment:
+                      type: doc
+                      content:
+                      - type: paragraph
+                        content:
+                        - type: text
+                          text: This is a sample message content.
+                    type: COMMENT
+                    bot: false
+                    user:
+                      _id: 507f1f77bcf86cd799439012
+                      email: support@example.com
+                      firstName: John
+                      lastName: Doe
+                    session:
+                      _id: 507f1f77bcf86cd799439013
+                      email: user@example.com
+                    createdAt: '2024-01-15T10:30:00.000Z'
+                    updatedAt: '2024-01-15T10:30:00.000Z'
+                    index: 0
+                  - _id: 507f1f77bcf86cd799439016
+                    id: 507f1f77bcf86cd799439016
+                    ticket: 507f1f77bcf86cd799439011
+                    comment:
+                      type: doc
+                      content:
+                      - type: paragraph
+                        content:
+                        - type: text
+                          text: Thank you for the update!
+                    type: COMMENT
+                    bot: false
+                    user:
+                      _id: 507f1f77bcf86cd799439017
+                      email: user@example.com
+                      firstName: Jane
+                      lastName: Smith
+                    session:
+                      _id: 507f1f77bcf86cd799439013
+                      email: user@example.com
+                    createdAt: '2024-01-15T11:00:00.000Z'
+                    updatedAt: '2024-01-15T11:00:00.000Z'
+                    index: 1
+      description: 'Get messages by query with support for filtering, sorting, and pagination.
+
+
+        **Filtering:**
+
+        - Filter by ticket: `ticket=507f1f77bcf86cd799439011`
+
+        - Filter by type: `type=COMMENT` or `type=COMMENT,NOTE`
+
+        - Filter by bot messages: `bot=true` or `bot=false`
+
+        - Filter by date range: `createdAt>=2024-01-01&createdAt<=2024-12-31`
+
+
+        **Sorting:**
+
+        - Sort by creation date: `sort=-createdAt` (newest first) or `sort=createdAt` (oldest first)
+
+        - Sort by updated date: `sort=-updatedAt`
+
+
+        **Pagination:**
+
+        - Limit results: `limit=50` (default up to 10000)
+
+        - Skip results: `skip=0` (for pagination: `skip=(page-1)*limit`)
+
+
+        **Translation:**
+
+        - Auto-translate messages: `language=es` (language code for target language)'
+      summary: Find messages by query
+      tags:
+      - Messages
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: paginated
+        required: false
+        schema:
+          type: boolean
+      - in: query
+        name: before
+        required: false
+        schema:
+          type: string
+      - description: '- Maximum number of messages to return (default: no limit, max: 10000)'
+        in: query
+        name: limit
+        required: false
+        schema:
+          format: double
+          type: number
+        example: '50'
+      - in: query
+        name: showHistory
+        required: false
+        schema:
+          type: boolean
+  /messages/search:
+    get:
+      operationId: SearchMessages
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                properties:
+                  hits: {}
+                required:
+                - hits
+                type: object
+      description: Search messages
+      summary: Search messages
+      tags:
+      - Messages
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: searchTerm
+        required: true
+        schema:
+          type: string
+  /messages/{messageId}:
+    put:
+      operationId: UpdateMessage
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      description: Update a message
+      summary: Update a message
+      tags:
+      - Messages
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: messageId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateMessageDto'
+    delete:
+      operationId: DeleteMessage
+      responses:
+        '204':
+          description: No content
+      description: Delete a message
+      summary: Delete a comment
+      tags:
+      - Messages
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: messageId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /messages/{messageId}/faq:
+    post:
+      operationId: SuggestFaq
+      responses:
+        '204':
+          description: No content
+      description: Suggest a FAQ from a message
+      summary: FAQ suggestion
+      tags:
+      - Messages
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: messageId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SuggestFaqDto'
+components:
+  schemas:
+    AttachmentDto:
+      properties:
+        name:
+          type: string
+        url:
+          type: string
+        type:
+          type: string
+      required:
+      - name
+      - url
+      type: object
+      additionalProperties: false
+    ChannelDto:
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        messageId:
+          type: string
+      required:
+      - id
+      type: object
+      additionalProperties: false
+    CreateMessageDto:
+      properties:
+        user:
+          type: string
+        session:
+          type: string
+        bot:
+          type: boolean
+        fallbackUser:
+          $ref: '#/components/schemas/FallbackUserDto'
+        messageRef:
+          type: string
+        ticket:
+          type: string
+        data: {}
+        translatedData: {}
+        type:
+          type: string
+        emailId:
+          type: string
+        sessionNotificationsUnread:
+          type: boolean
+        outbound:
+          type: string
+        outboundTemplate:
+          type: string
+        outboundSubject:
+          type: string
+        status: {}
+        statusHistory:
+          items: {}
+          type: array
+        comment: {}
+        replyTo:
+          type: string
+        kaiChat:
+          type: boolean
+        aiData: {}
+        attachments:
+          items:
+            $ref: '#/components/schemas/AttachmentDto'
+          type: array
+        actions:
+          items:
+            properties:
+              data: {}
+              type:
+                type: string
+            required:
+            - type
+            type: object
+          type: array
+        channel:
+          $ref: '#/components/schemas/ChannelDto'
+        sendToChannel:
+          type: boolean
+        isNote:
+          type: boolean
+        rating:
+          type: string
+      type: object
+      additionalProperties: false
+    SuggestFaqDto:
+      properties:
+        accept:
+          type: boolean
+      required:
+      - accept
+      type: object
+      additionalProperties: false
+    FallbackUserDto:
+      properties:
+        username:
+          type: string
+        email:
+          type: string
+        imageUrl:
+          type: string
+      type: object
+      additionalProperties: false
+    UpdateMessageDto:
+      properties:
+        user:
+          type: string
+        session:
+          type: string
+        bot:
+          type: boolean
+        fallbackUser:
+          $ref: '#/components/schemas/FallbackUserDto'
+        messageRef:
+          type: string
+        ticket:
+          type: string
+        data: {}
+        translatedData: {}
+        type:
+          type: string
+        emailId:
+          type: string
+        sessionNotificationsUnread:
+          type: boolean
+        outbound:
+          type: string
+        outboundTemplate:
+          type: string
+        outboundSubject:
+          type: string
+        status: {}
+        statusHistory:
+          items: {}
+          type: array
+        comment: {}
+        replyTo:
+          type: string
+        kaiChat:
+          type: boolean
+        aiData: {}
+        attachments:
+          items:
+            $ref: '#/components/schemas/AttachmentDto'
+          type: array
+        actions:
+          items:
+            properties:
+              data: {}
+              type:
+                type: string
+            required:
+            - type
+            type: object
+          type: array
+        channel:
+          $ref: '#/components/schemas/ChannelDto'
+        sendToChannel:
+          type: boolean
+        isNote:
+          type: boolean
+        rating:
+          type: string
+      type: object
+      additionalProperties: false
+  securitySchemes:
+    jwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

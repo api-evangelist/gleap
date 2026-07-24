@@ -1,0 +1,144 @@
+openapi: 3.0.0
+info:
+  title: Gleap AI content Engagement Modal API
+  version: 14.0.0
+  contact:
+    name: Gleap Support
+    email: hello@gleap.io
+    url: https://gleap.io
+  description: The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.
+  license:
+    name: Proprietary
+servers:
+- url: https://api.gleap.io/v3
+tags:
+- name: Engagement Modal
+paths:
+  /engagement/modals:
+    post:
+      operationId: CreateModal
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Create a new modal
+      tags:
+      - Engagement Modal
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {}
+    get:
+      operationId: GetModals
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Get all modals
+      tags:
+      - Engagement Modal
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /engagement/modals/{modalId}:
+    put:
+      operationId: UpdateModal
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Update a modal
+      tags:
+      - Engagement Modal
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: modalId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {}
+    delete:
+      operationId: DeleteModal
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Delete a modal
+      tags:
+      - Engagement Modal
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: modalId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+    get:
+      operationId: GetModal
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Get a modal
+      tags:
+      - Engagement Modal
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: modalId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+components:
+  securitySchemes:
+    jwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

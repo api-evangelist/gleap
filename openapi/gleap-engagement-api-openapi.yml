@@ -1,0 +1,182 @@
+openapi: 3.0.0
+info:
+  title: Gleap AI content Engagement API
+  version: 14.0.0
+  contact:
+    name: Gleap Support
+    email: hello@gleap.io
+    url: https://gleap.io
+  description: The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.
+  license:
+    name: Proprietary
+servers:
+- url: https://api.gleap.io/v3
+tags:
+- name: Engagement
+paths:
+  /engagements/{engagementId}/activities:
+    get:
+      operationId: GetEngagementActivities
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Get engagement activities
+      tags:
+      - Engagement
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: engagementId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /engagements/{engagementId}/activities/count:
+    get:
+      operationId: GetEngagementActivitiesCount
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Get engagement activities count
+      tags:
+      - Engagement
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: engagementId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /engagements/{engagementId}/recipients:
+    get:
+      operationId: FindEngagementRecipients
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Find engagement recipients
+      tags:
+      - Engagement
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: engagementId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /engagements/{engagementId}/statistics:
+    get:
+      operationId: GetEngagementStatistics
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Get engagement statistics
+      tags:
+      - Engagement
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: engagementId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /engagements/{engagementId}/fixed-audience-samples:
+    post:
+      operationId: GetEngagementFixedAudienceSamples
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Get engagement fixed audience samples
+      tags:
+      - Engagement
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: engagementId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {}
+  /engagements/{engagementId}/clone:
+    post:
+      operationId: CloneEngagement
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Clone engagement
+      tags:
+      - Engagement
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: engagementId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {}
+components:
+  securitySchemes:
+    jwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

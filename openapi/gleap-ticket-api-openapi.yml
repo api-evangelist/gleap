@@ -1,0 +1,1739 @@
+openapi: 3.0.0
+info:
+  title: Gleap AI content Ticket API
+  version: 14.0.0
+  contact:
+    name: Gleap Support
+    email: hello@gleap.io
+    url: https://gleap.io
+  description: The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.
+  license:
+    name: Proprietary
+servers:
+- url: https://api.gleap.io/v3
+tags:
+- name: Ticket
+paths:
+  /tickets:
+    post:
+      operationId: CreateTicket
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+              examples:
+                Example 1:
+                  value:
+                    title: Login button not working
+                    description: Users cannot log in when clicking the login button
+                    type: BUG
+                    status: OPEN
+                    priority: HIGH
+                    customData:
+                      browser: Chrome
+                      version: 120.0.0.0
+      summary: Create a new ticket
+      tags:
+      - Ticket
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTicketDto'
+    get:
+      operationId: GetTickets
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+              examples:
+                Example 1:
+                  value:
+                    tickets:
+                    - _id: 507f1f77bcf86cd799439011
+                      id: 507f1f77bcf86cd799439011
+                      title: Login button not working
+                      formData:
+                        description: Users cannot log in when clicking the login button
+                      type: BUG
+                      status: OPEN
+                      priority: HIGH
+                      createdAt: '2024-01-15T10:30:00.000Z'
+                      updatedAt: '2024-01-15T11:45:00.000Z'
+                      processingUser:
+                        _id: 507f1f77bcf86cd799439012
+                        email: support@example.com
+                        firstName: John
+                        lastName: Doe
+                      session:
+                        _id: 507f1f77bcf86cd799439013
+                        email: user@example.com
+                      latestComment:
+                        _id: 507f1f77bcf86cd799439014
+                        data:
+                          content: Any update on this issue?
+                    count: 1
+                    totalCount: 42
+      description: 'Get all tickets in a project with support for filtering, sorting, and pagination.
+
+
+        **Filtering:**
+
+        - Filter by type: `type=BUG` or `type=BUG,FEATURE_REQUEST`
+
+        - Filter by status: `status=OPEN`
+
+        - Filter by priority: `priority=HIGH` or `priority=HIGH,MEDIUM`
+
+        - Filter by archived state: `archived=false` or `ignoreArchived=true`
+
+        - Filter by spam: `isSpam=false`
+
+
+        **Sorting:**
+
+        - Sort by creation date: `sort=-createdAt` (newest first) or `sort=createdAt` (oldest first)
+
+        - Sort by priority: `sort=priority` (ascending: LOW, MEDIUM, HIGH) or `sort=-priority` (descending)
+
+        - Sort by updated date: `sort=-updatedAt`
+
+
+        **Pagination:**
+
+        - Limit results: `limit=20` (default up to 1000)
+
+        - Skip results: `skip=0` (for pagination: `skip=(page-1)*limit`)'
+      summary: Get all tickets
+      tags:
+      - Ticket
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /tickets/compose:
+    post:
+      operationId: CreateTicketWithMessage
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Create a new ticket with an optional initial message
+      tags:
+      - Ticket
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTicketWithMessageDto'
+  /tickets/search:
+    get:
+      operationId: SearchForTickets
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Search for tickets
+      tags:
+      - Ticket
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /tickets/extendedsearch:
+    get:
+      operationId: SearchForTicketsExtended
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Search for tickets
+      tags:
+      - Ticket
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /tickets/by-session-query:
+    get:
+      operationId: FindTicketsBySessionQuery
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Find tickets by session query
+      tags:
+      - Ticket
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: email
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: userId
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: phone
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: customData.TIN
+        required: false
+        schema:
+          type: string
+  /tickets/export:
+    get:
+      operationId: ExportTickets
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Export tickets
+      tags:
+      - Ticket
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /tickets/notification/{shareToken}:
+    get:
+      operationId: GetNotificationTicket
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Get notification ticket
+      tags:
+      - Ticket
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: shareToken
+        required: true
+        schema:
+          type: string
+  /tickets/csv-export:
+    get:
+      operationId: ExportTicketsAsCSV
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Export tickets
+      tags:
+      - Ticket
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /tickets/export-fields:
+    get:
+      operationId: GetTicketExportFields
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      tags:
+      - Ticket
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: type
+        required: false
+        schema:
+          type: string
+  /tickets/tracker-tickets:
+    post:
+      operationId: CreateTrackerTicket
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Create a tracker ticket
+      tags:
+      - Ticket
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                customerName:
+                  type: string
+                customerEmail:
+                  type: string
+                linkedTicketIds:
+                  items:
+                    type: string
+                  type: array
+                description:
+                  type: string
+                title:
+                  type: string
+                type:
+                  type: string
+              type: object
+    get:
+      operationId: FindTrackerTickets
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Find tracker tickets
+      tags:
+      - Ticket
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: searchTerm
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: page
+        required: false
+        schema:
+          format: double
+          type: number
+  /tickets/search-feature-requests:
+    get:
+      operationId: SearchFeatureRequests
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Search feature requests semantically
+      tags:
+      - Ticket
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: query
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: limit
+        required: false
+        schema:
+          format: double
+          type: number
+      - in: query
+        name: minScore
+        required: false
+        schema:
+          format: double
+          type: number
+  /tickets/generate-data:
+    post:
+      operationId: GenerateTrackerTicketData
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Generate tracker ticket data with AI
+      tags:
+      - Ticket
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                sourceTicketId:
+                  type: string
+                type:
+                  type: string
+              type: object
+  /tickets/ticketscount:
+    get:
+      operationId: GetTicketCount
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Get ticket count
+      tags:
+      - Ticket
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /tickets/{ticketId}/audit-export:
+    get:
+      operationId: ExportTicketAuditEndpoint
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Export a single ticket for audit
+      tags:
+      - Ticket
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: ticketId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /tickets/{ticketId}:
+    get:
+      operationId: GetTicket
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Get a ticket
+      tags:
+      - Ticket
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: ticketId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+    put:
+      operationId: UpdateTicket
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Update a ticket
+      tags:
+      - Ticket
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: ticketId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateTicketDto'
+    delete:
+      operationId: DeleteTicket
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Delete a ticket
+      tags:
+      - Ticket
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: ticketId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /tickets/merge:
+    put:
+      operationId: MergeTickets
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Merge multiple tickets into one
+      tags:
+      - Ticket
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                shouldMergeContacts:
+                  type: boolean
+                shouldMergeTasks:
+                  type: boolean
+                shouldCreateNewTicket:
+                  type: boolean
+                ticketsToMergeIds:
+                  items:
+                    type: string
+                  type: array
+                targetTicketId:
+                  type: string
+              required:
+              - shouldMergeContacts
+              - shouldMergeTasks
+              - shouldCreateNewTicket
+              - ticketsToMergeIds
+              type: object
+  /tickets/deduplicate:
+    post:
+      operationId: FindDuplicates
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Find duplicate feature requests
+      tags:
+      - Ticket
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: false
+        schema:
+          type: string
+  /tickets/deduplicate/merge:
+    put:
+      operationId: MergeDuplicateGroup
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Merge a duplicate group
+      tags:
+      - Ticket
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                duplicateTicketIds:
+                  items:
+                    type: string
+                  type: array
+                mainTicketId:
+                  type: string
+              required:
+              - duplicateTicketIds
+              - mainTicketId
+              type: object
+  /tickets/{ticketId}/console-logs:
+    get:
+      operationId: GetConsoleLogsForTicket
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Get console logs for a ticket
+      tags:
+      - Ticket
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: ticketId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /tickets/{ticketId}/activity-logs:
+    get:
+      operationId: GetActivityLogsForTicket
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Get activity logs for a ticket
+      tags:
+      - Ticket
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: ticketId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /tickets/{ticketId}/network-logs:
+    get:
+      operationId: GetNetworkLogsForTicket
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Get network logs for a ticket
+      tags:
+      - Ticket
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: ticketId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /tickets/{ticketId}/replay:
+    get:
+      operationId: GetReplayForTicket
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Get network logs for a ticket
+      tags:
+      - Ticket
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: ticketId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /tickets/{ticketId}/typing:
+    post:
+      operationId: IndicateUserTyping
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Indicate user typing
+      tags:
+      - Ticket
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: ticketId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                typing:
+                  type: boolean
+              required:
+              - typing
+              type: object
+  /tickets/{ticketId}/viewing:
+    post:
+      operationId: IndicateUserViewing
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Indicate user viewing
+      tags:
+      - Ticket
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: ticketId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                viewing:
+                  type: boolean
+              required:
+              - viewing
+              type: object
+  /tickets/{ticketId}/snooze:
+    put:
+      operationId: SnoozeTicket
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Snooze a ticket
+      tags:
+      - Ticket
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: ticketId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                duration:
+                  type: number
+                  format: double
+              required:
+              - duration
+              type: object
+  /tickets/{ticketId}/link:
+    put:
+      operationId: LinkTicket
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Link a ticket
+      tags:
+      - Ticket
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: ticketId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                targetTicketId:
+                  type: string
+              required:
+              - targetTicketId
+              type: object
+  /tickets/{ticketId}/unlink:
+    put:
+      operationId: UnlinkTicket
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Unlink a ticket
+      tags:
+      - Ticket
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: ticketId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                targetTicketId:
+                  type: string
+              required:
+              - targetTicketId
+              type: object
+  /tickets/{ticketId}/archive:
+    put:
+      operationId: ArchiveTicket
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Archive a ticket
+      tags:
+      - Ticket
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: ticketId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /tickets/archive/all:
+    put:
+      operationId: ArchiveAllTickets
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Archive a ticket
+      tags:
+      - Ticket
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                type:
+                  type: string
+                status:
+                  type: string
+              required:
+              - type
+              - status
+              type: object
+  /tickets/{ticketId}/unarchive:
+    put:
+      operationId: UnarchiveTicket
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Unarchive a ticket
+      tags:
+      - Ticket
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: ticketId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /tickets/{ticketId}/workflow:
+    post:
+      operationId: RunWorkflow
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Run workflow
+      tags:
+      - Ticket
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: ticketId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                workflowId:
+                  type: string
+              required:
+              - workflowId
+              type: object
+  /tickets/{ticketId}/send-to-integration:
+    post:
+      operationId: SendTicketToIntegration
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Send ticket to integration
+      tags:
+      - Ticket
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: ticketId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                integrationType:
+                  type: string
+                integrationId:
+                  type: string
+              required:
+              - integrationType
+              - integrationId
+              type: object
+  /tickets/{ticketId}/vote:
+    post:
+      operationId: VoteForTicket
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Vote for ticket
+      tags:
+      - Ticket
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: ticketId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                action:
+                  type: string
+                  enum:
+                  - toggle
+                  - subscribe
+                  - unsubscribe
+                name:
+                  type: string
+                email:
+                  type: string
+              required:
+              - email
+              type: object
+  /tickets/{ticketId}/draft-reply:
+    post:
+      operationId: GenerateDraftReply
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Generate AI draft reply
+      tags:
+      - Ticket
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: ticketId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /tickets/{ticketId}/send-transcript:
+    post:
+      operationId: SendTicketTranscript
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Send ticket conversation transcript to multiple emails
+      tags:
+      - Ticket
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: ticketId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                emails:
+                  items:
+                    type: string
+                  type: array
+              required:
+              - emails
+              type: object
+components:
+  schemas:
+    LastResponseDto:
+      properties:
+        contact:
+          type: string
+          format: date-time
+        admin:
+          type: string
+          format: date-time
+      type: object
+      additionalProperties: false
+    AttachmentDto:
+      properties:
+        name:
+          type: string
+        url:
+          type: string
+        type:
+          type: string
+      required:
+      - name
+      - url
+      type: object
+      additionalProperties: false
+    Sentiment:
+      enum:
+      - positive
+      - negative
+      - neutral
+      type: string
+    CreateTicketDto:
+      properties:
+        title:
+          type: string
+        conversationClosed:
+          type: boolean
+        bot:
+          $ref: '#/components/schemas/BotDto'
+        content: {}
+        plainContent:
+          type: string
+        imageUrl:
+          type: string
+        description:
+          type: string
+        latestComment:
+          type: string
+        latestPublicComment:
+          type: string
+        slaBreached:
+          type: boolean
+        hidden:
+          type: boolean
+        needInitialPush:
+          type: boolean
+        noHumanInteraction:
+          type: boolean
+        snoozed:
+          type: boolean
+        snoozedUntil:
+          type: string
+          format: date-time
+          nullable: true
+        processingUser:
+          type: string
+        processingTeam:
+          type: string
+        queued:
+          type: boolean
+        queuedAt:
+          type: string
+          format: date-time
+        mentions:
+          items:
+            type: string
+          type: array
+        emailRefs:
+          items: {}
+          type: array
+        attributes: {}
+        formData: {}
+        form: {}
+        aiSummary:
+          type: string
+        aiSupportSummary:
+          type: string
+        dueDate:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: string
+        linkedTickets:
+          items:
+            type: string
+          type: array
+        duplicateOf:
+          type: string
+        duplicatesCount:
+          type: number
+          format: double
+        session: {}
+        sessions:
+          items: {}
+          type: array
+        outbound:
+          type: string
+        priority:
+          $ref: '#/components/schemas/BugPriority'
+        type:
+          type: string
+        sentiment:
+          $ref: '#/components/schemas/Sentiment'
+        status:
+          type: string
+        shareToken:
+          type: string
+        secretShareToken:
+          type: string
+        lexorank:
+          type: string
+        bugId:
+          type: number
+          format: double
+        project:
+          type: string
+        organisation:
+          type: string
+        screenshotUrl:
+          type: string
+        screenshotBroke:
+          type: string
+          format: date-time
+        generatingScreenshot:
+          type: boolean
+        screenshotRenderingFailed:
+          type: boolean
+        screenshotLive:
+          type: boolean
+        screenshotDataUrl: {}
+        isSilent:
+          type: boolean
+        replayDataUrl:
+          type: string
+        replayUrl:
+          type: string
+        generatingReplay:
+          type: boolean
+        replayStartDate:
+          type: string
+          format: date-time
+        replayRenderingStartedAt:
+          type: string
+          format: date-time
+        replayRenderingFailed:
+          type: boolean
+        replayLive:
+          type: boolean
+        originalEmailContent:
+          type: string
+        hasWebReplay:
+          type: boolean
+        integrations:
+          $ref: '#/components/schemas/Record_string.any_'
+        metaData: {}
+        actionLog: {}
+        customData: {}
+        replay: {}
+        lastResponse:
+          $ref: '#/components/schemas/LastResponseDto'
+        attachments:
+          items:
+            $ref: '#/components/schemas/AttachmentDto'
+          type: array
+        lastNotification:
+          type: string
+          format: date-time
+        faqSuggested:
+          type: boolean
+        notificationsUnread:
+          type: boolean
+        sessionNotificationsUnread:
+          type: boolean
+        hasAgentReply:
+          type: boolean
+        conversationRating:
+          type: number
+          format: double
+        upvotesCount:
+          type: number
+          format: double
+        upvotes:
+          items:
+            $ref: '#/components/schemas/UpvoteDto'
+          type: array
+        screenRecordingUrl:
+          type: string
+        firstAssignmentAt:
+          type: string
+          format: date-time
+        archived:
+          type: boolean
+        archivedAt:
+          type: string
+          format: date-time
+        disabled:
+          type: boolean
+        isSpam:
+          type: boolean
+        tags:
+          items:
+            type: string
+          type: array
+        score:
+          type: number
+          format: double
+        channel:
+          $ref: '#/components/schemas/TicketChannelDto'
+        manuallyAdded:
+          type: boolean
+        fromData: {}
+        consoleLog: {}
+        customEventLog: {}
+        networkLogs: {}
+        isManualStart:
+          type: boolean
+        botId:
+          type: string
+        preventAutoReply:
+          type: boolean
+      type: object
+      additionalProperties: false
+    BugPriority:
+      enum:
+      - LOW
+      - MEDIUM
+      - HIGH
+      type: string
+    TicketChannelDto:
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        metaData: {}
+      required:
+      - id
+      type: object
+      additionalProperties: false
+    UpdateTicketDto:
+      properties:
+        title:
+          type: string
+        conversationClosed:
+          type: boolean
+        bot:
+          $ref: '#/components/schemas/BotDto'
+        content: {}
+        plainContent:
+          type: string
+        imageUrl:
+          type: string
+        description:
+          type: string
+        latestComment:
+          type: string
+        latestPublicComment:
+          type: string
+        slaBreached:
+          type: boolean
+        hidden:
+          type: boolean
+        needInitialPush:
+          type: boolean
+        noHumanInteraction:
+          type: boolean
+        snoozed:
+          type: boolean
+        snoozedUntil:
+          type: string
+          format: date-time
+          nullable: true
+        processingUser:
+          type: string
+        processingTeam:
+          type: string
+        queued:
+          type: boolean
+        queuedAt:
+          type: string
+          format: date-time
+        mentions:
+          items:
+            type: string
+          type: array
+        emailRefs:
+          items: {}
+          type: array
+        attributes: {}
+        formData: {}
+        form: {}
+        aiSummary:
+          type: string
+        aiSupportSummary:
+          type: string
+        dueDate:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: string
+        linkedTickets:
+          items:
+            type: string
+          type: array
+        duplicateOf:
+          type: string
+        duplicatesCount:
+          type: number
+          format: double
+        session: {}
+        sessions:
+          items: {}
+          type: array
+        outbound:
+          type: string
+        priority:
+          $ref: '#/components/schemas/BugPriority'
+        type:
+          type: string
+        sentiment:
+          $ref: '#/components/schemas/Sentiment'
+        status:
+          type: string
+        shareToken:
+          type: string
+        secretShareToken:
+          type: string
+        lexorank:
+          type: string
+        bugId:
+          type: number
+          format: double
+        project:
+          type: string
+        organisation:
+          type: string
+        screenshotUrl:
+          type: string
+        screenshotBroke:
+          type: string
+          format: date-time
+        generatingScreenshot:
+          type: boolean
+        screenshotRenderingFailed:
+          type: boolean
+        screenshotLive:
+          type: boolean
+        screenshotDataUrl: {}
+        isSilent:
+          type: boolean
+        replayDataUrl:
+          type: string
+        replayUrl:
+          type: string
+        generatingReplay:
+          type: boolean
+        replayStartDate:
+          type: string
+          format: date-time
+        replayRenderingStartedAt:
+          type: string
+          format: date-time
+        replayRenderingFailed:
+          type: boolean
+        replayLive:
+          type: boolean
+        originalEmailContent:
+          type: string
+        hasWebReplay:
+          type: boolean
+        integrations:
+          $ref: '#/components/schemas/Record_string.any_'
+        metaData: {}
+        actionLog: {}
+        customData: {}
+        replay: {}
+        lastResponse:
+          $ref: '#/components/schemas/LastResponseDto'
+        attachments:
+          items:
+            $ref: '#/components/schemas/AttachmentDto'
+          type: array
+        lastNotification:
+          type: string
+          format: date-time
+        faqSuggested:
+          type: boolean
+        notificationsUnread:
+          type: boolean
+        sessionNotificationsUnread:
+          type: boolean
+        hasAgentReply:
+          type: boolean
+        conversationRating:
+          type: number
+          format: double
+        upvotesCount:
+          type: number
+          format: double
+        upvotes:
+          items:
+            $ref: '#/components/schemas/UpvoteDto'
+          type: array
+        screenRecordingUrl:
+          type: string
+        firstAssignmentAt:
+          type: string
+          format: date-time
+        archived:
+          type: boolean
+        archivedAt:
+          type: string
+          format: date-time
+        disabled:
+          type: boolean
+        isSpam:
+          type: boolean
+        tags:
+          items:
+            type: string
+          type: array
+        score:
+          type: number
+          format: double
+        channel:
+          $ref: '#/components/schemas/TicketChannelDto'
+        manuallyAdded:
+          type: boolean
+        fromData: {}
+        forceCloseOverride:
+          type: boolean
+      type: object
+      additionalProperties: false
+    BotDto:
+      properties:
+        active:
+          type: boolean
+        currentBot:
+          type: string
+        currentActionFlow:
+          type: string
+        currentAction:
+          type: number
+          format: double
+        forwardedToSupportAt:
+          type: string
+          format: date-time
+        kaiActive:
+          type: boolean
+        noAnswerFound:
+          type: boolean
+      type: object
+      additionalProperties: false
+    Record_string.any_:
+      properties: {}
+      type: object
+      description: Construct a type with a set of properties K of type T
+    UpvoteDto:
+      properties:
+        email:
+          type: string
+      type: object
+      additionalProperties: false
+    CreateTicketWithMessageDto:
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        message:
+          type: string
+        priority:
+          type: string
+        status:
+          type: string
+        processingUser:
+          type: string
+        processingTeam:
+          type: string
+        tags:
+          items:
+            type: string
+          type: array
+        session:
+          type: string
+        email:
+          type: string
+        formData:
+          $ref: '#/components/schemas/Record_string.any_'
+      required:
+      - type
+      - title
+      type: object
+      additionalProperties: false
+  securitySchemes:
+    jwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

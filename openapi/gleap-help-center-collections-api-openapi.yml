@@ -1,0 +1,351 @@
+openapi: 3.0.0
+info:
+  title: Gleap AI content Help center collections API
+  version: 14.0.0
+  contact:
+    name: Gleap Support
+    email: hello@gleap.io
+    url: https://gleap.io
+  description: The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.
+  license:
+    name: Proprietary
+servers:
+- url: https://api.gleap.io/v3
+tags:
+- name: Help center collections
+paths:
+  /helpcenter/collections:
+    post:
+      operationId: CreateHelpcenterCollection
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HelpcenterCollectionDocument'
+      summary: Create a new collection
+      tags:
+      - Help center collections
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HelpCenterCollectionDto'
+    get:
+      operationId: GetHelpcenterCollections
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CollectionWithCounts'
+                type: array
+      summary: Get all collections
+      tags:
+      - Help center collections
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /helpcenter/collections/all:
+    get:
+      operationId: GetAllHelpcenterCollections
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/HelpcenterCollectionDocument'
+                type: array
+      summary: Get all collections with subcollections
+      tags:
+      - Help center collections
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /helpcenter/collections/{helpcenterCollectionId}:
+    get:
+      operationId: GetHelpcenterCollectionItem
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HelpcenterCollectionDocument'
+      summary: Get a collection
+      tags:
+      - Help center collections
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: helpcenterCollectionId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+    put:
+      operationId: UpdateHelpcenterCollection
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HelpcenterCollectionDocument'
+      summary: Update a collection
+      tags:
+      - Help center collections
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: helpcenterCollectionId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HelpCenterCollectionDto'
+    delete:
+      operationId: DeleteHelpcenterCollection
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                properties:
+                  success:
+                    type: boolean
+                required:
+                - success
+                type: object
+      summary: Delete a collection
+      tags:
+      - Help center collections
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: helpcenterCollectionId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /helpcenter/collections/{helpcenterCollectionId}/toggle-publish:
+    put:
+      operationId: UnpublishHelpcenterCollection
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                properties:
+                  success:
+                    type: boolean
+                required:
+                - success
+                type: object
+      summary: Toggle publish status
+      tags:
+      - Help center collections
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: helpcenterCollectionId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                unpublished:
+                  type: boolean
+              required:
+              - unpublished
+              type: object
+components:
+  schemas:
+    CollectionWithCounts:
+      allOf:
+      - $ref: '#/components/schemas/HelpcenterCollectionDocument'
+      - properties:
+          subCollectionsCount:
+            type: number
+            format: double
+          articlesCount:
+            type: number
+            format: double
+        required:
+        - subCollectionsCount
+        - articlesCount
+        type: object
+    InferSchemaType_typeofhelpcenterCollectionSchema_:
+      $ref: '#/components/schemas/IfAny_typeofhelpcenterCollectionSchema.any.ObtainSchemaGeneric_typeofhelpcenterCollectionSchema.DocType__'
+    ObjectId:
+      type: string
+    Document:
+      $ref: '#/components/schemas/FlattenMaps_T_'
+      description: 'Generic types for Document:
+
+        *  T - the type of _id
+
+        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
+
+        *  DocType - the type of the actual Document created'
+    NativeDate:
+      type: string
+    IfAny_typeofhelpcenterCollectionSchema.any.ObtainSchemaGeneric_typeofhelpcenterCollectionSchema.DocType__:
+      allOf:
+      - properties:
+          updatedAt:
+            $ref: '#/components/schemas/NativeDate'
+          createdAt:
+            $ref: '#/components/schemas/NativeDate'
+        required:
+        - updatedAt
+        - createdAt
+        type: object
+      - properties:
+          iconUrl:
+            type: string
+          extendedAudienceFilter: {}
+          baseAudienceFilter: {}
+          docId:
+            type: number
+            format: double
+          lexorank:
+            type: string
+          project:
+            properties:
+              isValid:
+                properties: {}
+                type: object
+              createFromHexString:
+                properties: {}
+                type: object
+              createFromTime:
+                properties: {}
+                type: object
+              generate:
+                properties: {}
+                type: object
+              cacheHexString: {}
+              prototype:
+                $ref: '#/components/schemas/ObjectId'
+            type: object
+          parent:
+            properties:
+              isValid:
+                properties: {}
+                type: object
+              createFromHexString:
+                properties: {}
+                type: object
+              createFromTime:
+                properties: {}
+                type: object
+              generate:
+                properties: {}
+                type: object
+              cacheHexString: {}
+              prototype:
+                $ref: '#/components/schemas/ObjectId'
+            type: object
+          externalId:
+            type: string
+          title: {}
+          description: {}
+          targetAudience:
+            type: string
+        required:
+        - targetAudience
+        type: object
+    Types.ObjectId:
+      type: string
+    HelpcenterCollectionI:
+      $ref: '#/components/schemas/InferSchemaType_typeofhelpcenterCollectionSchema_'
+    FlattenMaps_T_:
+      properties: {}
+      type: object
+    HelpCenterCollectionDto:
+      properties:
+        title: {}
+        description: {}
+        iconUrl:
+          type: string
+        project:
+          $ref: '#/components/schemas/Types.ObjectId'
+        lexorank:
+          type: string
+        docId:
+          type: number
+          format: double
+        parent:
+          allOf:
+          - $ref: '#/components/schemas/Types.ObjectId'
+          nullable: true
+        externalId:
+          type: string
+        targetAudience:
+          type: string
+          default: all
+        baseAudienceFilter: {}
+        extendedAudienceFilter: {}
+      type: object
+      additionalProperties: false
+    HelpcenterCollectionDocument:
+      allOf:
+      - $ref: '#/components/schemas/HelpcenterCollectionI'
+      - $ref: '#/components/schemas/Document'
+  securitySchemes:
+    jwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

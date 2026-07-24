@@ -1,0 +1,615 @@
+openapi: 3.0.0
+info:
+  title: Gleap AI content API
+  version: 14.0.0
+  contact:
+    name: Gleap Support
+    email: hello@gleap.io
+    url: https://gleap.io
+  description: The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.
+  license:
+    name: Proprietary
+servers:
+- url: https://api.gleap.io/v3
+tags:
+- name: AI content
+paths:
+  /aicontent:
+    post:
+      operationId: Create
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      description: Create or update AI content
+      summary: Create AI content
+      tags:
+      - AI content
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAIContentDto'
+  /aicontent/{contentId}:
+    get:
+      operationId: FindByContentId
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      description: Get AI content by contentId
+      summary: Get AI content by contentId
+      tags:
+      - AI content
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: contentId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+    put:
+      operationId: UpdateByContentId
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      description: Update AI content by contentId
+      summary: Update AI content by contentId
+      tags:
+      - AI content
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: contentId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAIContentDto'
+    delete:
+      operationId: RemoveByContentId
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                properties:
+                  success:
+                    type: boolean
+                required:
+                - success
+                type: object
+      description: Delete AI content by contentId
+      summary: Delete AI content by contentId
+      tags:
+      - AI content
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: contentId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /aicontent/oldbatches:
+    delete:
+      operationId: RemoveOldBatches
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                properties:
+                  deleted: {}
+                  success:
+                    type: boolean
+                required:
+                - deleted
+                - success
+                type: object
+      description: Delete all AI content except the current batch
+      summary: Delete old AI content batches
+      tags:
+      - AI content
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                type:
+                  type: string
+                currentBatchId:
+                  type: string
+              required:
+              - currentBatchId
+              type: object
+  /aicontent/batch/{batchId}:
+    delete:
+      operationId: RemoveByBatchId
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                properties:
+                  deleted: {}
+                  success:
+                    type: boolean
+                required:
+                - deleted
+                - success
+                type: object
+      description: Delete all AI content by batchId
+      summary: Delete AI content by batchId
+      tags:
+      - AI content
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: batchId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /youtube-source:
+    post:
+      operationId: ImportVideo
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                properties:
+                  status:
+                    type: string
+                  videoId:
+                    type: string
+                  jobId:
+                    type: string
+                required:
+                - status
+                - videoId
+                - jobId
+                type: object
+      description: Import a single YouTube video for AI content analysis
+      summary: Import YouTube video
+      tags:
+      - AI content
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImportYouTubeVideoDto'
+    get:
+      operationId: List
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                properties:
+                  total:
+                    type: number
+                    format: double
+                  videos:
+                    items:
+                      properties:
+                        createdAt: {}
+                        durationSeconds: {}
+                        channelName: {}
+                        batchId: {}
+                        error: {}
+                        status: {}
+                        url: {}
+                        thumbnailUrl: {}
+                        title: {}
+                        videoId: {}
+                        id: {}
+                      required:
+                      - createdAt
+                      - durationSeconds
+                      - channelName
+                      - batchId
+                      - error
+                      - status
+                      - url
+                      - thumbnailUrl
+                      - title
+                      - videoId
+                      - id
+                      type: object
+                    type: array
+                required:
+                - total
+                - videos
+                type: object
+      description: List all YouTube video content for the project
+      summary: List YouTube content
+      tags:
+      - AI content
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /youtube-source/preview:
+    post:
+      operationId: Preview
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                anyOf:
+                - properties:
+                    estimatedCostCents:
+                      type: number
+                      format: double
+                    video:
+                      allOf:
+                      - $ref: '#/components/schemas/VideoMetadata'
+                      - properties:
+                          alreadyImported:
+                            type: boolean
+                        required:
+                        - alreadyImported
+                        type: object
+                    type:
+                      type: string
+                      enum:
+                      - video
+                      nullable: false
+                  required:
+                  - estimatedCostCents
+                  - video
+                  - type
+                  type: object
+                - properties:
+                    estimatedCostCents:
+                      type: number
+                      format: double
+                    videos:
+                      items:
+                        allOf:
+                        - $ref: '#/components/schemas/VideoMetadata'
+                        - properties:
+                            alreadyImported:
+                              type: boolean
+                          required:
+                          - alreadyImported
+                          type: object
+                      type: array
+                    alreadyImportedCount:
+                      type: number
+                      format: double
+                    billableDurationSeconds:
+                      type: number
+                      format: double
+                    totalDurationSeconds:
+                      type: number
+                      format: double
+                    videoCount:
+                      type: number
+                      format: double
+                    thumbnailUrl:
+                      type: string
+                    channelName:
+                      type: string
+                    title:
+                      type: string
+                    type:
+                      type: string
+                      enum:
+                      - channel
+                      - playlist
+                  required:
+                  - estimatedCostCents
+                  - videos
+                  - alreadyImportedCount
+                  - billableDurationSeconds
+                  - totalDurationSeconds
+                  - videoCount
+                  - thumbnailUrl
+                  - channelName
+                  - title
+                  - type
+                  type: object
+      description: 'Preview a YouTube URL before importing. Fetches metadata + an exact
+
+        cost estimate (in cents) for the video or full playlist/channel.
+
+        For large playlists this can take a few seconds — the client is
+
+        expected to show a spinner.'
+      summary: Preview YouTube URL
+      tags:
+      - AI content
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PreviewYouTubeDto'
+  /youtube-source/batch:
+    post:
+      operationId: ImportBatch
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                properties:
+                  status:
+                    type: string
+                  batchId:
+                    type: string
+                required:
+                - status
+                - batchId
+                type: object
+      description: Import a YouTube playlist or channel for bulk AI content analysis
+      summary: Import YouTube playlist/channel
+      tags:
+      - AI content
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImportYouTubeBatchDto'
+  /youtube-source/{videoId}:
+    delete:
+      operationId: DeleteVideo
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                properties:
+                  success:
+                    type: boolean
+                required:
+                - success
+                type: object
+      description: Delete a single YouTube video's content
+      summary: Delete YouTube video content
+      tags:
+      - AI content
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: videoId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /youtube-source/batch/{batchId}:
+    delete:
+      operationId: DeleteBatch
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                properties:
+                  deleted: {}
+                  success:
+                    type: boolean
+                required:
+                - deleted
+                - success
+                type: object
+      description: Delete all YouTube content from a batch
+      summary: Delete YouTube batch content
+      tags:
+      - AI content
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: batchId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+components:
+  schemas:
+    ImportYouTubeBatchDto:
+      properties:
+        url:
+          type: string
+      required:
+      - url
+      type: object
+      additionalProperties: false
+    VideoMetadata:
+      properties:
+        videoId:
+          type: string
+        title:
+          type: string
+        durationSeconds:
+          type: number
+          format: double
+        thumbnailUrl:
+          type: string
+        channelName:
+          type: string
+        privacyStatus:
+          anyOf:
+          - type: string
+          - type: string
+            enum:
+            - public
+            - unlisted
+            - private
+      required:
+      - videoId
+      - title
+      - durationSeconds
+      - thumbnailUrl
+      - channelName
+      - privacyStatus
+      type: object
+      additionalProperties: false
+    ImportYouTubeVideoDto:
+      properties:
+        url:
+          type: string
+        batchId:
+          type: string
+      required:
+      - url
+      type: object
+      additionalProperties: false
+    UpdateAIContentDto:
+      properties:
+        title:
+          type: string
+        content: {}
+        type:
+          type: string
+        batchId:
+          type: string
+        readMoreUrl:
+          type: string
+        readMoreLabel:
+          type: string
+      required:
+      - title
+      - content
+      - type
+      type: object
+      additionalProperties: false
+    CreateAIContentDto:
+      properties:
+        title:
+          type: string
+        content: {}
+        contentId:
+          type: string
+        batchId:
+          type: string
+        type:
+          type: string
+        readMoreUrl:
+          type: string
+        readMoreLabel:
+          type: string
+      required:
+      - title
+      - content
+      - contentId
+      - type
+      type: object
+      additionalProperties: false
+    PreviewYouTubeDto:
+      properties:
+        url:
+          type: string
+      required:
+      - url
+      type: object
+      additionalProperties: false
+  securitySchemes:
+    jwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

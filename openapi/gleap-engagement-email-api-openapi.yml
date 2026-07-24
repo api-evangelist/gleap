@@ -1,0 +1,182 @@
+openapi: 3.0.0
+info:
+  title: Gleap AI content Engagement Email API
+  version: 14.0.0
+  contact:
+    name: Gleap Support
+    email: hello@gleap.io
+    url: https://gleap.io
+  description: The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.
+  license:
+    name: Proprietary
+servers:
+- url: https://api.gleap.io/v3
+tags:
+- name: Engagement Email
+paths:
+  /engagement/emails:
+    post:
+      operationId: CreateEngagementEmail
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Create a new email
+      tags:
+      - Engagement Email
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {}
+    get:
+      operationId: GetEngagementEmails
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Get all emails
+      tags:
+      - Engagement Email
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /engagement/emails/{engagementEmailId}:
+    put:
+      operationId: UpdateEngagementEmail
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Update an email
+      tags:
+      - Engagement Email
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: engagementEmailId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {}
+    delete:
+      operationId: DeleteEngagementEmail
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Delete an email
+      tags:
+      - Engagement Email
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: engagementEmailId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+    get:
+      operationId: GetEngagementEmail
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Get an email
+      tags:
+      - Engagement Email
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: engagementEmailId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /engagement/emails/{engagementEmailId}/send-email-preview:
+    post:
+      operationId: SendEmailPreview
+      responses:
+        '204':
+          description: No content
+      description: Send email preview
+      summary: Send email preview
+      tags:
+      - Engagement Email
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: engagementEmailId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                lang:
+                  type: string
+                emails:
+                  items:
+                    type: string
+                  type: array
+              required:
+              - emails
+              type: object
+components:
+  securitySchemes:
+    jwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

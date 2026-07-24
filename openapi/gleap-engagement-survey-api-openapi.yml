@@ -1,0 +1,269 @@
+openapi: 3.0.0
+info:
+  title: Gleap AI content Engagement Survey API
+  version: 14.0.0
+  contact:
+    name: Gleap Support
+    email: hello@gleap.io
+    url: https://gleap.io
+  description: The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.
+  license:
+    name: Proprietary
+servers:
+- url: https://api.gleap.io/v3
+tags:
+- name: Engagement Survey
+paths:
+  /engagement/surveys:
+    post:
+      operationId: CreateSurvey
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Create a new survey
+      tags:
+      - Engagement Survey
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {}
+    get:
+      operationId: GetSurveys
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Get all survey
+      tags:
+      - Engagement Survey
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /engagement/surveys/{surveyId}:
+    put:
+      operationId: UpdateSurvey
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Update a survey
+      tags:
+      - Engagement Survey
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: surveyId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {}
+    delete:
+      operationId: DeleteSurvey
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Delete a survey
+      tags:
+      - Engagement Survey
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: surveyId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+    get:
+      operationId: GetSurvey
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Get a survey
+      tags:
+      - Engagement Survey
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: surveyId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /engagement/surveys/{surveyId}/responses:
+    get:
+      operationId: GetSurveyResponses
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Get all survey responses
+      tags:
+      - Engagement Survey
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: surveyId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /engagement/surveys/{surveyId}/responses/export:
+    get:
+      operationId: ExportSurveyResponses
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Export survey responses
+      tags:
+      - Engagement Survey
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: surveyId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /engagement/surveys/{surveyId}/responses/read:
+    put:
+      operationId: MarkSurveyResponsesAsRead
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Mark all survey responses as read
+      tags:
+      - Engagement Survey
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: surveyId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /engagement/surveys/{surveyId}/responses/samples:
+    get:
+      operationId: GetSurveyResponseSamples
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Get all survey response samples
+      tags:
+      - Engagement Survey
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: surveyId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /engagement/surveys/{surveyId}/responses/summarize:
+    get:
+      operationId: SummarizeSurveyResponses
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Summarize survey responses
+      tags:
+      - Engagement Survey
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: surveyId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+components:
+  securitySchemes:
+    jwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

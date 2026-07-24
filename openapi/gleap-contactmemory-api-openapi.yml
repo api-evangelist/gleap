@@ -1,0 +1,309 @@
+openapi: 3.0.0
+info:
+  title: Gleap AI content ContactMemory API
+  version: 14.0.0
+  contact:
+    name: Gleap Support
+    email: hello@gleap.io
+    url: https://gleap.io
+  description: The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.
+  license:
+    name: Proprietary
+servers:
+- url: https://api.gleap.io/v3
+tags:
+- name: ContactMemory
+paths:
+  /sessions/{sessionId}/memory:
+    get:
+      operationId: ListEntries
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ContactMemoryListItem'
+                type: array
+      description: List memory entries (no content) for a contact session.
+      summary: List contact memory entries
+      tags:
+      - ContactMemory
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: sessionId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+    post:
+      operationId: CreateEntry
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactMemoryWriteResult'
+      description: Create or upsert a memory entry by name.
+      summary: Create or update a contact memory entry
+      tags:
+      - ContactMemory
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: sessionId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactMemoryEntryBody'
+    delete:
+      operationId: ClearAll
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactMemoryWriteResult'
+      description: Clear all memory entries for a contact.
+      summary: Clear all contact memory entries
+      tags:
+      - ContactMemory
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: sessionId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /sessions/{sessionId}/memory/{entryName}:
+    get:
+      operationId: GetEntry
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactMemoryEntry'
+      description: Get the full content of a single memory entry.
+      summary: Get one contact memory entry
+      tags:
+      - ContactMemory
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: sessionId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: entryName
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+    put:
+      operationId: UpdateEntry
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactMemoryWriteResult'
+      description: Update an existing memory entry by name.
+      summary: Update a contact memory entry
+      tags:
+      - ContactMemory
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: sessionId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: entryName
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactMemoryUpdateBody'
+    delete:
+      operationId: DeleteEntry
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactMemoryWriteResult'
+      description: Delete one memory entry by name.
+      summary: Delete a contact memory entry
+      tags:
+      - ContactMemory
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: sessionId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: entryName
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+components:
+  schemas:
+    ContactMemoryListItem:
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        actor:
+          $ref: '#/components/schemas/ContactMemoryActor'
+        actorUserId:
+          type: string
+        updatedAt:
+          type: string
+          format: date-time
+      required:
+      - name
+      - description
+      - actor
+      - updatedAt
+      type: object
+      additionalProperties: false
+    ContactMemoryWriteResult:
+      properties:
+        ok:
+          type: boolean
+        reason:
+          type: string
+          enum:
+          - disabled
+          - no_userId
+          - invalid_input
+          - session_not_found
+        consolidationEnqueued:
+          type: boolean
+        entries:
+          type: number
+          format: double
+      required:
+      - ok
+      type: object
+      additionalProperties: false
+    ContactMemoryActor:
+      type: string
+      enum:
+      - bot
+      - draft_reply
+      - copilot
+      - admin
+      - consolidation
+      - unknown
+    ContactMemoryEntryBody:
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        content:
+          type: string
+      required:
+      - name
+      - content
+      type: object
+      additionalProperties: false
+    ContactMemoryUpdateBody:
+      properties:
+        description:
+          type: string
+        content:
+          type: string
+      required:
+      - content
+      type: object
+      additionalProperties: false
+    ContactMemoryEntry:
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        content:
+          type: string
+        actor:
+          $ref: '#/components/schemas/ContactMemoryActor'
+        actorUserId:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+      required:
+      - name
+      - description
+      - content
+      - actor
+      - createdAt
+      - updatedAt
+      type: object
+      additionalProperties: false
+  securitySchemes:
+    jwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

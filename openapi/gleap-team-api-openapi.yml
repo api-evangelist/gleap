@@ -1,0 +1,301 @@
+openapi: 3.0.0
+info:
+  title: Gleap AI content Team API
+  version: 14.0.0
+  contact:
+    name: Gleap Support
+    email: hello@gleap.io
+    url: https://gleap.io
+  description: The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.
+  license:
+    name: Proprietary
+servers:
+- url: https://api.gleap.io/v3
+tags:
+- name: Team
+paths:
+  /teams:
+    post:
+      operationId: CreateTeam
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamDocument'
+      description: Create a new team and associate it with a project.
+      summary: Create a new team
+      tags:
+      - Team
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TeamDto'
+    get:
+      operationId: GetTeams
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/TeamDocument'
+                type: array
+      description: Get all teams associated with a project.
+      summary: Get all teams
+      tags:
+      - Team
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /teams/{teamId}:
+    put:
+      operationId: UpdateTeam
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamDocument'
+      description: Update a team.
+      summary: Update a team
+      tags:
+      - Team
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: teamId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TeamDto'
+    delete:
+      operationId: DeleteTeam
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamDocument'
+      description: Delete a team.
+      summary: Delete a team
+      tags:
+      - Team
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: teamId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+components:
+  schemas:
+    InferSchemaType_typeofteamSchema_:
+      $ref: '#/components/schemas/IfAny_typeofteamSchema.any.ObtainSchemaGeneric_typeofteamSchema.DocType__'
+    TeamDocument:
+      allOf:
+      - $ref: '#/components/schemas/TeamI'
+      - $ref: '#/components/schemas/Document'
+    ObjectId:
+      type: string
+    Document:
+      $ref: '#/components/schemas/FlattenMaps_T_'
+      description: 'Generic types for Document:
+
+        *  T - the type of _id
+
+        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
+
+        *  DocType - the type of the actual Document created'
+    AssignmentMethod:
+      enum:
+      - random
+      - balanced
+      - manual
+      - circular
+      type: string
+    NativeDate:
+      type: string
+    IfAny_typeofteamSchema.any.ObtainSchemaGeneric_typeofteamSchema.DocType__:
+      allOf:
+      - properties:
+          updatedAt:
+            $ref: '#/components/schemas/NativeDate'
+          createdAt:
+            $ref: '#/components/schemas/NativeDate'
+        required:
+        - updatedAt
+        - createdAt
+        type: object
+      - properties:
+          operatingHours:
+            properties:
+              staticTranslations:
+                properties:
+                  outOfOfficeMessage: {}
+                type: object
+              replyTime: {}
+              timezone:
+                type: string
+              openingTimes:
+                items:
+                  properties:
+                    closingTime:
+                      type: string
+                    openingTime:
+                      type: string
+                    day:
+                      type: string
+                    replyTime: {}
+                  type: object
+                type: array
+              alwaysOnline:
+                type: boolean
+              enabled:
+                type: boolean
+            required:
+            - openingTimes
+            - alwaysOnline
+            - enabled
+            type: object
+          project:
+            $ref: '#/components/schemas/ObjectId'
+          slaOptions:
+            properties:
+              defaultSla:
+                type: number
+                format: double
+            type: object
+          name:
+            type: string
+          ticketAmount:
+            type: number
+            format: double
+          limitTicketAmount:
+            type: boolean
+          needQueueRerun:
+            type: boolean
+          selectOnlyOnlineMembers:
+            type: boolean
+          members:
+            items:
+              $ref: '#/components/schemas/ObjectId'
+            type: array
+          assignmentMethod:
+            type: string
+            enum:
+            - random
+            - balanced
+            - manual
+            - circular
+        required:
+        - ticketAmount
+        - limitTicketAmount
+        - needQueueRerun
+        - selectOnlyOnlineMembers
+        - members
+        - assignmentMethod
+        type: object
+    FlattenMaps_T_:
+      properties: {}
+      type: object
+    TeamI:
+      $ref: '#/components/schemas/InferSchemaType_typeofteamSchema_'
+    TeamDto:
+      properties:
+        name:
+          type: string
+        assignmentMethod:
+          $ref: '#/components/schemas/AssignmentMethod'
+        members:
+          items:
+            type: string
+          type: array
+        selectOnlyOnlineMembers:
+          type: boolean
+        needQueueRerun:
+          type: boolean
+        limitTicketAmount:
+          type: boolean
+        ticketAmount:
+          type: number
+          format: double
+        slaOptions:
+          properties:
+            defaultSla:
+              type: number
+              format: double
+          type: object
+        operatingHours:
+          properties:
+            openingTimes:
+              items:
+                properties:
+                  replyTime: {}
+                  closingTime:
+                    type: string
+                  openingTime:
+                    type: string
+                  day:
+                    type: string
+                type: object
+              type: array
+            staticTranslations:
+              properties:
+                outOfOfficeMessage: {}
+              type: object
+            replyTime: {}
+            alwaysOnline:
+              type: boolean
+            timezone:
+              type: string
+            enabled:
+              type: boolean
+          type: object
+      required:
+      - name
+      - assignmentMethod
+      - members
+      type: object
+      additionalProperties: false
+  securitySchemes:
+    jwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

@@ -1,0 +1,144 @@
+openapi: 3.0.0
+info:
+  title: Gleap AI content Engagement Cobrowse API
+  version: 14.0.0
+  contact:
+    name: Gleap Support
+    email: hello@gleap.io
+    url: https://gleap.io
+  description: The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.
+  license:
+    name: Proprietary
+servers:
+- url: https://api.gleap.io/v3
+tags:
+- name: Engagement Cobrowse
+paths:
+  /engagement/cobrowse:
+    post:
+      operationId: CreateCobrowseProductTour
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Create a new cobrowse product tour
+      tags:
+      - Engagement Cobrowse
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {}
+    get:
+      operationId: GetCobrowseProductTours
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Get all cobrowse product tours
+      tags:
+      - Engagement Cobrowse
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /engagement/cobrowse/{cobrowseProductTourId}:
+    put:
+      operationId: UpdateCobrowseProductTour
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Update an cobrowse product tour
+      tags:
+      - Engagement Cobrowse
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: cobrowseProductTourId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {}
+    delete:
+      operationId: DeleteCobrowseProductTour
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Delete an cobrowse product tour
+      tags:
+      - Engagement Cobrowse
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: cobrowseProductTourId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+    get:
+      operationId: GetCobrowseProductTour
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Get an cobrowse product tour
+      tags:
+      - Engagement Cobrowse
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: cobrowseProductTourId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+components:
+  securitySchemes:
+    jwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

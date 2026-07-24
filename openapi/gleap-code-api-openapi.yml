@@ -1,0 +1,63 @@
+openapi: 3.0.0
+info:
+  title: Gleap AI content Code API
+  version: 14.0.0
+  contact:
+    name: Gleap Support
+    email: hello@gleap.io
+    url: https://gleap.io
+  description: The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.
+  license:
+    name: Proprietary
+servers:
+- url: https://api.gleap.io/v3
+tags:
+- name: Code
+paths:
+  /code/ask:
+    post:
+      operationId: AskCode
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                properties:
+                  answer:
+                    type: string
+                required:
+                - answer
+                type: object
+      summary: Ask a question about the project's connected source repositories
+      tags:
+      - Code
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CodeKnowledgeAskDto'
+components:
+  schemas:
+    CodeKnowledgeAskDto:
+      properties:
+        question:
+          type: string
+      required:
+      - question
+      type: object
+      additionalProperties: false
+  securitySchemes:
+    jwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

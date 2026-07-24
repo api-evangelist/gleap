@@ -1,0 +1,204 @@
+openapi: 3.0.0
+info:
+  title: Gleap AI content Engagement Whatsapp Messages API
+  version: 14.0.0
+  contact:
+    name: Gleap Support
+    email: hello@gleap.io
+    url: https://gleap.io
+  description: The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.
+  license:
+    name: Proprietary
+servers:
+- url: https://api.gleap.io/v3
+tags:
+- name: Engagement Whatsapp Messages
+paths:
+  /engagement/whatsapp-messages:
+    post:
+      operationId: CreateWhatsappMessage
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Create a new whatsapp message
+      tags:
+      - Engagement Whatsapp Messages
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {}
+    get:
+      operationId: GetWhatsappMessages
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Get all whatsapp message
+      tags:
+      - Engagement Whatsapp Messages
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /engagement/whatsapp-messages/{whatsappMessageId}:
+    put:
+      operationId: UpdateWhatsappMessage
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Update a whatsapp message
+      tags:
+      - Engagement Whatsapp Messages
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: whatsappMessageId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {}
+    delete:
+      operationId: DeleteWhatsappMessage
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Delete a whatsapp message
+      tags:
+      - Engagement Whatsapp Messages
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: whatsappMessageId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+    get:
+      operationId: GetWhatsappMessage
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Get a whatsapp message
+      tags:
+      - Engagement Whatsapp Messages
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: whatsappMessageId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /engagement/whatsapp-messages/send-template:
+    post:
+      operationId: SendWhatsappTemplateMessage
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Send a whatsapp template message
+      tags:
+      - Engagement Whatsapp Messages
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                customValues:
+                  $ref: '#/components/schemas/Record_string.string_'
+                  description: 'Key-value map of template variable overrides. Keys must match the templateVariable names from your variable mapping (e.g. { "order_number": "ORD-123", "customer_name": "John" })'
+                languageCode:
+                  type: string
+                  description: Language code (e.g. "en_US"). Falls back to the contact's language or "en_US"
+                templateName:
+                  type: string
+                  description: Name of the WhatsApp template registered with Meta
+                channelId:
+                  type: string
+                  description: The WhatsApp channel ID from your project
+                to:
+                  type: string
+                  description: Recipient phone number (E.164 format, e.g. "+14155552671")
+              required:
+              - templateName
+              - channelId
+              - to
+              type: object
+            example:
+              to: '+14155552671'
+              channelId: 6620f1a2b3c4d5e6f7890123
+              templateName: order_confirmation
+              languageCode: en_US
+              customValues:
+                order_number: ORD-2026-4821
+                delivery_date: March 15, 2026
+                customer_name: John Doe
+components:
+  schemas:
+    Record_string.string_:
+      properties: {}
+      type: object
+      description: Construct a type with a set of properties K of type T
+  securitySchemes:
+    jwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

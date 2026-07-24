@@ -1,0 +1,138 @@
+openapi: 3.0.0
+info:
+  title: Gleap AI content Translations API
+  version: 14.0.0
+  contact:
+    name: Gleap Support
+    email: hello@gleap.io
+    url: https://gleap.io
+  description: The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.
+  license:
+    name: Proprietary
+servers:
+- url: https://api.gleap.io/v3
+tags:
+- name: Translations
+paths:
+  /translations/entries:
+    get:
+      operationId: ListEntries
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: List all translatable entries
+      tags:
+      - Translations
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: type
+        required: false
+        schema:
+          $ref: '#/components/schemas/TranslationEntryType'
+  /translations/entries/{entryId}:
+    get:
+      operationId: GetEntry
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Get a single translatable entry
+      tags:
+      - Translations
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: entryId
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: language
+        required: false
+        schema:
+          type: string
+    put:
+      operationId: PutEntry
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Update a translatable entry
+      tags:
+      - Translations
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: entryId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PutTranslationEntryDto'
+components:
+  schemas:
+    PutTranslationEntryDto:
+      properties:
+        language:
+          type: string
+          description: The language code to set the translation for (e.g., "en", "de", "fr").
+        fields:
+          description: 'Key-value pairs of translatable fields.
+
+            Keys depend on the entity type (e.g., "title", "description", "content" for articles).
+
+            Values are plain text or HTML strings depending on the field type.'
+          example:
+            title: Getting Started
+            description: Learn the basics
+            content: <p>Welcome</p>
+      required:
+      - language
+      - fields
+      type: object
+      additionalProperties: false
+    TranslationEntryType:
+      description: 'Supported translatable entity types.
+
+        Use as the `type` query parameter on GET /translations/entries to filter results.'
+      enum:
+      - article
+      - collection
+      - emailtemplate
+      - statictranslation
+      type: string
+  securitySchemes:
+    jwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

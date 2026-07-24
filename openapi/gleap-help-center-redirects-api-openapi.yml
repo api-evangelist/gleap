@@ -1,0 +1,218 @@
+openapi: 3.0.0
+info:
+  title: Gleap AI content Help center redirects API
+  version: 14.0.0
+  contact:
+    name: Gleap Support
+    email: hello@gleap.io
+    url: https://gleap.io
+  description: The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.
+  license:
+    name: Proprietary
+servers:
+- url: https://api.gleap.io/v3
+tags:
+- name: Help center redirects
+paths:
+  /helpcenter-redirect:
+    post:
+      operationId: CreateHelpcenterRedirect
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HelpcenterRedirectDocument'
+      description: Create a new redirect.
+      summary: Create a new redirect.
+      tags:
+      - Help center redirects
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HelpcenterRedirectDTO'
+    get:
+      operationId: FindRedirects
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/HelpcenterRedirectDocument'
+                type: array
+      description: Find all redirects of a project.
+      summary: Find all redirects.
+      tags:
+      - Help center redirects
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /helpcenter-redirect/{redirectId}:
+    put:
+      operationId: UpdateRedirect
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HelpcenterRedirectDocument'
+      description: Update a redirect.
+      summary: Update a redirect.
+      tags:
+      - Help center redirects
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: redirectId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HelpcenterRedirectDTO'
+    delete:
+      operationId: DeleteRedirect
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HelpcenterRedirectDocument'
+      description: Delete a redirect.
+      summary: Delete a redirect
+      tags:
+      - Help center redirects
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: redirectId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+components:
+  schemas:
+    ObjectId:
+      type: string
+    Document:
+      $ref: '#/components/schemas/FlattenMaps_T_'
+      description: 'Generic types for Document:
+
+        *  T - the type of _id
+
+        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
+
+        *  DocType - the type of the actual Document created'
+    InferSchemaType_typeofhelpcenterRedirectSchema_:
+      $ref: '#/components/schemas/IfAny_typeofhelpcenterRedirectSchema.any.ObtainSchemaGeneric_typeofhelpcenterRedirectSchema.DocType__'
+    RedirectMatchType:
+      enum:
+      - exact
+      - pattern
+      type: string
+    NativeDate:
+      type: string
+    IfAny_typeofhelpcenterRedirectSchema.any.ObtainSchemaGeneric_typeofhelpcenterRedirectSchema.DocType__:
+      allOf:
+      - properties:
+          updatedAt:
+            $ref: '#/components/schemas/NativeDate'
+          createdAt:
+            $ref: '#/components/schemas/NativeDate'
+        required:
+        - updatedAt
+        - createdAt
+        type: object
+      - properties:
+          matchType:
+            $ref: '#/components/schemas/RedirectMatchType'
+          newUrl:
+            type: string
+          oldUrl:
+            type: string
+          project:
+            properties:
+              isValid:
+                properties: {}
+                type: object
+              createFromHexString:
+                properties: {}
+                type: object
+              createFromTime:
+                properties: {}
+                type: object
+              generate:
+                properties: {}
+                type: object
+              cacheHexString: {}
+              prototype:
+                $ref: '#/components/schemas/ObjectId'
+            type: object
+        required:
+        - matchType
+        - newUrl
+        - oldUrl
+        - project
+        type: object
+    HelpcenterRedirectDTO:
+      properties:
+        oldUrl:
+          type: string
+        newUrl:
+          type: string
+        matchType:
+          $ref: '#/components/schemas/RedirectMatchType'
+      required:
+      - oldUrl
+      - newUrl
+      - matchType
+      type: object
+      additionalProperties: false
+    FlattenMaps_T_:
+      properties: {}
+      type: object
+    HelpcenterRedirect:
+      $ref: '#/components/schemas/InferSchemaType_typeofhelpcenterRedirectSchema_'
+    HelpcenterRedirectDocument:
+      allOf:
+      - $ref: '#/components/schemas/HelpcenterRedirect'
+      - $ref: '#/components/schemas/Document'
+  securitySchemes:
+    jwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

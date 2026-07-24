@@ -1,0 +1,144 @@
+openapi: 3.0.0
+info:
+  title: Gleap AI content Engagement Chat Message API
+  version: 14.0.0
+  contact:
+    name: Gleap Support
+    email: hello@gleap.io
+    url: https://gleap.io
+  description: The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.
+  license:
+    name: Proprietary
+servers:
+- url: https://api.gleap.io/v3
+tags:
+- name: Engagement Chat Message
+paths:
+  /engagement/chat-messages:
+    post:
+      operationId: CreateChatMessage
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Create a new chat message
+      tags:
+      - Engagement Chat Message
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {}
+    get:
+      operationId: GetChatMessages
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Get all chat messages
+      tags:
+      - Engagement Chat Message
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /engagement/chat-messages/{chatMessageId}:
+    put:
+      operationId: UpdateChatMessage
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Update an chat message
+      tags:
+      - Engagement Chat Message
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: chatMessageId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {}
+    delete:
+      operationId: DeleteChatMessage
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Delete an chat message
+      tags:
+      - Engagement Chat Message
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: chatMessageId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+    get:
+      operationId: GetChatMessage
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema: {}
+      summary: Get an chat message
+      tags:
+      - Engagement Chat Message
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: chatMessageId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+components:
+  securitySchemes:
+    jwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

@@ -1,0 +1,149 @@
+openapi: 3.0.0
+info:
+  title: Gleap AI content Help center API
+  version: 14.0.0
+  contact:
+    name: Gleap Support
+    email: hello@gleap.io
+    url: https://gleap.io
+  description: The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.
+  license:
+    name: Proprietary
+servers:
+- url: https://api.gleap.io/v3
+tags:
+- name: Help center
+paths:
+  /shared/helpcenter/search:
+    get:
+      operationId: GetHelpcenterCollections
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                properties:
+                  domainRedirect: {}
+                  redirectUrl: {}
+                  session:
+                    properties:
+                      gleapHash: {}
+                      gleapId: {}
+                      userName: {}
+                      userEmail: {}
+                      userId: {}
+                    required:
+                    - gleapHash
+                    - gleapId
+                    - userName
+                    - userEmail
+                    - userId
+                    type: object
+                  project:
+                    properties:
+                      defaultDomain:
+                        type: string
+                      customDomain: {}
+                      apiKey: {}
+                      flowConfig:
+                        properties:
+                          localizationOptions: {}
+                          operatorAvatarImage: {}
+                          hideBranding: {}
+                          backgroundColor: {}
+                          headerColor: {}
+                          color: {}
+                          helpcenterConfig: {}
+                        required:
+                        - localizationOptions
+                        - operatorAvatarImage
+                        - hideBranding
+                        - backgroundColor
+                        - headerColor
+                        - color
+                        - helpcenterConfig
+                        type: object
+                      name: {}
+                    required:
+                    - defaultDomain
+                    - customDomain
+                    - apiKey
+                    - flowConfig
+                    - name
+                    type: object
+                  data: {}
+                required:
+                - domainRedirect
+                - redirectUrl
+                - session
+                - project
+                - data
+                type: object
+      summary: Search help center articles
+      tags:
+      - Help center
+      security: []
+      parameters: []
+  /shared/helpcenter/sources:
+    get:
+      operationId: GetHelpcenterSources
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                properties:
+                  sources:
+                    items:
+                      properties:
+                        sourceType: {}
+                        type:
+                          type: string
+                        extract: {}
+                        url: {}
+                        title: {}
+                        id: {}
+                      required:
+                      - sourceType
+                      - type
+                      - extract
+                      - url
+                      - title
+                      - id
+                      type: object
+                    type: array
+                required:
+                - sources
+                type: object
+      summary: Get help center sources
+      tags:
+      - Help center
+      security: []
+      parameters: []
+  /shared/helpcenter/answer:
+    get:
+      operationId: AnswerHelpCenterQuestion
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                properties:
+                  answer: {}
+                required:
+                - answer
+                type: object
+      summary: Answer help center question
+      tags:
+      - Help center
+      security: []
+      parameters: []
+components:
+  securitySchemes:
+    jwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

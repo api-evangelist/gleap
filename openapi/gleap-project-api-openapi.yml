@@ -1,0 +1,99 @@
+openapi: 3.0.0
+info:
+  title: Gleap AI content Project API
+  version: 14.0.0
+  contact:
+    name: Gleap Support
+    email: hello@gleap.io
+    url: https://gleap.io
+  description: The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.
+  license:
+    name: Proprietary
+servers:
+- url: https://api.gleap.io/v3
+tags:
+- name: Project
+paths:
+  /projects/users:
+    get:
+      operationId: GetUsers
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                items: {}
+                type: array
+      description: Get all users for a project.
+      summary: Get all users for a project
+      tags:
+      - Project
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+  /projects/users/{userId}:
+    put:
+      operationId: UpdateUser
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: boolean
+      description: Update a user for a project.
+      summary: Update a user for a project
+      tags:
+      - Project
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: userId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                role:
+                  type: string
+              required:
+              - role
+              type: object
+    delete:
+      operationId: DeleteUser
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: boolean
+      description: Delete a user for a project.
+      summary: Delete a user for a project
+      tags:
+      - Project
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: userId
+        required: true
+        schema:
+          type: string
+components:
+  securitySchemes:
+    jwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

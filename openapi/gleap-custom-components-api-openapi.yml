@@ -1,0 +1,300 @@
+openapi: 3.0.0
+info:
+  title: Gleap AI content Custom components API
+  version: 14.0.0
+  contact:
+    name: Gleap Support
+    email: hello@gleap.io
+    url: https://gleap.io
+  description: The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.
+  license:
+    name: Proprietary
+servers:
+- url: https://api.gleap.io/v3
+tags:
+- name: Custom components
+paths:
+  /custom-components:
+    post:
+      operationId: Create
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomComponentDocument'
+      description: Create a new custom AI message component.
+      summary: Create a new custom component.
+      tags:
+      - Custom components
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomComponentDTO'
+    get:
+      operationId: Find
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                anyOf:
+                - items:
+                    $ref: '#/components/schemas/CustomComponentDocument'
+                  type: array
+                - properties:
+                    totalCount:
+                      type: number
+                      format: double
+                    data:
+                      items:
+                        $ref: '#/components/schemas/CustomComponentDocument'
+                      type: array
+                  required:
+                  - totalCount
+                  - data
+                  type: object
+      description: Find all custom components of a project.
+      summary: Find all custom components.
+      tags:
+      - Custom components
+      security:
+      - jwt: []
+      parameters:
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: limit
+        required: false
+        schema:
+          format: double
+          type: number
+      - in: query
+        name: skip
+        required: false
+        schema:
+          format: double
+          type: number
+      - in: query
+        name: searchTerm
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: publishedOnly
+        required: false
+        schema:
+          type: boolean
+      - in: query
+        name: withCount
+        required: false
+        schema:
+          type: boolean
+  /custom-components/{customComponentId}:
+    get:
+      operationId: FindOne
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomComponentDocument'
+      description: Find one custom component by ID.
+      summary: Find one custom component.
+      tags:
+      - Custom components
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: customComponentId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+    put:
+      operationId: Update
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomComponentDocument'
+      description: Update a custom component.
+      summary: Update a custom component.
+      tags:
+      - Custom components
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: customComponentId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomComponentDTO'
+    delete:
+      operationId: Remove
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomComponentDocument'
+      description: Delete a custom component.
+      summary: Delete a custom component.
+      tags:
+      - Custom components
+      security:
+      - jwt: []
+      parameters:
+      - in: path
+        name: customComponentId
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: project
+        required: true
+        schema:
+          type: string
+components:
+  schemas:
+    CustomComponent:
+      $ref: '#/components/schemas/InferSchemaType_typeofcustomComponentSchema_'
+    InferSchemaType_typeofcustomComponentSchema_:
+      $ref: '#/components/schemas/IfAny_typeofcustomComponentSchema.any.ObtainSchemaGeneric_typeofcustomComponentSchema.DocType__'
+    CustomComponentDocument:
+      allOf:
+      - $ref: '#/components/schemas/CustomComponent'
+      - $ref: '#/components/schemas/Document'
+    ObjectId:
+      type: string
+    CustomComponentDTO:
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        whenToUse:
+          type: string
+        schema: {}
+        template:
+          type: string
+        exampleData: {}
+        isPublished:
+          type: boolean
+      required:
+      - name
+      - schema
+      - template
+      type: object
+      additionalProperties: false
+    Document:
+      $ref: '#/components/schemas/FlattenMaps_T_'
+      description: 'Generic types for Document:
+
+        *  T - the type of _id
+
+        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
+
+        *  DocType - the type of the actual Document created'
+    IfAny_typeofcustomComponentSchema.any.ObtainSchemaGeneric_typeofcustomComponentSchema.DocType__:
+      allOf:
+      - properties:
+          updatedAt:
+            $ref: '#/components/schemas/NativeDate'
+          createdAt:
+            $ref: '#/components/schemas/NativeDate'
+        required:
+        - updatedAt
+        - createdAt
+        type: object
+      - properties:
+          createdBy:
+            $ref: '#/components/schemas/ObjectId'
+          isPublished:
+            type: boolean
+          exampleData: {}
+          sanitizedTemplate:
+            type: string
+          template:
+            type: string
+          whenToUse:
+            type: string
+          project:
+            properties:
+              isValid:
+                properties: {}
+                type: object
+              createFromHexString:
+                properties: {}
+                type: object
+              createFromTime:
+                properties: {}
+                type: object
+              generate:
+                properties: {}
+                type: object
+              cacheHexString: {}
+              prototype:
+                $ref: '#/components/schemas/ObjectId'
+            type: object
+          description:
+            type: string
+          name:
+            type: string
+          schema: {}
+        required:
+        - isPublished
+        - exampleData
+        - sanitizedTemplate
+        - template
+        - whenToUse
+        - project
+        - description
+        - name
+        - schema
+        type: object
+    NativeDate:
+      type: string
+    FlattenMaps_T_:
+      properties: {}
+      type: object
+  securitySchemes:
+    jwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

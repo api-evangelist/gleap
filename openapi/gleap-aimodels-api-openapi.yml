@@ -1,0 +1,279 @@
+openapi: 3.0.0
+info:
+  title: Gleap AI content AiModels API
+  version: 14.0.0
+  contact:
+    name: Gleap Support
+    email: hello@gleap.io
+    url: https://gleap.io
+  description: The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.
+  license:
+    name: Proprietary
+servers:
+- url: https://api.gleap.io/v3
+tags:
+- name: AiModels
+paths:
+  /ai/models:
+    get:
+      operationId: GetModels
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AiModelsPublicResponse'
+      description: 'Returns the model catalog (selectable + non-selectable), category
+
+        defaults, per-runtime defaults, and per-usage-type cost markups.'
+      summary: Get AI model catalog
+      tags:
+      - AiModels
+      security: []
+      parameters: []
+components:
+  schemas:
+    AiModelPublicDto:
+      description: 'Public DTO. Strips internal-only fields (`providerRoute` — exposes
+
+        API-key env names) and any markup-related metadata. Customer-facing
+
+        cost figures (`averageCostPerAnswerUsd`) are pre-computed server-side
+
+        so the Frontend never needs the markup multiplier.'
+      properties:
+        id:
+          type: string
+        displayName:
+          type: string
+        shortLabel:
+          type: string
+        provider:
+          $ref: '#/components/schemas/ModelProvider'
+        contextWindow:
+          type: number
+          format: double
+        costPerMillionTokens:
+          $ref: '#/components/schemas/AiModelCost'
+        capabilities:
+          $ref: '#/components/schemas/AiModelCapabilities'
+        pickers:
+          $ref: '#/components/schemas/AiModelPickers'
+        supportedEfforts:
+          items:
+            $ref: '#/components/schemas/ModelEffort'
+          type: array
+        defaultEffort:
+          $ref: '#/components/schemas/ModelEffort'
+        subagentModelId:
+          type: string
+        aliases:
+          items:
+            type: string
+          type: array
+        iconKey:
+          $ref: '#/components/schemas/ModelIconKey'
+        opencodeId:
+          type: string
+        variant1M:
+          type: boolean
+        averageCostPerAnswerUsd:
+          type: string
+          description: 'Customer-facing average cost (USD) for a typical Kai support
+
+            answer. Pre-multiplied by the default Kai markup so the Frontend
+
+            can render the figure without ever seeing the multiplier.'
+      required:
+      - id
+      - displayName
+      - provider
+      - costPerMillionTokens
+      type: object
+      additionalProperties: false
+    AiModelCapabilities:
+      properties:
+        chat:
+          type: boolean
+        vision:
+          type: boolean
+        tools:
+          type: boolean
+        streaming:
+          type: boolean
+        transcription:
+          type: boolean
+        reasoning:
+          type: boolean
+        minimalReasoning:
+          type: boolean
+        temperatureUnsupported:
+          type: boolean
+          description: Anthropic models that reject `temperature` (claude-opus-4-8).
+      type: object
+      additionalProperties: false
+    Record_ModelRuntime.string_:
+      properties:
+        cloud:
+          type: string
+        opencode:
+          type: string
+        claudeCode:
+          type: string
+        codex:
+          type: string
+      type: object
+      description: Construct a type with a set of properties K of type T
+    AiModelsPublicResponse:
+      properties:
+        models:
+          items:
+            $ref: '#/components/schemas/AiModelPublicDto'
+          type: array
+          description: Full catalog (every entry, no filtering).
+        pickers:
+          properties:
+            transcription:
+              items:
+                $ref: '#/components/schemas/AiPickerOption'
+              type: array
+              description: STT models (transcription-capable).
+            kaiCodeOpenCode:
+              items:
+                $ref: '#/components/schemas/AiPickerOption'
+              type: array
+              description: Kai Code OpenCode (desktop) runtime model picker.
+            kaiCodeCloud:
+              items:
+                $ref: '#/components/schemas/AiPickerOption'
+              type: array
+              description: Kai Code cloud runtime model picker.
+            kaiAgent:
+              items:
+                $ref: '#/components/schemas/AiPickerOption'
+              type: array
+              description: Default Kai support agent dropdown.
+          required:
+          - transcription
+          - kaiCodeOpenCode
+          - kaiCodeCloud
+          - kaiAgent
+          type: object
+          description: Curated picker lists (replaces FE iterate-and-filter logic).
+        runtimeDefaults:
+          $ref: '#/components/schemas/Record_ModelRuntime.string_'
+          description: Per-runtime default modelId.
+      required:
+      - models
+      - pickers
+      - runtimeDefaults
+      type: object
+      additionalProperties: false
+    ModelIconKey:
+      type: string
+      enum:
+      - anthropic
+      - openai
+      - google
+      - xai
+      - meta
+      - mistral
+      - cohere
+      - kimi
+      - minimax
+      - qwen
+      - deepseek
+      - glm
+      - local
+    ModelEffort:
+      type: string
+      enum:
+      - low
+      - medium
+      - high
+      - extra_high
+      - max
+    AiPickerOption:
+      properties:
+        value:
+          type: string
+          description: Value persisted on the project / session. Either an alias or a canonical id.
+        label:
+          type: string
+      required:
+      - value
+      - label
+      type: object
+      additionalProperties: false
+    ModelProvider:
+      type: string
+      enum:
+      - anthropic
+      - openai
+      - google
+      - xai
+      - openrouter
+      - mistral
+      - deepseek
+      - local
+    AiModelPickers:
+      description: 'Per-runtime UI-picker visibility.
+
+
+        `kaiAgent`            → Kai default support agent dropdown
+
+        `kaiCodeCloud`        → Kai Code cloud runtime model picker
+
+        `kaiCodeOpenCode`     → Kai Code desktop OpenCode runtime model picker
+
+
+        Models excluded from every picker but still in the catalog are
+
+        either subagent-only (e.g. Kimi K2.5) or special-purpose (transcription,
+
+        Codex CLI) — they appear elsewhere via `capabilities.transcription`
+
+        or via the static `staticModels` list of CLI-only runtimes.'
+      properties:
+        kaiAgent:
+          type: boolean
+        kaiCodeCloud:
+          type: boolean
+        kaiCodeOpenCode:
+          type: boolean
+      type: object
+      additionalProperties: false
+    AiModelCost:
+      properties:
+        input:
+          type: number
+          format: double
+        cachedInput:
+          type: number
+          format: double
+        cacheWriteInput:
+          type: number
+          format: double
+        output:
+          type: number
+          format: double
+        longContextThreshold:
+          type: number
+          format: double
+        longInputMultiplier:
+          type: number
+          format: double
+        longOutputMultiplier:
+          type: number
+          format: double
+      required:
+      - input
+      - output
+      type: object
+      additionalProperties: false
+  securitySchemes:
+    jwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
