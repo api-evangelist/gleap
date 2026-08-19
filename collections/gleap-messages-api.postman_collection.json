@@ -1,0 +1,776 @@
+{
+  "item": [
+    {
+      "id": "b9eb2147-4168-4974-90f0-a7e9e9d5ca90",
+      "name": "Messages",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e56ba651-3436-492f-82f9-f0b6bd60346f",
+          "name": "Create a new message",
+          "request": {
+            "name": "Create a new message",
+            "description": {
+              "content": "Create a new message",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "messages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "project",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user\": \"<string>\",\n  \"session\": \"<string>\",\n  \"bot\": \"<boolean>\",\n  \"fallbackUser\": {\n    \"username\": \"<string>\",\n    \"email\": \"<string>\",\n    \"imageUrl\": \"<string>\"\n  },\n  \"messageRef\": \"<string>\",\n  \"ticket\": \"<string>\",\n  \"data\": \"\",\n  \"translatedData\": \"\",\n  \"type\": \"<string>\",\n  \"emailId\": \"<string>\",\n  \"sessionNotificationsUnread\": \"<boolean>\",\n  \"outbound\": \"<string>\",\n  \"outboundTemplate\": \"<string>\",\n  \"outboundSubject\": \"<string>\",\n  \"status\": \"\",\n  \"comment\": \"\",\n  \"replyTo\": \"<string>\",\n  \"kaiChat\": \"<boolean>\",\n  \"aiData\": \"\",\n  \"attachments\": [\n    {\n      \"name\": \"<string>\",\n      \"url\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"url\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ],\n  \"actions\": [\n    {\n      \"type\": \"<string>\",\n      \"data\": \"\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"data\": \"\"\n    }\n  ],\n  \"channel\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"messageId\": \"<string>\"\n  },\n  \"sendToChannel\": \"<boolean>\",\n  \"isNote\": \"<boolean>\",\n  \"rating\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b200622d-eeeb-4786-ae5a-9ed866327173",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "project",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user\": \"<string>\",\n  \"session\": \"<string>\",\n  \"bot\": \"<boolean>\",\n  \"fallbackUser\": {\n    \"username\": \"<string>\",\n    \"email\": \"<string>\",\n    \"imageUrl\": \"<string>\"\n  },\n  \"messageRef\": \"<string>\",\n  \"ticket\": \"<string>\",\n  \"data\": \"\",\n  \"translatedData\": \"\",\n  \"type\": \"<string>\",\n  \"emailId\": \"<string>\",\n  \"sessionNotificationsUnread\": \"<boolean>\",\n  \"outbound\": \"<string>\",\n  \"outboundTemplate\": \"<string>\",\n  \"outboundSubject\": \"<string>\",\n  \"status\": \"\",\n  \"comment\": \"\",\n  \"replyTo\": \"<string>\",\n  \"kaiChat\": \"<boolean>\",\n  \"aiData\": \"\",\n  \"attachments\": [\n    {\n      \"name\": \"<string>\",\n      \"url\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"url\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ],\n  \"actions\": [\n    {\n      \"type\": \"<string>\",\n      \"data\": \"\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"data\": \"\"\n    }\n  ],\n  \"channel\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"messageId\": \"<string>\"\n  },\n  \"sendToChannel\": \"<boolean>\",\n  \"isNote\": \"<boolean>\",\n  \"rating\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ticket\": \"507f1f77bcf86cd799439011\",\n  \"comment\": {\n    \"type\": \"paragraph\",\n    \"content\": [\n      {\n        \"type\": \"text\",\n        \"text\": \"Thank you for reporting this issue. We are looking into it.\"\n      }\n    ]\n  },\n  \"type\": \"COMMENT\",\n  \"bot\": false,\n  \"attachments\": [\n    {\n      \"name\": \"screenshot.png\",\n      \"url\": \"https://example.com/screenshots/screenshot.png\",\n      \"type\": \"image/png\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8f6c4efe-62b0-43f9-a1c1-d4a2271952ff",
+          "name": "Find messages by query",
+          "request": {
+            "name": "Find messages by query",
+            "description": {
+              "content": "Get messages by query with support for filtering, sorting, and pagination.\n\n**Filtering:**\n- Filter by ticket: `ticket=507f1f77bcf86cd799439011`\n- Filter by type: `type=COMMENT` or `type=COMMENT,NOTE`\n- Filter by bot messages: `bot=true` or `bot=false`\n- Filter by date range: `createdAt>=2024-01-01&createdAt<=2024-12-31`\n\n**Sorting:**\n- Sort by creation date: `sort=-createdAt` (newest first) or `sort=createdAt` (oldest first)\n- Sort by updated date: `sort=-updatedAt`\n\n**Pagination:**\n- Limit results: `limit=50` (default up to 10000)\n- Skip results: `skip=0` (for pagination: `skip=(page-1)*limit`)\n\n**Translation:**\n- Auto-translate messages: `language=es` (language code for target language)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "messages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "paginated",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "before",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<double>",
+                  "description": "- Maximum number of messages to return (default: no limit, max: 10000)"
+                },
+                {
+                  "disabled": false,
+                  "key": "showHistory",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "project",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1b75216a-e7b7-4683-b40e-6a859e97678c",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "paginated",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "showHistory",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "project",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"_id\": \"507f1f77bcf86cd799439015\",\n    \"id\": \"507f1f77bcf86cd799439015\",\n    \"ticket\": \"507f1f77bcf86cd799439011\",\n    \"comment\": {\n      \"type\": \"doc\",\n      \"content\": [\n        {\n          \"type\": \"paragraph\",\n          \"content\": [\n            {\n              \"type\": \"text\",\n              \"text\": \"This is a sample message content.\"\n            }\n          ]\n        }\n      ]\n    },\n    \"type\": \"COMMENT\",\n    \"bot\": false,\n    \"user\": {\n      \"_id\": \"507f1f77bcf86cd799439012\",\n      \"email\": \"support@example.com\",\n      \"firstName\": \"John\",\n      \"lastName\": \"Doe\"\n    },\n    \"session\": {\n      \"_id\": \"507f1f77bcf86cd799439013\",\n      \"email\": \"user@example.com\"\n    },\n    \"createdAt\": \"2024-01-15T10:30:00.000Z\",\n    \"updatedAt\": \"2024-01-15T10:30:00.000Z\",\n    \"index\": 0\n  },\n  {\n    \"_id\": \"507f1f77bcf86cd799439016\",\n    \"id\": \"507f1f77bcf86cd799439016\",\n    \"ticket\": \"507f1f77bcf86cd799439011\",\n    \"comment\": {\n      \"type\": \"doc\",\n      \"content\": [\n        {\n          \"type\": \"paragraph\",\n          \"content\": [\n            {\n              \"type\": \"text\",\n              \"text\": \"Thank you for the update!\"\n            }\n          ]\n        }\n      ]\n    },\n    \"type\": \"COMMENT\",\n    \"bot\": false,\n    \"user\": {\n      \"_id\": \"507f1f77bcf86cd799439017\",\n      \"email\": \"user@example.com\",\n      \"firstName\": \"Jane\",\n      \"lastName\": \"Smith\"\n    },\n    \"session\": {\n      \"_id\": \"507f1f77bcf86cd799439013\",\n      \"email\": \"user@example.com\"\n    },\n    \"createdAt\": \"2024-01-15T11:00:00.000Z\",\n    \"updatedAt\": \"2024-01-15T11:00:00.000Z\",\n    \"index\": 1\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4b75255c-fa8f-47ce-afab-6405cd5f8826",
+          "name": "Search messages",
+          "request": {
+            "name": "Search messages",
+            "description": {
+              "content": "Search messages",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "messages",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "searchTerm",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "project",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "dce7bdfb-1722-4be2-bbe7-03a8871009dc",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "searchTerm",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "project",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"hits\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "743278ee-5b95-4c34-98c7-1cc4d5cd3710",
+          "name": "Update a message",
+          "request": {
+            "name": "Update a message",
+            "description": {
+              "content": "Update a message",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "messages",
+                ":messageId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "messageId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "project",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user\": \"<string>\",\n  \"session\": \"<string>\",\n  \"bot\": \"<boolean>\",\n  \"fallbackUser\": {\n    \"username\": \"<string>\",\n    \"email\": \"<string>\",\n    \"imageUrl\": \"<string>\"\n  },\n  \"messageRef\": \"<string>\",\n  \"ticket\": \"<string>\",\n  \"data\": \"\",\n  \"translatedData\": \"\",\n  \"type\": \"<string>\",\n  \"emailId\": \"<string>\",\n  \"sessionNotificationsUnread\": \"<boolean>\",\n  \"outbound\": \"<string>\",\n  \"outboundTemplate\": \"<string>\",\n  \"outboundSubject\": \"<string>\",\n  \"status\": \"\",\n  \"comment\": \"\",\n  \"replyTo\": \"<string>\",\n  \"kaiChat\": \"<boolean>\",\n  \"aiData\": \"\",\n  \"attachments\": [\n    {\n      \"name\": \"<string>\",\n      \"url\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"url\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ],\n  \"actions\": [\n    {\n      \"type\": \"<string>\",\n      \"data\": \"\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"data\": \"\"\n    }\n  ],\n  \"channel\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"messageId\": \"<string>\"\n  },\n  \"sendToChannel\": \"<boolean>\",\n  \"isNote\": \"<boolean>\",\n  \"rating\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "aaf7063e-c08d-4fa5-b21e-df7cde06dd28",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages",
+                    ":messageId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "messageId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "project",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user\": \"<string>\",\n  \"session\": \"<string>\",\n  \"bot\": \"<boolean>\",\n  \"fallbackUser\": {\n    \"username\": \"<string>\",\n    \"email\": \"<string>\",\n    \"imageUrl\": \"<string>\"\n  },\n  \"messageRef\": \"<string>\",\n  \"ticket\": \"<string>\",\n  \"data\": \"\",\n  \"translatedData\": \"\",\n  \"type\": \"<string>\",\n  \"emailId\": \"<string>\",\n  \"sessionNotificationsUnread\": \"<boolean>\",\n  \"outbound\": \"<string>\",\n  \"outboundTemplate\": \"<string>\",\n  \"outboundSubject\": \"<string>\",\n  \"status\": \"\",\n  \"comment\": \"\",\n  \"replyTo\": \"<string>\",\n  \"kaiChat\": \"<boolean>\",\n  \"aiData\": \"\",\n  \"attachments\": [\n    {\n      \"name\": \"<string>\",\n      \"url\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"url\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ],\n  \"actions\": [\n    {\n      \"type\": \"<string>\",\n      \"data\": \"\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"data\": \"\"\n    }\n  ],\n  \"channel\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"messageId\": \"<string>\"\n  },\n  \"sendToChannel\": \"<boolean>\",\n  \"isNote\": \"<boolean>\",\n  \"rating\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "984716c8-78c4-4b2b-ba11-383f582ebfd3",
+          "name": "Delete a comment",
+          "request": {
+            "name": "Delete a comment",
+            "description": {
+              "content": "Delete a message",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "messages",
+                ":messageId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "messageId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "project",
+                "value": "<string>"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a97c243c-1c12-491f-ac30-ec3f966e3148",
+              "name": "No content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages",
+                    ":messageId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "messageId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "project",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "92a3e303-e15d-4f7b-b7a4-4645d556aa4b",
+          "name": "FAQ suggestion",
+          "request": {
+            "name": "FAQ suggestion",
+            "description": {
+              "content": "Suggest a FAQ from a message",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "messages",
+                ":messageId",
+                "faq"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "messageId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "project",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"accept\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d4ee31b3-52c8-4df6-b7d4-26241030266a",
+              "name": "No content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages",
+                    ":messageId",
+                    "faq"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "messageId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "project",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accept\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.gleap.io/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f052f0d3-05e5-4492-8901-b1ee220d897f",
+    "name": "Gleap AI content Messages API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.\n\nContact Support:\n Name: Gleap Support\n Email: hello@gleap.io",
+      "type": "text/plain"
+    }
+  }
+}

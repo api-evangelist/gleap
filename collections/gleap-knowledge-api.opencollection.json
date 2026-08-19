@@ -1,0 +1,68 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Gleap AI content Knowledge API",
+    "version": "14.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Knowledge",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search knowledge documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.gleap.io/v3/knowledge/search",
+            "headers": [
+              {
+                "name": "project",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Search knowledge documents"
+        },
+        {
+          "info": {
+            "name": "Find similar tickets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.gleap.io/v3/knowledge/similar-tickets",
+            "headers": [
+              {
+                "name": "project",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Find similar tickets"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

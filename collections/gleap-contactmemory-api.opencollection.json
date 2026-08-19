@@ -1,0 +1,209 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Gleap AI content ContactMemory API",
+    "version": "14.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ContactMemory",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List contact memory entries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.gleap.io/v3/sessions/:sessionId/memory",
+            "headers": [
+              {
+                "name": "project",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "List memory entries (no content) for a contact session."
+        },
+        {
+          "info": {
+            "name": "Create or update a contact memory entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.gleap.io/v3/sessions/:sessionId/memory",
+            "headers": [
+              {
+                "name": "project",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create or upsert a memory entry by name."
+        },
+        {
+          "info": {
+            "name": "Clear all contact memory entries",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.gleap.io/v3/sessions/:sessionId/memory",
+            "headers": [
+              {
+                "name": "project",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Clear all memory entries for a contact."
+        },
+        {
+          "info": {
+            "name": "Get one contact memory entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.gleap.io/v3/sessions/:sessionId/memory/:entryName",
+            "headers": [
+              {
+                "name": "project",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "entryName",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get the full content of a single memory entry."
+        },
+        {
+          "info": {
+            "name": "Update a contact memory entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.gleap.io/v3/sessions/:sessionId/memory/:entryName",
+            "headers": [
+              {
+                "name": "project",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "entryName",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update an existing memory entry by name."
+        },
+        {
+          "info": {
+            "name": "Delete a contact memory entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.gleap.io/v3/sessions/:sessionId/memory/:entryName",
+            "headers": [
+              {
+                "name": "project",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "entryName",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete one memory entry by name."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

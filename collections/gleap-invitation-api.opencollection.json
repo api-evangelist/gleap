@@ -1,0 +1,195 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Gleap AI content Invitation API",
+    "version": "14.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Invitation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all invitations for a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.gleap.io/v3/invitations",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get all invitations for a user."
+        },
+        {
+          "info": {
+            "name": "Update an invitation",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.gleap.io/v3/invitations/:invitationId",
+            "params": [
+              {
+                "name": "invitationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update an invitation."
+        },
+        {
+          "info": {
+            "name": "Delete an invitation",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.gleap.io/v3/invitations/:invitationId",
+            "params": [
+              {
+                "name": "invitationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete an invitation."
+        },
+        {
+          "info": {
+            "name": "Update an invitation for a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.gleap.io/v3/invitations/:invitationId/role",
+            "headers": [
+              {
+                "name": "project",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "invitationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update an invitation for a project."
+        },
+        {
+          "info": {
+            "name": "Get all invitations for an organisation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.gleap.io/v3/invitations/organisations/:organisationId",
+            "params": [
+              {
+                "name": "organisationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get all invitations for an organisation."
+        },
+        {
+          "info": {
+            "name": "Create a new invitation for an organisation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.gleap.io/v3/invitations/organisations/:organisationId",
+            "params": [
+              {
+                "name": "organisationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a new invitation for an organisation."
+        },
+        {
+          "info": {
+            "name": "Get all invitations for a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.gleap.io/v3/invitations/projects",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get all invitations for a project."
+        },
+        {
+          "info": {
+            "name": "Create a new invitation for a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.gleap.io/v3/invitations/projects",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a new invitation for a project."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

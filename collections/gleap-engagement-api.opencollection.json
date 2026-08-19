@@ -1,0 +1,194 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Gleap AI content Engagement API",
+    "version": "14.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Engagement",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get engagement activities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.gleap.io/v3/engagements/:engagementId/activities",
+            "headers": [
+              {
+                "name": "project",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "engagementId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get engagement activities"
+        },
+        {
+          "info": {
+            "name": "Get engagement activities count",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.gleap.io/v3/engagements/:engagementId/activities/count",
+            "headers": [
+              {
+                "name": "project",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "engagementId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get engagement activities count"
+        },
+        {
+          "info": {
+            "name": "Find engagement recipients",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.gleap.io/v3/engagements/:engagementId/recipients",
+            "headers": [
+              {
+                "name": "project",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "engagementId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Find engagement recipients"
+        },
+        {
+          "info": {
+            "name": "Get engagement statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.gleap.io/v3/engagements/:engagementId/statistics",
+            "headers": [
+              {
+                "name": "project",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "engagementId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get engagement statistics"
+        },
+        {
+          "info": {
+            "name": "Get engagement fixed audience samples",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.gleap.io/v3/engagements/:engagementId/fixed-audience-samples",
+            "headers": [
+              {
+                "name": "project",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "engagementId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get engagement fixed audience samples"
+        },
+        {
+          "info": {
+            "name": "Clone engagement",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.gleap.io/v3/engagements/:engagementId/clone",
+            "headers": [
+              {
+                "name": "project",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "engagementId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Clone engagement"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

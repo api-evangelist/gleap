@@ -1,0 +1,502 @@
+{
+  "item": [
+    {
+      "id": "adfebe03-8d06-44ab-b188-faa575284fae",
+      "name": "Help center redirects",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c1649b81-8af1-42c7-9bf6-cfd65b8b1e3a",
+          "name": "Create a new redirect.",
+          "request": {
+            "name": "Create a new redirect.",
+            "description": {
+              "content": "Create a new redirect.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "helpcenter-redirect"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "project",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"oldUrl\": \"<string>\",\n  \"newUrl\": \"<string>\",\n  \"matchType\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "90c9ace3-a94e-4ce6-a7cb-9e92de29780d",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "helpcenter-redirect"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "project",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"oldUrl\": \"<string>\",\n  \"newUrl\": \"<string>\",\n  \"matchType\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"createdAt\": \"string\",\n  \"matchType\": \"<string>\",\n  \"newUrl\": \"string\",\n  \"oldUrl\": \"string\",\n  \"project\": {\n    \"isValid\": {},\n    \"createFromHexString\": {},\n    \"createFromTime\": {},\n    \"generate\": {},\n    \"cacheHexString\": \"\",\n    \"prototype\": \"string\"\n  },\n  \"updatedAt\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b76357d9-320e-4b26-bb74-bdd1703dca5a",
+          "name": "Find all redirects.",
+          "request": {
+            "name": "Find all redirects.",
+            "description": {
+              "content": "Find all redirects of a project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "helpcenter-redirect"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "project",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d54b4626-4699-47c5-9304-8e2187c03850",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "helpcenter-redirect"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "project",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"createdAt\": \"string\",\n    \"matchType\": \"<string>\",\n    \"newUrl\": \"string\",\n    \"oldUrl\": \"string\",\n    \"project\": {\n      \"isValid\": {},\n      \"createFromHexString\": {},\n      \"createFromTime\": {},\n      \"generate\": {},\n      \"cacheHexString\": \"\",\n      \"prototype\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"updatedAt\": \"string\"\n  },\n  {\n    \"createdAt\": \"string\",\n    \"matchType\": \"<string>\",\n    \"newUrl\": \"string\",\n    \"oldUrl\": \"string\",\n    \"project\": {\n      \"isValid\": {},\n      \"createFromHexString\": {},\n      \"createFromTime\": {},\n      \"generate\": {},\n      \"cacheHexString\": \"\",\n      \"prototype\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"updatedAt\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "79d8564f-a299-455e-beff-9ba9c5bfc31a",
+          "name": "Update a redirect.",
+          "request": {
+            "name": "Update a redirect.",
+            "description": {
+              "content": "Update a redirect.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "helpcenter-redirect",
+                ":redirectId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "redirectId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "project",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"oldUrl\": \"<string>\",\n  \"newUrl\": \"<string>\",\n  \"matchType\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7198a11a-5331-4b32-839a-17ebfbe512f9",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "helpcenter-redirect",
+                    ":redirectId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "redirectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "project",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"oldUrl\": \"<string>\",\n  \"newUrl\": \"<string>\",\n  \"matchType\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"createdAt\": \"string\",\n  \"matchType\": \"<string>\",\n  \"newUrl\": \"string\",\n  \"oldUrl\": \"string\",\n  \"project\": {\n    \"isValid\": {},\n    \"createFromHexString\": {},\n    \"createFromTime\": {},\n    \"generate\": {},\n    \"cacheHexString\": \"\",\n    \"prototype\": \"string\"\n  },\n  \"updatedAt\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "906d6858-47c1-499b-9a63-ce41dd21a3db",
+          "name": "Delete a redirect",
+          "request": {
+            "name": "Delete a redirect",
+            "description": {
+              "content": "Delete a redirect.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "helpcenter-redirect",
+                ":redirectId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "redirectId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "project",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9078d959-2561-4562-8e04-d23c9b098c81",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "helpcenter-redirect",
+                    ":redirectId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "redirectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "project",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"createdAt\": \"string\",\n  \"matchType\": \"<string>\",\n  \"newUrl\": \"string\",\n  \"oldUrl\": \"string\",\n  \"project\": {\n    \"isValid\": {},\n    \"createFromHexString\": {},\n    \"createFromTime\": {},\n    \"generate\": {},\n    \"cacheHexString\": \"\",\n    \"prototype\": \"string\"\n  },\n  \"updatedAt\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.gleap.io/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "7e9f6b45-2ce3-44ea-92b7-0a3eae423706",
+    "name": "Gleap AI content Help center redirects API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.\n\nContact Support:\n Name: Gleap Support\n Email: hello@gleap.io",
+      "type": "text/plain"
+    }
+  }
+}

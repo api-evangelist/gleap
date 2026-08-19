@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Gleap AI content Help center API",
+    "version": "14.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Help center",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search help center articles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.gleap.io/v3/shared/helpcenter/search"
+          },
+          "docs": "Search help center articles"
+        },
+        {
+          "info": {
+            "name": "Get help center sources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.gleap.io/v3/shared/helpcenter/sources"
+          },
+          "docs": "Get help center sources"
+        },
+        {
+          "info": {
+            "name": "Answer help center question",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.gleap.io/v3/shared/helpcenter/answer"
+          },
+          "docs": "Answer help center question"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

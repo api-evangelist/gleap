@@ -1,0 +1,152 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Gleap AI content Engagement Checklist API",
+    "version": "14.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Engagement Checklist",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all checklists",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.gleap.io/v3/engagement/checklists",
+            "headers": [
+              {
+                "name": "project",
+                "value": ""
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get all checklists"
+        },
+        {
+          "info": {
+            "name": "Create a new checklist",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.gleap.io/v3/engagement/checklists",
+            "headers": [
+              {
+                "name": "project",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a new checklist"
+        },
+        {
+          "info": {
+            "name": "Get a checklist",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.gleap.io/v3/engagement/checklists/:checklistId",
+            "headers": [
+              {
+                "name": "project",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "checklistId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get a checklist"
+        },
+        {
+          "info": {
+            "name": "Update a checklist",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.gleap.io/v3/engagement/checklists/:checklistId",
+            "headers": [
+              {
+                "name": "project",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "checklistId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update a checklist"
+        },
+        {
+          "info": {
+            "name": "Delete a checklist",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.gleap.io/v3/engagement/checklists/:checklistId",
+            "headers": [
+              {
+                "name": "project",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "checklistId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete a checklist"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

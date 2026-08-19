@@ -1,0 +1,245 @@
+{
+  "item": [
+    {
+      "id": "979c9031-0074-4dfd-8315-86923c3d8396",
+      "name": "Help center",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d47050e7-f092-4003-924d-3cfd3d59e41b",
+          "name": "Search help center articles",
+          "request": {
+            "name": "Search help center articles",
+            "description": {},
+            "url": {
+              "path": [
+                "shared",
+                "helpcenter",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ebde7884-cfc2-4750-96ec-0816d9d7a064",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shared",
+                    "helpcenter",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"domainRedirect\": \"\",\n  \"redirectUrl\": \"\",\n  \"session\": {\n    \"gleapHash\": \"\",\n    \"gleapId\": \"\",\n    \"userName\": \"\",\n    \"userEmail\": \"\",\n    \"userId\": \"\"\n  },\n  \"project\": {\n    \"defaultDomain\": \"string\",\n    \"customDomain\": \"\",\n    \"apiKey\": \"\",\n    \"flowConfig\": {\n      \"localizationOptions\": \"\",\n      \"operatorAvatarImage\": \"\",\n      \"hideBranding\": \"\",\n      \"backgroundColor\": \"\",\n      \"headerColor\": \"\",\n      \"color\": \"\",\n      \"helpcenterConfig\": \"\"\n    },\n    \"name\": \"\"\n  },\n  \"data\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f7d79845-2964-4414-ab49-aa7a1f3cdabf",
+          "name": "Get help center sources",
+          "request": {
+            "name": "Get help center sources",
+            "description": {},
+            "url": {
+              "path": [
+                "shared",
+                "helpcenter",
+                "sources"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7fef5123-cf69-49e2-b13b-7c5400e9f1db",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shared",
+                    "helpcenter",
+                    "sources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sources\": [\n    {\n      \"sourceType\": \"\",\n      \"type\": \"string\",\n      \"extract\": \"\",\n      \"url\": \"\",\n      \"title\": \"\",\n      \"id\": \"\"\n    },\n    {\n      \"sourceType\": \"\",\n      \"type\": \"string\",\n      \"extract\": \"\",\n      \"url\": \"\",\n      \"title\": \"\",\n      \"id\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0d5227a2-62d7-4b57-b208-3be40b3c2b18",
+          "name": "Answer help center question",
+          "request": {
+            "name": "Answer help center question",
+            "description": {},
+            "url": {
+              "path": [
+                "shared",
+                "helpcenter",
+                "answer"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c9d9949c-185c-44d5-9ff7-870a17fe637c",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shared",
+                    "helpcenter",
+                    "answer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"answer\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.gleap.io/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "96acf4fe-a8cc-4f8b-9277-9f4bc3ad1eee",
+    "name": "Gleap AI content Help center API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.\n\nContact Support:\n Name: Gleap Support\n Email: hello@gleap.io",
+      "type": "text/plain"
+    }
+  }
+}

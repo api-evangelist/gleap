@@ -1,0 +1,665 @@
+{
+  "item": [
+    {
+      "id": "f8fc5de2-dbb1-4676-8a09-dcebdeb6ddcb",
+      "name": "Message templates",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e2f3a55a-b120-4de0-9204-e45f856466fa",
+          "name": "Create a new message template.",
+          "request": {
+            "name": "Create a new message template.",
+            "description": {
+              "content": "Create a new message template.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "message-templates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "project",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"content\": \"\",\n  \"lexorank\": \"<string>\",\n  \"isPublic\": \"<boolean>\",\n  \"users\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"actions\": [\n    {\n      \"type\": \"<string>\",\n      \"data\": \"\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"data\": \"\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "245fe177-deec-47ce-892f-3af7f680b6dc",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "message-templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "project",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"content\": \"\",\n  \"lexorank\": \"<string>\",\n  \"isPublic\": \"<boolean>\",\n  \"users\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"actions\": [\n    {\n      \"type\": \"<string>\",\n      \"data\": \"\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"data\": \"\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"actions\": [],\n  \"attachments\": [],\n  \"createdAt\": \"string\",\n  \"isPublic\": true,\n  \"updatedAt\": \"string\",\n  \"users\": [\n    \"string\",\n    \"string\"\n  ],\n  \"lexorank\": \"string\",\n  \"project\": {\n    \"isValid\": {},\n    \"createFromHexString\": {},\n    \"createFromTime\": {},\n    \"generate\": {},\n    \"cacheHexString\": \"\",\n    \"prototype\": \"string\"\n  },\n  \"content\": \"\",\n  \"title\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b3e681a3-69f5-4a6b-a9ce-7b681b5f2a33",
+          "name": "Find all message templates.",
+          "request": {
+            "name": "Find all message templates.",
+            "description": {
+              "content": "Find all message templates of a project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "message-templates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<double>"
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<double>"
+                },
+                {
+                  "disabled": false,
+                  "key": "searchTerm",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "visibility",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "withCount",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "project",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7f7b4e38-1ee4-4151-9bd5-56d69e515a79",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "message-templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "searchTerm",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "visibility",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withCount",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "project",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"actions\": [\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    ],\n    \"attachments\": [\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    ],\n    \"createdAt\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"isPublic\": true,\n    \"updatedAt\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"users\": [\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    ],\n    \"lexorank\": \"string\",\n    \"project\": {\n      \"isValid\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"createFromHexString\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"createFromTime\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"generate\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"cacheHexString\": \"\",\n      \"prototype\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"content\": \"\",\n    \"title\": \"string\"\n  },\n  {\n    \"actions\": [\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    ],\n    \"attachments\": [\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    ],\n    \"createdAt\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"isPublic\": true,\n    \"updatedAt\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"users\": [\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    ],\n    \"lexorank\": \"string\",\n    \"project\": {\n      \"isValid\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"createFromHexString\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"createFromTime\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"generate\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"cacheHexString\": \"\",\n      \"prototype\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"content\": \"\",\n    \"title\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1c6a6338-1967-489b-bdf1-f5bba338d3b5",
+          "name": "Find all message templates.",
+          "request": {
+            "name": "Find all message templates.",
+            "description": {
+              "content": "Find all message templates of a project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "message-templates",
+                ":messageTemplateId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "messageTemplateId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "project",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ea1102f0-d0ae-4293-a0c3-14d3e03d093a",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "message-templates",
+                    ":messageTemplateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "messageTemplateId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "project",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"actions\": [],\n  \"attachments\": [],\n  \"createdAt\": \"string\",\n  \"isPublic\": true,\n  \"updatedAt\": \"string\",\n  \"users\": [\n    \"string\",\n    \"string\"\n  ],\n  \"lexorank\": \"string\",\n  \"project\": {\n    \"isValid\": {},\n    \"createFromHexString\": {},\n    \"createFromTime\": {},\n    \"generate\": {},\n    \"cacheHexString\": \"\",\n    \"prototype\": \"string\"\n  },\n  \"content\": \"\",\n  \"title\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "27bc31dd-ae33-401b-b728-f75885181c8a",
+          "name": "Update a message template.",
+          "request": {
+            "name": "Update a message template.",
+            "description": {
+              "content": "Update a message template.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "message-templates",
+                ":messageTemplateId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "messageTemplateId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "project",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"content\": \"\",\n  \"lexorank\": \"<string>\",\n  \"isPublic\": \"<boolean>\",\n  \"users\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"actions\": [\n    {\n      \"type\": \"<string>\",\n      \"data\": \"\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"data\": \"\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5cddf141-2e83-4b28-902e-9787e9e56dfb",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "message-templates",
+                    ":messageTemplateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "messageTemplateId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "project",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"content\": \"\",\n  \"lexorank\": \"<string>\",\n  \"isPublic\": \"<boolean>\",\n  \"users\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"actions\": [\n    {\n      \"type\": \"<string>\",\n      \"data\": \"\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"data\": \"\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"actions\": [],\n  \"attachments\": [],\n  \"createdAt\": \"string\",\n  \"isPublic\": true,\n  \"updatedAt\": \"string\",\n  \"users\": [\n    \"string\",\n    \"string\"\n  ],\n  \"lexorank\": \"string\",\n  \"project\": {\n    \"isValid\": {},\n    \"createFromHexString\": {},\n    \"createFromTime\": {},\n    \"generate\": {},\n    \"cacheHexString\": \"\",\n    \"prototype\": \"string\"\n  },\n  \"content\": \"\",\n  \"title\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "019e1648-0706-424f-b59a-8f314f8e982e",
+          "name": "Delete a message template",
+          "request": {
+            "name": "Delete a message template",
+            "description": {
+              "content": "Delete a message template.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "message-templates",
+                ":messageTemplateId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "messageTemplateId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "project",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "bfc528a6-1296-46f3-87a4-a145b28484eb",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "message-templates",
+                    ":messageTemplateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "messageTemplateId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "project",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"actions\": [],\n  \"attachments\": [],\n  \"createdAt\": \"string\",\n  \"isPublic\": true,\n  \"updatedAt\": \"string\",\n  \"users\": [\n    \"string\",\n    \"string\"\n  ],\n  \"lexorank\": \"string\",\n  \"project\": {\n    \"isValid\": {},\n    \"createFromHexString\": {},\n    \"createFromTime\": {},\n    \"generate\": {},\n    \"cacheHexString\": \"\",\n    \"prototype\": \"string\"\n  },\n  \"content\": \"\",\n  \"title\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.gleap.io/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a75403ee-8252-49fe-bc0c-4de08de60904",
+    "name": "Gleap AI content Message templates API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.\n\nContact Support:\n Name: Gleap Support\n Email: hello@gleap.io",
+      "type": "text/plain"
+    }
+  }
+}

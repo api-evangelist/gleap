@@ -1,0 +1,616 @@
+{
+  "item": [
+    {
+      "id": "d1cd6ff9-306f-40e6-ac45-fd3ca2604fac",
+      "name": "Engagement News",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5083e524-9426-4e8d-8985-59a7675ccba9",
+          "name": "Create a new engagement news article",
+          "request": {
+            "name": "Create a new engagement news article",
+            "description": {},
+            "url": {
+              "path": [
+                "engagement",
+                "news"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "project",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1be1d52e-1175-4ecf-a09c-9532e200ff0c",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "engagement",
+                    "news"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "project",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"startSendingAfter\": \"2000-06-06T22:35:14.091Z\",\n  \"stopSendingAfter\": \"2018-11-16T05:43:17.542Z\",\n  \"pageRules\": [\n    {\n      \"pageFilterType\": \"empty\",\n      \"pageFilter\": \"string\"\n    },\n    {\n      \"pageFilterType\": \"notempty\",\n      \"pageFilter\": \"string\"\n    }\n  ],\n  \"pageFilterType\": \"startswith\",\n  \"frequencyDays\": 4017.9417695885445,\n  \"frequency\": \"string\",\n  \"frequencyType\": \"string\",\n  \"format\": \"string\",\n  \"sent\": true,\n  \"sound\": true,\n  \"newTrigger\": true,\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ],\n  \"updatedAt\": \"1991-06-24T18:26:37.761Z\",\n  \"status\": \"string\",\n  \"targetAudience\": \"string\",\n  \"createdAt\": \"1964-04-16T06:21:00.465Z\",\n  \"hidden\": true,\n  \"name\": \"string\",\n  \"type\": \"string\",\n  \"searchContent\": \"string\",\n  \"emailTemplate\": {\n    \"isValid\": {},\n    \"createFromHexString\": {},\n    \"createFromTime\": {},\n    \"generate\": {},\n    \"cacheHexString\": \"\",\n    \"prototype\": \"string\"\n  },\n  \"sourceOutbound\": {\n    \"isValid\": {},\n    \"createFromHexString\": {},\n    \"createFromTime\": {},\n    \"generate\": {},\n    \"cacheHexString\": \"\",\n    \"prototype\": \"string\"\n  },\n  \"trigger\": \"\",\n  \"pageFilterDelay\": 2425.8409421591855,\n  \"pageFilter\": \"string\",\n  \"eventTriggerDelay\": 9647.508690913546,\n  \"eventTrigger\": \"string\",\n  \"actionType\": \"string\",\n  \"sentAt\": \"1962-10-07T04:56:23.544Z\",\n  \"stats\": \"\",\n  \"subject\": \"\",\n  \"coverImageUrl\": \"string\",\n  \"subType\": \"string\",\n  \"sender\": {\n    \"isValid\": {},\n    \"createFromHexString\": {},\n    \"createFromTime\": {},\n    \"generate\": {},\n    \"cacheHexString\": \"\",\n    \"prototype\": \"string\"\n  },\n  \"project\": {\n    \"isValid\": {},\n    \"createFromHexString\": {},\n    \"createFromTime\": {},\n    \"generate\": {},\n    \"cacheHexString\": \"\",\n    \"prototype\": \"string\"\n  },\n  \"data\": \"\",\n  \"conditions\": \"\",\n  \"config\": \"\",\n  \"message\": \"\",\n  \"aiSummaryOutdated\": false,\n  \"aiSummary\": \"string\",\n  \"organisation\": {\n    \"isValid\": {},\n    \"createFromHexString\": {},\n    \"createFromTime\": {},\n    \"generate\": {},\n    \"cacheHexString\": \"\",\n    \"prototype\": \"string\"\n  },\n  \"createdBy\": {\n    \"isValid\": {},\n    \"createFromHexString\": {},\n    \"createFromTime\": {},\n    \"generate\": {},\n    \"cacheHexString\": \"\",\n    \"prototype\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3398035d-a9ba-4fbf-81f9-4dca2ee5ccf6",
+          "name": "Get all engagement news articles",
+          "request": {
+            "name": "Get all engagement news articles",
+            "description": {},
+            "url": {
+              "path": [
+                "engagement",
+                "news"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "withoutChangelogs",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "project",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "36927d32-eb4d-480c-a582-3706ee215f5e",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "engagement",
+                    "news"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "withoutChangelogs",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "project",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"startSendingAfter\": \"1980-09-20T17:10:10.604Z\",\n    \"stopSendingAfter\": \"2024-11-14T18:48:09.045Z\",\n    \"pageRules\": [\n      {\n        \"pageFilterType\": \"contains\",\n        \"pageFilter\": \"string\"\n      },\n      {\n        \"pageFilterType\": \"contains\",\n        \"pageFilter\": \"string\"\n      }\n    ],\n    \"pageFilterType\": \"notempty\",\n    \"frequencyDays\": 5870.061554165619,\n    \"frequency\": \"string\",\n    \"frequencyType\": \"string\",\n    \"format\": \"string\",\n    \"sent\": true,\n    \"sound\": true,\n    \"newTrigger\": true,\n    \"tags\": [\n      \"string\",\n      \"string\"\n    ],\n    \"updatedAt\": \"2023-10-06T12:55:10.925Z\",\n    \"status\": \"string\",\n    \"targetAudience\": \"string\",\n    \"createdAt\": \"2019-09-07T20:33:19.165Z\",\n    \"hidden\": true,\n    \"name\": \"string\",\n    \"type\": \"string\",\n    \"searchContent\": \"string\",\n    \"emailTemplate\": {\n      \"isValid\": {},\n      \"createFromHexString\": {},\n      \"createFromTime\": {},\n      \"generate\": {},\n      \"cacheHexString\": \"\",\n      \"prototype\": \"string\"\n    },\n    \"sourceOutbound\": {\n      \"isValid\": {},\n      \"createFromHexString\": {},\n      \"createFromTime\": {},\n      \"generate\": {},\n      \"cacheHexString\": \"\",\n      \"prototype\": \"string\"\n    },\n    \"trigger\": \"\",\n    \"pageFilterDelay\": 9222.937448269671,\n    \"pageFilter\": \"string\",\n    \"eventTriggerDelay\": 559.3794826046517,\n    \"eventTrigger\": \"string\",\n    \"actionType\": \"string\",\n    \"sentAt\": \"1986-06-27T03:29:30.333Z\",\n    \"stats\": \"\",\n    \"subject\": \"\",\n    \"coverImageUrl\": \"string\",\n    \"subType\": \"string\",\n    \"sender\": {\n      \"isValid\": {},\n      \"createFromHexString\": {},\n      \"createFromTime\": {},\n      \"generate\": {},\n      \"cacheHexString\": \"\",\n      \"prototype\": \"string\"\n    },\n    \"project\": {\n      \"isValid\": {},\n      \"createFromHexString\": {},\n      \"createFromTime\": {},\n      \"generate\": {},\n      \"cacheHexString\": \"\",\n      \"prototype\": \"string\"\n    },\n    \"data\": \"\",\n    \"conditions\": \"\",\n    \"config\": \"\",\n    \"message\": \"\",\n    \"aiSummaryOutdated\": false,\n    \"aiSummary\": \"string\",\n    \"organisation\": {\n      \"isValid\": {},\n      \"createFromHexString\": {},\n      \"createFromTime\": {},\n      \"generate\": {},\n      \"cacheHexString\": \"\",\n      \"prototype\": \"string\"\n    },\n    \"createdBy\": {\n      \"isValid\": {},\n      \"createFromHexString\": {},\n      \"createFromTime\": {},\n      \"generate\": {},\n      \"cacheHexString\": \"\",\n      \"prototype\": \"string\"\n    }\n  },\n  {\n    \"startSendingAfter\": \"1954-01-21T18:00:45.247Z\",\n    \"stopSendingAfter\": \"1955-12-06T21:29:45.993Z\",\n    \"pageRules\": [\n      {\n        \"pageFilterType\": \"notempty\",\n        \"pageFilter\": \"string\"\n      },\n      {\n        \"pageFilterType\": \"notcontains\",\n        \"pageFilter\": \"string\"\n      }\n    ],\n    \"pageFilterType\": \"isnot\",\n    \"frequencyDays\": 9686.934652241802,\n    \"frequency\": \"string\",\n    \"frequencyType\": \"string\",\n    \"format\": \"string\",\n    \"sent\": true,\n    \"sound\": true,\n    \"newTrigger\": false,\n    \"tags\": [\n      \"string\",\n      \"string\"\n    ],\n    \"updatedAt\": \"1951-06-19T04:48:10.800Z\",\n    \"status\": \"string\",\n    \"targetAudience\": \"string\",\n    \"createdAt\": \"1961-11-08T11:40:33.344Z\",\n    \"hidden\": false,\n    \"name\": \"string\",\n    \"type\": \"string\",\n    \"searchContent\": \"string\",\n    \"emailTemplate\": {\n      \"isValid\": {},\n      \"createFromHexString\": {},\n      \"createFromTime\": {},\n      \"generate\": {},\n      \"cacheHexString\": \"\",\n      \"prototype\": \"string\"\n    },\n    \"sourceOutbound\": {\n      \"isValid\": {},\n      \"createFromHexString\": {},\n      \"createFromTime\": {},\n      \"generate\": {},\n      \"cacheHexString\": \"\",\n      \"prototype\": \"string\"\n    },\n    \"trigger\": \"\",\n    \"pageFilterDelay\": 9948.193125313219,\n    \"pageFilter\": \"string\",\n    \"eventTriggerDelay\": 9165.288610993704,\n    \"eventTrigger\": \"string\",\n    \"actionType\": \"string\",\n    \"sentAt\": \"1962-08-01T10:56:05.704Z\",\n    \"stats\": \"\",\n    \"subject\": \"\",\n    \"coverImageUrl\": \"string\",\n    \"subType\": \"string\",\n    \"sender\": {\n      \"isValid\": {},\n      \"createFromHexString\": {},\n      \"createFromTime\": {},\n      \"generate\": {},\n      \"cacheHexString\": \"\",\n      \"prototype\": \"string\"\n    },\n    \"project\": {\n      \"isValid\": {},\n      \"createFromHexString\": {},\n      \"createFromTime\": {},\n      \"generate\": {},\n      \"cacheHexString\": \"\",\n      \"prototype\": \"string\"\n    },\n    \"data\": \"\",\n    \"conditions\": \"\",\n    \"config\": \"\",\n    \"message\": \"\",\n    \"aiSummaryOutdated\": false,\n    \"aiSummary\": \"string\",\n    \"organisation\": {\n      \"isValid\": {},\n      \"createFromHexString\": {},\n      \"createFromTime\": {},\n      \"generate\": {},\n      \"cacheHexString\": \"\",\n      \"prototype\": \"string\"\n    },\n    \"createdBy\": {\n      \"isValid\": {},\n      \"createFromHexString\": {},\n      \"createFromTime\": {},\n      \"generate\": {},\n      \"cacheHexString\": \"\",\n      \"prototype\": \"string\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ad7a4635-e288-43e6-94db-40a576303e70",
+          "name": "Get an engagement news article",
+          "request": {
+            "name": "Get an engagement news article",
+            "description": {},
+            "url": {
+              "path": [
+                "engagement",
+                "news",
+                ":newsId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "newsId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "project",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4873ae93-15a6-4032-a464-1422d8d1f24c",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "engagement",
+                    "news",
+                    ":newsId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "newsId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "project",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"startSendingAfter\": \"1990-12-23T00:56:01.228Z\",\n  \"stopSendingAfter\": \"2023-07-10T19:02:57.417Z\",\n  \"pageRules\": [\n    {\n      \"pageFilterType\": \"startswith\",\n      \"pageFilter\": \"string\"\n    },\n    {\n      \"pageFilterType\": \"notcontains\",\n      \"pageFilter\": \"string\"\n    }\n  ],\n  \"pageFilterType\": \"isnot\",\n  \"frequencyDays\": 9417.187546389796,\n  \"frequency\": \"string\",\n  \"frequencyType\": \"string\",\n  \"format\": \"string\",\n  \"sent\": false,\n  \"sound\": true,\n  \"newTrigger\": true,\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ],\n  \"updatedAt\": \"1990-06-13T10:01:02.145Z\",\n  \"status\": \"string\",\n  \"targetAudience\": \"string\",\n  \"createdAt\": \"1969-05-10T12:31:28.312Z\",\n  \"hidden\": true,\n  \"name\": \"string\",\n  \"type\": \"string\",\n  \"searchContent\": \"string\",\n  \"emailTemplate\": {\n    \"isValid\": {},\n    \"createFromHexString\": {},\n    \"createFromTime\": {},\n    \"generate\": {},\n    \"cacheHexString\": \"\",\n    \"prototype\": \"string\"\n  },\n  \"sourceOutbound\": {\n    \"isValid\": {},\n    \"createFromHexString\": {},\n    \"createFromTime\": {},\n    \"generate\": {},\n    \"cacheHexString\": \"\",\n    \"prototype\": \"string\"\n  },\n  \"trigger\": \"\",\n  \"pageFilterDelay\": 5994.368860362439,\n  \"pageFilter\": \"string\",\n  \"eventTriggerDelay\": 9546.177631116572,\n  \"eventTrigger\": \"string\",\n  \"actionType\": \"string\",\n  \"sentAt\": \"1976-06-09T05:36:04.626Z\",\n  \"stats\": \"\",\n  \"subject\": \"\",\n  \"coverImageUrl\": \"string\",\n  \"subType\": \"string\",\n  \"sender\": {\n    \"isValid\": {},\n    \"createFromHexString\": {},\n    \"createFromTime\": {},\n    \"generate\": {},\n    \"cacheHexString\": \"\",\n    \"prototype\": \"string\"\n  },\n  \"project\": {\n    \"isValid\": {},\n    \"createFromHexString\": {},\n    \"createFromTime\": {},\n    \"generate\": {},\n    \"cacheHexString\": \"\",\n    \"prototype\": \"string\"\n  },\n  \"data\": \"\",\n  \"conditions\": \"\",\n  \"config\": \"\",\n  \"message\": \"\",\n  \"aiSummaryOutdated\": false,\n  \"aiSummary\": \"string\",\n  \"organisation\": {\n    \"isValid\": {},\n    \"createFromHexString\": {},\n    \"createFromTime\": {},\n    \"generate\": {},\n    \"cacheHexString\": \"\",\n    \"prototype\": \"string\"\n  },\n  \"createdBy\": {\n    \"isValid\": {},\n    \"createFromHexString\": {},\n    \"createFromTime\": {},\n    \"generate\": {},\n    \"cacheHexString\": \"\",\n    \"prototype\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "72aeeab1-25ad-4b76-a631-5c8bbf658f1f",
+          "name": "Update a news article.",
+          "request": {
+            "name": "Update a news article.",
+            "description": {},
+            "url": {
+              "path": [
+                "engagement",
+                "news",
+                ":newsId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "newsId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "project",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ac7d8dd6-00da-49ed-8227-6c33df68e162",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "engagement",
+                    "news",
+                    ":newsId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "newsId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "project",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"_id\": \"string\",\n  \"createdAt\": \"2003-11-03T03:00:11.425Z\",\n  \"format\": \"string\",\n  \"frequency\": \"string\",\n  \"frequencyDays\": 848.8667210402145,\n  \"frequencyType\": \"string\",\n  \"hidden\": true,\n  \"name\": \"string\",\n  \"newTrigger\": true,\n  \"pageFilterType\": \"is\",\n  \"pageRules\": [\n    {\n      \"pageFilterType\": \"is\",\n      \"pageFilter\": \"string\"\n    },\n    {\n      \"pageFilterType\": \"endswith\",\n      \"pageFilter\": \"string\"\n    }\n  ],\n  \"sent\": true,\n  \"sound\": false,\n  \"startSendingAfter\": \"2013-02-07T23:04:09.352Z\",\n  \"status\": \"string\",\n  \"stopSendingAfter\": \"1968-06-22T07:46:35.539Z\",\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ],\n  \"targetAudience\": \"string\",\n  \"type\": \"string\",\n  \"updatedAt\": \"2013-09-01T23:05:13.957Z\",\n  \"searchContent\": \"string\",\n  \"emailTemplate\": {\n    \"isValid\": {},\n    \"createFromHexString\": {},\n    \"createFromTime\": {},\n    \"generate\": {},\n    \"cacheHexString\": \"\",\n    \"prototype\": \"string\"\n  },\n  \"sourceOutbound\": {\n    \"isValid\": {},\n    \"createFromHexString\": {},\n    \"createFromTime\": {},\n    \"generate\": {},\n    \"cacheHexString\": \"\",\n    \"prototype\": \"string\"\n  },\n  \"trigger\": \"\",\n  \"pageFilterDelay\": 8700.678901406893,\n  \"pageFilter\": \"string\",\n  \"eventTriggerDelay\": 8731.545603298813,\n  \"eventTrigger\": \"string\",\n  \"actionType\": \"string\",\n  \"sentAt\": \"1972-11-02T00:31:46.521Z\",\n  \"stats\": \"\",\n  \"subject\": \"\",\n  \"coverImageUrl\": \"string\",\n  \"subType\": \"string\",\n  \"sender\": {\n    \"isValid\": {},\n    \"createFromHexString\": {},\n    \"createFromTime\": {},\n    \"generate\": {},\n    \"cacheHexString\": \"\",\n    \"prototype\": \"string\"\n  },\n  \"project\": {\n    \"isValid\": {},\n    \"createFromHexString\": {},\n    \"createFromTime\": {},\n    \"generate\": {},\n    \"cacheHexString\": \"\",\n    \"prototype\": \"string\"\n  },\n  \"data\": \"\",\n  \"conditions\": \"\",\n  \"config\": \"\",\n  \"message\": \"\",\n  \"aiSummaryOutdated\": false,\n  \"aiSummary\": \"string\",\n  \"organisation\": {\n    \"isValid\": {},\n    \"createFromHexString\": {},\n    \"createFromTime\": {},\n    \"generate\": {},\n    \"cacheHexString\": \"\",\n    \"prototype\": \"string\"\n  },\n  \"createdBy\": {\n    \"isValid\": {},\n    \"createFromHexString\": {},\n    \"createFromTime\": {},\n    \"generate\": {},\n    \"cacheHexString\": \"\",\n    \"prototype\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a6e0b590-7099-40dc-91c9-645b2e79f8fe",
+          "name": "Delete a news article.",
+          "request": {
+            "name": "Delete a news article.",
+            "description": {},
+            "url": {
+              "path": [
+                "engagement",
+                "news",
+                ":newsId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "newsId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "project",
+                "value": "<string>"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0e6d0d1c-0716-4c23-9de3-cc19e02eb518",
+              "name": "No content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "engagement",
+                    "news",
+                    ":newsId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "newsId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "project",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.gleap.io/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "0bceb57b-4178-456d-b7a6-000ff4ae5e25",
+    "name": "Gleap AI content Engagement News API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.\n\nContact Support:\n Name: Gleap Support\n Email: hello@gleap.io",
+      "type": "text/plain"
+    }
+  }
+}

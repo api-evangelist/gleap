@@ -1,0 +1,838 @@
+{
+  "item": [
+    {
+      "id": "158ab70a-8081-4593-a86c-549ed76cc5bb",
+      "name": "Help center collections",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3a8ee101-6eee-4f9c-9394-cfcb54089f36",
+          "name": "Create a new collection",
+          "request": {
+            "name": "Create a new collection",
+            "description": {},
+            "url": {
+              "path": [
+                "helpcenter",
+                "collections"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "project",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"\",\n  \"description\": \"\",\n  \"iconUrl\": \"<string>\",\n  \"project\": \"<string>\",\n  \"lexorank\": \"<string>\",\n  \"docId\": \"<double>\",\n  \"parent\": \"<string>\",\n  \"externalId\": \"<string>\",\n  \"targetAudience\": \"all\",\n  \"baseAudienceFilter\": \"\",\n  \"extendedAudienceFilter\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "62072fca-fd45-42a6-bdbd-8f4205524341",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "helpcenter",
+                    "collections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "project",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"\",\n  \"description\": \"\",\n  \"iconUrl\": \"<string>\",\n  \"project\": \"<string>\",\n  \"lexorank\": \"<string>\",\n  \"docId\": \"<double>\",\n  \"parent\": \"<string>\",\n  \"externalId\": \"<string>\",\n  \"targetAudience\": \"all\",\n  \"baseAudienceFilter\": \"\",\n  \"extendedAudienceFilter\": \"\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"createdAt\": \"string\",\n  \"targetAudience\": \"string\",\n  \"updatedAt\": \"string\",\n  \"iconUrl\": \"string\",\n  \"extendedAudienceFilter\": \"\",\n  \"baseAudienceFilter\": \"\",\n  \"docId\": 5160.206695645535,\n  \"lexorank\": \"string\",\n  \"project\": {\n    \"isValid\": {},\n    \"createFromHexString\": {},\n    \"createFromTime\": {},\n    \"generate\": {},\n    \"cacheHexString\": \"\",\n    \"prototype\": \"string\"\n  },\n  \"parent\": {\n    \"isValid\": {},\n    \"createFromHexString\": {},\n    \"createFromTime\": {},\n    \"generate\": {},\n    \"cacheHexString\": \"\",\n    \"prototype\": \"string\"\n  },\n  \"externalId\": \"string\",\n  \"title\": \"\",\n  \"description\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5f141c2f-f709-4e56-9579-c02f8c8a1157",
+          "name": "Get all collections",
+          "request": {
+            "name": "Get all collections",
+            "description": {},
+            "url": {
+              "path": [
+                "helpcenter",
+                "collections"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "project",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cea4584f-d773-4db6-92f4-31cc05a67d50",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "helpcenter",
+                    "collections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "project",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"articlesCount\": 2229.082169327734,\n    \"createdAt\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"subCollectionsCount\": 1592.0438773156852,\n    \"targetAudience\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"updatedAt\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"iconUrl\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"extendedAudienceFilter\": \"\",\n    \"baseAudienceFilter\": \"\",\n    \"docId\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"lexorank\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"project\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"parent\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"externalId\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"title\": \"\",\n    \"description\": \"\"\n  },\n  {\n    \"articlesCount\": 1560.4322806493965,\n    \"createdAt\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"subCollectionsCount\": 6004.89077360597,\n    \"targetAudience\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"updatedAt\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"iconUrl\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"extendedAudienceFilter\": \"\",\n    \"baseAudienceFilter\": \"\",\n    \"docId\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"lexorank\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"project\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"parent\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"externalId\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"title\": \"\",\n    \"description\": \"\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a3f1436d-4581-48c2-b673-3c98dbd9cd4e",
+          "name": "Get all collections with subcollections",
+          "request": {
+            "name": "Get all collections with subcollections",
+            "description": {},
+            "url": {
+              "path": [
+                "helpcenter",
+                "collections",
+                "all"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "project",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f5843116-a154-45c3-83c2-46bc1638064f",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "helpcenter",
+                    "collections",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "project",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"createdAt\": \"string\",\n    \"targetAudience\": \"string\",\n    \"updatedAt\": \"string\",\n    \"iconUrl\": \"string\",\n    \"extendedAudienceFilter\": \"\",\n    \"baseAudienceFilter\": \"\",\n    \"docId\": 242.4015644743638,\n    \"lexorank\": \"string\",\n    \"project\": {\n      \"isValid\": {},\n      \"createFromHexString\": {},\n      \"createFromTime\": {},\n      \"generate\": {},\n      \"cacheHexString\": \"\",\n      \"prototype\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"parent\": {\n      \"isValid\": {},\n      \"createFromHexString\": {},\n      \"createFromTime\": {},\n      \"generate\": {},\n      \"cacheHexString\": \"\",\n      \"prototype\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"externalId\": \"string\",\n    \"title\": \"\",\n    \"description\": \"\"\n  },\n  {\n    \"createdAt\": \"string\",\n    \"targetAudience\": \"string\",\n    \"updatedAt\": \"string\",\n    \"iconUrl\": \"string\",\n    \"extendedAudienceFilter\": \"\",\n    \"baseAudienceFilter\": \"\",\n    \"docId\": 9814.699031186954,\n    \"lexorank\": \"string\",\n    \"project\": {\n      \"isValid\": {},\n      \"createFromHexString\": {},\n      \"createFromTime\": {},\n      \"generate\": {},\n      \"cacheHexString\": \"\",\n      \"prototype\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"parent\": {\n      \"isValid\": {},\n      \"createFromHexString\": {},\n      \"createFromTime\": {},\n      \"generate\": {},\n      \"cacheHexString\": \"\",\n      \"prototype\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"externalId\": \"string\",\n    \"title\": \"\",\n    \"description\": \"\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7c16df31-e04c-4eae-b6f7-d2668408bddb",
+          "name": "Get a collection",
+          "request": {
+            "name": "Get a collection",
+            "description": {},
+            "url": {
+              "path": [
+                "helpcenter",
+                "collections",
+                ":helpcenterCollectionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "helpcenterCollectionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "project",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "05d28d7c-18c8-4e24-96b1-33df0ee69dd5",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "helpcenter",
+                    "collections",
+                    ":helpcenterCollectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "helpcenterCollectionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "project",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"createdAt\": \"string\",\n  \"targetAudience\": \"string\",\n  \"updatedAt\": \"string\",\n  \"iconUrl\": \"string\",\n  \"extendedAudienceFilter\": \"\",\n  \"baseAudienceFilter\": \"\",\n  \"docId\": 5160.206695645535,\n  \"lexorank\": \"string\",\n  \"project\": {\n    \"isValid\": {},\n    \"createFromHexString\": {},\n    \"createFromTime\": {},\n    \"generate\": {},\n    \"cacheHexString\": \"\",\n    \"prototype\": \"string\"\n  },\n  \"parent\": {\n    \"isValid\": {},\n    \"createFromHexString\": {},\n    \"createFromTime\": {},\n    \"generate\": {},\n    \"cacheHexString\": \"\",\n    \"prototype\": \"string\"\n  },\n  \"externalId\": \"string\",\n  \"title\": \"\",\n  \"description\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "59d5f214-837f-4e10-9853-99adc6267345",
+          "name": "Update a collection",
+          "request": {
+            "name": "Update a collection",
+            "description": {},
+            "url": {
+              "path": [
+                "helpcenter",
+                "collections",
+                ":helpcenterCollectionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "helpcenterCollectionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"\",\n  \"description\": \"\",\n  \"iconUrl\": \"<string>\",\n  \"project\": \"<string>\",\n  \"lexorank\": \"<string>\",\n  \"docId\": \"<double>\",\n  \"parent\": \"<string>\",\n  \"externalId\": \"<string>\",\n  \"targetAudience\": \"all\",\n  \"baseAudienceFilter\": \"\",\n  \"extendedAudienceFilter\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "02b095c9-644f-4173-aa1d-18959b8a9a25",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "helpcenter",
+                    "collections",
+                    ":helpcenterCollectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "helpcenterCollectionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"\",\n  \"description\": \"\",\n  \"iconUrl\": \"<string>\",\n  \"project\": \"<string>\",\n  \"lexorank\": \"<string>\",\n  \"docId\": \"<double>\",\n  \"parent\": \"<string>\",\n  \"externalId\": \"<string>\",\n  \"targetAudience\": \"all\",\n  \"baseAudienceFilter\": \"\",\n  \"extendedAudienceFilter\": \"\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"createdAt\": \"string\",\n  \"targetAudience\": \"string\",\n  \"updatedAt\": \"string\",\n  \"iconUrl\": \"string\",\n  \"extendedAudienceFilter\": \"\",\n  \"baseAudienceFilter\": \"\",\n  \"docId\": 5160.206695645535,\n  \"lexorank\": \"string\",\n  \"project\": {\n    \"isValid\": {},\n    \"createFromHexString\": {},\n    \"createFromTime\": {},\n    \"generate\": {},\n    \"cacheHexString\": \"\",\n    \"prototype\": \"string\"\n  },\n  \"parent\": {\n    \"isValid\": {},\n    \"createFromHexString\": {},\n    \"createFromTime\": {},\n    \"generate\": {},\n    \"cacheHexString\": \"\",\n    \"prototype\": \"string\"\n  },\n  \"externalId\": \"string\",\n  \"title\": \"\",\n  \"description\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fdf06af0-500e-4d1e-8d95-6edb8470ac96",
+          "name": "Delete a collection",
+          "request": {
+            "name": "Delete a collection",
+            "description": {},
+            "url": {
+              "path": [
+                "helpcenter",
+                "collections",
+                ":helpcenterCollectionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "helpcenterCollectionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "project",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "64aa09a5-66a0-4eef-ad87-c68078ca2ac3",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "helpcenter",
+                    "collections",
+                    ":helpcenterCollectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "helpcenterCollectionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "project",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f6cee5fa-c582-4786-87d3-2a5f92e7b0ab",
+          "name": "Toggle publish status",
+          "request": {
+            "name": "Toggle publish status",
+            "description": {},
+            "url": {
+              "path": [
+                "helpcenter",
+                "collections",
+                ":helpcenterCollectionId",
+                "toggle-publish"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "helpcenterCollectionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "project",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"unpublished\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c4bc32f0-469e-492a-a6b2-5adc563aa909",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "helpcenter",
+                    "collections",
+                    ":helpcenterCollectionId",
+                    "toggle-publish"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "helpcenterCollectionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "project",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"unpublished\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.gleap.io/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ae439e8f-cf5a-4969-a452-bbb8c0f91430",
+    "name": "Gleap AI content Help center collections API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.\n\nContact Support:\n Name: Gleap Support\n Email: hello@gleap.io",
+      "type": "text/plain"
+    }
+  }
+}

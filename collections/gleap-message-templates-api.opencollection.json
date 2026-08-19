@@ -1,0 +1,179 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Gleap AI content Message templates API",
+    "version": "14.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Message templates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Find all message templates.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.gleap.io/v3/message-templates",
+            "headers": [
+              {
+                "name": "project",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "searchTerm",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "visibility",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "withCount",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Find all message templates of a project."
+        },
+        {
+          "info": {
+            "name": "Create a new message template.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.gleap.io/v3/message-templates",
+            "headers": [
+              {
+                "name": "project",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a new message template."
+        },
+        {
+          "info": {
+            "name": "Find all message templates.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.gleap.io/v3/message-templates/:messageTemplateId",
+            "headers": [
+              {
+                "name": "project",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "messageTemplateId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Find all message templates of a project."
+        },
+        {
+          "info": {
+            "name": "Update a message template.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.gleap.io/v3/message-templates/:messageTemplateId",
+            "headers": [
+              {
+                "name": "project",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "messageTemplateId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update a message template."
+        },
+        {
+          "info": {
+            "name": "Delete a message template",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.gleap.io/v3/message-templates/:messageTemplateId",
+            "headers": [
+              {
+                "name": "project",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "messageTemplateId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete a message template."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

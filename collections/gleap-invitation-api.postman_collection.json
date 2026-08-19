@@ -1,0 +1,916 @@
+{
+  "item": [
+    {
+      "id": "3c694aff-64af-4a90-9809-eda522ba343a",
+      "name": "Invitation",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e09bbc00-61be-413b-bb51-e852d4647e33",
+          "name": "Get all invitations for a user",
+          "request": {
+            "name": "Get all invitations for a user",
+            "description": {
+              "content": "Get all invitations for a user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "invitations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7b387672-f3ca-4955-9e2a-2413ed13a845",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invitations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"createdAt\": \"string\",\n    \"name\": \"string\",\n    \"role\": \"string\",\n    \"type\": \"project\",\n    \"updatedAt\": \"string\",\n    \"project\": {\n      \"isValid\": {},\n      \"createFromHexString\": {},\n      \"createFromTime\": {},\n      \"generate\": {},\n      \"cacheHexString\": \"\",\n      \"prototype\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"email\": \"string\",\n    \"organisation\": {\n      \"isValid\": {},\n      \"createFromHexString\": {},\n      \"createFromTime\": {},\n      \"generate\": {},\n      \"cacheHexString\": \"\",\n      \"prototype\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  },\n  {\n    \"createdAt\": \"string\",\n    \"name\": \"string\",\n    \"role\": \"string\",\n    \"type\": \"organisation\",\n    \"updatedAt\": \"string\",\n    \"project\": {\n      \"isValid\": {},\n      \"createFromHexString\": {},\n      \"createFromTime\": {},\n      \"generate\": {},\n      \"cacheHexString\": \"\",\n      \"prototype\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"email\": \"string\",\n    \"organisation\": {\n      \"isValid\": {},\n      \"createFromHexString\": {},\n      \"createFromTime\": {},\n      \"generate\": {},\n      \"cacheHexString\": \"\",\n      \"prototype\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "29e96032-e8ad-484e-b7f8-76ed472e0525",
+          "name": "Delete an invitation",
+          "request": {
+            "name": "Delete an invitation",
+            "description": {
+              "content": "Delete an invitation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "invitations",
+                ":invitationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "invitationId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "367399f6-9d77-4a85-af4c-650e177675d2",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invitations",
+                    ":invitationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "invitationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "false",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1c9fa0fc-37b6-4da5-b943-3564f2f9533e",
+          "name": "Update an invitation",
+          "request": {
+            "name": "Update an invitation",
+            "description": {
+              "content": "Update an invitation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "invitations",
+                ":invitationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "invitationId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"accept\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5d3353ea-a875-432c-94c9-a1f75a2d1d39",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invitations",
+                    ":invitationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "invitationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accept\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "true",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e68679cc-101a-4ca3-9e94-641c00e06127",
+          "name": "Update an invitation for a project",
+          "request": {
+            "name": "Update an invitation for a project",
+            "description": {
+              "content": "Update an invitation for a project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "invitations",
+                ":invitationId",
+                "role"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "invitationId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "project",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"role\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b5968300-0580-480c-9c12-d22e0dddf639",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invitations",
+                    ":invitationId",
+                    "role"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "invitationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "project",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"role\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"createdAt\": \"string\",\n  \"name\": \"string\",\n  \"role\": \"string\",\n  \"type\": \"organisation\",\n  \"updatedAt\": \"string\",\n  \"project\": {\n    \"isValid\": {},\n    \"createFromHexString\": {},\n    \"createFromTime\": {},\n    \"generate\": {},\n    \"cacheHexString\": \"\",\n    \"prototype\": \"string\"\n  },\n  \"email\": \"string\",\n  \"organisation\": {\n    \"isValid\": {},\n    \"createFromHexString\": {},\n    \"createFromTime\": {},\n    \"generate\": {},\n    \"cacheHexString\": \"\",\n    \"prototype\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "528cddba-04ec-425e-8e32-a8f8d22f4c6d",
+          "name": "Get all invitations for an organisation",
+          "request": {
+            "name": "Get all invitations for an organisation",
+            "description": {
+              "content": "Get all invitations for an organisation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "invitations",
+                "organisations",
+                ":organisationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "organisationId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d6f17d38-8128-40d4-a812-db647fb68726",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invitations",
+                    "organisations",
+                    ":organisationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "organisationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"createdAt\": \"string\",\n    \"name\": \"string\",\n    \"role\": \"string\",\n    \"type\": \"project\",\n    \"updatedAt\": \"string\",\n    \"project\": {\n      \"isValid\": {},\n      \"createFromHexString\": {},\n      \"createFromTime\": {},\n      \"generate\": {},\n      \"cacheHexString\": \"\",\n      \"prototype\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"email\": \"string\",\n    \"organisation\": {\n      \"isValid\": {},\n      \"createFromHexString\": {},\n      \"createFromTime\": {},\n      \"generate\": {},\n      \"cacheHexString\": \"\",\n      \"prototype\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  },\n  {\n    \"createdAt\": \"string\",\n    \"name\": \"string\",\n    \"role\": \"string\",\n    \"type\": \"organisation\",\n    \"updatedAt\": \"string\",\n    \"project\": {\n      \"isValid\": {},\n      \"createFromHexString\": {},\n      \"createFromTime\": {},\n      \"generate\": {},\n      \"cacheHexString\": \"\",\n      \"prototype\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"email\": \"string\",\n    \"organisation\": {\n      \"isValid\": {},\n      \"createFromHexString\": {},\n      \"createFromTime\": {},\n      \"generate\": {},\n      \"cacheHexString\": \"\",\n      \"prototype\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5e10fc59-29c8-4902-be60-ccbd2fd50cb3",
+          "name": "Create a new invitation for an organisation",
+          "request": {
+            "name": "Create a new invitation for an organisation",
+            "description": {
+              "content": "Create a new invitation for an organisation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "invitations",
+                "organisations",
+                ":organisationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "organisationId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"emails\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "095f1cef-c7e0-4c79-a236-a921bbb7ab42",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invitations",
+                    "organisations",
+                    ":organisationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "organisationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"emails\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ed3d9d83-c2e9-4914-a99c-e5a9af98e6bb",
+          "name": "Get all invitations for a project",
+          "request": {
+            "name": "Get all invitations for a project",
+            "description": {
+              "content": "Get all invitations for a project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "invitations",
+                "projects"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d44cb617-ab4f-4b2c-bb45-e27e94dd699f",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invitations",
+                    "projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"createdAt\": \"string\",\n    \"name\": \"string\",\n    \"role\": \"string\",\n    \"type\": \"project\",\n    \"updatedAt\": \"string\",\n    \"project\": {\n      \"isValid\": {},\n      \"createFromHexString\": {},\n      \"createFromTime\": {},\n      \"generate\": {},\n      \"cacheHexString\": \"\",\n      \"prototype\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"email\": \"string\",\n    \"organisation\": {\n      \"isValid\": {},\n      \"createFromHexString\": {},\n      \"createFromTime\": {},\n      \"generate\": {},\n      \"cacheHexString\": \"\",\n      \"prototype\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  },\n  {\n    \"createdAt\": \"string\",\n    \"name\": \"string\",\n    \"role\": \"string\",\n    \"type\": \"organisation\",\n    \"updatedAt\": \"string\",\n    \"project\": {\n      \"isValid\": {},\n      \"createFromHexString\": {},\n      \"createFromTime\": {},\n      \"generate\": {},\n      \"cacheHexString\": \"\",\n      \"prototype\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"email\": \"string\",\n    \"organisation\": {\n      \"isValid\": {},\n      \"createFromHexString\": {},\n      \"createFromTime\": {},\n      \"generate\": {},\n      \"cacheHexString\": \"\",\n      \"prototype\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0d1d8afd-b5a6-4ed3-9414-451000ebfee0",
+          "name": "Create a new invitation for a project",
+          "request": {
+            "name": "Create a new invitation for a project",
+            "description": {
+              "content": "Create a new invitation for a project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "invitations",
+                "projects"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"emails\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "26652d2d-a006-4b78-8002-258d7a65d886",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invitations",
+                    "projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"emails\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.gleap.io/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3f99a0e2-fd29-4099-a0d4-cc303dc93378",
+    "name": "Gleap AI content Invitation API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.\n\nContact Support:\n Name: Gleap Support\n Email: hello@gleap.io",
+      "type": "text/plain"
+    }
+  }
+}

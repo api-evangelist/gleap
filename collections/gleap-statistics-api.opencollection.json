@@ -1,0 +1,725 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Gleap AI content Statistics API",
+    "version": "14.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Statistics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GetChartData",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.gleap.io/v3/statistics/bar-chart",
+            "params": [
+              {
+                "name": "chartType",
+                "value": "",
+                "type": "query",
+                "description": "- Type of chart data to retrieve (e.g., NEW_TICKETS_COUNT, MEDIAN_FIRST_RESPONSE_TIME)"
+              },
+              {
+                "name": "timezone",
+                "value": "",
+                "type": "query",
+                "description": "- Timezone for date calculations (e.g., \"America/New_York\")"
+              },
+              {
+                "name": "groupInterval",
+                "value": "",
+                "type": "query",
+                "description": "- Grouping interval (\"day\", \"month\", \"year\")"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "groupedBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "aggsType",
+                "value": "",
+                "type": "query",
+                "description": "- Aggregation type (\"MEDIAN\", \"AVERAGE\")"
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "- Start date for filtering (ISO format)"
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "- End date for filtering (ISO format)"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "outbound",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get bar chart data for various statistics"
+        },
+        {
+          "info": {
+            "name": "GetFactData",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.gleap.io/v3/statistics/facts",
+            "params": [
+              {
+                "name": "chartType",
+                "value": "",
+                "type": "query",
+                "description": "- Type of fact data to retrieve (e.g., NEW_TICKETS_COUNT, MEDIAN_TIME_TO_CLOSE)"
+              },
+              {
+                "name": "timezone",
+                "value": "",
+                "type": "query",
+                "description": "- Timezone for date calculations"
+              },
+              {
+                "name": "groupInterval",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "groupedBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "aggsType",
+                "value": "",
+                "type": "query",
+                "description": "- Aggregation type (\"MEDIAN\", \"AVERAGE\")"
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "- Start date for filtering (ISO format)"
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "- End date for filtering (ISO format)"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "outbound",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get fact data for various statistics"
+        },
+        {
+          "info": {
+            "name": "GetListData",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.gleap.io/v3/statistics/lists",
+            "params": [
+              {
+                "name": "chartType",
+                "value": "",
+                "type": "query",
+                "description": "- Type of list data to retrieve (e.g., TEAM_PERFORMANCE_LIST, ARTICLE_SEARCH_RESULT_LIST)"
+              },
+              {
+                "name": "timezone",
+                "value": "",
+                "type": "query",
+                "description": "- Timezone for date calculations"
+              },
+              {
+                "name": "groupInterval",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "- Number of records to skip (pagination)"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "- Maximum number of records to return"
+              },
+              {
+                "name": "groupedBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "aggsType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "useWorkingHours",
+                "value": "",
+                "type": "query",
+                "description": "- Whether to use working hours calculations"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get list data for various statistics"
+        },
+        {
+          "info": {
+            "name": "ExportListData",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.gleap.io/v3/statistics/lists/export",
+            "params": [
+              {
+                "name": "chartType",
+                "value": "",
+                "type": "query",
+                "description": "- Type of list data to export (e.g., TEAM_PERFORMANCE_LIST)"
+              },
+              {
+                "name": "timezone",
+                "value": "",
+                "type": "query",
+                "description": "- Timezone for date calculations"
+              },
+              {
+                "name": "groupInterval",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "groupedBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "aggsType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "useWorkingHours",
+                "value": "",
+                "type": "query",
+                "description": "- Whether to use working hours calculations"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Export list data as CSV"
+        },
+        {
+          "info": {
+            "name": "GetHeatmapData",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.gleap.io/v3/statistics/heatmap",
+            "params": [
+              {
+                "name": "chartType",
+                "value": "",
+                "type": "query",
+                "description": "- Type of heatmap data (BUSIEST_HOURS_PER_WEEKDAY, BUSIEST_COMMENTS_PER_WEEKDAY)"
+              },
+              {
+                "name": "timezone",
+                "value": "",
+                "type": "query",
+                "description": "- Timezone for date calculations"
+              },
+              {
+                "name": "groupInterval",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "groupedBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "aggsType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "- Start date for filtering (ISO format)"
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "- End date for filtering (ISO format)"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get heatmap data for activity patterns"
+        },
+        {
+          "info": {
+            "name": "GetEmailOverviewStats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.gleap.io/v3/statistics/email-overview",
+            "params": [
+              {
+                "name": "timezone",
+                "value": "",
+                "type": "query",
+                "description": "- Timezone for date calculations"
+              },
+              {
+                "name": "groupInterval",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "groupedBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "aggsType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "- Start date for filtering (ISO format)"
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "- End date for filtering (ISO format)"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "emailServerKey",
+                "value": "",
+                "type": "query",
+                "description": "- Specific email server key"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get email overview statistics"
+        },
+        {
+          "info": {
+            "name": "GetEmailClientUsageStats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.gleap.io/v3/statistics/email-client-usage",
+            "params": [
+              {
+                "name": "timezone",
+                "value": "",
+                "type": "query",
+                "description": "- Timezone for date calculations"
+              },
+              {
+                "name": "groupInterval",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "groupedBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "aggsType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "- Start date for filtering (ISO format)"
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "- End date for filtering (ISO format)"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "emailServerKey",
+                "value": "",
+                "type": "query",
+                "description": "- Specific email server key"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get email client usage statistics"
+        },
+        {
+          "info": {
+            "name": "GetEmailClientBouncesStats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.gleap.io/v3/statistics/email-client-bounces",
+            "params": [
+              {
+                "name": "timezone",
+                "value": "",
+                "type": "query",
+                "description": "- Timezone for date calculations"
+              },
+              {
+                "name": "groupInterval",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "groupedBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "aggsType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "- Start date for filtering (ISO format)"
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "- End date for filtering (ISO format)"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "emailServerKey",
+                "value": "",
+                "type": "query",
+                "description": "- Specific email server key"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get email client bounce statistics"
+        },
+        {
+          "info": {
+            "name": "GetRawStatistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.gleap.io/v3/statistics/raw-data",
+            "params": [
+              {
+                "name": "timezone",
+                "value": "",
+                "type": "query",
+                "description": "- Timezone for date calculations"
+              },
+              {
+                "name": "groupInterval",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "groupedBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "aggsType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "- Start date for filtering (ISO format)"
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "- End date for filtering (ISO format)"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "- Type of raw data to retrieve"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get raw statistics data"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

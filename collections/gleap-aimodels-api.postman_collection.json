@@ -1,0 +1,104 @@
+{
+  "item": [
+    {
+      "id": "9da7462e-b135-4ab2-ae3a-538b53069715",
+      "name": "AiModels",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f77f0198-49bd-4e86-8bee-1369b4d294ee",
+          "name": "Get AI model catalog",
+          "request": {
+            "name": "Get AI model catalog",
+            "description": {
+              "content": "Returns the model catalog (selectable + non-selectable), category\ndefaults, per-runtime defaults, and per-usage-type cost markups.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ai",
+                "models"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c20dc3dc-0c97-44ab-af1f-e375f0c83203",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ai",
+                    "models"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"models\": [\n    {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"provider\": \"mistral\",\n      \"costPerMillionTokens\": {\n        \"input\": 2469.9623786705483,\n        \"output\": 2537.5467606188995,\n        \"cachedInput\": 4126.67994431686,\n        \"cacheWriteInput\": 4023.703264594003,\n        \"longContextThreshold\": 2266.47427929079,\n        \"longInputMultiplier\": 1776.2871357584654,\n        \"longOutputMultiplier\": 5450.4157906017945\n      },\n      \"shortLabel\": \"string\",\n      \"contextWindow\": 1414.816728260031,\n      \"capabilities\": {\n        \"chat\": false,\n        \"vision\": true,\n        \"tools\": false,\n        \"streaming\": true,\n        \"transcription\": true,\n        \"reasoning\": false,\n        \"minimalReasoning\": true,\n        \"temperatureUnsupported\": false\n      },\n      \"pickers\": {\n        \"kaiAgent\": true,\n        \"kaiCodeCloud\": true,\n        \"kaiCodeOpenCode\": false\n      },\n      \"supportedEfforts\": [\n        \"high\",\n        \"medium\"\n      ],\n      \"defaultEffort\": \"medium\",\n      \"subagentModelId\": \"string\",\n      \"aliases\": [\n        \"string\",\n        \"string\"\n      ],\n      \"iconKey\": \"minimax\",\n      \"opencodeId\": \"string\",\n      \"variant1M\": true,\n      \"averageCostPerAnswerUsd\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"provider\": \"google\",\n      \"costPerMillionTokens\": {\n        \"input\": 4312.741643510682,\n        \"output\": 9306.997627737304,\n        \"cachedInput\": 6808.70469114553,\n        \"cacheWriteInput\": 6718.958164530768,\n        \"longContextThreshold\": 7126.428589039997,\n        \"longInputMultiplier\": 8347.839883336916,\n        \"longOutputMultiplier\": 988.120277939295\n      },\n      \"shortLabel\": \"string\",\n      \"contextWindow\": 9936.91823920109,\n      \"capabilities\": {\n        \"chat\": true,\n        \"vision\": false,\n        \"tools\": true,\n        \"streaming\": true,\n        \"transcription\": false,\n        \"reasoning\": false,\n        \"minimalReasoning\": true,\n        \"temperatureUnsupported\": false\n      },\n      \"pickers\": {\n        \"kaiAgent\": true,\n        \"kaiCodeCloud\": false,\n        \"kaiCodeOpenCode\": false\n      },\n      \"supportedEfforts\": [\n        \"high\",\n        \"extra_high\"\n      ],\n      \"defaultEffort\": \"max\",\n      \"subagentModelId\": \"string\",\n      \"aliases\": [\n        \"string\",\n        \"string\"\n      ],\n      \"iconKey\": \"anthropic\",\n      \"opencodeId\": \"string\",\n      \"variant1M\": true,\n      \"averageCostPerAnswerUsd\": \"string\"\n    }\n  ],\n  \"pickers\": {\n    \"transcription\": [\n      {\n        \"value\": \"string\",\n        \"label\": \"string\"\n      },\n      {\n        \"value\": \"string\",\n        \"label\": \"string\"\n      }\n    ],\n    \"kaiCodeOpenCode\": [\n      {\n        \"value\": \"string\",\n        \"label\": \"string\"\n      },\n      {\n        \"value\": \"string\",\n        \"label\": \"string\"\n      }\n    ],\n    \"kaiCodeCloud\": [\n      {\n        \"value\": \"string\",\n        \"label\": \"string\"\n      },\n      {\n        \"value\": \"string\",\n        \"label\": \"string\"\n      }\n    ],\n    \"kaiAgent\": [\n      {\n        \"value\": \"string\",\n        \"label\": \"string\"\n      },\n      {\n        \"value\": \"string\",\n        \"label\": \"string\"\n      }\n    ]\n  },\n  \"runtimeDefaults\": {\n    \"cloud\": \"string\",\n    \"opencode\": \"string\",\n    \"claudeCode\": \"string\",\n    \"codex\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.gleap.io/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "7d84a762-dc3e-4adc-9a5f-04d8db261629",
+    "name": "Gleap AI content AiModels API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.\n\nContact Support:\n Name: Gleap Support\n Email: hello@gleap.io",
+      "type": "text/plain"
+    }
+  }
+}

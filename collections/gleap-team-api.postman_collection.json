@@ -1,0 +1,502 @@
+{
+  "item": [
+    {
+      "id": "3bb07473-a20e-4974-965d-89b6dd3da43a",
+      "name": "Team",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0e0b7872-91a1-4b1f-ba94-c71cc0ab9e4a",
+          "name": "Create a new team",
+          "request": {
+            "name": "Create a new team",
+            "description": {
+              "content": "Create a new team and associate it with a project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "teams"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "project",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"assignmentMethod\": \"<string>\",\n  \"members\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"selectOnlyOnlineMembers\": \"<boolean>\",\n  \"needQueueRerun\": \"<boolean>\",\n  \"limitTicketAmount\": \"<boolean>\",\n  \"ticketAmount\": \"<double>\",\n  \"slaOptions\": {\n    \"defaultSla\": \"<double>\"\n  },\n  \"operatingHours\": {\n    \"openingTimes\": [\n      {\n        \"replyTime\": \"\",\n        \"closingTime\": \"<string>\",\n        \"openingTime\": \"<string>\",\n        \"day\": \"<string>\"\n      },\n      {\n        \"replyTime\": \"\",\n        \"closingTime\": \"<string>\",\n        \"openingTime\": \"<string>\",\n        \"day\": \"<string>\"\n      }\n    ],\n    \"staticTranslations\": {\n      \"outOfOfficeMessage\": \"\"\n    },\n    \"replyTime\": \"\",\n    \"alwaysOnline\": \"<boolean>\",\n    \"timezone\": \"<string>\",\n    \"enabled\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fb5c5762-e2dc-4630-8cd4-0c6fe04e3a63",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "teams"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "project",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"assignmentMethod\": \"<string>\",\n  \"members\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"selectOnlyOnlineMembers\": \"<boolean>\",\n  \"needQueueRerun\": \"<boolean>\",\n  \"limitTicketAmount\": \"<boolean>\",\n  \"ticketAmount\": \"<double>\",\n  \"slaOptions\": {\n    \"defaultSla\": \"<double>\"\n  },\n  \"operatingHours\": {\n    \"openingTimes\": [\n      {\n        \"replyTime\": \"\",\n        \"closingTime\": \"<string>\",\n        \"openingTime\": \"<string>\",\n        \"day\": \"<string>\"\n      },\n      {\n        \"replyTime\": \"\",\n        \"closingTime\": \"<string>\",\n        \"openingTime\": \"<string>\",\n        \"day\": \"<string>\"\n      }\n    ],\n    \"staticTranslations\": {\n      \"outOfOfficeMessage\": \"\"\n    },\n    \"replyTime\": \"\",\n    \"alwaysOnline\": \"<boolean>\",\n    \"timezone\": \"<string>\",\n    \"enabled\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assignmentMethod\": \"random\",\n  \"createdAt\": \"string\",\n  \"limitTicketAmount\": false,\n  \"members\": [\n    \"string\",\n    \"string\"\n  ],\n  \"needQueueRerun\": false,\n  \"selectOnlyOnlineMembers\": false,\n  \"ticketAmount\": 1754.7148002525903,\n  \"updatedAt\": \"string\",\n  \"operatingHours\": {\n    \"openingTimes\": [\n      {\n        \"closingTime\": \"string\",\n        \"openingTime\": \"string\",\n        \"day\": \"string\",\n        \"replyTime\": \"\"\n      },\n      {\n        \"closingTime\": \"string\",\n        \"openingTime\": \"string\",\n        \"day\": \"string\",\n        \"replyTime\": \"\"\n      }\n    ],\n    \"alwaysOnline\": true,\n    \"enabled\": false,\n    \"staticTranslations\": {\n      \"outOfOfficeMessage\": \"\"\n    },\n    \"replyTime\": \"\",\n    \"timezone\": \"string\"\n  },\n  \"project\": \"string\",\n  \"slaOptions\": {\n    \"defaultSla\": 1492.4765001429541\n  },\n  \"name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7458e6cc-505d-4b69-9348-5401e1cbed9b",
+          "name": "Get all teams",
+          "request": {
+            "name": "Get all teams",
+            "description": {
+              "content": "Get all teams associated with a project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "teams"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "project",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "87c0e966-f45b-4fc6-b47d-c92603096774",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "teams"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "project",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"assignmentMethod\": \"circular\",\n    \"createdAt\": \"string\",\n    \"limitTicketAmount\": false,\n    \"members\": [\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    ],\n    \"needQueueRerun\": true,\n    \"selectOnlyOnlineMembers\": false,\n    \"ticketAmount\": 4104.555743787032,\n    \"updatedAt\": \"string\",\n    \"operatingHours\": {\n      \"openingTimes\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"alwaysOnline\": false,\n      \"enabled\": true,\n      \"staticTranslations\": {\n        \"outOfOfficeMessage\": \"\"\n      },\n      \"replyTime\": \"\",\n      \"timezone\": \"string\"\n    },\n    \"project\": \"string\",\n    \"slaOptions\": {\n      \"defaultSla\": 8478.823819567982\n    },\n    \"name\": \"string\"\n  },\n  {\n    \"assignmentMethod\": \"circular\",\n    \"createdAt\": \"string\",\n    \"limitTicketAmount\": true,\n    \"members\": [\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    ],\n    \"needQueueRerun\": true,\n    \"selectOnlyOnlineMembers\": true,\n    \"ticketAmount\": 4145.053475397203,\n    \"updatedAt\": \"string\",\n    \"operatingHours\": {\n      \"openingTimes\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"alwaysOnline\": true,\n      \"enabled\": true,\n      \"staticTranslations\": {\n        \"outOfOfficeMessage\": \"\"\n      },\n      \"replyTime\": \"\",\n      \"timezone\": \"string\"\n    },\n    \"project\": \"string\",\n    \"slaOptions\": {\n      \"defaultSla\": 1175.8896008163576\n    },\n    \"name\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "98d32ff4-24ed-4fe0-9302-3903932027ba",
+          "name": "Update a team",
+          "request": {
+            "name": "Update a team",
+            "description": {
+              "content": "Update a team.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "teams",
+                ":teamId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "teamId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "project",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"assignmentMethod\": \"<string>\",\n  \"members\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"selectOnlyOnlineMembers\": \"<boolean>\",\n  \"needQueueRerun\": \"<boolean>\",\n  \"limitTicketAmount\": \"<boolean>\",\n  \"ticketAmount\": \"<double>\",\n  \"slaOptions\": {\n    \"defaultSla\": \"<double>\"\n  },\n  \"operatingHours\": {\n    \"openingTimes\": [\n      {\n        \"replyTime\": \"\",\n        \"closingTime\": \"<string>\",\n        \"openingTime\": \"<string>\",\n        \"day\": \"<string>\"\n      },\n      {\n        \"replyTime\": \"\",\n        \"closingTime\": \"<string>\",\n        \"openingTime\": \"<string>\",\n        \"day\": \"<string>\"\n      }\n    ],\n    \"staticTranslations\": {\n      \"outOfOfficeMessage\": \"\"\n    },\n    \"replyTime\": \"\",\n    \"alwaysOnline\": \"<boolean>\",\n    \"timezone\": \"<string>\",\n    \"enabled\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "824a6ab9-6a48-4790-8b75-e63a3a32762b",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "teams",
+                    ":teamId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "teamId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "project",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"assignmentMethod\": \"<string>\",\n  \"members\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"selectOnlyOnlineMembers\": \"<boolean>\",\n  \"needQueueRerun\": \"<boolean>\",\n  \"limitTicketAmount\": \"<boolean>\",\n  \"ticketAmount\": \"<double>\",\n  \"slaOptions\": {\n    \"defaultSla\": \"<double>\"\n  },\n  \"operatingHours\": {\n    \"openingTimes\": [\n      {\n        \"replyTime\": \"\",\n        \"closingTime\": \"<string>\",\n        \"openingTime\": \"<string>\",\n        \"day\": \"<string>\"\n      },\n      {\n        \"replyTime\": \"\",\n        \"closingTime\": \"<string>\",\n        \"openingTime\": \"<string>\",\n        \"day\": \"<string>\"\n      }\n    ],\n    \"staticTranslations\": {\n      \"outOfOfficeMessage\": \"\"\n    },\n    \"replyTime\": \"\",\n    \"alwaysOnline\": \"<boolean>\",\n    \"timezone\": \"<string>\",\n    \"enabled\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assignmentMethod\": \"circular\",\n  \"createdAt\": \"string\",\n  \"limitTicketAmount\": false,\n  \"members\": [\n    \"string\",\n    \"string\"\n  ],\n  \"needQueueRerun\": true,\n  \"selectOnlyOnlineMembers\": false,\n  \"ticketAmount\": 7541.7902620408,\n  \"updatedAt\": \"string\",\n  \"operatingHours\": {\n    \"openingTimes\": [\n      {\n        \"closingTime\": \"string\",\n        \"openingTime\": \"string\",\n        \"day\": \"string\",\n        \"replyTime\": \"\"\n      },\n      {\n        \"closingTime\": \"string\",\n        \"openingTime\": \"string\",\n        \"day\": \"string\",\n        \"replyTime\": \"\"\n      }\n    ],\n    \"alwaysOnline\": false,\n    \"enabled\": false,\n    \"staticTranslations\": {\n      \"outOfOfficeMessage\": \"\"\n    },\n    \"replyTime\": \"\",\n    \"timezone\": \"string\"\n  },\n  \"project\": \"string\",\n  \"slaOptions\": {\n    \"defaultSla\": 5044.695119913834\n  },\n  \"name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "50efe39d-f757-4967-bec7-3f6abe471e79",
+          "name": "Delete a team",
+          "request": {
+            "name": "Delete a team",
+            "description": {
+              "content": "Delete a team.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "teams",
+                ":teamId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "teamId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "project",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "56efcb6d-c301-43e9-9938-21cff528da6e",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "teams",
+                    ":teamId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "teamId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "project",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assignmentMethod\": \"circular\",\n  \"createdAt\": \"string\",\n  \"limitTicketAmount\": false,\n  \"members\": [\n    \"string\",\n    \"string\"\n  ],\n  \"needQueueRerun\": true,\n  \"selectOnlyOnlineMembers\": false,\n  \"ticketAmount\": 7541.7902620408,\n  \"updatedAt\": \"string\",\n  \"operatingHours\": {\n    \"openingTimes\": [\n      {\n        \"closingTime\": \"string\",\n        \"openingTime\": \"string\",\n        \"day\": \"string\",\n        \"replyTime\": \"\"\n      },\n      {\n        \"closingTime\": \"string\",\n        \"openingTime\": \"string\",\n        \"day\": \"string\",\n        \"replyTime\": \"\"\n      }\n    ],\n    \"alwaysOnline\": false,\n    \"enabled\": false,\n    \"staticTranslations\": {\n      \"outOfOfficeMessage\": \"\"\n    },\n    \"replyTime\": \"\",\n    \"timezone\": \"string\"\n  },\n  \"project\": \"string\",\n  \"slaOptions\": {\n    \"defaultSla\": 5044.695119913834\n  },\n  \"name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.gleap.io/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c14863aa-1c65-4186-933d-a321c5a346c2",
+    "name": "Gleap AI content Team API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.\n\nContact Support:\n Name: Gleap Support\n Email: hello@gleap.io",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,1102 @@
+{
+  "item": [
+    {
+      "id": "4e231664-5ecc-4c97-b6e0-f053bcec91ff",
+      "name": "User",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "34321b46-509f-494f-80dd-9561e4706004",
+          "name": "Get current user.",
+          "request": {
+            "name": "Get current user.",
+            "description": {
+              "content": "Get current user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "me"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "38426ea5-80da-4c15-8018-8d3d9ab22568",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"createdAt\": \"string\",\n  \"notificationPreferences\": {\n    \"all-ticket-messages\": {\n      \"push\": true,\n      \"inApp\": true,\n      \"email\": false\n    },\n    \"all-sla-breached\": {\n      \"push\": true,\n      \"inApp\": false,\n      \"email\": false\n    },\n    \"personal-ticket-messages\": {\n      \"push\": true,\n      \"inApp\": true,\n      \"email\": true\n    },\n    \"all-created-tickets\": {\n      \"push\": true,\n      \"inApp\": true,\n      \"email\": true\n    },\n    \"personal-assignment\": {\n      \"push\": false,\n      \"inApp\": false,\n      \"email\": true\n    },\n    \"personal-mention\": {\n      \"push\": true,\n      \"inApp\": false,\n      \"email\": true\n    },\n    \"team-ticket-messages\": {\n      \"push\": false,\n      \"inApp\": false,\n      \"email\": true\n    },\n    \"team-ticket-assignment\": {\n      \"push\": false,\n      \"inApp\": true,\n      \"email\": true\n    }\n  },\n  \"updatedAt\": \"string\",\n  \"_id\": {\n    \"isValid\": {},\n    \"createFromHexString\": {},\n    \"createFromTime\": {},\n    \"generate\": {},\n    \"cacheHexString\": \"\",\n    \"prototype\": \"string\"\n  },\n  \"hidden\": true,\n  \"email\": \"string\",\n  \"userType\": \"default\",\n  \"identityProvider\": {\n    \"providerId\": \"string\",\n    \"userId\": \"string\"\n  },\n  \"password\": \"string\",\n  \"firstName\": \"string\",\n  \"lastName\": \"string\",\n  \"profileImageUrl\": \"string\",\n  \"lastSeen\": \"1959-03-10T10:09:03.381Z\",\n  \"lastAutoAssign\": \"1951-03-22T07:46:08.925Z\",\n  \"available\": false,\n  \"unavailableProjects\": [\n    \"string\",\n    \"string\"\n  ],\n  \"services\": {},\n  \"serviceAccountApiToken\": \"string\",\n  \"confirmed\": false,\n  \"referral\": \"string\",\n  \"code\": \"string\",\n  \"codeCreatedAt\": \"1981-08-24T07:40:30.329Z\",\n  \"otp\": \"string\",\n  \"otpCreatedAt\": \"1965-08-26T18:35:33.524Z\",\n  \"userRole\": \"string\",\n  \"knewGleapFrom\": \"string\",\n  \"userUsage\": \"string\",\n  \"utm_source\": \"string\",\n  \"utm_medium\": \"string\",\n  \"utm_term\": \"string\",\n  \"utm_content\": \"string\",\n  \"utm_campaign\": \"string\",\n  \"gaClientId\": \"string\",\n  \"gaSessionId\": \"string\",\n  \"marketingTracking\": {\n    \"generateLeadTrackedAt\": \"1987-08-08T02:36:33.178Z\",\n    \"signupTrackedAt\": \"2009-11-05T11:20:56.405Z\"\n  },\n  \"completedOnboarding\": false,\n  \"onboardingFlow\": \"string\",\n  \"mastercardUser\": false,\n  \"fcmTokens\": [\n    \"string\",\n    \"string\"\n  ],\n  \"twoFactorAuthentication\": {\n    \"currentWebAuthnChallenge\": \"string\",\n    \"methods\": {\n      \"webAuthn\": [\n        {\n          \"counter\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"publicKey\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"credentialID\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"counter\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"publicKey\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"credentialID\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    \"isEnabled\": false\n  },\n  \"notificationSettings\": {\n    \"preventNotificationsWhereICreator\": true,\n    \"directlySendNotifications\": false,\n    \"sendEmailOnlyWhenOffline\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "45880fa4-08a4-4359-8b2e-d776555eaa48",
+          "name": "Reassign all tickets to the user.",
+          "request": {
+            "name": "Reassign all tickets to the user.",
+            "description": {
+              "content": "Reassign all tickets to the user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "me",
+                "reassign-tickets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e32c623e-fa90-4596-b5ae-b5c3e295ed04",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "reassign-tickets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bb1f1fe5-cc4c-4697-bf99-7705402fe71c",
+          "name": "Get unified inbox tickets",
+          "request": {
+            "name": "Get unified inbox tickets",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                "unified-inbox"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filteredProjectId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<double>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<double>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "19f0e3ee-9ec3-4139-9e3e-8904c27905ce",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "unified-inbox"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filteredProjectId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<double>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "69891e31-b030-4b20-b8e2-9a7b14429121",
+          "name": "Get unified inbox ticket",
+          "request": {
+            "name": "Get unified inbox ticket",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                "unified-inbox",
+                ":ticketId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ticketId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5fb72977-ef0e-4d32-8204-578c0602d15b",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "unified-inbox",
+                    ":ticketId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ticketId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7c910ac9-b49a-4537-888f-dcacb00196e3",
+          "name": "Update user.",
+          "request": {
+            "name": "Update user.",
+            "description": {
+              "content": "Update user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                ":userId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"userRole\": \"<string>\",\n  \"knewGleapFrom\": \"<string>\",\n  \"userUsage\": \"<string>\",\n  \"profileImageUrl\": \"<string>\",\n  \"completedOnboarding\": \"<boolean>\",\n  \"oldpassword\": \"<string>\",\n  \"available\": \"<boolean>\",\n  \"unavailableProjects\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"notificationPreferences\": \"\",\n  \"notificationSettings\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0a09591f-8289-4e88-9fef-89ed36cd44b6",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"userRole\": \"<string>\",\n  \"knewGleapFrom\": \"<string>\",\n  \"userUsage\": \"<string>\",\n  \"profileImageUrl\": \"<string>\",\n  \"completedOnboarding\": \"<boolean>\",\n  \"oldpassword\": \"<string>\",\n  \"available\": \"<boolean>\",\n  \"unavailableProjects\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"notificationPreferences\": \"\",\n  \"notificationSettings\": \"\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d6a3a33a-2690-4715-86a7-9d59162dbd62",
+          "name": "Get current user's role permissions.",
+          "request": {
+            "name": "Get current user's role permissions.",
+            "description": {
+              "content": "Get current user's role permissions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "me",
+                "permissions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ae775408-2531-45b9-8c2f-84387cd9ecc1",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "permissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"permissions\": [\n    \"string\",\n    \"string\"\n  ],\n  \"roles\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e9539e3b-fea6-4d1e-9211-b5a4c34259b2",
+          "name": "Authenticate user for Pusher session.",
+          "request": {
+            "name": "Authenticate user for Pusher session.",
+            "description": {
+              "content": "Authenticate user for Pusher session.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"referral\": \"<string>\",\n  \"utm_source\": \"<string>\",\n  \"utm_medium\": \"<string>\",\n  \"utm_term\": \"<string>\",\n  \"utm_content\": \"<string>\",\n  \"utm_campaign\": \"<string>\",\n  \"onboardingFlow\": \"<string>\",\n  \"turnstileToken\": \"<string>\",\n  \"gaClientId\": \"<string>\",\n  \"gaSessionId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8fc34451-c58a-413d-a111-a4023bb5fbb1",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"referral\": \"<string>\",\n  \"utm_source\": \"<string>\",\n  \"utm_medium\": \"<string>\",\n  \"utm_term\": \"<string>\",\n  \"utm_content\": \"<string>\",\n  \"utm_campaign\": \"<string>\",\n  \"onboardingFlow\": \"<string>\",\n  \"turnstileToken\": \"<string>\",\n  \"gaClientId\": \"<string>\",\n  \"gaSessionId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1ea26ca8-a41a-4de8-9b05-045319bc2f42",
+          "name": "Authenticate user for Pusher session.",
+          "request": {
+            "name": "Authenticate user for Pusher session.",
+            "description": {
+              "content": "Authenticate user for Pusher session.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "verify"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"<string>\",\n  \"email\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "234f6168-d515-4ee2-9322-a9a66c69bfad",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "verify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"code\": \"<string>\",\n  \"email\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c79242ef-83ad-4dc7-82cd-e9d06807ad15",
+          "name": "Resend a verification code to the user's email.",
+          "request": {
+            "name": "Resend a verification code to the user's email.",
+            "description": {
+              "content": "Resend a verification code to the user's email.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "resend"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "77897f0b-2226-45e4-b77c-0212858593cc",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "resend"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "false",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d5f2cdb2-2b53-403f-b5de-959dd5b12706",
+          "name": "Authenticate user for Pusher session.",
+          "request": {
+            "name": "Authenticate user for Pusher session.",
+            "description": {
+              "content": "Authenticate user for Pusher session.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "me",
+                "session-auth"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"socket_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d1863302-520a-4fa4-8beb-facebad7e6b5",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "session-auth"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"socket_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3120b033-51bb-4897-b3d9-ca80d6b892be",
+          "name": "Authenticate user for Pusher session.",
+          "request": {
+            "name": "Authenticate user for Pusher session.",
+            "description": {
+              "content": "Authenticate user for Pusher session.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "me",
+                "session-channel-auth"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"socket_id\": \"<string>\",\n  \"channel_name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8676acb5-a2f6-4b18-aef8-a1e18e7e6c40",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me",
+                    "session-channel-auth"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"socket_id\": \"<string>\",\n  \"channel_name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.gleap.io/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "538aa318-5dd4-450b-8866-c138361b8aaa",
+    "name": "Gleap AI content User API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.\n\nContact Support:\n Name: Gleap Support\n Email: hello@gleap.io",
+      "type": "text/plain"
+    }
+  }
+}

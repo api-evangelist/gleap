@@ -1,0 +1,1770 @@
+{
+  "item": [
+    {
+      "id": "4ddaae77-c502-4a4d-abb7-f0238a6a26a4",
+      "name": "Statistics",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2b42e0be-ea59-4f6c-860c-dc08ac2934f7",
+          "name": "Get Chart Data",
+          "request": {
+            "name": "Get Chart Data",
+            "description": {
+              "content": "Get bar chart data for various statistics",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "statistics",
+                "bar-chart"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "timezone",
+                  "value": "<string>",
+                  "description": "- Timezone for date calculations (e.g., \"America/New_York\")"
+                },
+                {
+                  "disabled": false,
+                  "key": "groupInterval",
+                  "value": "<string>",
+                  "description": "- Grouping interval (\"day\", \"month\", \"year\")"
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<double>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<double>"
+                },
+                {
+                  "disabled": false,
+                  "key": "groupedBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "aggsType",
+                  "value": "<string>",
+                  "description": "- Aggregation type (\"MEDIAN\", \"AVERAGE\")"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<string>",
+                  "description": "- Start date for filtering (ISO format)"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<string>",
+                  "description": "- End date for filtering (ISO format)"
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "outbound",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6bc80b68-9f34-4299-aaef-ffa70489b244",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "statistics",
+                    "bar-chart"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "timezone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupInterval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "groupedBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "aggsType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createdAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updatedAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "outbound",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "03ab1d4e-8497-488f-bd23-873a3926f28e",
+          "name": "Get Fact Data",
+          "request": {
+            "name": "Get Fact Data",
+            "description": {
+              "content": "Get fact data for various statistics",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "statistics",
+                "facts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "timezone",
+                  "value": "<string>",
+                  "description": "- Timezone for date calculations"
+                },
+                {
+                  "disabled": false,
+                  "key": "groupInterval",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<double>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<double>"
+                },
+                {
+                  "disabled": false,
+                  "key": "groupedBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "aggsType",
+                  "value": "<string>",
+                  "description": "- Aggregation type (\"MEDIAN\", \"AVERAGE\")"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<string>",
+                  "description": "- Start date for filtering (ISO format)"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<string>",
+                  "description": "- End date for filtering (ISO format)"
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "outbound",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c7029646-c021-4fc2-bfc2-cc92bd31afa6",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "statistics",
+                    "facts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "timezone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupInterval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "groupedBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "aggsType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createdAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updatedAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "outbound",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fe258886-7a4c-445b-b9eb-cba5f60b4ba0",
+          "name": "Get List Data",
+          "request": {
+            "name": "Get List Data",
+            "description": {
+              "content": "Get list data for various statistics",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "statistics",
+                "lists"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "timezone",
+                  "value": "<string>",
+                  "description": "- Timezone for date calculations"
+                },
+                {
+                  "disabled": false,
+                  "key": "groupInterval",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<double>",
+                  "description": "- Number of records to skip (pagination)"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<double>",
+                  "description": "- Maximum number of records to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "groupedBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "aggsType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "useWorkingHours",
+                  "value": "<boolean>",
+                  "description": "- Whether to use working hours calculations"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7f07adb9-1c86-4d07-8429-27599119861c",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "statistics",
+                    "lists"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "timezone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupInterval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "groupedBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "aggsType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createdAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updatedAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "useWorkingHours",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bf28587b-2245-41d5-a73d-cc7a0f1dc12d",
+          "name": "Export List Data",
+          "request": {
+            "name": "Export List Data",
+            "description": {
+              "content": "Export list data as CSV",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "statistics",
+                "lists",
+                "export"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "timezone",
+                  "value": "<string>",
+                  "description": "- Timezone for date calculations"
+                },
+                {
+                  "disabled": false,
+                  "key": "groupInterval",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<double>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<double>"
+                },
+                {
+                  "disabled": false,
+                  "key": "groupedBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "aggsType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "useWorkingHours",
+                  "value": "<boolean>",
+                  "description": "- Whether to use working hours calculations"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "aa7d739b-316d-46c3-88a1-6b278e654167",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "statistics",
+                    "lists",
+                    "export"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "timezone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupInterval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "groupedBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "aggsType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createdAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updatedAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "useWorkingHours",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4ceb7bed-4271-4fd4-b6ef-aec2bd44d1c3",
+          "name": "Get Heatmap Data",
+          "request": {
+            "name": "Get Heatmap Data",
+            "description": {
+              "content": "Get heatmap data for activity patterns",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "statistics",
+                "heatmap"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "chartType",
+                  "value": "<string>",
+                  "description": "(Required) - Type of heatmap data (BUSIEST_HOURS_PER_WEEKDAY, BUSIEST_COMMENTS_PER_WEEKDAY)"
+                },
+                {
+                  "disabled": false,
+                  "key": "timezone",
+                  "value": "<string>",
+                  "description": "- Timezone for date calculations"
+                },
+                {
+                  "disabled": false,
+                  "key": "groupInterval",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<double>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<double>"
+                },
+                {
+                  "disabled": false,
+                  "key": "groupedBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "aggsType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<string>",
+                  "description": "- Start date for filtering (ISO format)"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<string>",
+                  "description": "- End date for filtering (ISO format)"
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAt",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9656f7d1-24c1-475d-bb55-1f60f6f63f49",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "statistics",
+                    "heatmap"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "chartType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timezone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupInterval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "groupedBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "aggsType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createdAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updatedAt",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fb344c82-12ec-455e-97a2-84533d2cfe17",
+          "name": "Get Email Overview Stats",
+          "request": {
+            "name": "Get Email Overview Stats",
+            "description": {
+              "content": "Get email overview statistics",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "statistics",
+                "email-overview"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "timezone",
+                  "value": "<string>",
+                  "description": "- Timezone for date calculations"
+                },
+                {
+                  "disabled": false,
+                  "key": "groupInterval",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<double>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<double>"
+                },
+                {
+                  "disabled": false,
+                  "key": "groupedBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "aggsType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<string>",
+                  "description": "- Start date for filtering (ISO format)"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<string>",
+                  "description": "- End date for filtering (ISO format)"
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "emailServerKey",
+                  "value": "<string>",
+                  "description": "- Specific email server key"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "222f8703-37f4-4a6c-a11a-14ef2221cfb5",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "statistics",
+                    "email-overview"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "timezone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupInterval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "groupedBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "aggsType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createdAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updatedAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "emailServerKey",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "48332c1a-afe9-4158-8a5e-8b6a9ce2c399",
+          "name": "Get Email Client Usage Stats",
+          "request": {
+            "name": "Get Email Client Usage Stats",
+            "description": {
+              "content": "Get email client usage statistics",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "statistics",
+                "email-client-usage"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "timezone",
+                  "value": "<string>",
+                  "description": "- Timezone for date calculations"
+                },
+                {
+                  "disabled": false,
+                  "key": "groupInterval",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<double>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<double>"
+                },
+                {
+                  "disabled": false,
+                  "key": "groupedBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "aggsType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<string>",
+                  "description": "- Start date for filtering (ISO format)"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<string>",
+                  "description": "- End date for filtering (ISO format)"
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "emailServerKey",
+                  "value": "<string>",
+                  "description": "- Specific email server key"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4a2da115-0428-42ff-a581-8574f21079dc",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "statistics",
+                    "email-client-usage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "timezone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupInterval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "groupedBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "aggsType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createdAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updatedAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "emailServerKey",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "42b19f24-3025-46f8-bb8f-1a397393ecd7",
+          "name": "Get Email Client Bounces Stats",
+          "request": {
+            "name": "Get Email Client Bounces Stats",
+            "description": {
+              "content": "Get email client bounce statistics",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "statistics",
+                "email-client-bounces"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "timezone",
+                  "value": "<string>",
+                  "description": "- Timezone for date calculations"
+                },
+                {
+                  "disabled": false,
+                  "key": "groupInterval",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<double>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<double>"
+                },
+                {
+                  "disabled": false,
+                  "key": "groupedBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "aggsType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<string>",
+                  "description": "- Start date for filtering (ISO format)"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<string>",
+                  "description": "- End date for filtering (ISO format)"
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "emailServerKey",
+                  "value": "<string>",
+                  "description": "- Specific email server key"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ad3c367c-29f7-41ca-a852-c121136c8778",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "statistics",
+                    "email-client-bounces"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "timezone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupInterval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "groupedBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "aggsType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createdAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updatedAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "emailServerKey",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "17eb4cc7-952f-4816-aa54-51f997f6bbab",
+          "name": "Get Raw Statistics",
+          "request": {
+            "name": "Get Raw Statistics",
+            "description": {
+              "content": "Get raw statistics data",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "statistics",
+                "raw-data"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "timezone",
+                  "value": "<string>",
+                  "description": "- Timezone for date calculations"
+                },
+                {
+                  "disabled": false,
+                  "key": "groupInterval",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<double>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<double>"
+                },
+                {
+                  "disabled": false,
+                  "key": "groupedBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "aggsType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<string>",
+                  "description": "- Start date for filtering (ISO format)"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<string>",
+                  "description": "- End date for filtering (ISO format)"
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "- Type of raw data to retrieve"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4c1756cc-fcdd-4743-a995-1a7cd7f26376",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "statistics",
+                    "raw-data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "timezone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupInterval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "groupedBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "aggsType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createdAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updatedAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.gleap.io/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "fbb27044-162e-4a18-a7c9-09678b8196aa",
+    "name": "Gleap AI content Statistics API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Gleap REST API provides programmatic access to feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication and supports filtering, pagination, and webhook integrations.\n\nContact Support:\n Name: Gleap Support\n Email: hello@gleap.io",
+      "type": "text/plain"
+    }
+  }
+}
