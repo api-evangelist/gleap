@@ -25,6 +25,19 @@ tags:
   - Bug Reporting
   - In-App Support
   - Feature Requests
+  - Roadmaps
+  - Live Chat
+  - AI Agents
+  - Session Replay
+  - Help Center
+  - Ticketing
+  - User Feedback
+  - Software-as-a-Service
+tags_raw:
+  - Customer Feedback
+  - Bug Reporting
+  - In-App Support
+  - Feature Requests
   - Roadmap
   - Live Chat
   - AI Agents
@@ -54,6 +67,8 @@ apis:
   humanURL: https://docs.gleap.io/documentation/server/rest-api
   baseURL: https://api.gleap.io
   tags:
+  - AI Models
+  tags_raw:
   - AiModels
   properties:
   - type: OpenAPI
@@ -96,6 +111,8 @@ apis:
   humanURL: https://docs.gleap.io/documentation/server/rest-api
   baseURL: https://api.gleap.io
   tags:
+  - Custom Components
+  tags_raw:
   - Custom components
   properties:
   - type: OpenAPI
@@ -294,6 +311,8 @@ apis:
   humanURL: https://docs.gleap.io/documentation/server/rest-api
   baseURL: https://api.gleap.io
   tags:
+  - Help Center
+  tags_raw:
   - Help center
   properties:
   - type: OpenAPI
@@ -308,6 +327,8 @@ apis:
   humanURL: https://docs.gleap.io/documentation/server/rest-api
   baseURL: https://api.gleap.io
   tags:
+  - Help Center Articles
+  tags_raw:
   - Help center articles
   properties:
   - type: OpenAPI
@@ -378,6 +399,8 @@ apis:
   humanURL: https://docs.gleap.io/documentation/server/rest-api
   baseURL: https://api.gleap.io
   tags:
+  - Message Templates
+  tags_raw:
   - Message templates
   properties:
   - type: OpenAPI
@@ -392,6 +415,8 @@ apis:
   humanURL: https://docs.gleap.io/documentation/server/rest-api
   baseURL: https://api.gleap.io
   tags:
+  - Message
+  tags_raw:
   - Messages
   properties:
   - type: OpenAPI
