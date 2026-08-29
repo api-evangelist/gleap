@@ -536,6 +536,9 @@ apis:
   - type: PostmanCollection
     url: https://documenter.getpostman.com/view/18586034/2s8YRiJYVC
 common:
+  - type: CapabilityMap
+    url: capabilities/gleap-capability-edges.yml
+    name: Gleap Business Capability Map
   - type: AgenticAccess
     url: agentic-access/gleap-agentic-access.yml
   - type: DomainSecurity
