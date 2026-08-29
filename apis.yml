@@ -1,5 +1,17 @@
 name: Gleap
 description: Gleap is an in-app customer feedback and bug reporting platform with AI agents that automates the loop from user feedback through code deployment. It provides a REST API for managing feedback tickets, feature requests, roadmaps, real-time widget configuration, help center articles, outbound messaging, and user identity tracking used by 4,500+ teams globally.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: paid
   onboarding: self-serve
