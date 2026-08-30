@@ -37,7 +37,7 @@ tags:
   - Bug Reporting
   - In-App Support
   - Feature Requests
-  - Roadmaps
+  - Roadmap
   - Live Chat
   - AI Agents
   - Session Replay
@@ -79,7 +79,7 @@ apis:
   humanURL: https://docs.gleap.io/documentation/server/rest-api
   baseURL: https://api.gleap.io
   tags:
-  - AI Models
+  - AiModels
   tags_raw:
   - AiModels
   properties:
@@ -123,7 +123,7 @@ apis:
   humanURL: https://docs.gleap.io/documentation/server/rest-api
   baseURL: https://api.gleap.io
   tags:
-  - Custom Components
+  - Custom components
   tags_raw:
   - Custom components
   properties:
@@ -323,7 +323,7 @@ apis:
   humanURL: https://docs.gleap.io/documentation/server/rest-api
   baseURL: https://api.gleap.io
   tags:
-  - Help Center
+  - Help center
   tags_raw:
   - Help center
   properties:
@@ -339,7 +339,7 @@ apis:
   humanURL: https://docs.gleap.io/documentation/server/rest-api
   baseURL: https://api.gleap.io
   tags:
-  - Help Center Articles
+  - Help center articles
   tags_raw:
   - Help center articles
   properties:
