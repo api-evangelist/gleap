@@ -74,22 +74,6 @@ apis:
     url: https://docs.gleap.io/documentation/server/rest-api
   - type: PostmanCollection
     url: https://documenter.getpostman.com/view/18586034/2s8YRiJYVC
-- aid: gleap:gleap-aimodels-api
-  name: Gleap AiModels API
-  description: The AiModels API from Gleap — 1 operation(s) for aimodels.
-  humanURL: https://docs.gleap.io/documentation/server/rest-api
-  baseURL: https://api.gleap.io
-  tags:
-  - AI Models
-  tags_raw:
-  - AiModels
-  properties:
-  - type: OpenAPI
-    url: openapi/gleap-aimodels-api-openapi.yml
-  - type: Documentation
-    url: https://docs.gleap.io/documentation/server/rest-api
-  - type: PostmanCollection
-    url: https://documenter.getpostman.com/view/18586034/2s8YRiJYVC
 - aid: gleap:gleap-code-api
   name: Gleap Code API
   description: The Code API from Gleap — 1 operation(s) for code.
@@ -532,6 +516,20 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/gleap-user-api-openapi.yml
+  - type: Documentation
+    url: https://docs.gleap.io/documentation/server/rest-api
+  - type: PostmanCollection
+    url: https://documenter.getpostman.com/view/18586034/2s8YRiJYVC
+- aid: gleap:gleap-ai-models-api
+  name: Gleap AI Models API
+  description: The AI Models API from Gleap — 1 operation(s) for ai models.
+  humanURL: https://docs.gleap.io/documentation/server/rest-api
+  baseURL: https://api.gleap.io
+  tags:
+  - AI Models
+  properties:
+  - type: OpenAPI
+    url: openapi/gleap-ai-models-api-openapi.yml
   - type: Documentation
     url: https://docs.gleap.io/documentation/server/rest-api
   - type: PostmanCollection
