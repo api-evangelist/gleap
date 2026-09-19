@@ -442,6 +442,8 @@ apis:
   humanURL: https://docs.gleap.io/documentation/server/rest-api
   baseURL: https://api.gleap.io
   tags:
+  - Sessions
+  tags_raw:
   - Session
   properties:
   - type: OpenAPI
@@ -498,6 +500,8 @@ apis:
   humanURL: https://docs.gleap.io/documentation/server/rest-api
   baseURL: https://api.gleap.io
   tags:
+  - Translation
+  tags_raw:
   - Translations
   properties:
   - type: OpenAPI
