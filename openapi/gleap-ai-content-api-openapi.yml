@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   title: Gleap AI content API
   version: 14.0.0
@@ -50,7 +50,6 @@ paths:
           content:
             application/json:
               schema: {}
-      description: Get AI content by contentId
       summary: Get AI content by contentId
       tags:
       - AI content
@@ -75,7 +74,6 @@ paths:
           content:
             application/json:
               schema: {}
-      description: Update AI content by contentId
       summary: Update AI content by contentId
       tags:
       - AI content
@@ -112,7 +110,6 @@ paths:
                 required:
                 - success
                 type: object
-      description: Delete AI content by contentId
       summary: Delete AI content by contentId
       tags:
       - AI content
@@ -327,7 +324,6 @@ paths:
                       type: string
                       enum:
                       - video
-                      nullable: false
                   required:
                   - estimatedCostCents
                   - video
@@ -519,36 +515,6 @@ components:
       - url
       type: object
       additionalProperties: false
-    VideoMetadata:
-      properties:
-        videoId:
-          type: string
-        title:
-          type: string
-        durationSeconds:
-          type: number
-          format: double
-        thumbnailUrl:
-          type: string
-        channelName:
-          type: string
-        privacyStatus:
-          anyOf:
-          - type: string
-          - type: string
-            enum:
-            - public
-            - unlisted
-            - private
-      required:
-      - videoId
-      - title
-      - durationSeconds
-      - thumbnailUrl
-      - channelName
-      - privacyStatus
-      type: object
-      additionalProperties: false
     ImportYouTubeVideoDto:
       properties:
         url:
@@ -557,25 +523,6 @@ components:
           type: string
       required:
       - url
-      type: object
-      additionalProperties: false
-    UpdateAIContentDto:
-      properties:
-        title:
-          type: string
-        content: {}
-        type:
-          type: string
-        batchId:
-          type: string
-        readMoreUrl:
-          type: string
-        readMoreLabel:
-          type: string
-      required:
-      - title
-      - content
-      - type
       type: object
       additionalProperties: false
     CreateAIContentDto:
@@ -606,6 +553,55 @@ components:
           type: string
       required:
       - url
+      type: object
+      additionalProperties: false
+    VideoMetadata:
+      properties:
+        videoId:
+          type: string
+        title:
+          type: string
+        durationSeconds:
+          type: number
+          format: double
+        thumbnailUrl:
+          type: string
+        channelName:
+          type: string
+        privacyStatus:
+          anyOf:
+          - type: string
+          - type: string
+            enum:
+            - public
+            - unlisted
+            - private
+      required:
+      - videoId
+      - title
+      - durationSeconds
+      - thumbnailUrl
+      - channelName
+      - privacyStatus
+      type: object
+      additionalProperties: false
+    UpdateAIContentDto:
+      properties:
+        title:
+          type: string
+        content: {}
+        type:
+          type: string
+        batchId:
+          type: string
+        readMoreUrl:
+          type: string
+        readMoreLabel:
+          type: string
+      required:
+      - title
+      - content
+      - type
       type: object
       additionalProperties: false
   securitySchemes:

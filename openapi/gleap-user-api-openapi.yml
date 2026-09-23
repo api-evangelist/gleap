@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Gleap AI content User API
+  title: Gleap User API
   version: 14.0.0
   contact:
     name: Gleap Support
@@ -25,7 +25,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserDocument'
       description: Get current user.
-      summary: Get current user.
+      summary: Get current user
       tags:
       - User
       security:
@@ -47,7 +47,7 @@ paths:
                 - success
                 type: object
       description: Reassign all tickets to the user.
-      summary: Reassign all tickets to the user.
+      summary: Reassign all tickets to the user
       tags:
       - User
       security:
@@ -120,7 +120,7 @@ paths:
             application/json:
               schema: {}
       description: Update user.
-      summary: Update user.
+      summary: Update user
       tags:
       - User
       security:
@@ -155,7 +155,7 @@ paths:
                 - roles
                 type: object
       description: Get current user's role permissions.
-      summary: Get current user's role permissions.
+      summary: Get current user's role permissions
       tags:
       - User
       security:
@@ -171,7 +171,7 @@ paths:
             application/json:
               schema: {}
       description: Authenticate user for Pusher session.
-      summary: Authenticate user for Pusher session.
+      summary: Authenticate user for Pusher session
       tags:
       - User
       security: []
@@ -192,7 +192,7 @@ paths:
             application/json:
               schema: {}
       description: Authenticate user for Pusher session.
-      summary: Authenticate user for Pusher session.
+      summary: Authenticate user for Pusher session
       tags:
       - User
       security: []
@@ -222,7 +222,7 @@ paths:
               schema:
                 type: boolean
       description: Resend a verification code to the user's email.
-      summary: Resend a verification code to the user's email.
+      summary: Resend a verification code to the user's email
       tags:
       - User
       security: []
@@ -248,7 +248,7 @@ paths:
             application/json:
               schema: {}
       description: Authenticate user for Pusher session.
-      summary: Authenticate user for Pusher session.
+      summary: Authenticate user for Pusher session
       tags:
       - User
       security: []
@@ -274,7 +274,7 @@ paths:
             application/json:
               schema: {}
       description: Authenticate user for Pusher session.
-      summary: Authenticate user for Pusher session.
+      summary: Authenticate user for Pusher session
       tags:
       - User
       security: []
@@ -295,6 +295,106 @@ paths:
               type: object
 components:
   schemas:
+    UpdateUserDto:
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        userRole:
+          type: string
+        knewGleapFrom:
+          type: string
+        userUsage:
+          type: string
+        profileImageUrl:
+          type: string
+        completedOnboarding:
+          type: boolean
+        oldpassword:
+          type: string
+        available:
+          type: boolean
+        unavailableProjects:
+          items:
+            type: string
+          type: array
+        notificationPreferences: {}
+        notificationSettings: {}
+      type: object
+      additionalProperties: false
+    NativeDate:
+      type: string
+    Omit_InferSchemaType_typeofuserSchema_.notificationPreferences_:
+      $ref: '#/components/schemas/Pick_InferSchemaType_typeofuserSchema_.Exclude_keyofInferSchemaType_typeofuserSchema_.notificationPreferences__'
+      description: Construct a type with the properties of T except for those in type K.
+    CreateUserDto:
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        referral:
+          type: string
+        utm_source:
+          type:
+          - string
+          - 'null'
+        utm_medium:
+          type:
+          - string
+          - 'null'
+        utm_term:
+          type:
+          - string
+          - 'null'
+        utm_content:
+          type:
+          - string
+          - 'null'
+        utm_campaign:
+          type:
+          - string
+          - 'null'
+        onboardingFlow:
+          type: string
+        turnstileToken:
+          type: string
+        gaClientId:
+          type: string
+        gaSessionId:
+          type: string
+      type: object
+      additionalProperties: false
+    NotificationPreference:
+      properties:
+        push:
+          type: boolean
+        inApp:
+          type: boolean
+        email:
+          type: boolean
+      required:
+      - push
+      - inApp
+      - email
+      type: object
+      additionalProperties: false
+    FlattenMaps_T_:
+      properties: {}
+      type: object
+    UserDocument:
+      allOf:
+      - $ref: '#/components/schemas/UserI'
+      - $ref: '#/components/schemas/Document'
+    UserType:
+      enum:
+      - default
+      - sso
+      - service_account
+      type: string
     UserI:
       allOf:
       - $ref: '#/components/schemas/Omit_InferSchemaType_typeofuserSchema_.notificationPreferences_'
@@ -304,35 +404,6 @@ components:
         required:
         - notificationPreferences
         type: object
-    NotificationPreferences:
-      properties:
-        all-ticket-messages:
-          $ref: '#/components/schemas/NotificationPreference'
-        all-sla-breached:
-          $ref: '#/components/schemas/NotificationPreference'
-        personal-ticket-messages:
-          $ref: '#/components/schemas/NotificationPreference'
-        all-created-tickets:
-          $ref: '#/components/schemas/NotificationPreference'
-        personal-assignment:
-          $ref: '#/components/schemas/NotificationPreference'
-        personal-mention:
-          $ref: '#/components/schemas/NotificationPreference'
-        team-ticket-messages:
-          $ref: '#/components/schemas/NotificationPreference'
-        team-ticket-assignment:
-          $ref: '#/components/schemas/NotificationPreference'
-      required:
-      - all-ticket-messages
-      - all-sla-breached
-      - personal-ticket-messages
-      - all-created-tickets
-      - personal-assignment
-      - personal-mention
-      - team-ticket-messages
-      - team-ticket-assignment
-      type: object
-      additionalProperties: false
     Pick_InferSchemaType_typeofuserSchema_.Exclude_keyofInferSchemaType_typeofuserSchema_.notificationPreferences__:
       properties:
         _id:
@@ -493,78 +564,33 @@ components:
       - updatedAt
       type: object
       description: From T, pick a set of properties whose keys are in the union K
-    Omit_InferSchemaType_typeofuserSchema_.notificationPreferences_:
-      $ref: '#/components/schemas/Pick_InferSchemaType_typeofuserSchema_.Exclude_keyofInferSchemaType_typeofuserSchema_.notificationPreferences__'
-      description: Construct a type with the properties of T except for those in type K.
-    CreateUserDto:
+    NotificationPreferences:
       properties:
-        name:
-          type: string
-        email:
-          type: string
-        password:
-          type: string
-        referral:
-          type: string
-        utm_source:
-          type: string
-          nullable: true
-        utm_medium:
-          type: string
-          nullable: true
-        utm_term:
-          type: string
-          nullable: true
-        utm_content:
-          type: string
-          nullable: true
-        utm_campaign:
-          type: string
-          nullable: true
-        onboardingFlow:
-          type: string
-        turnstileToken:
-          type: string
-        gaClientId:
-          type: string
-        gaSessionId:
-          type: string
-      type: object
-      additionalProperties: false
-    UserType:
-      enum:
-      - default
-      - sso
-      - service_account
-      type: string
-    ObjectId:
-      type: string
-    UpdateUserDto:
-      properties:
-        firstName:
-          type: string
-        lastName:
-          type: string
-        userRole:
-          type: string
-        knewGleapFrom:
-          type: string
-        userUsage:
-          type: string
-        profileImageUrl:
-          type: string
-        completedOnboarding:
-          type: boolean
-        oldpassword:
-          type: string
-        available:
-          type: boolean
-        unavailableProjects:
-          items:
-            type: string
-          type: array
-        notificationPreferences: {}
-        notificationSettings: {}
+        all-ticket-messages:
+          $ref: '#/components/schemas/NotificationPreference'
+        all-sla-breached:
+          $ref: '#/components/schemas/NotificationPreference'
+        personal-ticket-messages:
+          $ref: '#/components/schemas/NotificationPreference'
+        all-created-tickets:
+          $ref: '#/components/schemas/NotificationPreference'
+        personal-assignment:
+          $ref: '#/components/schemas/NotificationPreference'
+        personal-mention:
+          $ref: '#/components/schemas/NotificationPreference'
+        team-ticket-messages:
+          $ref: '#/components/schemas/NotificationPreference'
+        team-ticket-assignment:
+          $ref: '#/components/schemas/NotificationPreference'
+      required:
+      - all-ticket-messages
+      - all-sla-breached
+      - personal-ticket-messages
+      - all-created-tickets
+      - personal-assignment
+      - personal-mention
+      - team-ticket-messages
+      - team-ticket-assignment
       type: object
       additionalProperties: false
     Document:
@@ -576,29 +602,8 @@ components:
         *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
 
         *  DocType - the type of the actual Document created'
-    UserDocument:
-      allOf:
-      - $ref: '#/components/schemas/UserI'
-      - $ref: '#/components/schemas/Document'
-    NativeDate:
+    ObjectId:
       type: string
-    FlattenMaps_T_:
-      properties: {}
-      type: object
-    NotificationPreference:
-      properties:
-        push:
-          type: boolean
-        inApp:
-          type: boolean
-        email:
-          type: boolean
-      required:
-      - push
-      - inApp
-      - email
-      type: object
-      additionalProperties: false
   securitySchemes:
     jwt:
       type: http

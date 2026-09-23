@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Gleap AI content Statistics API
+  title: Gleap Statistics API
   version: 14.0.0
   contact:
     name: Gleap Support
@@ -100,6 +100,8 @@ paths:
         required: false
         schema:
           type: string
+      summary: Get chart data
+      x-summary-source: derived
   /statistics/facts:
     get:
       operationId: GetFactData
@@ -185,6 +187,8 @@ paths:
         required: false
         schema:
           type: string
+      summary: Get fact data
+      x-summary-source: derived
   /statistics/lists:
     get:
       operationId: GetListData
@@ -270,6 +274,8 @@ paths:
         required: false
         schema:
           type: boolean
+      summary: Get list data
+      x-summary-source: derived
   /statistics/lists/export:
     get:
       operationId: ExportListData
@@ -353,6 +359,8 @@ paths:
         required: false
         schema:
           type: boolean
+      summary: Export list data
+      x-summary-source: derived
   /statistics/heatmap:
     get:
       operationId: GetHeatmapData
@@ -433,6 +441,8 @@ paths:
         required: false
         schema:
           type: string
+      summary: Get heatmap data
+      x-summary-source: derived
   /statistics/email-overview:
     get:
       operationId: GetEmailOverviewStats
@@ -513,6 +523,8 @@ paths:
         required: false
         schema:
           type: string
+      summary: Get email overview stats
+      x-summary-source: derived
   /statistics/email-client-usage:
     get:
       operationId: GetEmailClientUsageStats
@@ -593,6 +605,8 @@ paths:
         required: false
         schema:
           type: string
+      summary: Get email client usage stats
+      x-summary-source: derived
   /statistics/email-client-bounces:
     get:
       operationId: GetEmailClientBouncesStats
@@ -673,6 +687,8 @@ paths:
         required: false
         schema:
           type: string
+      summary: Get email client bounces stats
+      x-summary-source: derived
   /statistics/raw-data:
     get:
       operationId: GetRawStatistics
@@ -753,6 +769,8 @@ paths:
         required: false
         schema:
           type: string
+      summary: Get raw statistics
+      x-summary-source: derived
 components:
   schemas:
     HeatmapTypes:

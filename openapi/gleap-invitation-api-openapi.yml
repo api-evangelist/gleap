@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Gleap AI content Invitation API
+  title: Gleap Invitation API
   version: 14.0.0
   contact:
     name: Gleap Support
@@ -235,19 +235,11 @@ paths:
               type: object
 components:
   schemas:
-    InferSchemaType_typeofinvitationSchema_:
-      $ref: '#/components/schemas/IfAny_typeofinvitationSchema.any.ObtainSchemaGeneric_typeofinvitationSchema.DocType__'
-    ObjectId:
+    NativeDate:
       type: string
-    Document:
-      $ref: '#/components/schemas/FlattenMaps_T_'
-      description: 'Generic types for Document:
-
-        *  T - the type of _id
-
-        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
-
-        *  DocType - the type of the actual Document created'
+    FlattenMaps_T_:
+      properties: {}
+      type: object
     IfAny_typeofinvitationSchema.any.ObtainSchemaGeneric_typeofinvitationSchema.DocType__:
       allOf:
       - properties:
@@ -312,17 +304,25 @@ components:
         - name
         - type
         type: object
-    NativeDate:
-      type: string
+    InferSchemaType_typeofinvitationSchema_:
+      $ref: '#/components/schemas/IfAny_typeofinvitationSchema.any.ObtainSchemaGeneric_typeofinvitationSchema.DocType__'
     InvitationDocument:
       allOf:
       - $ref: '#/components/schemas/Invitation'
       - $ref: '#/components/schemas/Document'
-    FlattenMaps_T_:
-      properties: {}
-      type: object
     Invitation:
       $ref: '#/components/schemas/InferSchemaType_typeofinvitationSchema_'
+    Document:
+      $ref: '#/components/schemas/FlattenMaps_T_'
+      description: 'Generic types for Document:
+
+        *  T - the type of _id
+
+        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
+
+        *  DocType - the type of the actual Document created'
+    ObjectId:
+      type: string
   securitySchemes:
     jwt:
       type: http

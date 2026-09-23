@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Gleap AI content Message templates API
+  title: Gleap Message templates API
   version: 14.0.0
   contact:
     name: Gleap Support
@@ -12,7 +12,7 @@ info:
 servers:
 - url: https://api.gleap.io/v3
 tags:
-- name: Message templates
+- name: Message Templates
 paths:
   /message-templates:
     post:
@@ -25,9 +25,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/MessageTemplateDocument'
       description: Create a new message template.
-      summary: Create a new message template.
+      summary: Create a new message template
       tags:
-      - Message templates
+      - Message Templates
       security:
       - jwt: []
       parameters:
@@ -67,9 +67,9 @@ paths:
                   - data
                   type: object
       description: Find all message templates of a project.
-      summary: Find all message templates.
+      summary: Find all message templates
       tags:
-      - Message templates
+      - Message Templates
       security:
       - jwt: []
       parameters:
@@ -116,9 +116,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/MessageTemplateDocument'
       description: Find all message templates of a project.
-      summary: Find all message templates.
+      summary: Find all message templates
       tags:
-      - Message templates
+      - Message Templates
       security:
       - jwt: []
       parameters:
@@ -142,9 +142,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/MessageTemplateDocument'
       description: Update a message template.
-      summary: Update a message template.
+      summary: Update a message template
       tags:
-      - Message templates
+      - Message Templates
       security:
       - jwt: []
       parameters:
@@ -176,7 +176,7 @@ paths:
       description: Delete a message template.
       summary: Delete a message template
       tags:
-      - Message templates
+      - Message Templates
       security:
       - jwt: []
       parameters:
@@ -192,6 +192,17 @@ paths:
           type: string
 components:
   schemas:
+    NativeDate:
+      type: string
+    MessageTemplateDocument:
+      allOf:
+      - $ref: '#/components/schemas/MessageTemplate'
+      - $ref: '#/components/schemas/Document'
+    InferSchemaType_typeofmessageTemplateSchema_:
+      $ref: '#/components/schemas/IfAny_typeofmessageTemplateSchema.any.ObtainSchemaGeneric_typeofmessageTemplateSchema.DocType__'
+    FlattenMaps_T_:
+      properties: {}
+      type: object
     MessageTemplateDTO:
       properties:
         title:
@@ -224,10 +235,8 @@ components:
       - lexorank
       type: object
       additionalProperties: false
-    InferSchemaType_typeofmessageTemplateSchema_:
-      $ref: '#/components/schemas/IfAny_typeofmessageTemplateSchema.any.ObtainSchemaGeneric_typeofmessageTemplateSchema.DocType__'
-    ObjectId:
-      type: string
+    MessageTemplate:
+      $ref: '#/components/schemas/InferSchemaType_typeofmessageTemplateSchema_'
     Document:
       $ref: '#/components/schemas/FlattenMaps_T_'
       description: 'Generic types for Document:
@@ -237,17 +246,8 @@ components:
         *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
 
         *  DocType - the type of the actual Document created'
-    NativeDate:
+    ObjectId:
       type: string
-    MessageTemplateDocument:
-      allOf:
-      - $ref: '#/components/schemas/MessageTemplate'
-      - $ref: '#/components/schemas/Document'
-    MessageTemplate:
-      $ref: '#/components/schemas/InferSchemaType_typeofmessageTemplateSchema_'
-    FlattenMaps_T_:
-      properties: {}
-      type: object
     IfAny_typeofmessageTemplateSchema.any.ObtainSchemaGeneric_typeofmessageTemplateSchema.DocType__:
       allOf:
       - properties:

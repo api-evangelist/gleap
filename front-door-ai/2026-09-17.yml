@@ -1,0 +1,30 @@
+# Front Door AI Index — gleap — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: gleap
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: gleap.io
+  final_host: www.gleap.io
+  ownership: own
+  owner: gleap
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 34
+  host_score: 34
+  density: 14.61
+  words: 2327
+  tiers:
+    agentic: 5
+    core: 27
+    model: 2
+  ambiguous: 6
+  top_terms:
+    AI: 27
+    agent: 6
+    copilot: 3
+    Claude: 2
+    MCP: 1
+    chatbot: 1

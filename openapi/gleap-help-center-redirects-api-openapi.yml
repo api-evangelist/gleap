@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Gleap AI content Help center redirects API
+  title: Gleap Help center redirects API
   version: 14.0.0
   contact:
     name: Gleap Support
@@ -25,7 +25,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/HelpcenterRedirectDocument'
       description: Create a new redirect.
-      summary: Create a new redirect.
+      summary: Create a new redirect
       tags:
       - Help center redirects
       security:
@@ -54,7 +54,7 @@ paths:
                   $ref: '#/components/schemas/HelpcenterRedirectDocument'
                 type: array
       description: Find all redirects of a project.
-      summary: Find all redirects.
+      summary: Find all redirects
       tags:
       - Help center redirects
       security:
@@ -76,7 +76,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/HelpcenterRedirectDocument'
       description: Update a redirect.
-      summary: Update a redirect.
+      summary: Update a redirect
       tags:
       - Help center redirects
       security:
@@ -126,19 +126,6 @@ paths:
           type: string
 components:
   schemas:
-    ObjectId:
-      type: string
-    Document:
-      $ref: '#/components/schemas/FlattenMaps_T_'
-      description: 'Generic types for Document:
-
-        *  T - the type of _id
-
-        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
-
-        *  DocType - the type of the actual Document created'
-    InferSchemaType_typeofhelpcenterRedirectSchema_:
-      $ref: '#/components/schemas/IfAny_typeofhelpcenterRedirectSchema.any.ObtainSchemaGeneric_typeofhelpcenterRedirectSchema.DocType__'
     RedirectMatchType:
       enum:
       - exact
@@ -146,6 +133,25 @@ components:
       type: string
     NativeDate:
       type: string
+    HelpcenterRedirectDTO:
+      properties:
+        oldUrl:
+          type: string
+        newUrl:
+          type: string
+        matchType:
+          $ref: '#/components/schemas/RedirectMatchType'
+      required:
+      - oldUrl
+      - newUrl
+      - matchType
+      type: object
+      additionalProperties: false
+    FlattenMaps_T_:
+      properties: {}
+      type: object
+    InferSchemaType_typeofhelpcenterRedirectSchema_:
+      $ref: '#/components/schemas/IfAny_typeofhelpcenterRedirectSchema.any.ObtainSchemaGeneric_typeofhelpcenterRedirectSchema.DocType__'
     IfAny_typeofhelpcenterRedirectSchema.any.ObtainSchemaGeneric_typeofhelpcenterRedirectSchema.DocType__:
       allOf:
       - properties:
@@ -188,29 +194,23 @@ components:
         - oldUrl
         - project
         type: object
-    HelpcenterRedirectDTO:
-      properties:
-        oldUrl:
-          type: string
-        newUrl:
-          type: string
-        matchType:
-          $ref: '#/components/schemas/RedirectMatchType'
-      required:
-      - oldUrl
-      - newUrl
-      - matchType
-      type: object
-      additionalProperties: false
-    FlattenMaps_T_:
-      properties: {}
-      type: object
-    HelpcenterRedirect:
-      $ref: '#/components/schemas/InferSchemaType_typeofhelpcenterRedirectSchema_'
     HelpcenterRedirectDocument:
       allOf:
       - $ref: '#/components/schemas/HelpcenterRedirect'
       - $ref: '#/components/schemas/Document'
+    HelpcenterRedirect:
+      $ref: '#/components/schemas/InferSchemaType_typeofhelpcenterRedirectSchema_'
+    Document:
+      $ref: '#/components/schemas/FlattenMaps_T_'
+      description: 'Generic types for Document:
+
+        *  T - the type of _id
+
+        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
+
+        *  DocType - the type of the actual Document created'
+    ObjectId:
+      type: string
   securitySchemes:
     jwt:
       type: http

@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Gleap AI content Messages API
+  title: Gleap Messages API
   version: 14.0.0
   contact:
     name: Gleap Support
@@ -38,7 +38,6 @@ paths:
                     - name: screenshot.png
                       url: https://example.com/screenshots/screenshot.png
                       type: image/png
-      description: Create a new message
       summary: Create a new message
       tags:
       - Messages
@@ -207,7 +206,6 @@ paths:
                 required:
                 - hits
                 type: object
-      description: Search messages
       summary: Search messages
       tags:
       - Messages
@@ -233,7 +231,6 @@ paths:
           content:
             application/json:
               schema: {}
-      description: Update a message
       summary: Update a message
       tags:
       - Messages
@@ -309,29 +306,14 @@ paths:
               $ref: '#/components/schemas/SuggestFaqDto'
 components:
   schemas:
-    AttachmentDto:
+    FallbackUserDto:
       properties:
-        name:
+        username:
           type: string
-        url:
+        email:
           type: string
-        type:
+        imageUrl:
           type: string
-      required:
-      - name
-      - url
-      type: object
-      additionalProperties: false
-    ChannelDto:
-      properties:
-        id:
-          type: string
-        type:
-          type: string
-        messageId:
-          type: string
-      required:
-      - id
       type: object
       additionalProperties: false
     CreateMessageDto:
@@ -396,24 +378,6 @@ components:
           type: string
       type: object
       additionalProperties: false
-    SuggestFaqDto:
-      properties:
-        accept:
-          type: boolean
-      required:
-      - accept
-      type: object
-      additionalProperties: false
-    FallbackUserDto:
-      properties:
-        username:
-          type: string
-        email:
-          type: string
-        imageUrl:
-          type: string
-      type: object
-      additionalProperties: false
     UpdateMessageDto:
       properties:
         user:
@@ -474,6 +438,39 @@ components:
           type: boolean
         rating:
           type: string
+      type: object
+      additionalProperties: false
+    ChannelDto:
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        messageId:
+          type: string
+      required:
+      - id
+      type: object
+      additionalProperties: false
+    AttachmentDto:
+      properties:
+        name:
+          type: string
+        url:
+          type: string
+        type:
+          type: string
+      required:
+      - name
+      - url
+      type: object
+      additionalProperties: false
+    SuggestFaqDto:
+      properties:
+        accept:
+          type: boolean
+      required:
+      - accept
       type: object
       additionalProperties: false
   securitySchemes:

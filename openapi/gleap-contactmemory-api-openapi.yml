@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Gleap AI content ContactMemory API
+  title: Gleap Contact Memory API
   version: 14.0.0
   contact:
     name: Gleap Support
@@ -203,6 +203,52 @@ paths:
           type: string
 components:
   schemas:
+    ContactMemoryActor:
+      type: string
+      enum:
+      - bot
+      - draft_reply
+      - copilot
+      - admin
+      - consolidation
+      - unknown
+    ContactMemoryUpdateBody:
+      properties:
+        description:
+          type: string
+        content:
+          type: string
+      required:
+      - content
+      type: object
+      additionalProperties: false
+    ContactMemoryEntry:
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        content:
+          type: string
+        actor:
+          $ref: '#/components/schemas/ContactMemoryActor'
+        actorUserId:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+      required:
+      - name
+      - description
+      - content
+      - actor
+      - createdAt
+      - updatedAt
+      type: object
+      additionalProperties: false
     ContactMemoryListItem:
       properties:
         name:
@@ -243,15 +289,6 @@ components:
       - ok
       type: object
       additionalProperties: false
-    ContactMemoryActor:
-      type: string
-      enum:
-      - bot
-      - draft_reply
-      - copilot
-      - admin
-      - consolidation
-      - unknown
     ContactMemoryEntryBody:
       properties:
         name:
@@ -263,43 +300,6 @@ components:
       required:
       - name
       - content
-      type: object
-      additionalProperties: false
-    ContactMemoryUpdateBody:
-      properties:
-        description:
-          type: string
-        content:
-          type: string
-      required:
-      - content
-      type: object
-      additionalProperties: false
-    ContactMemoryEntry:
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        content:
-          type: string
-        actor:
-          $ref: '#/components/schemas/ContactMemoryActor'
-        actorUserId:
-          type: string
-        createdAt:
-          type: string
-          format: date-time
-        updatedAt:
-          type: string
-          format: date-time
-      required:
-      - name
-      - description
-      - content
-      - actor
-      - createdAt
-      - updatedAt
       type: object
       additionalProperties: false
   securitySchemes:

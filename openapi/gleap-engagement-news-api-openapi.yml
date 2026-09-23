@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Gleap AI content Engagement News API
+  title: Gleap Engagement News API
   version: 14.0.0
   contact:
     name: Gleap Support
@@ -343,7 +343,7 @@ paths:
                   required:
                   - _id
                   type: object
-      summary: Update a news article.
+      summary: Update a news article
       tags:
       - Engagement News
       security:
@@ -369,7 +369,7 @@ paths:
       responses:
         '204':
           description: No content
-      summary: Delete a news article.
+      summary: Delete a news article
       tags:
       - Engagement News
       security:
@@ -387,37 +387,15 @@ paths:
           type: string
 components:
   schemas:
-    Document_any.any.any_:
-      $ref: '#/components/schemas/FlattenMaps_T_'
-      description: 'Generic types for Document:
-
-        *  T - the type of _id
-
-        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
-
-        *  DocType - the type of the actual Document created'
-    InferSchemaType_typeofoutboundSchema_:
-      $ref: '#/components/schemas/IfAny_typeofoutboundSchema.any.ObtainSchemaGeneric_typeofoutboundSchema.DocType__'
-    OutboundDocument:
-      allOf:
-      - $ref: '#/components/schemas/OutboundI'
-      - $ref: '#/components/schemas/Document'
-    ObjectId:
-      type: string
-    Document:
-      $ref: '#/components/schemas/FlattenMaps_T_'
-      description: 'Generic types for Document:
-
-        *  T - the type of _id
-
-        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
-
-        *  DocType - the type of the actual Document created'
     OutboundI:
       $ref: '#/components/schemas/InferSchemaType_typeofoutboundSchema_'
     FlattenMaps_T_:
       properties: {}
       type: object
+    OutboundDocument:
+      allOf:
+      - $ref: '#/components/schemas/OutboundI'
+      - $ref: '#/components/schemas/Document'
     IfAny_typeofoutboundSchema.any.ObtainSchemaGeneric_typeofoutboundSchema.DocType__:
       properties:
         searchContent:
@@ -653,6 +631,28 @@ components:
       - name
       - type
       type: object
+    Document_any.any.any_:
+      $ref: '#/components/schemas/FlattenMaps_T_'
+      description: 'Generic types for Document:
+
+        *  T - the type of _id
+
+        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
+
+        *  DocType - the type of the actual Document created'
+    Document:
+      $ref: '#/components/schemas/FlattenMaps_T_'
+      description: 'Generic types for Document:
+
+        *  T - the type of _id
+
+        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
+
+        *  DocType - the type of the actual Document created'
+    InferSchemaType_typeofoutboundSchema_:
+      $ref: '#/components/schemas/IfAny_typeofoutboundSchema.any.ObtainSchemaGeneric_typeofoutboundSchema.DocType__'
+    ObjectId:
+      type: string
   securitySchemes:
     jwt:
       type: http

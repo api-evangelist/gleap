@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Gleap AI content Help center API
+  title: Gleap Help center API
   version: 14.0.0
   contact:
     name: Gleap Support
@@ -12,7 +12,7 @@ info:
 servers:
 - url: https://api.gleap.io/v3
 tags:
-- name: Help center
+- name: Help Center
 paths:
   /shared/helpcenter/search:
     get:
@@ -82,7 +82,7 @@ paths:
                 type: object
       summary: Search help center articles
       tags:
-      - Help center
+      - Help Center
       security: []
       parameters: []
   /shared/helpcenter/sources:
@@ -119,7 +119,7 @@ paths:
                 type: object
       summary: Get help center sources
       tags:
-      - Help center
+      - Help Center
       security: []
       parameters: []
   /shared/helpcenter/answer:
@@ -138,7 +138,7 @@ paths:
                 type: object
       summary: Answer help center question
       tags:
-      - Help center
+      - Help Center
       security: []
       parameters: []
 components:

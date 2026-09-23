@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Gleap AI content Help center collections API
+  title: Gleap Help center collections API
   version: 14.0.0
   contact:
     name: Gleap Support
@@ -212,6 +212,44 @@ paths:
               type: object
 components:
   schemas:
+    HelpcenterCollectionI:
+      $ref: '#/components/schemas/InferSchemaType_typeofhelpcenterCollectionSchema_'
+    HelpCenterCollectionDto:
+      properties:
+        title: {}
+        description: {}
+        iconUrl:
+          type: string
+        project:
+          $ref: '#/components/schemas/Types.ObjectId'
+        lexorank:
+          type: string
+        docId:
+          type: number
+          format: double
+        parent:
+          allOf:
+          - $ref: '#/components/schemas/Types.ObjectId'
+        externalId:
+          type: string
+        targetAudience:
+          type: string
+          default: all
+        baseAudienceFilter: {}
+        extendedAudienceFilter: {}
+      type: object
+      additionalProperties: false
+    Types.ObjectId:
+      type: string
+    NativeDate:
+      type: string
+    FlattenMaps_T_:
+      properties: {}
+      type: object
+    HelpcenterCollectionDocument:
+      allOf:
+      - $ref: '#/components/schemas/HelpcenterCollectionI'
+      - $ref: '#/components/schemas/Document'
     CollectionWithCounts:
       allOf:
       - $ref: '#/components/schemas/HelpcenterCollectionDocument'
@@ -226,8 +264,6 @@ components:
         - subCollectionsCount
         - articlesCount
         type: object
-    InferSchemaType_typeofhelpcenterCollectionSchema_:
-      $ref: '#/components/schemas/IfAny_typeofhelpcenterCollectionSchema.any.ObtainSchemaGeneric_typeofhelpcenterCollectionSchema.DocType__'
     ObjectId:
       type: string
     Document:
@@ -239,8 +275,8 @@ components:
         *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
 
         *  DocType - the type of the actual Document created'
-    NativeDate:
-      type: string
+    InferSchemaType_typeofhelpcenterCollectionSchema_:
+      $ref: '#/components/schemas/IfAny_typeofhelpcenterCollectionSchema.any.ObtainSchemaGeneric_typeofhelpcenterCollectionSchema.DocType__'
     IfAny_typeofhelpcenterCollectionSchema.any.ObtainSchemaGeneric_typeofhelpcenterCollectionSchema.DocType__:
       allOf:
       - properties:
@@ -307,43 +343,6 @@ components:
         required:
         - targetAudience
         type: object
-    Types.ObjectId:
-      type: string
-    HelpcenterCollectionI:
-      $ref: '#/components/schemas/InferSchemaType_typeofhelpcenterCollectionSchema_'
-    FlattenMaps_T_:
-      properties: {}
-      type: object
-    HelpCenterCollectionDto:
-      properties:
-        title: {}
-        description: {}
-        iconUrl:
-          type: string
-        project:
-          $ref: '#/components/schemas/Types.ObjectId'
-        lexorank:
-          type: string
-        docId:
-          type: number
-          format: double
-        parent:
-          allOf:
-          - $ref: '#/components/schemas/Types.ObjectId'
-          nullable: true
-        externalId:
-          type: string
-        targetAudience:
-          type: string
-          default: all
-        baseAudienceFilter: {}
-        extendedAudienceFilter: {}
-      type: object
-      additionalProperties: false
-    HelpcenterCollectionDocument:
-      allOf:
-      - $ref: '#/components/schemas/HelpcenterCollectionI'
-      - $ref: '#/components/schemas/Document'
   securitySchemes:
     jwt:
       type: http

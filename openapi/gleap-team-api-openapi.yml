@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Gleap AI content Team API
+  title: Gleap Team API
   version: 14.0.0
   contact:
     name: Gleap Support
@@ -126,32 +126,10 @@ paths:
           type: string
 components:
   schemas:
-    InferSchemaType_typeofteamSchema_:
-      $ref: '#/components/schemas/IfAny_typeofteamSchema.any.ObtainSchemaGeneric_typeofteamSchema.DocType__'
     TeamDocument:
       allOf:
       - $ref: '#/components/schemas/TeamI'
       - $ref: '#/components/schemas/Document'
-    ObjectId:
-      type: string
-    Document:
-      $ref: '#/components/schemas/FlattenMaps_T_'
-      description: 'Generic types for Document:
-
-        *  T - the type of _id
-
-        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
-
-        *  DocType - the type of the actual Document created'
-    AssignmentMethod:
-      enum:
-      - random
-      - balanced
-      - manual
-      - circular
-      type: string
-    NativeDate:
-      type: string
     IfAny_typeofteamSchema.any.ObtainSchemaGeneric_typeofteamSchema.DocType__:
       allOf:
       - properties:
@@ -232,11 +210,15 @@ components:
         - members
         - assignmentMethod
         type: object
+    NativeDate:
+      type: string
+    InferSchemaType_typeofteamSchema_:
+      $ref: '#/components/schemas/IfAny_typeofteamSchema.any.ObtainSchemaGeneric_typeofteamSchema.DocType__'
+    TeamI:
+      $ref: '#/components/schemas/InferSchemaType_typeofteamSchema_'
     FlattenMaps_T_:
       properties: {}
       type: object
-    TeamI:
-      $ref: '#/components/schemas/InferSchemaType_typeofteamSchema_'
     TeamDto:
       properties:
         name:
@@ -294,6 +276,24 @@ components:
       - members
       type: object
       additionalProperties: false
+    Document:
+      $ref: '#/components/schemas/FlattenMaps_T_'
+      description: 'Generic types for Document:
+
+        *  T - the type of _id
+
+        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
+
+        *  DocType - the type of the actual Document created'
+    AssignmentMethod:
+      enum:
+      - random
+      - balanced
+      - manual
+      - circular
+      type: string
+    ObjectId:
+      type: string
   securitySchemes:
     jwt:
       type: http

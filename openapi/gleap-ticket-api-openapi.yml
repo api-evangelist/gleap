@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Gleap AI content Ticket API
+  title: Gleap Ticket API
   version: 14.0.0
   contact:
     name: Gleap Support
@@ -323,6 +323,8 @@ paths:
         required: false
         schema:
           type: string
+      summary: Get ticket export fields
+      x-summary-source: derived
   /tickets/tracker-tickets:
     post:
       operationId: CreateTrackerTicket
@@ -1240,19 +1242,6 @@ components:
           format: date-time
       type: object
       additionalProperties: false
-    AttachmentDto:
-      properties:
-        name:
-          type: string
-        url:
-          type: string
-        type:
-          type: string
-      required:
-      - name
-      - url
-      type: object
-      additionalProperties: false
     Sentiment:
       enum:
       - positive
@@ -1289,9 +1278,10 @@ components:
         snoozed:
           type: boolean
         snoozedUntil:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         processingUser:
           type: string
         processingTeam:
@@ -1460,23 +1450,6 @@ components:
           type: boolean
       type: object
       additionalProperties: false
-    BugPriority:
-      enum:
-      - LOW
-      - MEDIUM
-      - HIGH
-      type: string
-    TicketChannelDto:
-      properties:
-        id:
-          type: string
-        type:
-          type: string
-        metaData: {}
-      required:
-      - id
-      type: object
-      additionalProperties: false
     UpdateTicketDto:
       properties:
         title:
@@ -1507,9 +1480,10 @@ components:
         snoozed:
           type: boolean
         snoozedUntil:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         processingUser:
           type: string
         processingTeam:
@@ -1695,10 +1669,23 @@ components:
       properties: {}
       type: object
       description: Construct a type with a set of properties K of type T
-    UpvoteDto:
+    BugPriority:
+      enum:
+      - LOW
+      - MEDIUM
+      - HIGH
+      type: string
+    AttachmentDto:
       properties:
-        email:
+        name:
           type: string
+        url:
+          type: string
+        type:
+          type: string
+      required:
+      - name
+      - url
       type: object
       additionalProperties: false
     CreateTicketWithMessageDto:
@@ -1730,6 +1717,23 @@ components:
       required:
       - type
       - title
+      type: object
+      additionalProperties: false
+    UpvoteDto:
+      properties:
+        email:
+          type: string
+      type: object
+      additionalProperties: false
+    TicketChannelDto:
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        metaData: {}
+      required:
+      - id
       type: object
       additionalProperties: false
   securitySchemes:

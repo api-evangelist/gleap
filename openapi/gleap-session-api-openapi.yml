@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Gleap AI content Session API
+  title: Gleap Session API
   version: 14.0.0
   contact:
     name: Gleap Support
@@ -957,30 +957,11 @@ paths:
           type: string
 components:
   schemas:
-    Document_any.any.any_:
-      $ref: '#/components/schemas/FlattenMaps_T_'
-      description: 'Generic types for Document:
-
-        *  T - the type of _id
-
-        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
-
-        *  DocType - the type of the actual Document created'
-    ObjectId:
-      type: string
-    ImportIntercomSessionDto:
-      properties:
-        endpoint:
-          type: string
-        apiKey:
-          type: string
-      required:
-      - endpoint
-      - apiKey
-      type: object
-      additionalProperties: false
     Types.ObjectId:
       type: string
+    FlattenMaps_T_:
+      properties: {}
+      type: object
     SessionDto:
       properties:
         gleapId:
@@ -1063,9 +1044,28 @@ components:
         eventData: {}
       type: object
       additionalProperties: false
-    FlattenMaps_T_:
-      properties: {}
+    ImportIntercomSessionDto:
+      properties:
+        endpoint:
+          type: string
+        apiKey:
+          type: string
+      required:
+      - endpoint
+      - apiKey
       type: object
+      additionalProperties: false
+    Document_any.any.any_:
+      $ref: '#/components/schemas/FlattenMaps_T_'
+      description: 'Generic types for Document:
+
+        *  T - the type of _id
+
+        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
+
+        *  DocType - the type of the actual Document created'
+    ObjectId:
+      type: string
   securitySchemes:
     jwt:
       type: http
