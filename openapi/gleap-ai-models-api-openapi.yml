@@ -34,62 +34,6 @@ paths:
       parameters: []
 components:
   schemas:
-    AiModelsPublicResponse:
-      properties:
-        models:
-          items:
-            $ref: '#/components/schemas/AiModelPublicDto'
-          type: array
-          description: Full catalog (every entry, no filtering).
-        pickers:
-          properties:
-            transcription:
-              items:
-                $ref: '#/components/schemas/AiPickerOption'
-              type: array
-              description: STT models (transcription-capable).
-            kaiCodeOpenCode:
-              items:
-                $ref: '#/components/schemas/AiPickerOption'
-              type: array
-              description: Kai Code OpenCode (desktop) runtime model picker.
-            kaiCodeCloud:
-              items:
-                $ref: '#/components/schemas/AiPickerOption'
-              type: array
-              description: Kai Code cloud runtime model picker.
-            kaiAgent:
-              items:
-                $ref: '#/components/schemas/AiPickerOption'
-              type: array
-              description: Default Kai support agent dropdown.
-          required:
-          - transcription
-          - kaiCodeOpenCode
-          - kaiCodeCloud
-          - kaiAgent
-          type: object
-          description: Curated picker lists (replaces FE iterate-and-filter logic).
-        runtimeDefaults:
-          $ref: '#/components/schemas/Record_ModelRuntime.string_'
-          description: Per-runtime default modelId.
-      required:
-      - models
-      - pickers
-      - runtimeDefaults
-      type: object
-      additionalProperties: false
-    ModelProvider:
-      type: string
-      enum:
-      - anthropic
-      - openai
-      - google
-      - xai
-      - openrouter
-      - mistral
-      - deepseek
-      - local
     AiModelPublicDto:
       description: 'Public DTO. Strips internal-only fields (`providerRoute` — exposes
 
@@ -148,6 +92,33 @@ components:
       - costPerMillionTokens
       type: object
       additionalProperties: false
+    AiModelPickers:
+      description: 'Per-runtime UI-picker visibility.
+
+
+        `kaiAgent`            → Kai default support agent dropdown
+
+        `kaiCodeCloud`        → Kai Code cloud runtime model picker
+
+        `kaiCodeOpenCode`     → Kai Code desktop OpenCode runtime model picker
+
+
+        Models excluded from every picker but still in the catalog are
+
+        either subagent-only (e.g. Kimi K2.5) or special-purpose (transcription,
+
+        Codex CLI) — they appear elsewhere via `capabilities.transcription`
+
+        or via the static `staticModels` list of CLI-only runtimes.'
+      properties:
+        kaiAgent:
+          type: boolean
+        kaiCodeCloud:
+          type: boolean
+        kaiCodeOpenCode:
+          type: boolean
+      type: object
+      additionalProperties: false
     ModelEffort:
       type: string
       enum:
@@ -156,18 +127,72 @@ components:
       - high
       - extra_high
       - max
-    Record_ModelRuntime.string_:
+    AiModelCapabilities:
       properties:
-        cloud:
-          type: string
-        opencode:
-          type: string
-        claudeCode:
-          type: string
-        codex:
-          type: string
+        chat:
+          type: boolean
+        vision:
+          type: boolean
+        tools:
+          type: boolean
+        streaming:
+          type: boolean
+        transcription:
+          type: boolean
+        reasoning:
+          type: boolean
+        minimalReasoning:
+          type: boolean
+        temperatureUnsupported:
+          type: boolean
+          description: Anthropic models that reject `temperature` (claude-opus-4-8).
       type: object
-      description: Construct a type with a set of properties K of type T
+      additionalProperties: false
+    AiModelsPublicResponse:
+      properties:
+        models:
+          items:
+            $ref: '#/components/schemas/AiModelPublicDto'
+          type: array
+          description: Full catalog (every entry, no filtering).
+        pickers:
+          properties:
+            transcription:
+              items:
+                $ref: '#/components/schemas/AiPickerOption'
+              type: array
+              description: STT models (transcription-capable).
+            kaiCodeOpenCode:
+              items:
+                $ref: '#/components/schemas/AiPickerOption'
+              type: array
+              description: Kai Code OpenCode (desktop) runtime model picker.
+            kaiCodeCloud:
+              items:
+                $ref: '#/components/schemas/AiPickerOption'
+              type: array
+              description: Kai Code cloud runtime model picker.
+            kaiAgent:
+              items:
+                $ref: '#/components/schemas/AiPickerOption'
+              type: array
+              description: Default Kai support agent dropdown.
+          required:
+          - transcription
+          - kaiCodeOpenCode
+          - kaiCodeCloud
+          - kaiAgent
+          type: object
+          description: Curated picker lists (replaces FE iterate-and-filter logic).
+        runtimeDefaults:
+          $ref: '#/components/schemas/Record_ModelRuntime.string_'
+          description: Per-runtime default modelId.
+      required:
+      - models
+      - pickers
+      - runtimeDefaults
+      type: object
+      additionalProperties: false
     AiModelCost:
       properties:
         input:
@@ -212,6 +237,17 @@ components:
       - deepseek
       - glm
       - local
+    ModelProvider:
+      type: string
+      enum:
+      - anthropic
+      - openai
+      - google
+      - xai
+      - openrouter
+      - mistral
+      - deepseek
+      - local
     AiPickerOption:
       properties:
         value:
@@ -224,54 +260,18 @@ components:
       - label
       type: object
       additionalProperties: false
-    AiModelPickers:
-      description: 'Per-runtime UI-picker visibility.
-
-
-        `kaiAgent`            → Kai default support agent dropdown
-
-        `kaiCodeCloud`        → Kai Code cloud runtime model picker
-
-        `kaiCodeOpenCode`     → Kai Code desktop OpenCode runtime model picker
-
-
-        Models excluded from every picker but still in the catalog are
-
-        either subagent-only (e.g. Kimi K2.5) or special-purpose (transcription,
-
-        Codex CLI) — they appear elsewhere via `capabilities.transcription`
-
-        or via the static `staticModels` list of CLI-only runtimes.'
+    Record_ModelRuntime.string_:
       properties:
-        kaiAgent:
-          type: boolean
-        kaiCodeCloud:
-          type: boolean
-        kaiCodeOpenCode:
-          type: boolean
+        cloud:
+          type: string
+        opencode:
+          type: string
+        claudeCode:
+          type: string
+        codex:
+          type: string
       type: object
-      additionalProperties: false
-    AiModelCapabilities:
-      properties:
-        chat:
-          type: boolean
-        vision:
-          type: boolean
-        tools:
-          type: boolean
-        streaming:
-          type: boolean
-        transcription:
-          type: boolean
-        reasoning:
-          type: boolean
-        minimalReasoning:
-          type: boolean
-        temperatureUnsupported:
-          type: boolean
-          description: Anthropic models that reject `temperature` (claude-opus-4-8).
-      type: object
-      additionalProperties: false
+      description: Construct a type with a set of properties K of type T
   securitySchemes:
     jwt:
       type: http

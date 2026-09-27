@@ -192,6 +192,44 @@ paths:
           type: string
 components:
   schemas:
+    Document:
+      $ref: '#/components/schemas/FlattenMaps_T_'
+      description: 'Generic types for Document:
+
+        *  T - the type of _id
+
+        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
+
+        *  DocType - the type of the actual Document created'
+    CustomComponent:
+      $ref: '#/components/schemas/InferSchemaType_typeofcustomComponentSchema_'
+    InferSchemaType_typeofcustomComponentSchema_:
+      $ref: '#/components/schemas/IfAny_typeofcustomComponentSchema.any.ObtainSchemaGeneric_typeofcustomComponentSchema.DocType__'
+    CustomComponentDTO:
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        whenToUse:
+          type: string
+        schema: {}
+        template:
+          type: string
+        exampleData: {}
+        isPublished:
+          type: boolean
+      required:
+      - name
+      - schema
+      - template
+      type: object
+      additionalProperties: false
+    FlattenMaps_T_:
+      properties: {}
+      type: object
+    ObjectId:
+      type: string
     NativeDate:
       type: string
     IfAny_typeofcustomComponentSchema.any.ObtainSchemaGeneric_typeofcustomComponentSchema.DocType__:
@@ -251,48 +289,10 @@ components:
         - name
         - schema
         type: object
-    InferSchemaType_typeofcustomComponentSchema_:
-      $ref: '#/components/schemas/IfAny_typeofcustomComponentSchema.any.ObtainSchemaGeneric_typeofcustomComponentSchema.DocType__'
-    FlattenMaps_T_:
-      properties: {}
-      type: object
-    CustomComponentDTO:
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        whenToUse:
-          type: string
-        schema: {}
-        template:
-          type: string
-        exampleData: {}
-        isPublished:
-          type: boolean
-      required:
-      - name
-      - schema
-      - template
-      type: object
-      additionalProperties: false
-    CustomComponent:
-      $ref: '#/components/schemas/InferSchemaType_typeofcustomComponentSchema_'
     CustomComponentDocument:
       allOf:
       - $ref: '#/components/schemas/CustomComponent'
       - $ref: '#/components/schemas/Document'
-    Document:
-      $ref: '#/components/schemas/FlattenMaps_T_'
-      description: 'Generic types for Document:
-
-        *  T - the type of _id
-
-        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
-
-        *  DocType - the type of the actual Document created'
-    ObjectId:
-      type: string
   securitySchemes:
     jwt:
       type: http

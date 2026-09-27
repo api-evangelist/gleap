@@ -174,21 +174,15 @@ paths:
               type: object
 components:
   schemas:
-    HelpcenterArticleDocument:
-      allOf:
-      - $ref: '#/components/schemas/HelpcenterArticleI'
-      - $ref: '#/components/schemas/Document'
-    HelpcenterArticleI:
-      $ref: '#/components/schemas/InferSchemaType_typeofhelpcenterArticleSchema_'
-    Types.ObjectId:
-      type: string
-    InferSchemaType_typeofhelpcenterArticleSchema_:
-      $ref: '#/components/schemas/IfAny_typeofhelpcenterArticleSchema.any.ObtainSchemaGeneric_typeofhelpcenterArticleSchema.DocType__'
-    NativeDate:
-      type: string
-    FlattenMaps_T_:
-      properties: {}
-      type: object
+    Document:
+      $ref: '#/components/schemas/FlattenMaps_T_'
+      description: 'Generic types for Document:
+
+        *  T - the type of _id
+
+        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
+
+        *  DocType - the type of the actual Document created'
     IfAny_typeofhelpcenterArticleSchema.any.ObtainSchemaGeneric_typeofhelpcenterArticleSchema.DocType__:
       allOf:
       - properties:
@@ -286,15 +280,15 @@ components:
         - tags
         - targetAudience
         type: object
-    Document:
-      $ref: '#/components/schemas/FlattenMaps_T_'
-      description: 'Generic types for Document:
-
-        *  T - the type of _id
-
-        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
-
-        *  DocType - the type of the actual Document created'
+    Types.ObjectId:
+      type: string
+    FlattenMaps_T_:
+      properties: {}
+      type: object
+    InferSchemaType_typeofhelpcenterArticleSchema_:
+      $ref: '#/components/schemas/IfAny_typeofhelpcenterArticleSchema.any.ObtainSchemaGeneric_typeofhelpcenterArticleSchema.DocType__'
+    NativeDate:
+      type: string
     HelpcenterArticleDto:
       properties:
         title: {}
@@ -333,6 +327,12 @@ components:
       additionalProperties: false
     ObjectId:
       type: string
+    HelpcenterArticleI:
+      $ref: '#/components/schemas/InferSchemaType_typeofhelpcenterArticleSchema_'
+    HelpcenterArticleDocument:
+      allOf:
+      - $ref: '#/components/schemas/HelpcenterArticleI'
+      - $ref: '#/components/schemas/Document'
   securitySchemes:
     jwt:
       type: http

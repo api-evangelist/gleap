@@ -70,18 +70,35 @@ paths:
               $ref: '#/components/schemas/SimilarTicketsSearchDto'
 components:
   schemas:
-    KnowledgeSearchResponse:
+    SimilarTicketResult:
       properties:
-        results:
-          items:
-            $ref: '#/components/schemas/KnowledgeSearchResult'
-          type: array
-        count:
+        ticketId:
+          type: string
+        title:
+          type: string
+        similarity:
+          type: number
+          format: double
+        content:
+          type: string
+      required:
+      - ticketId
+      - title
+      - similarity
+      - content
+      type: object
+      additionalProperties: false
+    SimilarTicketsSearchDto:
+      properties:
+        query:
+          type: string
+        excludeTicketId:
+          type: string
+        limit:
           type: number
           format: double
       required:
-      - results
-      - count
+      - query
       type: object
       additionalProperties: false
     SimilarTicketsResponse:
@@ -115,37 +132,6 @@ components:
       - query
       type: object
       additionalProperties: false
-    SimilarTicketResult:
-      properties:
-        ticketId:
-          type: string
-        title:
-          type: string
-        similarity:
-          type: number
-          format: double
-        content:
-          type: string
-      required:
-      - ticketId
-      - title
-      - similarity
-      - content
-      type: object
-      additionalProperties: false
-    SimilarTicketsSearchDto:
-      properties:
-        query:
-          type: string
-        excludeTicketId:
-          type: string
-        limit:
-          type: number
-          format: double
-      required:
-      - query
-      type: object
-      additionalProperties: false
     KnowledgeSearchResult:
       properties:
         sourceId:
@@ -162,6 +148,20 @@ components:
       - sourceId
       - sourceType
       - content
+      type: object
+      additionalProperties: false
+    KnowledgeSearchResponse:
+      properties:
+        results:
+          items:
+            $ref: '#/components/schemas/KnowledgeSearchResult'
+          type: array
+        count:
+          type: number
+          format: double
+      required:
+      - results
+      - count
       type: object
       additionalProperties: false
   securitySchemes:

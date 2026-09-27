@@ -126,30 +126,19 @@ paths:
           type: string
 components:
   schemas:
-    RedirectMatchType:
-      enum:
-      - exact
-      - pattern
-      type: string
-    NativeDate:
-      type: string
-    HelpcenterRedirectDTO:
-      properties:
-        oldUrl:
-          type: string
-        newUrl:
-          type: string
-        matchType:
-          $ref: '#/components/schemas/RedirectMatchType'
-      required:
-      - oldUrl
-      - newUrl
-      - matchType
-      type: object
-      additionalProperties: false
-    FlattenMaps_T_:
-      properties: {}
-      type: object
+    Document:
+      $ref: '#/components/schemas/FlattenMaps_T_'
+      description: 'Generic types for Document:
+
+        *  T - the type of _id
+
+        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
+
+        *  DocType - the type of the actual Document created'
+    HelpcenterRedirectDocument:
+      allOf:
+      - $ref: '#/components/schemas/HelpcenterRedirect'
+      - $ref: '#/components/schemas/Document'
     InferSchemaType_typeofhelpcenterRedirectSchema_:
       $ref: '#/components/schemas/IfAny_typeofhelpcenterRedirectSchema.any.ObtainSchemaGeneric_typeofhelpcenterRedirectSchema.DocType__'
     IfAny_typeofhelpcenterRedirectSchema.any.ObtainSchemaGeneric_typeofhelpcenterRedirectSchema.DocType__:
@@ -194,23 +183,34 @@ components:
         - oldUrl
         - project
         type: object
-    HelpcenterRedirectDocument:
-      allOf:
-      - $ref: '#/components/schemas/HelpcenterRedirect'
-      - $ref: '#/components/schemas/Document'
-    HelpcenterRedirect:
-      $ref: '#/components/schemas/InferSchemaType_typeofhelpcenterRedirectSchema_'
-    Document:
-      $ref: '#/components/schemas/FlattenMaps_T_'
-      description: 'Generic types for Document:
-
-        *  T - the type of _id
-
-        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
-
-        *  DocType - the type of the actual Document created'
     ObjectId:
       type: string
+    NativeDate:
+      type: string
+    RedirectMatchType:
+      enum:
+      - exact
+      - pattern
+      type: string
+    FlattenMaps_T_:
+      properties: {}
+      type: object
+    HelpcenterRedirectDTO:
+      properties:
+        oldUrl:
+          type: string
+        newUrl:
+          type: string
+        matchType:
+          $ref: '#/components/schemas/RedirectMatchType'
+      required:
+      - oldUrl
+      - newUrl
+      - matchType
+      type: object
+      additionalProperties: false
+    HelpcenterRedirect:
+      $ref: '#/components/schemas/InferSchemaType_typeofhelpcenterRedirectSchema_'
   securitySchemes:
     jwt:
       type: http

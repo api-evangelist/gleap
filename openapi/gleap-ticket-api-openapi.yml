@@ -1232,22 +1232,6 @@ paths:
               type: object
 components:
   schemas:
-    LastResponseDto:
-      properties:
-        contact:
-          type: string
-          format: date-time
-        admin:
-          type: string
-          format: date-time
-      type: object
-      additionalProperties: false
-    Sentiment:
-      enum:
-      - positive
-      - negative
-      - neutral
-      type: string
     CreateTicketDto:
       properties:
         title:
@@ -1450,6 +1434,88 @@ components:
           type: boolean
       type: object
       additionalProperties: false
+    Record_string.any_:
+      properties: {}
+      type: object
+      description: Construct a type with a set of properties K of type T
+    Sentiment:
+      enum:
+      - positive
+      - negative
+      - neutral
+      type: string
+    LastResponseDto:
+      properties:
+        contact:
+          type: string
+          format: date-time
+        admin:
+          type: string
+          format: date-time
+      type: object
+      additionalProperties: false
+    CreateTicketWithMessageDto:
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        message:
+          type: string
+        priority:
+          type: string
+        status:
+          type: string
+        processingUser:
+          type: string
+        processingTeam:
+          type: string
+        tags:
+          items:
+            type: string
+          type: array
+        session:
+          type: string
+        email:
+          type: string
+        formData:
+          $ref: '#/components/schemas/Record_string.any_'
+      required:
+      - type
+      - title
+      type: object
+      additionalProperties: false
+    BotDto:
+      properties:
+        active:
+          type: boolean
+        currentBot:
+          type: string
+        currentActionFlow:
+          type: string
+        currentAction:
+          type: number
+          format: double
+        forwardedToSupportAt:
+          type: string
+          format: date-time
+        kaiActive:
+          type: boolean
+        noAnswerFound:
+          type: boolean
+      type: object
+      additionalProperties: false
+    TicketChannelDto:
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        metaData: {}
+      required:
+      - id
+      type: object
+      additionalProperties: false
     UpdateTicketDto:
       properties:
         title:
@@ -1645,36 +1711,6 @@ components:
           type: boolean
       type: object
       additionalProperties: false
-    BotDto:
-      properties:
-        active:
-          type: boolean
-        currentBot:
-          type: string
-        currentActionFlow:
-          type: string
-        currentAction:
-          type: number
-          format: double
-        forwardedToSupportAt:
-          type: string
-          format: date-time
-        kaiActive:
-          type: boolean
-        noAnswerFound:
-          type: boolean
-      type: object
-      additionalProperties: false
-    Record_string.any_:
-      properties: {}
-      type: object
-      description: Construct a type with a set of properties K of type T
-    BugPriority:
-      enum:
-      - LOW
-      - MEDIUM
-      - HIGH
-      type: string
     AttachmentDto:
       properties:
         name:
@@ -1688,52 +1724,16 @@ components:
       - url
       type: object
       additionalProperties: false
-    CreateTicketWithMessageDto:
-      properties:
-        type:
-          type: string
-        title:
-          type: string
-        message:
-          type: string
-        priority:
-          type: string
-        status:
-          type: string
-        processingUser:
-          type: string
-        processingTeam:
-          type: string
-        tags:
-          items:
-            type: string
-          type: array
-        session:
-          type: string
-        email:
-          type: string
-        formData:
-          $ref: '#/components/schemas/Record_string.any_'
-      required:
-      - type
-      - title
-      type: object
-      additionalProperties: false
+    BugPriority:
+      enum:
+      - LOW
+      - MEDIUM
+      - HIGH
+      type: string
     UpvoteDto:
       properties:
         email:
           type: string
-      type: object
-      additionalProperties: false
-    TicketChannelDto:
-      properties:
-        id:
-          type: string
-        type:
-          type: string
-        metaData: {}
-      required:
-      - id
       type: object
       additionalProperties: false
   securitySchemes:

@@ -192,17 +192,21 @@ paths:
           type: string
 components:
   schemas:
-    NativeDate:
-      type: string
+    Document:
+      $ref: '#/components/schemas/FlattenMaps_T_'
+      description: 'Generic types for Document:
+
+        *  T - the type of _id
+
+        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
+
+        *  DocType - the type of the actual Document created'
+    MessageTemplate:
+      $ref: '#/components/schemas/InferSchemaType_typeofmessageTemplateSchema_'
     MessageTemplateDocument:
       allOf:
       - $ref: '#/components/schemas/MessageTemplate'
       - $ref: '#/components/schemas/Document'
-    InferSchemaType_typeofmessageTemplateSchema_:
-      $ref: '#/components/schemas/IfAny_typeofmessageTemplateSchema.any.ObtainSchemaGeneric_typeofmessageTemplateSchema.DocType__'
-    FlattenMaps_T_:
-      properties: {}
-      type: object
     MessageTemplateDTO:
       properties:
         title:
@@ -235,19 +239,8 @@ components:
       - lexorank
       type: object
       additionalProperties: false
-    MessageTemplate:
-      $ref: '#/components/schemas/InferSchemaType_typeofmessageTemplateSchema_'
-    Document:
-      $ref: '#/components/schemas/FlattenMaps_T_'
-      description: 'Generic types for Document:
-
-        *  T - the type of _id
-
-        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
-
-        *  DocType - the type of the actual Document created'
-    ObjectId:
-      type: string
+    InferSchemaType_typeofmessageTemplateSchema_:
+      $ref: '#/components/schemas/IfAny_typeofmessageTemplateSchema.any.ObtainSchemaGeneric_typeofmessageTemplateSchema.DocType__'
     IfAny_typeofmessageTemplateSchema.any.ObtainSchemaGeneric_typeofmessageTemplateSchema.DocType__:
       allOf:
       - properties:
@@ -301,6 +294,13 @@ components:
         - isPublic
         - users
         type: object
+    FlattenMaps_T_:
+      properties: {}
+      type: object
+    ObjectId:
+      type: string
+    NativeDate:
+      type: string
   securitySchemes:
     jwt:
       type: http

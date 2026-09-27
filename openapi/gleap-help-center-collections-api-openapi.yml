@@ -212,40 +212,15 @@ paths:
               type: object
 components:
   schemas:
-    HelpcenterCollectionI:
-      $ref: '#/components/schemas/InferSchemaType_typeofhelpcenterCollectionSchema_'
-    HelpCenterCollectionDto:
-      properties:
-        title: {}
-        description: {}
-        iconUrl:
-          type: string
-        project:
-          $ref: '#/components/schemas/Types.ObjectId'
-        lexorank:
-          type: string
-        docId:
-          type: number
-          format: double
-        parent:
-          allOf:
-          - $ref: '#/components/schemas/Types.ObjectId'
-        externalId:
-          type: string
-        targetAudience:
-          type: string
-          default: all
-        baseAudienceFilter: {}
-        extendedAudienceFilter: {}
-      type: object
-      additionalProperties: false
-    Types.ObjectId:
-      type: string
-    NativeDate:
-      type: string
-    FlattenMaps_T_:
-      properties: {}
-      type: object
+    Document:
+      $ref: '#/components/schemas/FlattenMaps_T_'
+      description: 'Generic types for Document:
+
+        *  T - the type of _id
+
+        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
+
+        *  DocType - the type of the actual Document created'
     HelpcenterCollectionDocument:
       allOf:
       - $ref: '#/components/schemas/HelpcenterCollectionI'
@@ -264,19 +239,15 @@ components:
         - subCollectionsCount
         - articlesCount
         type: object
-    ObjectId:
+    Types.ObjectId:
       type: string
-    Document:
-      $ref: '#/components/schemas/FlattenMaps_T_'
-      description: 'Generic types for Document:
-
-        *  T - the type of _id
-
-        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
-
-        *  DocType - the type of the actual Document created'
+    FlattenMaps_T_:
+      properties: {}
+      type: object
     InferSchemaType_typeofhelpcenterCollectionSchema_:
       $ref: '#/components/schemas/IfAny_typeofhelpcenterCollectionSchema.any.ObtainSchemaGeneric_typeofhelpcenterCollectionSchema.DocType__'
+    ObjectId:
+      type: string
     IfAny_typeofhelpcenterCollectionSchema.any.ObtainSchemaGeneric_typeofhelpcenterCollectionSchema.DocType__:
       allOf:
       - properties:
@@ -343,6 +314,35 @@ components:
         required:
         - targetAudience
         type: object
+    NativeDate:
+      type: string
+    HelpCenterCollectionDto:
+      properties:
+        title: {}
+        description: {}
+        iconUrl:
+          type: string
+        project:
+          $ref: '#/components/schemas/Types.ObjectId'
+        lexorank:
+          type: string
+        docId:
+          type: number
+          format: double
+        parent:
+          allOf:
+          - $ref: '#/components/schemas/Types.ObjectId'
+        externalId:
+          type: string
+        targetAudience:
+          type: string
+          default: all
+        baseAudienceFilter: {}
+        extendedAudienceFilter: {}
+      type: object
+      additionalProperties: false
+    HelpcenterCollectionI:
+      $ref: '#/components/schemas/InferSchemaType_typeofhelpcenterCollectionSchema_'
   securitySchemes:
     jwt:
       type: http

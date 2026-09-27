@@ -959,9 +959,17 @@ components:
   schemas:
     Types.ObjectId:
       type: string
-    FlattenMaps_T_:
-      properties: {}
+    ImportIntercomSessionDto:
+      properties:
+        endpoint:
+          type: string
+        apiKey:
+          type: string
+      required:
+      - endpoint
+      - apiKey
       type: object
+      additionalProperties: false
     SessionDto:
       properties:
         gleapId:
@@ -1044,17 +1052,9 @@ components:
         eventData: {}
       type: object
       additionalProperties: false
-    ImportIntercomSessionDto:
-      properties:
-        endpoint:
-          type: string
-        apiKey:
-          type: string
-      required:
-      - endpoint
-      - apiKey
+    FlattenMaps_T_:
+      properties: {}
       type: object
-      additionalProperties: false
     Document_any.any.any_:
       $ref: '#/components/schemas/FlattenMaps_T_'
       description: 'Generic types for Document:
