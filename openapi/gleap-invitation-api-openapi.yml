@@ -235,6 +235,8 @@ paths:
               type: object
 components:
   schemas:
+    NativeDate:
+      type: string
     Document:
       $ref: '#/components/schemas/FlattenMaps_T_'
       description: 'Generic types for Document:
@@ -244,21 +246,11 @@ components:
         *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
 
         *  DocType - the type of the actual Document created'
-    InferSchemaType_typeofinvitationSchema_:
-      $ref: '#/components/schemas/IfAny_typeofinvitationSchema.any.ObtainSchemaGeneric_typeofinvitationSchema.DocType__'
     FlattenMaps_T_:
       properties: {}
       type: object
     ObjectId:
       type: string
-    NativeDate:
-      type: string
-    InvitationDocument:
-      allOf:
-      - $ref: '#/components/schemas/Invitation'
-      - $ref: '#/components/schemas/Document'
-    Invitation:
-      $ref: '#/components/schemas/InferSchemaType_typeofinvitationSchema_'
     IfAny_typeofinvitationSchema.any.ObtainSchemaGeneric_typeofinvitationSchema.DocType__:
       allOf:
       - properties:
@@ -323,6 +315,14 @@ components:
         - name
         - type
         type: object
+    InferSchemaType_typeofinvitationSchema_:
+      $ref: '#/components/schemas/IfAny_typeofinvitationSchema.any.ObtainSchemaGeneric_typeofinvitationSchema.DocType__'
+    InvitationDocument:
+      allOf:
+      - $ref: '#/components/schemas/Invitation'
+      - $ref: '#/components/schemas/Document'
+    Invitation:
+      $ref: '#/components/schemas/InferSchemaType_typeofinvitationSchema_'
   securitySchemes:
     jwt:
       type: http

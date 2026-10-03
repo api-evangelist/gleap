@@ -92,6 +92,42 @@ components:
       - costPerMillionTokens
       type: object
       additionalProperties: false
+    ModelEffort:
+      type: string
+      enum:
+      - low
+      - medium
+      - high
+      - extra_high
+      - max
+    Record_ModelRuntime.string_:
+      properties:
+        cloud:
+          type: string
+        opencode:
+          type: string
+        claudeCode:
+          type: string
+        codex:
+          type: string
+      type: object
+      description: Construct a type with a set of properties K of type T
+    ModelIconKey:
+      type: string
+      enum:
+      - anthropic
+      - openai
+      - google
+      - xai
+      - meta
+      - mistral
+      - cohere
+      - kimi
+      - minimax
+      - qwen
+      - deepseek
+      - glm
+      - local
     AiModelPickers:
       description: 'Per-runtime UI-picker visibility.
 
@@ -119,14 +155,6 @@ components:
           type: boolean
       type: object
       additionalProperties: false
-    ModelEffort:
-      type: string
-      enum:
-      - low
-      - medium
-      - high
-      - extra_high
-      - max
     AiModelCapabilities:
       properties:
         chat:
@@ -148,6 +176,17 @@ components:
           description: Anthropic models that reject `temperature` (claude-opus-4-8).
       type: object
       additionalProperties: false
+    ModelProvider:
+      type: string
+      enum:
+      - anthropic
+      - openai
+      - google
+      - xai
+      - openrouter
+      - mistral
+      - deepseek
+      - local
     AiModelsPublicResponse:
       properties:
         models:
@@ -193,6 +232,18 @@ components:
       - runtimeDefaults
       type: object
       additionalProperties: false
+    AiPickerOption:
+      properties:
+        value:
+          type: string
+          description: Value persisted on the project / session. Either an alias or a canonical id.
+        label:
+          type: string
+      required:
+      - value
+      - label
+      type: object
+      additionalProperties: false
     AiModelCost:
       properties:
         input:
@@ -221,57 +272,6 @@ components:
       - output
       type: object
       additionalProperties: false
-    ModelIconKey:
-      type: string
-      enum:
-      - anthropic
-      - openai
-      - google
-      - xai
-      - meta
-      - mistral
-      - cohere
-      - kimi
-      - minimax
-      - qwen
-      - deepseek
-      - glm
-      - local
-    ModelProvider:
-      type: string
-      enum:
-      - anthropic
-      - openai
-      - google
-      - xai
-      - openrouter
-      - mistral
-      - deepseek
-      - local
-    AiPickerOption:
-      properties:
-        value:
-          type: string
-          description: Value persisted on the project / session. Either an alias or a canonical id.
-        label:
-          type: string
-      required:
-      - value
-      - label
-      type: object
-      additionalProperties: false
-    Record_ModelRuntime.string_:
-      properties:
-        cloud:
-          type: string
-        opencode:
-          type: string
-        claudeCode:
-          type: string
-        codex:
-          type: string
-      type: object
-      description: Construct a type with a set of properties K of type T
   securitySchemes:
     jwt:
       type: http

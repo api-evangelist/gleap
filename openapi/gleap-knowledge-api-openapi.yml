@@ -70,35 +70,22 @@ paths:
               $ref: '#/components/schemas/SimilarTicketsSearchDto'
 components:
   schemas:
-    SimilarTicketResult:
+    KnowledgeSearchResult:
       properties:
-        ticketId:
+        sourceId:
+          type: string
+        sourceType:
           type: string
         title:
           type: string
-        similarity:
-          type: number
-          format: double
         content:
           type: string
+        url:
+          type: string
       required:
-      - ticketId
-      - title
-      - similarity
+      - sourceId
+      - sourceType
       - content
-      type: object
-      additionalProperties: false
-    SimilarTicketsSearchDto:
-      properties:
-        query:
-          type: string
-        excludeTicketId:
-          type: string
-        limit:
-          type: number
-          format: double
-      required:
-      - query
       type: object
       additionalProperties: false
     SimilarTicketsResponse:
@@ -132,21 +119,34 @@ components:
       - query
       type: object
       additionalProperties: false
-    KnowledgeSearchResult:
+    SimilarTicketsSearchDto:
       properties:
-        sourceId:
+        query:
           type: string
-        sourceType:
+        excludeTicketId:
+          type: string
+        limit:
+          type: number
+          format: double
+      required:
+      - query
+      type: object
+      additionalProperties: false
+    SimilarTicketResult:
+      properties:
+        ticketId:
           type: string
         title:
           type: string
+        similarity:
+          type: number
+          format: double
         content:
           type: string
-        url:
-          type: string
       required:
-      - sourceId
-      - sourceType
+      - ticketId
+      - title
+      - similarity
       - content
       type: object
       additionalProperties: false

@@ -1232,6 +1232,283 @@ paths:
               type: object
 components:
   schemas:
+    UpdateTicketDto:
+      properties:
+        title:
+          type: string
+        conversationClosed:
+          type: boolean
+        bot:
+          $ref: '#/components/schemas/BotDto'
+        content: {}
+        plainContent:
+          type: string
+        imageUrl:
+          type: string
+        description:
+          type: string
+        latestComment:
+          type: string
+        latestPublicComment:
+          type: string
+        slaBreached:
+          type: boolean
+        hidden:
+          type: boolean
+        needInitialPush:
+          type: boolean
+        noHumanInteraction:
+          type: boolean
+        snoozed:
+          type: boolean
+        snoozedUntil:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        processingUser:
+          type: string
+        processingTeam:
+          type: string
+        queued:
+          type: boolean
+        queuedAt:
+          type: string
+          format: date-time
+        mentions:
+          items:
+            type: string
+          type: array
+        emailRefs:
+          items: {}
+          type: array
+        attributes: {}
+        formData: {}
+        form: {}
+        aiSummary:
+          type: string
+        aiSupportSummary:
+          type: string
+        dueDate:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: string
+        linkedTickets:
+          items:
+            type: string
+          type: array
+        duplicateOf:
+          type: string
+        duplicatesCount:
+          type: number
+          format: double
+        session: {}
+        sessions:
+          items: {}
+          type: array
+        outbound:
+          type: string
+        priority:
+          $ref: '#/components/schemas/BugPriority'
+        type:
+          type: string
+        sentiment:
+          $ref: '#/components/schemas/Sentiment'
+        status:
+          type: string
+        shareToken:
+          type: string
+        secretShareToken:
+          type: string
+        lexorank:
+          type: string
+        bugId:
+          type: number
+          format: double
+        project:
+          type: string
+        organisation:
+          type: string
+        screenshotUrl:
+          type: string
+        screenshotBroke:
+          type: string
+          format: date-time
+        generatingScreenshot:
+          type: boolean
+        screenshotRenderingFailed:
+          type: boolean
+        screenshotLive:
+          type: boolean
+        screenshotDataUrl: {}
+        isSilent:
+          type: boolean
+        replayDataUrl:
+          type: string
+        replayUrl:
+          type: string
+        generatingReplay:
+          type: boolean
+        replayStartDate:
+          type: string
+          format: date-time
+        replayRenderingStartedAt:
+          type: string
+          format: date-time
+        replayRenderingFailed:
+          type: boolean
+        replayLive:
+          type: boolean
+        originalEmailContent:
+          type: string
+        hasWebReplay:
+          type: boolean
+        integrations:
+          $ref: '#/components/schemas/Record_string.any_'
+        metaData: {}
+        actionLog: {}
+        customData: {}
+        replay: {}
+        lastResponse:
+          $ref: '#/components/schemas/LastResponseDto'
+        attachments:
+          items:
+            $ref: '#/components/schemas/AttachmentDto'
+          type: array
+        lastNotification:
+          type: string
+          format: date-time
+        faqSuggested:
+          type: boolean
+        notificationsUnread:
+          type: boolean
+        sessionNotificationsUnread:
+          type: boolean
+        hasAgentReply:
+          type: boolean
+        conversationRating:
+          type: number
+          format: double
+        upvotesCount:
+          type: number
+          format: double
+        upvotes:
+          items:
+            $ref: '#/components/schemas/UpvoteDto'
+          type: array
+        screenRecordingUrl:
+          type: string
+        firstAssignmentAt:
+          type: string
+          format: date-time
+        archived:
+          type: boolean
+        archivedAt:
+          type: string
+          format: date-time
+        disabled:
+          type: boolean
+        isSpam:
+          type: boolean
+        tags:
+          items:
+            type: string
+          type: array
+        score:
+          type: number
+          format: double
+        channel:
+          $ref: '#/components/schemas/TicketChannelDto'
+        manuallyAdded:
+          type: boolean
+        fromData: {}
+        forceCloseOverride:
+          type: boolean
+      type: object
+      additionalProperties: false
+    BotDto:
+      properties:
+        active:
+          type: boolean
+        currentBot:
+          type: string
+        currentActionFlow:
+          type: string
+        currentAction:
+          type: number
+          format: double
+        forwardedToSupportAt:
+          type: string
+          format: date-time
+        kaiActive:
+          type: boolean
+        noAnswerFound:
+          type: boolean
+      type: object
+      additionalProperties: false
+    Record_string.any_:
+      properties: {}
+      type: object
+      description: Construct a type with a set of properties K of type T
+    CreateTicketWithMessageDto:
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        message:
+          type: string
+        priority:
+          type: string
+        status:
+          type: string
+        processingUser:
+          type: string
+        processingTeam:
+          type: string
+        tags:
+          items:
+            type: string
+          type: array
+        session:
+          type: string
+        email:
+          type: string
+        formData:
+          $ref: '#/components/schemas/Record_string.any_'
+      required:
+      - type
+      - title
+      type: object
+      additionalProperties: false
+    TicketChannelDto:
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        metaData: {}
+      required:
+      - id
+      type: object
+      additionalProperties: false
+    UpvoteDto:
+      properties:
+        email:
+          type: string
+      type: object
+      additionalProperties: false
+    LastResponseDto:
+      properties:
+        contact:
+          type: string
+          format: date-time
+        admin:
+          type: string
+          format: date-time
+      type: object
+      additionalProperties: false
     CreateTicketDto:
       properties:
         title:
@@ -1434,283 +1711,6 @@ components:
           type: boolean
       type: object
       additionalProperties: false
-    Record_string.any_:
-      properties: {}
-      type: object
-      description: Construct a type with a set of properties K of type T
-    Sentiment:
-      enum:
-      - positive
-      - negative
-      - neutral
-      type: string
-    LastResponseDto:
-      properties:
-        contact:
-          type: string
-          format: date-time
-        admin:
-          type: string
-          format: date-time
-      type: object
-      additionalProperties: false
-    CreateTicketWithMessageDto:
-      properties:
-        type:
-          type: string
-        title:
-          type: string
-        message:
-          type: string
-        priority:
-          type: string
-        status:
-          type: string
-        processingUser:
-          type: string
-        processingTeam:
-          type: string
-        tags:
-          items:
-            type: string
-          type: array
-        session:
-          type: string
-        email:
-          type: string
-        formData:
-          $ref: '#/components/schemas/Record_string.any_'
-      required:
-      - type
-      - title
-      type: object
-      additionalProperties: false
-    BotDto:
-      properties:
-        active:
-          type: boolean
-        currentBot:
-          type: string
-        currentActionFlow:
-          type: string
-        currentAction:
-          type: number
-          format: double
-        forwardedToSupportAt:
-          type: string
-          format: date-time
-        kaiActive:
-          type: boolean
-        noAnswerFound:
-          type: boolean
-      type: object
-      additionalProperties: false
-    TicketChannelDto:
-      properties:
-        id:
-          type: string
-        type:
-          type: string
-        metaData: {}
-      required:
-      - id
-      type: object
-      additionalProperties: false
-    UpdateTicketDto:
-      properties:
-        title:
-          type: string
-        conversationClosed:
-          type: boolean
-        bot:
-          $ref: '#/components/schemas/BotDto'
-        content: {}
-        plainContent:
-          type: string
-        imageUrl:
-          type: string
-        description:
-          type: string
-        latestComment:
-          type: string
-        latestPublicComment:
-          type: string
-        slaBreached:
-          type: boolean
-        hidden:
-          type: boolean
-        needInitialPush:
-          type: boolean
-        noHumanInteraction:
-          type: boolean
-        snoozed:
-          type: boolean
-        snoozedUntil:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        processingUser:
-          type: string
-        processingTeam:
-          type: string
-        queued:
-          type: boolean
-        queuedAt:
-          type: string
-          format: date-time
-        mentions:
-          items:
-            type: string
-          type: array
-        emailRefs:
-          items: {}
-          type: array
-        attributes: {}
-        formData: {}
-        form: {}
-        aiSummary:
-          type: string
-        aiSupportSummary:
-          type: string
-        dueDate:
-          anyOf:
-          - type: string
-            format: date-time
-          - type: string
-        linkedTickets:
-          items:
-            type: string
-          type: array
-        duplicateOf:
-          type: string
-        duplicatesCount:
-          type: number
-          format: double
-        session: {}
-        sessions:
-          items: {}
-          type: array
-        outbound:
-          type: string
-        priority:
-          $ref: '#/components/schemas/BugPriority'
-        type:
-          type: string
-        sentiment:
-          $ref: '#/components/schemas/Sentiment'
-        status:
-          type: string
-        shareToken:
-          type: string
-        secretShareToken:
-          type: string
-        lexorank:
-          type: string
-        bugId:
-          type: number
-          format: double
-        project:
-          type: string
-        organisation:
-          type: string
-        screenshotUrl:
-          type: string
-        screenshotBroke:
-          type: string
-          format: date-time
-        generatingScreenshot:
-          type: boolean
-        screenshotRenderingFailed:
-          type: boolean
-        screenshotLive:
-          type: boolean
-        screenshotDataUrl: {}
-        isSilent:
-          type: boolean
-        replayDataUrl:
-          type: string
-        replayUrl:
-          type: string
-        generatingReplay:
-          type: boolean
-        replayStartDate:
-          type: string
-          format: date-time
-        replayRenderingStartedAt:
-          type: string
-          format: date-time
-        replayRenderingFailed:
-          type: boolean
-        replayLive:
-          type: boolean
-        originalEmailContent:
-          type: string
-        hasWebReplay:
-          type: boolean
-        integrations:
-          $ref: '#/components/schemas/Record_string.any_'
-        metaData: {}
-        actionLog: {}
-        customData: {}
-        replay: {}
-        lastResponse:
-          $ref: '#/components/schemas/LastResponseDto'
-        attachments:
-          items:
-            $ref: '#/components/schemas/AttachmentDto'
-          type: array
-        lastNotification:
-          type: string
-          format: date-time
-        faqSuggested:
-          type: boolean
-        notificationsUnread:
-          type: boolean
-        sessionNotificationsUnread:
-          type: boolean
-        hasAgentReply:
-          type: boolean
-        conversationRating:
-          type: number
-          format: double
-        upvotesCount:
-          type: number
-          format: double
-        upvotes:
-          items:
-            $ref: '#/components/schemas/UpvoteDto'
-          type: array
-        screenRecordingUrl:
-          type: string
-        firstAssignmentAt:
-          type: string
-          format: date-time
-        archived:
-          type: boolean
-        archivedAt:
-          type: string
-          format: date-time
-        disabled:
-          type: boolean
-        isSpam:
-          type: boolean
-        tags:
-          items:
-            type: string
-          type: array
-        score:
-          type: number
-          format: double
-        channel:
-          $ref: '#/components/schemas/TicketChannelDto'
-        manuallyAdded:
-          type: boolean
-        fromData: {}
-        forceCloseOverride:
-          type: boolean
-      type: object
-      additionalProperties: false
     AttachmentDto:
       properties:
         name:
@@ -1730,12 +1730,12 @@ components:
       - MEDIUM
       - HIGH
       type: string
-    UpvoteDto:
-      properties:
-        email:
-          type: string
-      type: object
-      additionalProperties: false
+    Sentiment:
+      enum:
+      - positive
+      - negative
+      - neutral
+      type: string
   securitySchemes:
     jwt:
       type: http

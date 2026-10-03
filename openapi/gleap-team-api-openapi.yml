@@ -126,6 +126,15 @@ paths:
           type: string
 components:
   schemas:
+    NativeDate:
+      type: string
+    AssignmentMethod:
+      enum:
+      - random
+      - balanced
+      - manual
+      - circular
+      type: string
     Document:
       $ref: '#/components/schemas/FlattenMaps_T_'
       description: 'Generic types for Document:
@@ -135,24 +144,9 @@ components:
         *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
 
         *  DocType - the type of the actual Document created'
-    InferSchemaType_typeofteamSchema_:
-      $ref: '#/components/schemas/IfAny_typeofteamSchema.any.ObtainSchemaGeneric_typeofteamSchema.DocType__'
-    AssignmentMethod:
-      enum:
-      - random
-      - balanced
-      - manual
-      - circular
-      type: string
-    TeamI:
-      $ref: '#/components/schemas/InferSchemaType_typeofteamSchema_'
     FlattenMaps_T_:
       properties: {}
       type: object
-    ObjectId:
-      type: string
-    NativeDate:
-      type: string
     TeamDocument:
       allOf:
       - $ref: '#/components/schemas/TeamI'
@@ -294,6 +288,12 @@ components:
       - members
       type: object
       additionalProperties: false
+    ObjectId:
+      type: string
+    InferSchemaType_typeofteamSchema_:
+      $ref: '#/components/schemas/IfAny_typeofteamSchema.any.ObtainSchemaGeneric_typeofteamSchema.DocType__'
+    TeamI:
+      $ref: '#/components/schemas/InferSchemaType_typeofteamSchema_'
   securitySchemes:
     jwt:
       type: http

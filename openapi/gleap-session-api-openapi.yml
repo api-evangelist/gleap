@@ -957,8 +957,6 @@ paths:
           type: string
 components:
   schemas:
-    Types.ObjectId:
-      type: string
     ImportIntercomSessionDto:
       properties:
         endpoint:
@@ -1065,6 +1063,8 @@ components:
 
         *  DocType - the type of the actual Document created'
     ObjectId:
+      type: string
+    Types.ObjectId:
       type: string
   securitySchemes:
     jwt:

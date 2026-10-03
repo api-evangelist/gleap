@@ -203,26 +203,6 @@ paths:
           type: string
 components:
   schemas:
-    ContactMemoryListItem:
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        actor:
-          $ref: '#/components/schemas/ContactMemoryActor'
-        actorUserId:
-          type: string
-        updatedAt:
-          type: string
-          format: date-time
-      required:
-      - name
-      - description
-      - actor
-      - updatedAt
-      type: object
-      additionalProperties: false
     ContactMemoryEntryBody:
       properties:
         name:
@@ -233,36 +213,6 @@ components:
           type: string
       required:
       - name
-      - content
-      type: object
-      additionalProperties: false
-    ContactMemoryWriteResult:
-      properties:
-        ok:
-          type: boolean
-        reason:
-          type: string
-          enum:
-          - disabled
-          - no_userId
-          - invalid_input
-          - session_not_found
-        consolidationEnqueued:
-          type: boolean
-        entries:
-          type: number
-          format: double
-      required:
-      - ok
-      type: object
-      additionalProperties: false
-    ContactMemoryUpdateBody:
-      properties:
-        description:
-          type: string
-        content:
-          type: string
-      required:
       - content
       type: object
       additionalProperties: false
@@ -291,6 +241,56 @@ components:
       - actor
       - createdAt
       - updatedAt
+      type: object
+      additionalProperties: false
+    ContactMemoryWriteResult:
+      properties:
+        ok:
+          type: boolean
+        reason:
+          type: string
+          enum:
+          - disabled
+          - no_userId
+          - invalid_input
+          - session_not_found
+        consolidationEnqueued:
+          type: boolean
+        entries:
+          type: number
+          format: double
+      required:
+      - ok
+      type: object
+      additionalProperties: false
+    ContactMemoryListItem:
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        actor:
+          $ref: '#/components/schemas/ContactMemoryActor'
+        actorUserId:
+          type: string
+        updatedAt:
+          type: string
+          format: date-time
+      required:
+      - name
+      - description
+      - actor
+      - updatedAt
+      type: object
+      additionalProperties: false
+    ContactMemoryUpdateBody:
+      properties:
+        description:
+          type: string
+        content:
+          type: string
+      required:
+      - content
       type: object
       additionalProperties: false
     ContactMemoryActor:

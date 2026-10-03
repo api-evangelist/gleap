@@ -192,55 +192,8 @@ paths:
           type: string
 components:
   schemas:
-    Document:
-      $ref: '#/components/schemas/FlattenMaps_T_'
-      description: 'Generic types for Document:
-
-        *  T - the type of _id
-
-        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
-
-        *  DocType - the type of the actual Document created'
-    MessageTemplate:
-      $ref: '#/components/schemas/InferSchemaType_typeofmessageTemplateSchema_'
-    MessageTemplateDocument:
-      allOf:
-      - $ref: '#/components/schemas/MessageTemplate'
-      - $ref: '#/components/schemas/Document'
-    MessageTemplateDTO:
-      properties:
-        title:
-          type: string
-        content: {}
-        lexorank:
-          type: string
-        isPublic:
-          type: boolean
-        users:
-          items:
-            type: string
-          type: array
-        attachments:
-          items: {}
-          type: array
-        actions:
-          items:
-            properties:
-              data: {}
-              type:
-                type: string
-            required:
-            - type
-            type: object
-          type: array
-      required:
-      - title
-      - content
-      - lexorank
-      type: object
-      additionalProperties: false
-    InferSchemaType_typeofmessageTemplateSchema_:
-      $ref: '#/components/schemas/IfAny_typeofmessageTemplateSchema.any.ObtainSchemaGeneric_typeofmessageTemplateSchema.DocType__'
+    NativeDate:
+      type: string
     IfAny_typeofmessageTemplateSchema.any.ObtainSchemaGeneric_typeofmessageTemplateSchema.DocType__:
       allOf:
       - properties:
@@ -294,13 +247,60 @@ components:
         - isPublic
         - users
         type: object
+    MessageTemplate:
+      $ref: '#/components/schemas/InferSchemaType_typeofmessageTemplateSchema_'
+    Document:
+      $ref: '#/components/schemas/FlattenMaps_T_'
+      description: 'Generic types for Document:
+
+        *  T - the type of _id
+
+        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
+
+        *  DocType - the type of the actual Document created'
     FlattenMaps_T_:
       properties: {}
       type: object
+    MessageTemplateDocument:
+      allOf:
+      - $ref: '#/components/schemas/MessageTemplate'
+      - $ref: '#/components/schemas/Document'
     ObjectId:
       type: string
-    NativeDate:
-      type: string
+    MessageTemplateDTO:
+      properties:
+        title:
+          type: string
+        content: {}
+        lexorank:
+          type: string
+        isPublic:
+          type: boolean
+        users:
+          items:
+            type: string
+          type: array
+        attachments:
+          items: {}
+          type: array
+        actions:
+          items:
+            properties:
+              data: {}
+              type:
+                type: string
+            required:
+            - type
+            type: object
+          type: array
+      required:
+      - title
+      - content
+      - lexorank
+      type: object
+      additionalProperties: false
+    InferSchemaType_typeofmessageTemplateSchema_:
+      $ref: '#/components/schemas/IfAny_typeofmessageTemplateSchema.any.ObtainSchemaGeneric_typeofmessageTemplateSchema.DocType__'
   securitySchemes:
     jwt:
       type: http

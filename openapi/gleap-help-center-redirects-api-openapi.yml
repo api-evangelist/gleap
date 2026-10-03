@@ -126,6 +126,24 @@ paths:
           type: string
 components:
   schemas:
+    InferSchemaType_typeofhelpcenterRedirectSchema_:
+      $ref: '#/components/schemas/IfAny_typeofhelpcenterRedirectSchema.any.ObtainSchemaGeneric_typeofhelpcenterRedirectSchema.DocType__'
+    NativeDate:
+      type: string
+    HelpcenterRedirectDTO:
+      properties:
+        oldUrl:
+          type: string
+        newUrl:
+          type: string
+        matchType:
+          $ref: '#/components/schemas/RedirectMatchType'
+      required:
+      - oldUrl
+      - newUrl
+      - matchType
+      type: object
+      additionalProperties: false
     Document:
       $ref: '#/components/schemas/FlattenMaps_T_'
       description: 'Generic types for Document:
@@ -135,12 +153,22 @@ components:
         *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
 
         *  DocType - the type of the actual Document created'
+    FlattenMaps_T_:
+      properties: {}
+      type: object
+    RedirectMatchType:
+      enum:
+      - exact
+      - pattern
+      type: string
+    ObjectId:
+      type: string
     HelpcenterRedirectDocument:
       allOf:
       - $ref: '#/components/schemas/HelpcenterRedirect'
       - $ref: '#/components/schemas/Document'
-    InferSchemaType_typeofhelpcenterRedirectSchema_:
-      $ref: '#/components/schemas/IfAny_typeofhelpcenterRedirectSchema.any.ObtainSchemaGeneric_typeofhelpcenterRedirectSchema.DocType__'
+    HelpcenterRedirect:
+      $ref: '#/components/schemas/InferSchemaType_typeofhelpcenterRedirectSchema_'
     IfAny_typeofhelpcenterRedirectSchema.any.ObtainSchemaGeneric_typeofhelpcenterRedirectSchema.DocType__:
       allOf:
       - properties:
@@ -183,34 +211,6 @@ components:
         - oldUrl
         - project
         type: object
-    ObjectId:
-      type: string
-    NativeDate:
-      type: string
-    RedirectMatchType:
-      enum:
-      - exact
-      - pattern
-      type: string
-    FlattenMaps_T_:
-      properties: {}
-      type: object
-    HelpcenterRedirectDTO:
-      properties:
-        oldUrl:
-          type: string
-        newUrl:
-          type: string
-        matchType:
-          $ref: '#/components/schemas/RedirectMatchType'
-      required:
-      - oldUrl
-      - newUrl
-      - matchType
-      type: object
-      additionalProperties: false
-    HelpcenterRedirect:
-      $ref: '#/components/schemas/InferSchemaType_typeofhelpcenterRedirectSchema_'
   securitySchemes:
     jwt:
       type: http

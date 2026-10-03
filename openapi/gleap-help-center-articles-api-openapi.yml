@@ -174,15 +174,42 @@ paths:
               type: object
 components:
   schemas:
-    Document:
-      $ref: '#/components/schemas/FlattenMaps_T_'
-      description: 'Generic types for Document:
-
-        *  T - the type of _id
-
-        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
-
-        *  DocType - the type of the actual Document created'
+    HelpcenterArticleDto:
+      properties:
+        title: {}
+        description: {}
+        content: {}
+        plainContent: {}
+        helpcenterCollection:
+          $ref: '#/components/schemas/Types.ObjectId'
+        author:
+          $ref: '#/components/schemas/Types.ObjectId'
+        project:
+          $ref: '#/components/schemas/Types.ObjectId'
+        isDraft:
+          type: boolean
+          default: true
+        docId:
+          type: number
+          format: double
+        lexorank:
+          type: string
+        upvotes: {}
+        targetAudience:
+          type: string
+          default: all
+        externalId:
+          type: string
+        baseAudienceFilter: {}
+        extendedAudienceFilter: {}
+        tags:
+          items:
+            type: string
+          type: array
+        newCollectionId:
+          type: string
+      type: object
+      additionalProperties: false
     IfAny_typeofhelpcenterArticleSchema.any.ObtainSchemaGeneric_typeofhelpcenterArticleSchema.DocType__:
       allOf:
       - properties:
@@ -280,59 +307,32 @@ components:
         - tags
         - targetAudience
         type: object
-    Types.ObjectId:
-      type: string
-    FlattenMaps_T_:
-      properties: {}
-      type: object
-    InferSchemaType_typeofhelpcenterArticleSchema_:
-      $ref: '#/components/schemas/IfAny_typeofhelpcenterArticleSchema.any.ObtainSchemaGeneric_typeofhelpcenterArticleSchema.DocType__'
     NativeDate:
       type: string
-    HelpcenterArticleDto:
-      properties:
-        title: {}
-        description: {}
-        content: {}
-        plainContent: {}
-        helpcenterCollection:
-          $ref: '#/components/schemas/Types.ObjectId'
-        author:
-          $ref: '#/components/schemas/Types.ObjectId'
-        project:
-          $ref: '#/components/schemas/Types.ObjectId'
-        isDraft:
-          type: boolean
-          default: true
-        docId:
-          type: number
-          format: double
-        lexorank:
-          type: string
-        upvotes: {}
-        targetAudience:
-          type: string
-          default: all
-        externalId:
-          type: string
-        baseAudienceFilter: {}
-        extendedAudienceFilter: {}
-        tags:
-          items:
-            type: string
-          type: array
-        newCollectionId:
-          type: string
-      type: object
-      additionalProperties: false
-    ObjectId:
-      type: string
-    HelpcenterArticleI:
-      $ref: '#/components/schemas/InferSchemaType_typeofhelpcenterArticleSchema_'
     HelpcenterArticleDocument:
       allOf:
       - $ref: '#/components/schemas/HelpcenterArticleI'
       - $ref: '#/components/schemas/Document'
+    InferSchemaType_typeofhelpcenterArticleSchema_:
+      $ref: '#/components/schemas/IfAny_typeofhelpcenterArticleSchema.any.ObtainSchemaGeneric_typeofhelpcenterArticleSchema.DocType__'
+    Document:
+      $ref: '#/components/schemas/FlattenMaps_T_'
+      description: 'Generic types for Document:
+
+        *  T - the type of _id
+
+        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
+
+        *  DocType - the type of the actual Document created'
+    FlattenMaps_T_:
+      properties: {}
+      type: object
+    ObjectId:
+      type: string
+    Types.ObjectId:
+      type: string
+    HelpcenterArticleI:
+      $ref: '#/components/schemas/InferSchemaType_typeofhelpcenterArticleSchema_'
   securitySchemes:
     jwt:
       type: http
