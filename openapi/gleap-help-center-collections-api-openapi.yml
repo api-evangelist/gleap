@@ -212,6 +212,40 @@ paths:
               type: object
 components:
   schemas:
+    CollectionWithCounts:
+      allOf:
+      - $ref: '#/components/schemas/HelpcenterCollectionDocument'
+      - properties:
+          subCollectionsCount:
+            type: number
+            format: double
+          articlesCount:
+            type: number
+            format: double
+        required:
+        - subCollectionsCount
+        - articlesCount
+        type: object
+    Types.ObjectId:
+      type: string
+    HelpcenterCollectionI:
+      $ref: '#/components/schemas/InferSchemaType_typeofhelpcenterCollectionSchema_'
+    InferSchemaType_typeofhelpcenterCollectionSchema_:
+      $ref: '#/components/schemas/IfAny_typeofhelpcenterCollectionSchema.any.ObtainSchemaGeneric_typeofhelpcenterCollectionSchema.DocType__'
+    FlattenMaps_T_:
+      properties: {}
+      type: object
+    Document:
+      $ref: '#/components/schemas/FlattenMaps_T_'
+      description: 'Generic types for Document:
+
+        *  T - the type of _id
+
+        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
+
+        *  DocType - the type of the actual Document created'
+    ObjectId:
+      type: string
     IfAny_typeofhelpcenterCollectionSchema.any.ObtainSchemaGeneric_typeofhelpcenterCollectionSchema.DocType__:
       allOf:
       - properties:
@@ -282,8 +316,6 @@ components:
       allOf:
       - $ref: '#/components/schemas/HelpcenterCollectionI'
       - $ref: '#/components/schemas/Document'
-    NativeDate:
-      type: string
     HelpCenterCollectionDto:
       properties:
         title: {}
@@ -309,39 +341,7 @@ components:
         extendedAudienceFilter: {}
       type: object
       additionalProperties: false
-    CollectionWithCounts:
-      allOf:
-      - $ref: '#/components/schemas/HelpcenterCollectionDocument'
-      - properties:
-          subCollectionsCount:
-            type: number
-            format: double
-          articlesCount:
-            type: number
-            format: double
-        required:
-        - subCollectionsCount
-        - articlesCount
-        type: object
-    Document:
-      $ref: '#/components/schemas/FlattenMaps_T_'
-      description: 'Generic types for Document:
-
-        *  T - the type of _id
-
-        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
-
-        *  DocType - the type of the actual Document created'
-    FlattenMaps_T_:
-      properties: {}
-      type: object
-    InferSchemaType_typeofhelpcenterCollectionSchema_:
-      $ref: '#/components/schemas/IfAny_typeofhelpcenterCollectionSchema.any.ObtainSchemaGeneric_typeofhelpcenterCollectionSchema.DocType__'
-    ObjectId:
-      type: string
-    HelpcenterCollectionI:
-      $ref: '#/components/schemas/InferSchemaType_typeofhelpcenterCollectionSchema_'
-    Types.ObjectId:
+    NativeDate:
       type: string
   securitySchemes:
     jwt:

@@ -126,31 +126,8 @@ paths:
           type: string
 components:
   schemas:
-    NativeDate:
-      type: string
-    AssignmentMethod:
-      enum:
-      - random
-      - balanced
-      - manual
-      - circular
-      type: string
-    Document:
-      $ref: '#/components/schemas/FlattenMaps_T_'
-      description: 'Generic types for Document:
-
-        *  T - the type of _id
-
-        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
-
-        *  DocType - the type of the actual Document created'
-    FlattenMaps_T_:
-      properties: {}
-      type: object
-    TeamDocument:
-      allOf:
-      - $ref: '#/components/schemas/TeamI'
-      - $ref: '#/components/schemas/Document'
+    TeamI:
+      $ref: '#/components/schemas/InferSchemaType_typeofteamSchema_'
     IfAny_typeofteamSchema.any.ObtainSchemaGeneric_typeofteamSchema.DocType__:
       allOf:
       - properties:
@@ -231,6 +208,9 @@ components:
         - members
         - assignmentMethod
         type: object
+    FlattenMaps_T_:
+      properties: {}
+      type: object
     TeamDto:
       properties:
         name:
@@ -288,12 +268,32 @@ components:
       - members
       type: object
       additionalProperties: false
-    ObjectId:
-      type: string
+    Document:
+      $ref: '#/components/schemas/FlattenMaps_T_'
+      description: 'Generic types for Document:
+
+        *  T - the type of _id
+
+        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
+
+        *  DocType - the type of the actual Document created'
     InferSchemaType_typeofteamSchema_:
       $ref: '#/components/schemas/IfAny_typeofteamSchema.any.ObtainSchemaGeneric_typeofteamSchema.DocType__'
-    TeamI:
-      $ref: '#/components/schemas/InferSchemaType_typeofteamSchema_'
+    ObjectId:
+      type: string
+    AssignmentMethod:
+      enum:
+      - random
+      - balanced
+      - manual
+      - circular
+      type: string
+    TeamDocument:
+      allOf:
+      - $ref: '#/components/schemas/TeamI'
+      - $ref: '#/components/schemas/Document'
+    NativeDate:
+      type: string
   securitySchemes:
     jwt:
       type: http

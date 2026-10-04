@@ -34,6 +34,67 @@ paths:
       parameters: []
 components:
   schemas:
+    AiModelCapabilities:
+      properties:
+        chat:
+          type: boolean
+        vision:
+          type: boolean
+        tools:
+          type: boolean
+        streaming:
+          type: boolean
+        transcription:
+          type: boolean
+        reasoning:
+          type: boolean
+        minimalReasoning:
+          type: boolean
+        temperatureUnsupported:
+          type: boolean
+          description: Anthropic models that reject `temperature` (claude-opus-4-8).
+      type: object
+      additionalProperties: false
+    AiPickerOption:
+      properties:
+        value:
+          type: string
+          description: Value persisted on the project / session. Either an alias or a canonical id.
+        label:
+          type: string
+      required:
+      - value
+      - label
+      type: object
+      additionalProperties: false
+    AiModelCost:
+      properties:
+        input:
+          type: number
+          format: double
+        cachedInput:
+          type: number
+          format: double
+        cacheWriteInput:
+          type: number
+          format: double
+        output:
+          type: number
+          format: double
+        longContextThreshold:
+          type: number
+          format: double
+        longInputMultiplier:
+          type: number
+          format: double
+        longOutputMultiplier:
+          type: number
+          format: double
+      required:
+      - input
+      - output
+      type: object
+      additionalProperties: false
     AiModelPublicDto:
       description: 'Public DTO. Strips internal-only fields (`providerRoute` — exposes
 
@@ -92,14 +153,6 @@ components:
       - costPerMillionTokens
       type: object
       additionalProperties: false
-    ModelEffort:
-      type: string
-      enum:
-      - low
-      - medium
-      - high
-      - extra_high
-      - max
     Record_ModelRuntime.string_:
       properties:
         cloud:
@@ -128,54 +181,6 @@ components:
       - deepseek
       - glm
       - local
-    AiModelPickers:
-      description: 'Per-runtime UI-picker visibility.
-
-
-        `kaiAgent`            → Kai default support agent dropdown
-
-        `kaiCodeCloud`        → Kai Code cloud runtime model picker
-
-        `kaiCodeOpenCode`     → Kai Code desktop OpenCode runtime model picker
-
-
-        Models excluded from every picker but still in the catalog are
-
-        either subagent-only (e.g. Kimi K2.5) or special-purpose (transcription,
-
-        Codex CLI) — they appear elsewhere via `capabilities.transcription`
-
-        or via the static `staticModels` list of CLI-only runtimes.'
-      properties:
-        kaiAgent:
-          type: boolean
-        kaiCodeCloud:
-          type: boolean
-        kaiCodeOpenCode:
-          type: boolean
-      type: object
-      additionalProperties: false
-    AiModelCapabilities:
-      properties:
-        chat:
-          type: boolean
-        vision:
-          type: boolean
-        tools:
-          type: boolean
-        streaming:
-          type: boolean
-        transcription:
-          type: boolean
-        reasoning:
-          type: boolean
-        minimalReasoning:
-          type: boolean
-        temperatureUnsupported:
-          type: boolean
-          description: Anthropic models that reject `temperature` (claude-opus-4-8).
-      type: object
-      additionalProperties: false
     ModelProvider:
       type: string
       enum:
@@ -232,46 +237,41 @@ components:
       - runtimeDefaults
       type: object
       additionalProperties: false
-    AiPickerOption:
+    AiModelPickers:
+      description: 'Per-runtime UI-picker visibility.
+
+
+        `kaiAgent`            → Kai default support agent dropdown
+
+        `kaiCodeCloud`        → Kai Code cloud runtime model picker
+
+        `kaiCodeOpenCode`     → Kai Code desktop OpenCode runtime model picker
+
+
+        Models excluded from every picker but still in the catalog are
+
+        either subagent-only (e.g. Kimi K2.5) or special-purpose (transcription,
+
+        Codex CLI) — they appear elsewhere via `capabilities.transcription`
+
+        or via the static `staticModels` list of CLI-only runtimes.'
       properties:
-        value:
-          type: string
-          description: Value persisted on the project / session. Either an alias or a canonical id.
-        label:
-          type: string
-      required:
-      - value
-      - label
+        kaiAgent:
+          type: boolean
+        kaiCodeCloud:
+          type: boolean
+        kaiCodeOpenCode:
+          type: boolean
       type: object
       additionalProperties: false
-    AiModelCost:
-      properties:
-        input:
-          type: number
-          format: double
-        cachedInput:
-          type: number
-          format: double
-        cacheWriteInput:
-          type: number
-          format: double
-        output:
-          type: number
-          format: double
-        longContextThreshold:
-          type: number
-          format: double
-        longInputMultiplier:
-          type: number
-          format: double
-        longOutputMultiplier:
-          type: number
-          format: double
-      required:
-      - input
-      - output
-      type: object
-      additionalProperties: false
+    ModelEffort:
+      type: string
+      enum:
+      - low
+      - medium
+      - high
+      - extra_high
+      - max
   securitySchemes:
     jwt:
       type: http

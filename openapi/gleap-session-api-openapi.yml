@@ -957,6 +957,22 @@ paths:
           type: string
 components:
   schemas:
+    Types.ObjectId:
+      type: string
+    FlattenMaps_T_:
+      properties: {}
+      type: object
+    Document_any.any.any_:
+      $ref: '#/components/schemas/FlattenMaps_T_'
+      description: 'Generic types for Document:
+
+        *  T - the type of _id
+
+        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
+
+        *  DocType - the type of the actual Document created'
+    ObjectId:
+      type: string
     ImportIntercomSessionDto:
       properties:
         endpoint:
@@ -1050,22 +1066,6 @@ components:
         eventData: {}
       type: object
       additionalProperties: false
-    FlattenMaps_T_:
-      properties: {}
-      type: object
-    Document_any.any.any_:
-      $ref: '#/components/schemas/FlattenMaps_T_'
-      description: 'Generic types for Document:
-
-        *  T - the type of _id
-
-        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
-
-        *  DocType - the type of the actual Document created'
-    ObjectId:
-      type: string
-    Types.ObjectId:
-      type: string
   securitySchemes:
     jwt:
       type: http

@@ -126,10 +126,17 @@ paths:
           type: string
 components:
   schemas:
+    HelpcenterRedirectDocument:
+      allOf:
+      - $ref: '#/components/schemas/HelpcenterRedirect'
+      - $ref: '#/components/schemas/Document'
     InferSchemaType_typeofhelpcenterRedirectSchema_:
       $ref: '#/components/schemas/IfAny_typeofhelpcenterRedirectSchema.any.ObtainSchemaGeneric_typeofhelpcenterRedirectSchema.DocType__'
-    NativeDate:
-      type: string
+    FlattenMaps_T_:
+      properties: {}
+      type: object
+    HelpcenterRedirect:
+      $ref: '#/components/schemas/InferSchemaType_typeofhelpcenterRedirectSchema_'
     HelpcenterRedirectDTO:
       properties:
         oldUrl:
@@ -153,22 +160,13 @@ components:
         *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
 
         *  DocType - the type of the actual Document created'
-    FlattenMaps_T_:
-      properties: {}
-      type: object
+    ObjectId:
+      type: string
     RedirectMatchType:
       enum:
       - exact
       - pattern
       type: string
-    ObjectId:
-      type: string
-    HelpcenterRedirectDocument:
-      allOf:
-      - $ref: '#/components/schemas/HelpcenterRedirect'
-      - $ref: '#/components/schemas/Document'
-    HelpcenterRedirect:
-      $ref: '#/components/schemas/InferSchemaType_typeofhelpcenterRedirectSchema_'
     IfAny_typeofhelpcenterRedirectSchema.any.ObtainSchemaGeneric_typeofhelpcenterRedirectSchema.DocType__:
       allOf:
       - properties:
@@ -211,6 +209,8 @@ components:
         - oldUrl
         - project
         type: object
+    NativeDate:
+      type: string
   securitySchemes:
     jwt:
       type: http

@@ -389,35 +389,9 @@ components:
   schemas:
     OutboundI:
       $ref: '#/components/schemas/InferSchemaType_typeofoutboundSchema_'
-    InferSchemaType_typeofoutboundSchema_:
-      $ref: '#/components/schemas/IfAny_typeofoutboundSchema.any.ObtainSchemaGeneric_typeofoutboundSchema.DocType__'
-    Document:
-      $ref: '#/components/schemas/FlattenMaps_T_'
-      description: 'Generic types for Document:
-
-        *  T - the type of _id
-
-        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
-
-        *  DocType - the type of the actual Document created'
     FlattenMaps_T_:
       properties: {}
       type: object
-    Document_any.any.any_:
-      $ref: '#/components/schemas/FlattenMaps_T_'
-      description: 'Generic types for Document:
-
-        *  T - the type of _id
-
-        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
-
-        *  DocType - the type of the actual Document created'
-    ObjectId:
-      type: string
-    OutboundDocument:
-      allOf:
-      - $ref: '#/components/schemas/OutboundI'
-      - $ref: '#/components/schemas/Document'
     IfAny_typeofoutboundSchema.any.ObtainSchemaGeneric_typeofoutboundSchema.DocType__:
       properties:
         searchContent:
@@ -653,6 +627,32 @@ components:
       - name
       - type
       type: object
+    Document_any.any.any_:
+      $ref: '#/components/schemas/FlattenMaps_T_'
+      description: 'Generic types for Document:
+
+        *  T - the type of _id
+
+        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
+
+        *  DocType - the type of the actual Document created'
+    Document:
+      $ref: '#/components/schemas/FlattenMaps_T_'
+      description: 'Generic types for Document:
+
+        *  T - the type of _id
+
+        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
+
+        *  DocType - the type of the actual Document created'
+    ObjectId:
+      type: string
+    InferSchemaType_typeofoutboundSchema_:
+      $ref: '#/components/schemas/IfAny_typeofoutboundSchema.any.ObtainSchemaGeneric_typeofoutboundSchema.DocType__'
+    OutboundDocument:
+      allOf:
+      - $ref: '#/components/schemas/OutboundI'
+      - $ref: '#/components/schemas/Document'
   securitySchemes:
     jwt:
       type: http

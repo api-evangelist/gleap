@@ -306,30 +306,81 @@ paths:
               $ref: '#/components/schemas/SuggestFaqDto'
 components:
   schemas:
-    FallbackUserDto:
+    ChannelDto:
       properties:
-        username:
-          type: string
-        email:
-          type: string
-        imageUrl:
-          type: string
-      type: object
-      additionalProperties: false
-    AttachmentDto:
-      properties:
-        name:
-          type: string
-        url:
+        id:
           type: string
         type:
           type: string
+        messageId:
+          type: string
       required:
-      - name
-      - url
+      - id
       type: object
       additionalProperties: false
     CreateMessageDto:
+      properties:
+        user:
+          type: string
+        session:
+          type: string
+        bot:
+          type: boolean
+        fallbackUser:
+          $ref: '#/components/schemas/FallbackUserDto'
+        messageRef:
+          type: string
+        ticket:
+          type: string
+        data: {}
+        translatedData: {}
+        type:
+          type: string
+        emailId:
+          type: string
+        sessionNotificationsUnread:
+          type: boolean
+        outbound:
+          type: string
+        outboundTemplate:
+          type: string
+        outboundSubject:
+          type: string
+        status: {}
+        statusHistory:
+          items: {}
+          type: array
+        comment: {}
+        replyTo:
+          type: string
+        kaiChat:
+          type: boolean
+        aiData: {}
+        attachments:
+          items:
+            $ref: '#/components/schemas/AttachmentDto'
+          type: array
+        actions:
+          items:
+            properties:
+              data: {}
+              type:
+                type: string
+            required:
+            - type
+            type: object
+          type: array
+        channel:
+          $ref: '#/components/schemas/ChannelDto'
+        sendToChannel:
+          type: boolean
+        isNote:
+          type: boolean
+        rating:
+          type: string
+      type: object
+      additionalProperties: false
+    UpdateMessageDto:
       properties:
         user:
           type: string
@@ -399,78 +450,27 @@ components:
       - accept
       type: object
       additionalProperties: false
-    UpdateMessageDto:
+    FallbackUserDto:
       properties:
-        user:
+        username:
           type: string
-        session:
+        email:
           type: string
-        bot:
-          type: boolean
-        fallbackUser:
-          $ref: '#/components/schemas/FallbackUserDto'
-        messageRef:
-          type: string
-        ticket:
-          type: string
-        data: {}
-        translatedData: {}
-        type:
-          type: string
-        emailId:
-          type: string
-        sessionNotificationsUnread:
-          type: boolean
-        outbound:
-          type: string
-        outboundTemplate:
-          type: string
-        outboundSubject:
-          type: string
-        status: {}
-        statusHistory:
-          items: {}
-          type: array
-        comment: {}
-        replyTo:
-          type: string
-        kaiChat:
-          type: boolean
-        aiData: {}
-        attachments:
-          items:
-            $ref: '#/components/schemas/AttachmentDto'
-          type: array
-        actions:
-          items:
-            properties:
-              data: {}
-              type:
-                type: string
-            required:
-            - type
-            type: object
-          type: array
-        channel:
-          $ref: '#/components/schemas/ChannelDto'
-        sendToChannel:
-          type: boolean
-        isNote:
-          type: boolean
-        rating:
+        imageUrl:
           type: string
       type: object
       additionalProperties: false
-    ChannelDto:
+    AttachmentDto:
       properties:
-        id:
+        name:
+          type: string
+        url:
           type: string
         type:
           type: string
-        messageId:
-          type: string
       required:
-      - id
+      - name
+      - url
       type: object
       additionalProperties: false
   securitySchemes:
