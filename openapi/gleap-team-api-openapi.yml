@@ -126,8 +126,94 @@ paths:
           type: string
 components:
   schemas:
+    FlattenMaps_T_:
+      properties: {}
+      type: object
+    InferSchemaType_typeofteamSchema_:
+      $ref: '#/components/schemas/IfAny_typeofteamSchema.any.ObtainSchemaGeneric_typeofteamSchema.DocType__'
     TeamI:
       $ref: '#/components/schemas/InferSchemaType_typeofteamSchema_'
+    Document:
+      $ref: '#/components/schemas/FlattenMaps_T_'
+      description: 'Generic types for Document:
+
+        *  T - the type of _id
+
+        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
+
+        *  DocType - the type of the actual Document created'
+    NativeDate:
+      type: string
+    AssignmentMethod:
+      enum:
+      - random
+      - balanced
+      - manual
+      - circular
+      type: string
+    ObjectId:
+      type: string
+    TeamDto:
+      properties:
+        name:
+          type: string
+        assignmentMethod:
+          $ref: '#/components/schemas/AssignmentMethod'
+        members:
+          items:
+            type: string
+          type: array
+        selectOnlyOnlineMembers:
+          type: boolean
+        needQueueRerun:
+          type: boolean
+        limitTicketAmount:
+          type: boolean
+        ticketAmount:
+          type: number
+          format: double
+        slaOptions:
+          properties:
+            defaultSla:
+              type: number
+              format: double
+          type: object
+        operatingHours:
+          properties:
+            openingTimes:
+              items:
+                properties:
+                  replyTime: {}
+                  closingTime:
+                    type: string
+                  openingTime:
+                    type: string
+                  day:
+                    type: string
+                type: object
+              type: array
+            staticTranslations:
+              properties:
+                outOfOfficeMessage: {}
+              type: object
+            replyTime: {}
+            alwaysOnline:
+              type: boolean
+            timezone:
+              type: string
+            enabled:
+              type: boolean
+          type: object
+      required:
+      - name
+      - assignmentMethod
+      - members
+      type: object
+      additionalProperties: false
+    TeamDocument:
+      allOf:
+      - $ref: '#/components/schemas/TeamI'
+      - $ref: '#/components/schemas/Document'
     IfAny_typeofteamSchema.any.ObtainSchemaGeneric_typeofteamSchema.DocType__:
       allOf:
       - properties:
@@ -208,92 +294,6 @@ components:
         - members
         - assignmentMethod
         type: object
-    FlattenMaps_T_:
-      properties: {}
-      type: object
-    TeamDto:
-      properties:
-        name:
-          type: string
-        assignmentMethod:
-          $ref: '#/components/schemas/AssignmentMethod'
-        members:
-          items:
-            type: string
-          type: array
-        selectOnlyOnlineMembers:
-          type: boolean
-        needQueueRerun:
-          type: boolean
-        limitTicketAmount:
-          type: boolean
-        ticketAmount:
-          type: number
-          format: double
-        slaOptions:
-          properties:
-            defaultSla:
-              type: number
-              format: double
-          type: object
-        operatingHours:
-          properties:
-            openingTimes:
-              items:
-                properties:
-                  replyTime: {}
-                  closingTime:
-                    type: string
-                  openingTime:
-                    type: string
-                  day:
-                    type: string
-                type: object
-              type: array
-            staticTranslations:
-              properties:
-                outOfOfficeMessage: {}
-              type: object
-            replyTime: {}
-            alwaysOnline:
-              type: boolean
-            timezone:
-              type: string
-            enabled:
-              type: boolean
-          type: object
-      required:
-      - name
-      - assignmentMethod
-      - members
-      type: object
-      additionalProperties: false
-    Document:
-      $ref: '#/components/schemas/FlattenMaps_T_'
-      description: 'Generic types for Document:
-
-        *  T - the type of _id
-
-        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
-
-        *  DocType - the type of the actual Document created'
-    InferSchemaType_typeofteamSchema_:
-      $ref: '#/components/schemas/IfAny_typeofteamSchema.any.ObtainSchemaGeneric_typeofteamSchema.DocType__'
-    ObjectId:
-      type: string
-    AssignmentMethod:
-      enum:
-      - random
-      - balanced
-      - manual
-      - circular
-      type: string
-    TeamDocument:
-      allOf:
-      - $ref: '#/components/schemas/TeamI'
-      - $ref: '#/components/schemas/Document'
-    NativeDate:
-      type: string
   securitySchemes:
     jwt:
       type: http

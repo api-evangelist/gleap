@@ -174,17 +174,13 @@ paths:
               type: object
 components:
   schemas:
-    Types.ObjectId:
-      type: string
-    HelpcenterArticleDocument:
-      allOf:
-      - $ref: '#/components/schemas/HelpcenterArticleI'
-      - $ref: '#/components/schemas/Document'
     FlattenMaps_T_:
       properties: {}
       type: object
-    HelpcenterArticleI:
-      $ref: '#/components/schemas/InferSchemaType_typeofhelpcenterArticleSchema_'
+    Types.ObjectId:
+      type: string
+    InferSchemaType_typeofhelpcenterArticleSchema_:
+      $ref: '#/components/schemas/IfAny_typeofhelpcenterArticleSchema.any.ObtainSchemaGeneric_typeofhelpcenterArticleSchema.DocType__'
     Document:
       $ref: '#/components/schemas/FlattenMaps_T_'
       description: 'Generic types for Document:
@@ -194,6 +190,8 @@ components:
         *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
 
         *  DocType - the type of the actual Document created'
+    NativeDate:
+      type: string
     HelpcenterArticleDto:
       properties:
         title: {}
@@ -230,8 +228,14 @@ components:
           type: string
       type: object
       additionalProperties: false
+    HelpcenterArticleDocument:
+      allOf:
+      - $ref: '#/components/schemas/HelpcenterArticleI'
+      - $ref: '#/components/schemas/Document'
     ObjectId:
       type: string
+    HelpcenterArticleI:
+      $ref: '#/components/schemas/InferSchemaType_typeofhelpcenterArticleSchema_'
     IfAny_typeofhelpcenterArticleSchema.any.ObtainSchemaGeneric_typeofhelpcenterArticleSchema.DocType__:
       allOf:
       - properties:
@@ -329,10 +333,6 @@ components:
         - tags
         - targetAudience
         type: object
-    InferSchemaType_typeofhelpcenterArticleSchema_:
-      $ref: '#/components/schemas/IfAny_typeofhelpcenterArticleSchema.any.ObtainSchemaGeneric_typeofhelpcenterArticleSchema.DocType__'
-    NativeDate:
-      type: string
   securitySchemes:
     jwt:
       type: http

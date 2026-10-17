@@ -195,8 +195,38 @@ components:
     FlattenMaps_T_:
       properties: {}
       type: object
-    MessageTemplate:
-      $ref: '#/components/schemas/InferSchemaType_typeofmessageTemplateSchema_'
+    MessageTemplateDTO:
+      properties:
+        title:
+          type: string
+        content: {}
+        lexorank:
+          type: string
+        isPublic:
+          type: boolean
+        users:
+          items:
+            type: string
+          type: array
+        attachments:
+          items: {}
+          type: array
+        actions:
+          items:
+            properties:
+              data: {}
+              type:
+                type: string
+            required:
+            - type
+            type: object
+          type: array
+      required:
+      - title
+      - content
+      - lexorank
+      type: object
+      additionalProperties: false
     Document:
       $ref: '#/components/schemas/FlattenMaps_T_'
       description: 'Generic types for Document:
@@ -206,8 +236,14 @@ components:
         *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
 
         *  DocType - the type of the actual Document created'
+    NativeDate:
+      type: string
     ObjectId:
       type: string
+    InferSchemaType_typeofmessageTemplateSchema_:
+      $ref: '#/components/schemas/IfAny_typeofmessageTemplateSchema.any.ObtainSchemaGeneric_typeofmessageTemplateSchema.DocType__'
+    MessageTemplate:
+      $ref: '#/components/schemas/InferSchemaType_typeofmessageTemplateSchema_'
     IfAny_typeofmessageTemplateSchema.any.ObtainSchemaGeneric_typeofmessageTemplateSchema.DocType__:
       allOf:
       - properties:
@@ -261,46 +297,10 @@ components:
         - isPublic
         - users
         type: object
-    MessageTemplateDTO:
-      properties:
-        title:
-          type: string
-        content: {}
-        lexorank:
-          type: string
-        isPublic:
-          type: boolean
-        users:
-          items:
-            type: string
-          type: array
-        attachments:
-          items: {}
-          type: array
-        actions:
-          items:
-            properties:
-              data: {}
-              type:
-                type: string
-            required:
-            - type
-            type: object
-          type: array
-      required:
-      - title
-      - content
-      - lexorank
-      type: object
-      additionalProperties: false
     MessageTemplateDocument:
       allOf:
       - $ref: '#/components/schemas/MessageTemplate'
       - $ref: '#/components/schemas/Document'
-    InferSchemaType_typeofmessageTemplateSchema_:
-      $ref: '#/components/schemas/IfAny_typeofmessageTemplateSchema.any.ObtainSchemaGeneric_typeofmessageTemplateSchema.DocType__'
-    NativeDate:
-      type: string
   securitySchemes:
     jwt:
       type: http

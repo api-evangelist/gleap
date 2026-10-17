@@ -212,6 +212,9 @@ paths:
               type: object
 components:
   schemas:
+    FlattenMaps_T_:
+      properties: {}
+      type: object
     CollectionWithCounts:
       allOf:
       - $ref: '#/components/schemas/HelpcenterCollectionDocument'
@@ -226,26 +229,6 @@ components:
         - subCollectionsCount
         - articlesCount
         type: object
-    Types.ObjectId:
-      type: string
-    HelpcenterCollectionI:
-      $ref: '#/components/schemas/InferSchemaType_typeofhelpcenterCollectionSchema_'
-    InferSchemaType_typeofhelpcenterCollectionSchema_:
-      $ref: '#/components/schemas/IfAny_typeofhelpcenterCollectionSchema.any.ObtainSchemaGeneric_typeofhelpcenterCollectionSchema.DocType__'
-    FlattenMaps_T_:
-      properties: {}
-      type: object
-    Document:
-      $ref: '#/components/schemas/FlattenMaps_T_'
-      description: 'Generic types for Document:
-
-        *  T - the type of _id
-
-        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
-
-        *  DocType - the type of the actual Document created'
-    ObjectId:
-      type: string
     IfAny_typeofhelpcenterCollectionSchema.any.ObtainSchemaGeneric_typeofhelpcenterCollectionSchema.DocType__:
       allOf:
       - properties:
@@ -316,6 +299,25 @@ components:
       allOf:
       - $ref: '#/components/schemas/HelpcenterCollectionI'
       - $ref: '#/components/schemas/Document'
+    HelpcenterCollectionI:
+      $ref: '#/components/schemas/InferSchemaType_typeofhelpcenterCollectionSchema_'
+    Types.ObjectId:
+      type: string
+    InferSchemaType_typeofhelpcenterCollectionSchema_:
+      $ref: '#/components/schemas/IfAny_typeofhelpcenterCollectionSchema.any.ObtainSchemaGeneric_typeofhelpcenterCollectionSchema.DocType__'
+    Document:
+      $ref: '#/components/schemas/FlattenMaps_T_'
+      description: 'Generic types for Document:
+
+        *  T - the type of _id
+
+        *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
+
+        *  DocType - the type of the actual Document created'
+    NativeDate:
+      type: string
+    ObjectId:
+      type: string
     HelpCenterCollectionDto:
       properties:
         title: {}
@@ -341,8 +343,6 @@ components:
         extendedAudienceFilter: {}
       type: object
       additionalProperties: false
-    NativeDate:
-      type: string
   securitySchemes:
     jwt:
       type: http

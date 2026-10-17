@@ -306,19 +306,20 @@ paths:
               $ref: '#/components/schemas/SuggestFaqDto'
 components:
   schemas:
-    ChannelDto:
+    AttachmentDto:
       properties:
-        id:
+        name:
+          type: string
+        url:
           type: string
         type:
           type: string
-        messageId:
-          type: string
       required:
-      - id
+      - name
+      - url
       type: object
       additionalProperties: false
-    CreateMessageDto:
+    UpdateMessageDto:
       properties:
         user:
           type: string
@@ -380,7 +381,29 @@ components:
           type: string
       type: object
       additionalProperties: false
-    UpdateMessageDto:
+    ChannelDto:
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        messageId:
+          type: string
+      required:
+      - id
+      type: object
+      additionalProperties: false
+    FallbackUserDto:
+      properties:
+        username:
+          type: string
+        email:
+          type: string
+        imageUrl:
+          type: string
+      type: object
+      additionalProperties: false
+    CreateMessageDto:
       properties:
         user:
           type: string
@@ -448,29 +471,6 @@ components:
           type: boolean
       required:
       - accept
-      type: object
-      additionalProperties: false
-    FallbackUserDto:
-      properties:
-        username:
-          type: string
-        email:
-          type: string
-        imageUrl:
-          type: string
-      type: object
-      additionalProperties: false
-    AttachmentDto:
-      properties:
-        name:
-          type: string
-        url:
-          type: string
-        type:
-          type: string
-      required:
-      - name
-      - url
       type: object
       additionalProperties: false
   securitySchemes:

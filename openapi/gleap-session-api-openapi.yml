@@ -957,8 +957,6 @@ paths:
           type: string
 components:
   schemas:
-    Types.ObjectId:
-      type: string
     FlattenMaps_T_:
       properties: {}
       type: object
@@ -971,19 +969,8 @@ components:
         *  TQueryHelpers - Object with any helpers that should be mixed into the Query type
 
         *  DocType - the type of the actual Document created'
-    ObjectId:
+    Types.ObjectId:
       type: string
-    ImportIntercomSessionDto:
-      properties:
-        endpoint:
-          type: string
-        apiKey:
-          type: string
-      required:
-      - endpoint
-      - apiKey
-      type: object
-      additionalProperties: false
     SessionDto:
       properties:
         gleapId:
@@ -1064,6 +1051,19 @@ components:
         checklistTasks: {}
         customData: {}
         eventData: {}
+      type: object
+      additionalProperties: false
+    ObjectId:
+      type: string
+    ImportIntercomSessionDto:
+      properties:
+        endpoint:
+          type: string
+        apiKey:
+          type: string
+      required:
+      - endpoint
+      - apiKey
       type: object
       additionalProperties: false
   securitySchemes:

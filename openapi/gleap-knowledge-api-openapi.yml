@@ -70,6 +70,23 @@ paths:
               $ref: '#/components/schemas/SimilarTicketsSearchDto'
 components:
   schemas:
+    KnowledgeSearchDto:
+      properties:
+        query:
+          type: string
+        documentTypeFilter:
+          type: string
+        internally:
+          type: boolean
+        lang:
+          type: string
+        limit:
+          type: number
+          format: double
+      required:
+      - query
+      type: object
+      additionalProperties: false
     SimilarTicketsResponse:
       properties:
         results:
@@ -84,15 +101,29 @@ components:
       - count
       type: object
       additionalProperties: false
-    KnowledgeSearchDto:
+    KnowledgeSearchResult:
+      properties:
+        sourceId:
+          type: string
+        sourceType:
+          type: string
+        title:
+          type: string
+        content:
+          type: string
+        url:
+          type: string
+      required:
+      - sourceId
+      - sourceType
+      - content
+      type: object
+      additionalProperties: false
+    SimilarTicketsSearchDto:
       properties:
         query:
           type: string
-        documentTypeFilter:
-          type: string
-        internally:
-          type: boolean
-        lang:
+        excludeTicketId:
           type: string
         limit:
           type: number
@@ -116,37 +147,6 @@ components:
       - ticketId
       - title
       - similarity
-      - content
-      type: object
-      additionalProperties: false
-    SimilarTicketsSearchDto:
-      properties:
-        query:
-          type: string
-        excludeTicketId:
-          type: string
-        limit:
-          type: number
-          format: double
-      required:
-      - query
-      type: object
-      additionalProperties: false
-    KnowledgeSearchResult:
-      properties:
-        sourceId:
-          type: string
-        sourceType:
-          type: string
-        title:
-          type: string
-        content:
-          type: string
-        url:
-          type: string
-      required:
-      - sourceId
-      - sourceType
       - content
       type: object
       additionalProperties: false

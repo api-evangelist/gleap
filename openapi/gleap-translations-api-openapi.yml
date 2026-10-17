@@ -101,6 +101,16 @@ paths:
               $ref: '#/components/schemas/PutTranslationEntryDto'
 components:
   schemas:
+    TranslationEntryType:
+      description: 'Supported translatable entity types.
+
+        Use as the `type` query parameter on GET /translations/entries to filter results.'
+      enum:
+      - article
+      - collection
+      - emailtemplate
+      - statictranslation
+      type: string
     PutTranslationEntryDto:
       properties:
         language:
@@ -121,16 +131,6 @@ components:
       - fields
       type: object
       additionalProperties: false
-    TranslationEntryType:
-      description: 'Supported translatable entity types.
-
-        Use as the `type` query parameter on GET /translations/entries to filter results.'
-      enum:
-      - article
-      - collection
-      - emailtemplate
-      - statictranslation
-      type: string
   securitySchemes:
     jwt:
       type: http
