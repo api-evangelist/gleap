@@ -64,34 +64,238 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Gleap is an in-app customer feedback and bug reporting platform with AI agents that automates the loop from user feedback through code deployment. The platform integrates support, product management, and engineering workflows into a single system used by 4,500+ teams globally.
+Gleap is an in-app customer feedback and bug reporting platform with AI agents that automates the loop from user feedback through code deployment. It provides a REST API for managing feedback tickets, feature requests, roadmaps, real-time widget configuration, help center articles, outbound messaging, and user identity tracking used by 4,500+ teams globally.
 
-## Overview
+**Areas:** Customer Feedback · Bug Reporting · In-App Support · Feature Requests · Roadmaps · Live Chat · AI Agents · Session Replay · Help Center · Ticketing · User Feedback · Software-as-a-Service
 
-Gleap provides a REST API for managing feedback tickets, user identification, event tracking, help center content, outbound messaging, sessions, contacts, and AI-powered support workflows. The API uses Bearer token authentication with a project-scoped API key.
+## Gleap on APIs.io
 
-- **Base URL:** `https://api.gleap.io`
-- **API Version:** v3
-- **OpenAPI Spec:** `https://api.gleap.io/api-docs.json`
-- **Documentation:** `https://docs.gleap.io/documentation/server/rest-api`
-- **Authentication:** Bearer token (`Authorization: Bearer YOUR_API_KEY`) + `Project: YOUR_PROJECT_ID` header
+Everything profiled for Gleap is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/gleap/](https://apis.io/providers/gleap/)** — or go straight to one of the APIs or properties below.
 
-## Links
+### APIs (33)
 
-- **Website:** https://gleap.io
-- **Documentation:** https://docs.gleap.io
-- **Blog:** https://gleap.io/blog
-- **Pricing:** https://gleap.io/pricing
-- **Status Page:** https://status.gleap.io
-- **GitHub:** https://github.com/GleapSDK
-- **LinkedIn:** https://www.linkedin.com/company/gleap/
-- **X:** https://x.com/gleapsdk
+- [Gleap AI content API](https://apis.io/apis/gleap/gleap-ai-content-api/) — The AI content API from Gleap — 9 operation(s) for ai content.
+- [Gleap Code API](https://apis.io/apis/gleap/gleap-code-api/) — The Code API from Gleap — 1 operation(s) for code.
+- [Gleap ContactMemory API](https://apis.io/apis/gleap/gleap-contactmemory-api/) — The ContactMemory API from Gleap — 2 operation(s) for contactmemory.
+- [Gleap Custom components API](https://apis.io/apis/gleap/gleap-custom-components-api/) — The Custom components API from Gleap — 2 operation(s) for custom components.
+- [Gleap Engagement API](https://apis.io/apis/gleap/gleap-engagement-api/) — The Engagement API from Gleap — 6 operation(s) for engagement.
+- [Gleap Engagement Banner API](https://apis.io/apis/gleap/gleap-engagement-banner-api/) — The Engagement Banner API from Gleap — 2 operation(s) for engagement banner.
+- [Gleap Engagement Chat Message API](https://apis.io/apis/gleap/gleap-engagement-chat-message-api/) — The Engagement Chat Message API from Gleap — 2 operation(s) for engagement chat message.
+- [Gleap Engagement Checklist API](https://apis.io/apis/gleap/gleap-engagement-checklist-api/) — The Engagement Checklist API from Gleap — 2 operation(s) for engagement checklist.
+- [Gleap Engagement Cobrowse API](https://apis.io/apis/gleap/gleap-engagement-cobrowse-api/) — The Engagement Cobrowse API from Gleap — 2 operation(s) for engagement cobrowse.
+- [Gleap Engagement Email API](https://apis.io/apis/gleap/gleap-engagement-email-api/) — The Engagement Email API from Gleap — 3 operation(s) for engagement email.
+- [Gleap Engagement Modal API](https://apis.io/apis/gleap/gleap-engagement-modal-api/) — The Engagement Modal API from Gleap — 2 operation(s) for engagement modal.
+- [Gleap Engagement News API](https://apis.io/apis/gleap/gleap-engagement-news-api/) — The Engagement News API from Gleap — 2 operation(s) for engagement news.
+- [Gleap Engagement Product Tour API](https://apis.io/apis/gleap/gleap-engagement-product-tour-api/) — The Engagement Product Tour API from Gleap — 2 operation(s) for engagement product tour.
+- [Gleap Engagement Push Notification API](https://apis.io/apis/gleap/gleap-engagement-push-notification-api/) — The Engagement Push Notification API from Gleap — 2 operation(s) for engagement push notification.
+- [Gleap Engagement Survey API](https://apis.io/apis/gleap/gleap-engagement-survey-api/) — The Engagement Survey API from Gleap — 7 operation(s) for engagement survey.
+- [Gleap Engagement Tooltip API](https://apis.io/apis/gleap/gleap-engagement-tooltip-api/) — The Engagement Tooltip API from Gleap — 2 operation(s) for engagement tooltip.
+- [Gleap Engagement Whatsapp Messages API](https://apis.io/apis/gleap/gleap-engagement-whatsapp-messages-api/) — The Engagement Whatsapp Messages API from Gleap — 3 operation(s) for engagement whatsapp messages.
+- [Gleap Help center API](https://apis.io/apis/gleap/gleap-help-center-api/) — The Help center API from Gleap — 3 operation(s) for help center.
+- [Gleap Help center articles API](https://apis.io/apis/gleap/gleap-help-center-articles-api/) — The Help center articles API from Gleap — 3 operation(s) for help center articles.
+- [Gleap Help center collections API](https://apis.io/apis/gleap/gleap-help-center-collections-api/) — The Help center collections API from Gleap — 4 operation(s) for help center collections.
+- [Gleap Help center redirects API](https://apis.io/apis/gleap/gleap-help-center-redirects-api/) — The Help center redirects API from Gleap — 2 operation(s) for help center redirects.
+- [Gleap Invitation API](https://apis.io/apis/gleap/gleap-invitation-api/) — The Invitation API from Gleap — 5 operation(s) for invitation.
+- [Gleap Knowledge API](https://apis.io/apis/gleap/gleap-knowledge-api/) — The Knowledge API from Gleap — 2 operation(s) for knowledge.
+- [Gleap Message templates API](https://apis.io/apis/gleap/gleap-message-templates-api/) — The Message templates API from Gleap — 2 operation(s) for message templates.
+- [Gleap Messages API](https://apis.io/apis/gleap/gleap-messages-api/) — The Messages API from Gleap — 4 operation(s) for messages.
+- [Gleap Project API](https://apis.io/apis/gleap/gleap-project-api/) — The Project API from Gleap — 2 operation(s) for project.
+- [Gleap Session API](https://apis.io/apis/gleap/gleap-session-api/) — The Session API from Gleap — 20 operation(s) for session.
+- [Gleap Statistics API](https://apis.io/apis/gleap/gleap-statistics-api/) — The Statistics API from Gleap — 9 operation(s) for statistics.
+- [Gleap Team API](https://apis.io/apis/gleap/gleap-team-api/) — The Team API from Gleap — 2 operation(s) for team.
+- [Gleap Ticket API](https://apis.io/apis/gleap/gleap-ticket-api/) — The Ticket API from Gleap — 35 operation(s) for ticket.
+- [Gleap Translations API](https://apis.io/apis/gleap/gleap-translations-api/) — The Translations API from Gleap — 2 operation(s) for translations.
+- [Gleap User API](https://apis.io/apis/gleap/gleap-user-api/) — The User API from Gleap — 11 operation(s) for user.
+- [Gleap AI Models API](https://apis.io/apis/gleap/gleap-ai-models-api/) — The AI Models API from Gleap — 1 operation(s) for ai models.
 
-## APIs.json
+### Published properties
 
-This repository contains the APIs.json catalog entry for Gleap, including:
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-- `apis.yml` — Main APIs.json provider index
-- `plans/gleap-plans-pricing.yml` — API Commons Plans 0.1 pricing details
-- `rate-limits/gleap-rate-limits.yml` — API Commons Rate Limits 0.1
-- `finops/gleap-finops.yml` — FinOps Framework 1.0 FOCUS-aligned cost guidance
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [gleap](https://apis.io/servers/gleap/gleap/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Gleap Agentic Access](https://apis.io/agentic-access/gleap/gleap-agentic-access/)
+
+#### JSON Schema (30)
+
+The data models the API reads and writes.
+
+- [ChannelSchemaDto](https://apis.io/schemas/gleap/channel/)
+- [ClosedTicketReplyRuleDto](https://apis.io/schemas/gleap/closed-ticket-reply-rule/)
+- [ContactView](https://apis.io/schemas/gleap/contact-view/)
+- [ContactViewDocument](https://apis.io/schemas/gleap/contact-view-document/)
+- [CreateContactViewDTO](https://apis.io/schemas/gleap/create-contact-view-d-t-o/)
+- [Document](https://apis.io/schemas/gleap/document/)
+- [EmailTemplateDto](https://apis.io/schemas/gleap/email-template/)
+- [EmailTemplateDocument](https://apis.io/schemas/gleap/email-template-document/)
+- [EmailTemplateI](https://apis.io/schemas/gleap/email-template-i/)
+- [FlattenMaps_T_](https://apis.io/schemas/gleap/flatten-maps_-t_/)
+- [IfAny_typeofcontactViewSchema.any.ObtainSchemaGeneric_typeofcontactViewSchema.DocType__](https://apis.io/schemas/gleap/if-any_typeofcontact-view.any.-obtain-generic_typeofcontact-view.-doc-type__/)
+- [IfAny_typeofemailTemplateSchema.any.ObtainSchemaGeneric_typeofemailTemplateSchema.DocType__](https://apis.io/schemas/gleap/if-any_typeofemail-template.any.-obtain-generic_typeofemail-template.-doc-type__/)
+- [IfAny_typeofmessageTemplateSchema.any.ObtainSchemaGeneric_typeofmessageTemplateSchema.DocType__](https://apis.io/schemas/gleap/if-any_typeofmessage-template.any.-obtain-generic_typeofmessage-template.-doc-type__/)
+- [IfAny_typeofnotificationActivitySchema.any.ObtainSchemaGeneric_typeofnotificationActivitySchema.DocType__](https://apis.io/schemas/gleap/if-any_typeofnotification-activity.any.-obtain-generic_typeofnotification-activity.-doc-type__/)
+- [IfAny_typeofprojectActionSchema.any.ObtainSchemaGeneric_typeofprojectActionSchema.DocType__](https://apis.io/schemas/gleap/if-any_typeofproject-action.any.-obtain-generic_typeofproject-action.-doc-type__/)
+- [InferSchemaType_typeofcontactViewSchema_](https://apis.io/schemas/gleap/infer-type_typeofcontact-view_/)
+- [InferSchemaType_typeofemailTemplateSchema_](https://apis.io/schemas/gleap/infer-type_typeofemail-template_/)
+- [InferSchemaType_typeofmessageTemplateSchema_](https://apis.io/schemas/gleap/infer-type_typeofmessage-template_/)
+- [InferSchemaType_typeofnotificationActivitySchema_](https://apis.io/schemas/gleap/infer-type_typeofnotification-activity_/)
+- [MessageSettingsDto](https://apis.io/schemas/gleap/message-settings/)
+- [MessageTemplate](https://apis.io/schemas/gleap/message-template/)
+- [MessageTemplateDTO](https://apis.io/schemas/gleap/message-template-d-t-o/)
+- [MessageTemplateDocument](https://apis.io/schemas/gleap/message-template-document/)
+- [NativeDate](https://apis.io/schemas/gleap/native-date/)
+- [NotificationActivityDocument](https://apis.io/schemas/gleap/notification-activity-document/)
+- …and 5 more published on APIs.io
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Gleap Context](https://apis.io/jsonld/gleap/gleap-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Gleap API Vocabulary](https://apis.io/vocabularies/gleap/gleap-vocabulary/)
+
+#### Examples (1)
+
+Example requests and responses.
+
+- [Gleap Api Examples](https://apis.io/examples/gleap/gleap-api-examples/)
+
+#### Collections (33)
+
+Postman and Open Collection request collections.
+
+- [Gleap AI content API](https://apis.io/collections/gleap/open-gleap-ai-content-api/)
+- [Gleap AI content AiModels API](https://apis.io/collections/gleap/open-gleap-aimodels-api/)
+- [Gleap AI content Code API](https://apis.io/collections/gleap/open-gleap-code-api/)
+- [Gleap AI content ContactMemory API](https://apis.io/collections/gleap/open-gleap-contactmemory-api/)
+- [Gleap AI content Custom components API](https://apis.io/collections/gleap/open-gleap-custom-components-api/)
+- [Gleap AI content Engagement API](https://apis.io/collections/gleap/open-gleap-engagement-api/)
+- [Gleap AI content Engagement Banner API](https://apis.io/collections/gleap/open-gleap-engagement-banner-api/)
+- [Gleap AI content Engagement Chat Message API](https://apis.io/collections/gleap/open-gleap-engagement-chat-message-api/)
+- [Gleap AI content Engagement Checklist API](https://apis.io/collections/gleap/open-gleap-engagement-checklist-api/)
+- [Gleap AI content Engagement Cobrowse API](https://apis.io/collections/gleap/open-gleap-engagement-cobrowse-api/)
+- [Gleap AI content Engagement Email API](https://apis.io/collections/gleap/open-gleap-engagement-email-api/)
+- [Gleap AI content Engagement Modal API](https://apis.io/collections/gleap/open-gleap-engagement-modal-api/)
+- [Gleap AI content Engagement News API](https://apis.io/collections/gleap/open-gleap-engagement-news-api/)
+- [Gleap AI content Engagement Product Tour API](https://apis.io/collections/gleap/open-gleap-engagement-product-tour-api/)
+- [Gleap AI content Engagement Push Notification API](https://apis.io/collections/gleap/open-gleap-engagement-push-notification-api/)
+- [Gleap AI content Engagement Survey API](https://apis.io/collections/gleap/open-gleap-engagement-survey-api/)
+- [Gleap AI content Engagement Tooltip API](https://apis.io/collections/gleap/open-gleap-engagement-tooltip-api/)
+- [Gleap AI content Engagement Whatsapp Messages API](https://apis.io/collections/gleap/open-gleap-engagement-whatsapp-messages-api/)
+- [Gleap AI content Help center API](https://apis.io/collections/gleap/open-gleap-help-center-api/)
+- [Gleap AI content Help center articles API](https://apis.io/collections/gleap/open-gleap-help-center-articles-api/)
+- [Gleap AI content Help center collections API](https://apis.io/collections/gleap/open-gleap-help-center-collections-api/)
+- [Gleap AI content Help center redirects API](https://apis.io/collections/gleap/open-gleap-help-center-redirects-api/)
+- [Gleap AI content Invitation API](https://apis.io/collections/gleap/open-gleap-invitation-api/)
+- [Gleap AI content Knowledge API](https://apis.io/collections/gleap/open-gleap-knowledge-api/)
+- [Gleap AI content Message templates API](https://apis.io/collections/gleap/open-gleap-message-templates-api/)
+- …and 8 more published on APIs.io
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Gleap — jsonschema rules](https://apis.io/rules/gleap/gleap-jsonschema-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Gleap Authentication](https://apis.io/security/gleap/gleap-authentication/)
+- [Gleap Domain Security](https://apis.io/security/gleap/gleap-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Gleap Plans Pricing](https://apis.io/plans/gleap/gleap-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Gleap Rate Limits](https://apis.io/rate-limits/gleap/gleap-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Gleap Finops](https://apis.io/finops/gleap/gleap-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://gleap.io)
+- [Documentation](https://docs.gleap.io)
+- [Pricing](https://gleap.io/pricing)
+- [Blog](https://gleap.io/blog)
+- [Status](https://status.gleap.io)
+
+## API Evangelist rating
+
+**Kin Score 39.5** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 68.3 |
+| Contract quality | 56.2 |
+| Contract governance | 9.8 |
+| Operational transparency | 18.4 |
+| Developer ergonomics | 28.6 |
+| Access clarity | 18.4 |
+
+**Agent readiness 31.9** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | mostly |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/gleap/](https://apis.io/providers/gleap/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Gleap: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/gleap/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
